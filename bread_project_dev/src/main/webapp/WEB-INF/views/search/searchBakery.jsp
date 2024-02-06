@@ -12,9 +12,11 @@
         <title>빵집 찾기</title>
 </head>
 <body>
-    <div id="wrap">
-        
-        <%@ include file = "../common/header.jsp" %>
+	<div id="wrap">
+    	<%@ include file = "../common/header.jsp" %>
+    
+    
+    
 
         <section id="container-content">
             <div id="side-nav">
@@ -32,92 +34,115 @@
                     <table id="search_table">
                         <tr>
                             <td>
-                                <select name="searchField">
-                                    <option value="title">빵집 이름</option>
-                                    <option value="content">빵 이름</option>
-                                </select>
-                                <!-- <img id="search_table_icon" src="resources/css/img/search_icon.png"> -->
+                                <div id="select_box">
+                                    <select name="searchField">
+                                        <option value="title">빵집 이름</option>
+                                        <option value="content">빵 이름</option>
+                                    </select>
+                                </div>
                                 <input id="search_text" type="text" name="searchWord">
                                 <input id="submit_button" type="submit" value="검색하기">
                             </td>
                         </tr>
                     </table>
-
+                
                     
 
                     <div id="shop_table">
-                        <table id="shop_table_list">
-                            <tbody>
-                                <tr>
-                                    <td rowspan="4" class="shop_img"><img src="${pageContext.request.contextPath}/resources/css/img/test_img01.jpeg" width="50px" height="50px"></td>
-                                </tr>
-                                <tr>
-                                    <td class="shop_table_text"><a href="${pageContext.request.contextPath}/search/viewBakery.do">재송이네 죄송한 빵집</a></td>
-                                </tr>
-                                <tr>
-                                    <td class="shop_table_text">재송시 재송동 재송번지</td>
-                                </tr>
-                                <tr>
-                                    <td class="shop_table_text">영업시간: 10:00 ~ 20:00</td>
-                                </tr>
-                                <tr>    
-                                    <td rowspan="4" class="shop_img"><img src="${pageContext.request.contextPath}/resources/css/img/test_img02.jpeg" width="50px" height="50px"></td> 
-								</tr>
-                                <tr>
-                                    <td class="shop_table_text"><a href="#"> 수희네 스윗한 빵집</a></td>
-                                </tr>
-                                <tr>
-                                    <td class="shop_table_text">수희시 수희동 수희번지</td>
-                                </tr>
-                                <tr>
-                                    <td class="shop_table_text">영업시간: 10:00 ~ 19:00</td>
-                                </tr>
 
-                                <tr>
-                                    <td rowspan="4" class="shop_img"><img src="${pageContext.request.contextPath}/resources/css/img/test_img03.jpeg" width="50px" height="50px"></td>
-                                </tr>
-                                <tr>
-                                    <td class="shop_table_text"><a href="#">경진이네 경지에 오른 빵집</a></td>
-                                </tr>
-                                <tr>
-                                    <td class="shop_table_text">경진시 경진동 경진번지</td>
-                                </tr>
-                                <tr>
-                                    <td class="shop_table_text">영업시간: 10:00 ~ 21:00</td>
-                                </tr>
-                                <tr>
-                                    <td rowspan="4" class="shop_img"><img src="${pageContext.request.contextPath}/resources/css/img/test_img04.jpeg" width="50px" height="50px"></td>
-                                </tr>
-                                <tr>
-                                    <td class="shop_table_text"><a href="#">용환이네 국가 허용빵집</a></td>
-                                </tr>
-                                <tr>
-                                    <td class="shop_table_text">용환시 용환동 용환번지</td>
-                                </tr>
-                                <tr>
-                                    <td class="shop_table_text">영업시간: 10:00 ~ 21:20</td>
-                                </tr>
-                                <tr>
-                                    <td rowspan="4" class="shop_img"><img src="${pageContext.request.contextPath}/resources/css/img/test_img05.jpeg" width="50px" height="50px"></td>
-                                </tr>
-                                <tr>
-                                    <td class="shop_table_text"><a href="#">나래네 날래 오라우 빵집</a></td>
-                                </tr>
-                                <tr>
-                                    <td class="shop_table_text">나래시 나래동 나래번지</td>
-                                </tr>
-                                <tr>
-                                    <td class="shop_table_text">영업시간: 10:00 ~ 20:30</td>
-                                </tr>
-                            </tbody>
+
+                        <table id="shop_table_list">
+                            <tr>
+                                <td rowspan="4" class="shop_img"><img src="../resources/css/img/test_img01.png"></td>
+                            </tr>
+                            <tr>
+                                <td class="shop_table_text"><a href="#">재송이네 죄송한 빵집</a></td>
+                            </tr>
+                            <tr>
+                                <td class="shop_table_text">재송시 재송동 재송번지</td>
+                            </tr>
+                            <tr>
+                                <td class="shop_table_text">영업시간: 10:00 ~ 20:00</td>
+                            </tr>
                         </table>
+                    </div>
+
+
+                    <div id="shop_table">
+                        <table id="shop_table_list">
+                            <tr>    
+                                <td rowspan="4" class="shop_img"><img src="../resources/css/img/test_img02.png"></td>                            </tr>
+                            <tr>
+                                <td class="shop_table_text"><a href="#"> 수희네 스윗한 빵집</a></td>
+                            </tr>
+                            <tr>
+                                <td class="shop_table_text">수희시 수희동 수희번지</td>
+                            </tr>
+                            <tr>
+                                <td class="shop_table_text">영업시간: 10:00 ~ 19:00</td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div id="shop_table">
+                        <table id="shop_table_list">
+                            <tr>
+                                <td rowspan="4" class="shop_img"><img src="../resources/css/img/test_img03.png"></td>
+                            </tr>
+                            <tr>
+                                <td class="shop_table_text"><a href="#">경진이네 경지에 오른 빵집</a></td>
+                            </tr>
+                            <tr>
+                                <td class="shop_table_text">경진시 경진동 경진번지</td>
+                            </tr>
+                            <tr>
+                                <td class="shop_table_text">영업시간: 10:00 ~ 21:00</td>
+                            </tr>
+                        </table>
+                    </div>
+
+
+                    <div id="shop_table">
+                        <table id="shop_table_list">
+                            <tr>
+                                <td rowspan="4" class="shop_img"><img src="../resources/css/img/test_img04.png"></td>
+                            </tr>
+                            <tr>
+                                <td class="shop_table_text"><a href="#">용환이네 국가 허용빵집</a></td>
+                            </tr>
+                            <tr>
+                                <td class="shop_table_text">용환시 용환동 용환번지</td>
+                            </tr>
+                            <tr>
+                                <td class="shop_table_text">영업시간: 10:00 ~ 21:20</td>
+                            </tr>
+                        </table>
+                    </div>
+
+
+                    <div id="shop_table">
+                        <table id="shop_table_list">
+                            <tr>
+                                <td rowspan="4" class="shop_img"><img src="../resources/css/img/test_img05.png"></td>
+                            </tr>
+                            <tr>
+                                <td class="shop_table_text"><a href="#">나래네 날래 오라우 빵집</a></td>
+                            </tr>
+                                <tr>
+                                <td class="shop_table_text">나래시 나래동 나래번지</td>
+                            </tr>
+                            <tr>
+                                <td class="shop_table_text">영업시간: 10:00 ~ 20:30</td>
+                            </tr>
+                        </table>
+                        
                     </div>
                 </div>
             </form>
         </section>
 
-        <%@ include file = "../common/footer.jsp" %>
+            <%@ include file = "../common/footer.jsp" %>
 
-    </div>
+	</div>
 </body>
 </html>

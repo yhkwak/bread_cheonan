@@ -1,335 +1,369 @@
-@charset "UTF-8";
+    h1{font-size:0;}
+        * {margin:0;
+          padding:0;
+        }
+        body{
+            overflow-x: hidden;
+        }
+        #wrap{
+            width: 1536px;
+            height: 1500px;
+            margin: 0 auto;
+        }   
+        /********** 헤더 영역 **********/
+        header{
+            width:1536px;
+            height: 245px;
+        }
+        #main_logo{
+            position:relative;
+            top: 50px;
+            left:-7px;
+            height: 200px;
+            width: 350px;
+            cursor: pointer;
+        }
+        #c1{
+            position:relative;
+            left: 1160px;
+            bottom:786px;
+            width:36px;
+            height:36px;
+        }
+        #c2{
+            position: relative;
+            left: 37px;
+            top:63px;
+            height:45px;
+            width:45px;
+        }
+        #c3{
+            position: relative;
+            left:262px;
+            top:63px;
+            height:45px;
+            width:45px;
+        }
+        #c4{
+            position: relative;
+            left: 462px;
+            top:66px;
+            height:45px;
+            width:45px;
+        }
+        #c5{
+            position: relative;
+            left: 663px;
+            top:63px;
+            height:45px;
+            width:45px;
+        }
+        #header_list{
+            position: relative;
+            left:457px;
+            bottom:80px;
+        }
+        #header_list ul li{
+            display:inline;
+            width:260px;
+            float: left;
+            list-style: none;
+        }
+        #header_list ul li a{
+            font: 40px solid;
+            font-family: 'Grape Nuts', cursive;
+            font-family: 'Nanum Pen Script', cursive;
+            color:gray;
+            text-decoration-line: none;
+        }
+        span{
+            font: bold 50px solid;
+            font-family: 'Grape Nuts', cursive;
+            font-family: 'Nanum Pen Script', cursive;
+            color: #F39C12;
+        }
+        #line1{
+            position: relative;
+            left:400px;
+            width:1136px;
+            border-top: 1px solid gray;
+        }
 
-h1 {
-	font-size: 0;
-}
 
-* {
-	margin: 0;
-	padding: 0;
-}
 
-body {
-	overflow-x: hidden;
-}
+        /********** 메인 영역 **********/
 
-#wrap {
-	width: 1536px;
-	height: 1500px;
-	margin: 0 auto;
-}
-/********** 헤더 영역 **********/
-header {
-	width: 1536px;
-	height: 245px;
-}
+        /********** 사이드 메뉴바 영역 **********/
 
-#main_logo {
-	position: relative;
-	top: 50px;
-	left: -7px;
-	height: 200px;
-	width: 350px;
-	cursor: pointer;
-}
 
-#c1 {
-	position: relative;
-	left: 1160px;
-	bottom: 786px;
-	width: 36px;
-	height: 36px;
-}
+        #container-content{
+            display: inline-block;
+            width: 1536px; 
+            height: 1000px;
+            margin: 0 auto;
+        }
 
-#c2 {
-	position: relative;
-	left: 37px;
-	top: 63px;
-	height: 45px;
-	width: 45px;
-}
+        #side-nav{
+            float: left;
+            width:300px;
+            height: 1000px; /* container-content height 크기와 동일하게 설정 */
+        }
+        #side-menu{
+            position: relative;
+            left:70px;
+            top:100px;
+            width: 220px;
+            height: 400px;
+            text-decoration: none;
+            text-align: center;
+        }
+        #side-menu h2{
+            font: 45px solid;
+            color:rgba(0, 0, 0, 0.788);
+            font-family: 'Black Han Sans', sans-serif;
+            font-family: 'Gasoek One', sans-serif;
+            font-family: 'Gothic A1', sans-serif;
+            font-family: 'Jua', sans-serif;
+        }
+        #side-menu ul{
+            list-style: none;
+        }
+        #side-menu ul a{
+            text-decoration: none;
+        }
+        #side-menu ul li{
+            font: 35px solid;
+            color:gray;
+            font-family: 'Black Han Sans', sans-serif;
+            font-family: 'Gasoek One', sans-serif;
+            font-family: 'Gothic A1', sans-serif;
+            font-family: 'Jua', sans-serif;
+            margin-top: 30px;
+            padding-right:35px;
+        }
 
-#c3 {
-	position: relative;
-	left: 262px;
-	top: 63px;
-	height: 45px;
-	width: 45px;
-}
+        /********** 사이드 메뉴바 영역 끝 **********/
 
-#c4 {
-	position: relative;
-	left: 462px;
-	top: 66px;
-	height: 45px;
-	width: 45px;
-}
+        /********** 빵집 상세보기 영역 **********/
+        #all_box{
+            width: 100%;
+            max-width: 1200px;
+            height: 100%;
+            float: right;
+            vertical-align: bottom;
+        }
+        #view_box{
+            width: 100%;
+            margin-bottom: 50px;
+        }
+        #shop_img{
+            width: 300px;
+            height: 200px;
+        }
+        #shop_img img{
+            width: 300px;
+            height: 200px;
+            border-radius: 15px;
+        }
+        #view_table{
+            width: 800px;
+            height: 200px;
+            margin: 0 auto;
+        }
+        #view_table tr td{
+            padding: 10px;
+            height: 52px;
+            color: gray;
+            font: 25px solid;
+            font-family: 'Jua', sans-serif;
+        }
+        #view_table tr td a{
+            text-decoration: none;
+            color: gray;
+            font: 25px solid;
+            font-family: 'Jua', sans-serif;
+        }
+        #view_table tr td a:hover{
+            color:#F39C12;
+            border:none;
+            transition: 0.5s;
+        }
+        #view_table tr th h2{
+            height: 60px;
+            font: 40px solid;
+            font-family: 'Jua', sans-serif;
+            margin: 0;
+            padding: 10px;
+        }
+        #tel_img img{
+            padding-bottom: 5px;
+            padding-right: 10px;
+        }
 
-#c5 {
-	position: relative;
-	left: 663px;
-	top: 63px;
-	height: 45px;
-	width: 45px;
-}
 
-#header_list {
-	position: relative;
-	left: 457px;
-	bottom: 80px;
-}
 
-#header_list ul li {
-	display: inline;
-	width: 260px;
-	float: left;
-	list-style: none;
-}
+        /********** 빵집 상세보기 끝 **********/
 
-#header_list ul li a {
-	font: 40px solid;
-	font-family: 'Grape Nuts', cursive;
-	font-family: 'Nanum Pen Script', cursive;
-	color: gray;
-	text-decoration-line: none;
-}
 
-span {
-	font: bold 50px solid;
-	font-family: 'Grape Nuts', cursive;
-	font-family: 'Nanum Pen Script', cursive;
-	color: #F39C12;
-}
+        /********** 픽업 테이블 **********/
+        #pickup_box{
+            width: 800px;
+            height: 130px;
+            margin: 0 auto;
+        }
+        #pickup_box table{
+            width: 100%;
+            height: 130px;
+            margin-top: 50px;
+            /* margin-bottom: 50px; */
+            border-bottom: 3px solid lightgray;
+        }
+        #pickup_box tr td{
+            padding: 0 20px 0 20px;
+            height: 40px;
+            color: gray;
+            font: 25px solid;
+            font-family: 'Jua', sans-serif;
+        }
+        .bakery_img{
+            width: 120px;
+            height: 120px;
+        }
+        .bakery_img img{
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+        }
+        #pickup_btn{
+            font-size: 25px;
+            font-family: 'Jua', sans-serif;
+            cursor: pointer;
+            border:none;
+            color:gray;
+            background-color: white;
+        }
+        #pickup_btn:hover{
+            color:#F39C12;
+            border:none;
+            transition: 0.5s;
+        }
+        #select_box{
+            margin-bottom: 5px;
+        }
+        #select_box select{
+            width: 70px;
+            height: 100%;
+            padding: 0 28px 0 10px;
+            border: 4px solid lightgray;
+            box-sizing: border-box;
+            -webkit-appearance:none; /* for chrome */
+            -moz-appearance:none; /*for firefox*/
+            appearance:none;
+            background: transparent;
+            font: 22px solid bold;
+            font-family: 'Jua', sans-serif;
+            color: gray;
+            background-image: url('img/select_icon.png');
+            background-repeat: no-repeat; /* 이미지를 반복하지 않음 */
+            background-position: right center;
+        }
+        #select_box select:active{
+            outline: none;
+            border: 4px solid lightgray;
+        }
 
-#line1 {
-	position: relative;
-	left: 400px;
-	width: 1136px;
-	border-top: 1px solid gray;
-}
 
-/********** 메인 영역 **********/
+        #cart_btn{
+            float: right;
+            width: 120px;
+            height: 40px;
+            margin-top: 20px;
+            background-color: white;
+            border: none;
+            color: gray;
+            font: 20px solid bold;
+            font-family: 'Jua', sans-serif;
+        }
+        #cart_btn:hover{
+            color:#F39C12;
+            border:none;
+            transition: 0.5s;
+        }
 
-/********** 사이드 메뉴바 영역 **********/
-#container-content {
-	display: inline-block;
-	width: 1536px;
-	height: 1000px;
-	margin: 0 auto;
-}
 
-#side-nav {
-	float: left;
-	width: 300px;
-	height: 1000px; /* container-content height 크기와 동일하게 설정 */
-}
+        input[type="checkbox"]{
+            display: none;
+        }
+        input[type="checkbox"] + label{
+            position: relative;
+            width: 22px;
+            height: 22px;
+            cursor: pointer;
+            border: 2px solid lightgrey;
+            border-radius: 3px;
+            padding: 0;
+        }
+        input[id="check_box1"]:checked + label::after,
+        input[id="check_box2"]:checked + label::after,
+        input[id="check_box3"]:checked + label::after{
+            content: url('/img/checked.png');
+            font-size: 20px;
+            width: 22px;
+            height: 22px;
+            text-align: center;
+            position: absolute;
+            /* bottom: 1px; */
+        }
 
-#side-menu {
-	position: relative;
-	left: 70px;
-	top: 100px;
-	width: 220px;
-	height: 400px;
-	text-decoration: none;
-	text-align: center;
-}
 
-#side-menu h2 {
-	font: 45px solid;
-	color: rgba(0, 0, 0, 0.788);
-	font-family: 'Black Han Sans', sans-serif;
-	font-family: 'Gasoek One', sans-serif;
-	font-family: 'Gothic A1', sans-serif;
-	font-family: 'Jua', sans-serif;
-}
 
-#side-menu ul {
-	list-style: none;
-}
 
-#side-menu ul a {
-	text-decoration: none;
-}
+        /********** 픽업 테이블 끝 **********/
 
-#side-menu ul li {
-	font: 35px solid;
-	color: gray;
-	font-family: 'Black Han Sans', sans-serif;
-	font-family: 'Gasoek One', sans-serif;
-	font-family: 'Gothic A1', sans-serif;
-	font-family: 'Jua', sans-serif;
-	margin-top: 30px;
-	padding-right: 35px;
-}
-
-/********** 사이드 메뉴바 영역 끝 **********/
-
-/********** 빵집 상세보기 영역 **********/
-#all_box {
-	width: 100%;
-	max-width: 1200px;
-	height: 100%;
-	float: right;
-	vertical-align: bottom;
-}
-
-#view_box {
-	width: 100%;
-	margin-bottom: 50px;
-}
-
-#shop_img {
-	width: 300px;
-	height: 200px;
-}
-
-#shop_img img {
-	width: 300px;
-	height: 200px;
-	border-radius: 15px;
-}
-
-#view_table {
-	width: 800px;
-	height: 200px;
-	margin: 0 auto;
-}
-
-#view_table tr td {
-	padding: 10px;
-	height: 52px;
-	color: gray;
-	font: 25px solid;
-	font-family: 'Jua', sans-serif;
-}
-
-#view_table tr td a {
-	text-decoration: none;
-	color: gray;
-	font: 25px solid;
-	font-family: 'Jua', sans-serif;
-}
-
-#view_table tr td a:hover {
-	color: #F39C12;
-	border: none;
-	transition: 0.5s;
-}
-
-#view_table tr th h2 {
-	height: 60px;
-	font: 40px solid;
-	font-family: 'Jua', sans-serif;
-	margin: 0;
-	padding: 10px;
-}
-
-#tel_img img {
-	padding-bottom: 5px;
-	padding-right: 10px;
-}
-
-/********** 빵집 상세보기 끝 **********/
-
-/********** 픽업 테이블 **********/
-#pickup_box {
-	width: 800px;
-	height: 130px;
-	margin: 0 auto;
-}
-
-#pickup_box table {
-	width: 100%;
-	height: 130px;
-	margin-top: 15px;
-	border-bottom: 3px solid lightgray;
-}
-
-#pickup_box tr td {
-	padding: 0 10px 0 10px;
-	height: 40px;
-	color: gray;
-	font: 25px solid;
-	font-family: 'Jua', sans-serif;
-}
-
-.bakery_img {
-	width: 100px;
-	height: 100px;
-}
-
-.bakery_img img {
-	width: 100px;
-	height: 100px;
-	border-radius: 50%;
-}
-
-#pickup_btn {
-	font-size: 25px;
-	font-family: 'Jua', sans-serif;
-	cursor: pointer;
-	border: none;
-	color: gray;
-	background-color: white;
-}
-
-#pickup_btn:hover {
-	color: #F39C12;
-	border: none;
-	transition: 0.5s;
-}
-
-/********** 픽업 테이블 끝 **********/
-
-/********** 풋터 **********/
-footer {
-	position: absolute;
-	width: 1536px;
-	height: 300px;
-	margin-bottom: 0px;
-	background-color: rgb(245, 246, 247);
-}
-
-#infobox {
-	position: relative;
-	top: 20px;
-	width: 1536px;
-	height: 300px;
-}
-
-#infobox ul {
-	width: 400px;
-	height: 400px;
-}
-
-#infobox ul li {
-	list-style: none;
-	width: 400px;
-}
-
-#infobox span {
-	font: 40px solid;
-	color: gray;
-	font-family: 'Black Han Sans', sans-serif;
-	font-family: 'Gasoek One', sans-serif;
-	font-family: 'Gothic A1', sans-serif;
-	font-family: 'Jua', sans-serif;
-}
-
-#infobox a {
-	font: 30px solid;
-	color: gray;
-	font-family: 'Black Han Sans', sans-serif;
-	font-family: 'Gasoek One', sans-serif;
-	font-family: 'Gothic A1', sans-serif;
-	font-family: 'Jua', sans-serif;
-}
-
-#infobox p {
-	font: 20px solid;
-	color: gray;
-	font-family: 'Black Han Sans', sans-serif;
-	font-family: 'Gasoek One', sans-serif;
-	font-family: 'Gothic A1', sans-serif;
-	font-family: 'Jua', sans-serif;
-}
+        /********** 풋터 **********/
+        footer{
+            position:absolute;
+            top: 1400px;
+            width:1536px;
+            height:300px;
+            margin-bottom:0px;
+            background-color: rgb(245,246,247);
+        }
+        #infobox{
+            position: relative;
+            top:20px;
+            width:1536px;
+            height:300px;
+        }
+        #infobox ul{
+            width:400px;
+            height:400px;
+        }
+        #infobox ul li{
+            list-style: none;
+            width:400px;
+        }
+        #infobox span{
+            font: 40px solid;
+            color:gray;
+            font-family: 'Black Han Sans', sans-serif;
+            font-family: 'Gasoek One', sans-serif;
+            font-family: 'Gothic A1', sans-serif;
+            font-family: 'Jua', sans-serif;
+        }
+        #infobox a{
+            font: 30px solid;
+            color:gray;
+            font-family: 'Black Han Sans', sans-serif;
+            font-family: 'Gasoek One', sans-serif;
+            font-family: 'Gothic A1', sans-serif;
+            font-family: 'Jua', sans-serif;
+        }
+        #infobox p{
+            font: 20px solid;
+            color:gray;
+            font-family: 'Black Han Sans', sans-serif;
+            font-family: 'Gasoek One', sans-serif;
+            font-family: 'Gothic A1', sans-serif;
+            font-family: 'Jua', sans-serif;
+        }
