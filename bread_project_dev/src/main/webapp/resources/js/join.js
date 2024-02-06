@@ -167,6 +167,9 @@ $(document).ready(function() {
         else if (!$('#checkbox2').is(':checked')) {
             errorMessage += '이용약관 동의는 필수입니다.\n';
         }
+        else if ($('#checkbox3').is(':checked')) {
+            document.getElementById("option_agree").value = 1;
+        }
 
         if (errorMessage !== '') {
             e.preventDefault(); // 폼 제출 중단
