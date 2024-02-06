@@ -1,0 +1,278 @@
+@charset "UTF-8";
+
+h1 {
+	font-size: 0;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	overflow-x: hidden;
+}
+
+#wrap {
+	width: 1536px;
+	height: 1450px;
+	margin: 0 auto;
+}
+/********** 헤더 영역 **********/
+header {
+	width: 1536px;
+	height: 245px;
+}
+
+#main_logo {
+	position: relative;
+	top: 50px;
+	left: -7px;
+	height: 200px;
+	width: 350px;
+	cursor: pointer;
+}
+
+#c1 {
+	position: relative;
+	left: 1160px;
+	bottom: 786px;
+	width: 36px;
+	height: 36px;
+}
+
+#c2 {
+	position: relative;
+	left: 37px;
+	top: 63px;
+	height: 45px;
+	width: 45px;
+}
+
+#c3 {
+	position: relative;
+	left: 262px;
+	top: 63px;
+	height: 45px;
+	width: 45px;
+}
+
+#c4 {
+	position: relative;
+	left: 462px;
+	top: 66px;
+	height: 45px;
+	width: 45px;
+}
+
+#c5 {
+	position: relative;
+	left: 663px;
+	top: 63px;
+	height: 45px;
+	width: 45px;
+}
+
+#header_list {
+	position: relative;
+	left: 457px;
+	bottom: 80px;
+}
+
+#header_list ul li {
+	display: inline;
+	width: 260px;
+	float: left;
+	list-style: none;
+}
+
+#header_list ul li a {
+	font: 40px solid;
+	font-family: 'Grape Nuts', cursive;
+	font-family: 'Nanum Pen Script', cursive;
+	color: gray;
+	text-decoration-line: none;
+}
+
+span {
+	font: bold 50px solid;
+	font-family: 'Grape Nuts', cursive;
+	font-family: 'Nanum Pen Script', cursive;
+	color: #F39C12;
+}
+
+#line1 {
+	position: relative;
+	left: 400px;
+	width: 1136px;
+	border-top: 1px solid gray;
+}
+/********** 메인 영역 **********/
+#container-content {
+	width: 1536px;
+	height: 610px;
+}
+
+#find-id-box {
+	width: 800px;
+	height: 750px;
+	border: 1px solid gray;
+	margin: 0 auto;
+	margin-top: 100px;
+	border-radius: 15px;
+}
+
+#find-id-box h2 {
+	position: relative;
+	left: 276px;
+	top: 50px;
+	font: 60px solid;
+	font-family: 'Black Han Sans', sans-serif;
+	font-family: 'Gasoek One', sans-serif;
+	font-family: 'Gothic A1', sans-serif;
+	font-family: 'Jua', sans-serif;
+	color: gray;
+	width: 246px;
+	height: 90px;
+}
+
+#find-id-table {
+	position: relative;
+	width: 700px;
+	height: 380px; /*로그인 height:480px*/
+	top: 100px;
+	left: 50px;
+}
+
+#table-find-id {
+	position: relative;
+	width: 700px;
+	height: 150px;
+	left: 39px;
+}
+
+#table-find-id td {
+	position: relative;
+	padding-left: 1px; /*로그인 30px*/
+	font: 25px solid;
+	font-family: 'Black Han Sans', sans-serif;
+	font-family: 'Gasoek One', sans-serif;
+	font-family: 'Gothic A1', sans-serif;
+	font-family: 'Jua', sans-serif;
+	color: gray;
+	text-align: center;
+}
+
+#table-find-id input {
+	border: 1px solid lightgray;
+	border-radius: 20px;
+	margin-right: 120px;
+	padding-left: 10px;
+	width: 300px;
+	height: 40px;
+	color: gray;
+	font: 25px solid bold, sans-serif;
+}
+
+#table-find-id tr {
+	position: relative;
+	left: 65px;
+	height: 70px;
+}
+
+#find-id-menu {
+	width: 700px;
+	height: 300px;
+	margin-top: 70px; /*로그인에는 margin-top x*/
+}
+
+input[type=submit] {
+	position: relative;
+	left: 47%;
+	font: 25px solid;
+	font-family: 'Black Han Sans', sans-serif;
+	font-family: 'Gasoek One', sans-serif;
+	font-family: 'Gothic A1', sans-serif;
+	font-family: 'Jua', sans-serif;
+	color: gray;
+	background-color: white;
+	border: none;
+}
+
+input[type=submit]:hover {
+	color: #F39C12;
+	border: none;
+	transition: 0.5s;
+}
+
+#find-id-button {
+	position: relative;
+	top: 50px;
+	left: 150px;
+	width: 350px;
+	height: 70px;
+}
+
+#find-id {
+	color: gray;
+	width: 400px;
+	background-color: white;
+	border: 1px solid lightgray;
+	border-radius: 15px;
+	font: 45px solid;
+	font-family: 'Grape Nuts', cursive;
+	font-family: 'Nanum Pen Script', cursive;
+}
+/********** 푸터 영역 **********/
+footer {
+	position: absolute;
+	width: 1536px;
+	height: 300px;
+	margin-top: 300px;
+	margin-bottom: 0px;
+	background-color: rgb(245, 246, 247);
+}
+
+#infobox {
+	position: relative;
+	top: 20px;
+	width: 1536px;
+	height: 300px;
+}
+
+#infobox ul {
+	width: 400px;
+	height: 400px;
+}
+
+#infobox ul li {
+	list-style: none;
+	width: 400px;
+}
+
+#infobox span {
+	font: 40px solid;
+	color: gray;
+	font-family: 'Black Han Sans', sans-serif;
+	font-family: 'Gasoek One', sans-serif;
+	font-family: 'Gothic A1', sans-serif;
+	font-family: 'Jua', sans-serif;
+}
+
+#infobox a {
+	font: 30px solid;
+	color: gray;
+	font-family: 'Black Han Sans', sans-serif;
+	font-family: 'Gasoek One', sans-serif;
+	font-family: 'Gothic A1', sans-serif;
+	font-family: 'Jua', sans-serif;
+}
+
+#infobox p {
+	font: 20px solid;
+	color: gray;
+	font-family: 'Black Han Sans', sans-serif;
+	font-family: 'Gasoek One', sans-serif;
+	font-family: 'Gothic A1', sans-serif;
+	font-family: 'Jua', sans-serif;
+}

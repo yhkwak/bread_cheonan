@@ -1,0 +1,915 @@
+@charset "UTF-8";
+
+h1{font-size:0;}
+        * {margin:0;
+          padding:0;
+        }
+        body{
+            overflow-x: hidden;
+        }
+        #wrap{
+            width: 1536px;
+            height: 2500px;
+            margin: 0 auto;
+        }
+        /********** 헤더 영역 **********/
+        header{
+            width:1536px;
+            height: 245px;
+        }
+        #main_logo{
+            position:relative;
+            top: 50px;
+            left:-7px;
+            height: 200px;
+            width: 350px;
+            cursor: pointer;
+        }
+        #c1{
+            position:relative;
+            left: 1160px;
+            bottom:786px;
+            width:36px;
+            height:36px;
+        }
+        #c2{
+            position: relative;
+            left: 37px;
+            top:63px;
+            height:45px;
+            width:45px;
+        }
+        #c3{
+            position: relative;
+            left:262px;
+            top:63px;
+            height:45px;
+            width:45px;
+        }
+        #c4{
+            position: relative;
+            left: 462px;
+            top:66px;
+            height:45px;
+            width:45px;
+        }
+        #c5{
+            position: relative;
+            left: 663px;
+            top:63px;
+            height:45px;
+            width:45px;
+        }
+        #header_list{
+            position: relative;
+            left:457px;
+            bottom:80px;
+        }
+        #header_list ul li{
+            display:inline;
+            width:260px;
+            float: left;
+            list-style: none;
+        }
+        #header_list ul li a{
+            font: 40px solid;
+            font-family: 'Grape Nuts', cursive;
+            font-family: 'Nanum Pen Script', cursive;
+            color:gray;
+            text-decoration-line: none;
+        }
+        span{
+            font: bold 50px solid;
+            font-family: 'Grape Nuts', cursive;
+            font-family: 'Nanum Pen Script', cursive;
+            color: #F39C12;
+        }
+        #line1{
+            position: relative;
+            left:400px;
+            width:1136px;
+            border-top: 1px solid gray;
+        }
+        /********** 메인 영역 **********/
+        #container-content{
+            width: 1536px;
+            height: 2500px;
+        }
+        #menu1{
+            width:1536px;
+            height:635px;
+        }
+        #main_image1{
+            position: relative;
+            top:50px;
+            border-radius: 25px;
+            width:1050px;
+            height:580px;
+        }
+        #main_image2{
+            position: relative;
+            top:50px;
+            border-radius: 25px;
+            width:1050px;
+            height:580px;
+        }
+        #main_image3{
+            position: relative;
+            top:50px;
+            border-radius: 25px;
+            width:1050px;
+            height:580px;
+        }
+        #carousel{
+            width:1050px;
+            height: 580px;
+        }
+        .carousel-inner{
+            position: relative;
+            bottom:29px;
+            width:1050px;
+            height: 630px;
+            border-radius: 25px;
+        }
+        .carousel-item active{
+            width:1050px;
+            height: 580px;
+        }
+        .carousel-item{
+            width:1050px;
+            height: 580px;
+        }
+        #login_box{
+            position: relative;
+            bottom:538px;
+            left: 1086px;
+            width:450px;
+            height:250px;
+            border-radius: 25px;
+            background-color: rgba(243, 156, 18, 0.4);
+        }
+        #login_box1{
+            position: relative;
+            bottom:538px;
+            left: 1086px;
+            width:450px;
+            height:250px;
+            border-radius: 25px;
+            background-color: rgba(243, 156, 18, 0.4);
+        }
+        #login_box2{
+            position: relative;
+            width:450px;
+            height:250px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        #login_box2 #text1{
+            position: relative;
+            left:110px;
+            top:23px;
+            font:40px solid;
+            font-family: 'Grape Nuts', cursive;
+            font-family: 'Nanum Pen Script', cursive;
+            color: gray;
+            width:320px;
+            height:45px;
+        }
+        #login_box2 span{
+            font: 30px solid;
+            font-family: 'Grape Nuts', cursive;
+            font-family: 'Nanum Pen Script', cursive;
+            color: gray;
+        }
+        #login_box2 a{
+            text-decoration: none;
+        }
+        #login_box3{
+        	position: relative;
+            top:95px;
+            left:45px;
+            width:354px;
+            height:62px;
+            border-radius: 10px;
+            background-color:white;
+            border:1px solid lightgray;
+            text-align: center;
+        }
+        #login_box3 #text1{
+            position: relative;
+            left: 35px;
+            font: 40px solid;
+            font-family: 'Grape Nuts', cursive;
+            font-family: 'Nanum Pen Script', cursive;
+            color: gray;
+            width:275px;
+            height:45px;
+        }
+        #login_box3 a{
+            text-decoration: none;
+        }
+        #login_logo{
+            position: relative;
+            left:-155px;
+            top:85px;
+            width:80px;
+            height:80px;
+        }
+        #login_list{
+            position: relative;
+            left:130px;
+            top:80px;
+            width:330px;
+            height:30px;
+        }
+        #login_list a{
+            font: 21px solid;
+            font-family: 'Black Han Sans', sans-serif;
+            font-family: 'Gasoek One', sans-serif;
+            font-family: 'Gothic A1', sans-serif;
+            font-family: 'Jua', sans-serif;
+            color: gray;
+        }
+        #banner1{
+            position: relative;
+            left:1086px;
+            bottom:522px;
+            width:450px;
+            height:150px;
+            background-color: rgba(243, 156, 18, 0.4);  
+            border-radius: 20px;
+        }
+        #adimage1{
+            position: relative;
+            width:450px;
+            height:150px;
+            border-radius: 20px;
+        }
+        #banner2{
+            position: relative;
+            left:1086px;
+            bottom:507px;
+            width:450px;
+            height:150px;
+            background-color: rgba(243, 156, 18, 0.4);
+            border-radius: 20px;
+        }
+        #adimage2{
+            position: relative;
+            width:450px;
+            height:150px;
+            border-radius: 20px;
+        }
+        #shop{
+            position: relative;
+            width:2782px;
+            height:550px;
+            left:-610px;
+            top:1px;
+        }
+        #shop ul{
+            list-style: none;
+        }
+        #shop ul li{
+            float: left;
+            margin-left:100px;
+        }
+        #shop ul li img{
+            width:450px;
+            height:450px;
+        }
+        #shop1{
+            width:450px;
+            height:510px;
+        }
+        #shop2{
+            width: 450px;
+            height: 510px;
+        }
+        #shop3{
+            width: 450px;
+            height: 510px;
+        }
+        #shop4{
+            width: 450px;
+            height: 510px;
+        }
+        #shop5{
+            width: 450px;
+            height: 510px;
+        }
+        #shop1 a{
+            position: relative;
+            left:55px;
+            top:100px;
+            font: 40px solid bold;
+            font-family: 'Grape Nuts', cursive;
+            font-family: 'Nanum Pen Script', cursive;
+            color:white;
+        }
+        #shop2 a{
+            position: relative;
+            left:40px;
+            top:100px;
+            font: 40px solid bold;
+            font-family: 'Grape Nuts', cursive;
+            font-family: 'Nanum Pen Script', cursive;
+            color:white;
+        }
+        #shop3 a{
+            position: relative;
+            left:72px;
+            top:100px;
+            font: 40px solid bold;
+            font-family: 'Grape Nuts', cursive;
+            font-family: 'Nanum Pen Script', cursive;
+            color:white;
+        }
+        #shop4 a{
+            position: relative;
+            left:48px;
+            top:100px;
+            font: 40px solid bold;
+            font-family: 'Grape Nuts', cursive;
+            font-family: 'Nanum Pen Script', cursive;
+            color:white;
+        }
+        #shop5 a{
+            position: relative;
+            left:62px;
+            top:100px;
+            font: 40px solid bold;
+            font-family: 'Grape Nuts', cursive;
+            font-family: 'Nanum Pen Script', cursive;
+            color:white;
+        }
+        #shop1 #bread1{
+            position: relative;
+            left:50px;
+            width:75px;
+            height:75px;
+            bottom:315px;
+            border-radius: 100%;
+            border: 1px solid gray;
+        }
+        #shop1 #bread2{
+            position: relative;
+            width:75px;
+            height: 75px;
+            bottom:355px;
+            left:50px;
+            border-radius: 100%;
+            border: 1px solid gray;
+        }
+        #shop2 #bread3{
+            position: relative;
+            width:75px;
+            height: 75px;
+            bottom:315px;
+            left:50px;
+            border-radius: 100%;
+            border: 1px solid gray;
+        }
+        #shop2 #bread4{
+            position: relative;
+            width:75px;
+            height: 75px;
+            bottom:355px;
+            left:50px;
+            border-radius: 100%;
+            border: 1px solid gray;
+        }
+        #shop3 #bread5{
+            position: relative;
+            width:75px;
+            height: 75px;
+            bottom:315px;
+            left:50px;
+            border-radius: 100%;
+            border: 1px solid gray;
+        }
+        #shop3 #bread6{
+            position: relative;
+            width:75px;
+            height: 75px;
+            bottom:355px;
+            left:50px;
+            border-radius: 100%;
+            border: 1px solid gray;
+        }
+        #shop4 #bread7{
+            position: relative;
+            width:75px;
+            height: 75px;
+            bottom:315px;
+            left:50px;
+            border-radius: 100%;
+            border: 1px solid gray;
+        }
+        #shop4 #bread8{
+            position: relative;
+            width:75px;
+            height: 75px;
+            bottom:355px;
+            left:50px;
+            border-radius: 100%;
+            border: 1px solid gray;
+        }
+        #shop5 #bread9{
+            position: relative;
+            width:75px;
+            height: 75px;
+            bottom:315px;
+            left:50px;
+            border-radius: 100%;
+            border: 1px solid gray;
+        }
+        #shop5 #bread10{
+            position: relative;
+            width:75px;
+            height: 75px;
+            bottom:355px;
+            left:50px;
+            border-radius: 100%;
+            border: 1px solid gray;
+        }
+        #no1{
+            position: relative;
+            width:400px;
+            height:80px;
+            left:60px;
+            bottom:390px;
+            text-align: center;
+            font: 35px solid bold;
+            font-family: 'Grape Nuts', cursive;
+            font-family: 'Nanum Pen Script', cursive;
+            color:white;
+        }
+        #no2{
+            position: relative;
+            width:400px;
+            height:80px;
+            left:60px;
+            bottom:425px;
+            text-align: center;
+            font: 35px solid bold;
+            font-family: 'Grape Nuts', cursive;
+            font-family: 'Nanum Pen Script', cursive;
+            color:white;
+        }
+        #no3{
+            position: relative;
+            width:400px;
+            height:80px;
+            left:70px;
+            bottom:390px;
+            text-align: center;
+            font: 35px solid bold;
+            font-family: 'Grape Nuts', cursive;
+            font-family: 'Nanum Pen Script', cursive;
+            color:white;
+        }
+        #no4{
+            position: relative;
+            width:400px;
+            height:80px;
+            left:70px;
+            bottom:425px;
+            text-align: center;
+            font: 35px solid bold;
+            font-family: 'Grape Nuts', cursive;
+            font-family: 'Nanum Pen Script', cursive;
+            color:white;
+        }
+        #no5{
+            position: relative;
+            width:400px;
+            height:80px;
+            left:70px;
+            bottom:390px;
+            text-align: center;
+            font: 35px solid bold;
+            font-family: 'Grape Nuts', cursive;
+            font-family: 'Nanum Pen Script', cursive;
+            color:white;
+        }
+        #no6{
+            position: relative;
+            width:400px;
+            height:80px;
+            left:70px;
+            bottom:425px;
+            text-align: center;
+            font: 35px solid bold;
+            font-family: 'Grape Nuts', cursive;
+            font-family: 'Nanum Pen Script', cursive;
+            color:white;
+        }
+        #no7{
+            position: relative;
+            width:400px;
+            height:80px;
+            left:80px;
+            bottom:390px;
+            text-align: center;
+            font: 35px solid bold;
+            font-family: 'Grape Nuts', cursive;
+            font-family: 'Nanum Pen Script', cursive;
+            color:white;
+        }
+        #no8{
+            position: relative;
+            width:400px;
+            height:80px;
+            left:80px;
+            bottom:425px;
+            text-align: center;
+            font: 35px solid bold;
+            font-family: 'Grape Nuts', cursive;
+            font-family: 'Nanum Pen Script', cursive;
+            color:white;
+        }
+        #no9{
+            position: relative;
+            width:400px;
+            height:80px;
+            left:75px;
+            bottom:390px;
+            text-align: center;
+            font: 35px solid bold;
+            font-family: 'Grape Nuts', cursive;
+            font-family: 'Nanum Pen Script', cursive;
+            color:white;
+        }
+        #no10{
+            position: relative;
+            width:400px;
+            height:80px;
+            left:75px;
+            bottom:425px;
+            text-align: center;
+            font: 35px solid bold;
+            font-family: 'Grape Nuts', cursive;
+            font-family: 'Nanum Pen Script', cursive;
+            color:white;
+        }
+        #shop1 span{
+            color:pink;
+        }
+        #shop2 span{
+            color:lightblue;
+        }
+        #shop4 span{
+            color: lightgreen;
+        }
+        #shop5 span{
+            color:yellow;
+        }
+        #go1{
+            position: relative;
+            left:295px;
+            bottom:500px;
+        }
+        #go1 a{
+            font: 30px solid bold;
+            font-family: 'Grape Nuts', cursive;
+            font-family: 'Nanum Pen Script', cursive;
+            color:white;
+        }
+        #go2{
+            position: relative;
+            left:310px;
+            bottom:500px;
+            
+        }
+        #go2 a{
+            font: 30px solid bold;
+            font-family: 'Grape Nuts', cursive;
+            font-family: 'Nanum Pen Script', cursive;
+            color:white;
+        }
+        #go3{
+            position: relative;
+            left:278px;
+            bottom:500px;
+        }
+        #go3 a{
+            font: 30px solid bold;
+            font-family: 'Grape Nuts', cursive;
+            font-family: 'Nanum Pen Script', cursive;
+            color:white;
+        }
+        #go4{
+            position: relative;
+            left:302px;
+            bottom:500px; 
+        }
+        #go4 a{
+            font: 30px solid bold;
+            font-family: 'Grape Nuts', cursive;
+            font-family: 'Nanum Pen Script', cursive;
+            color:white;
+        }
+        #go5{
+            position: relative;
+            left:285px;
+            bottom:500px;
+        }
+        #go5 a{
+            font: 30px solid bold;
+            font-family: 'Grape Nuts', cursive;
+            font-family: 'Nanum Pen Script', cursive;
+            color:white;
+        }
+        #review_box{
+            width: 1536px;
+            height: 800px;
+        }
+        #reviewboard{
+            position: relative;
+            top:10px;
+            width: 1536px;
+            height: 800px;
+            margin: 0 auto;
+        }
+        #reviewboardimage{
+            position: relative;
+            top:150px;
+            width: 1536px;
+            height: 650px;
+            margin: 0 auto;
+            border-bottom: 1px solid gray;
+        }
+        #reviewboard_subject{
+            width:550px;
+            height:130px;
+            position: relative;
+            left:518px;
+            bottom:0px;
+        }
+        #reviewboard_subject span{
+            font: 100px solid;
+            font-family: 'Grape Nuts', cursive;
+            font-family: 'Nanum Pen Script', cursive;
+            color: #F39C12;
+        }
+        #reviewboard_subject a{
+            font: 80px solid;
+            font-family: 'Grape Nuts', cursive;
+            font-family: 'Nanum Pen Script', cursive;
+            color: gray;
+            text-decoration: none;
+        }
+        #reviewbox{
+            width:1536px;
+            height:250px;
+        }
+        #reviewbox ul li{
+            float: left;
+            list-style: none;
+        }
+        #reviewbox1{
+            position: relative;
+            left:80px;
+            bottom:0px;
+            width:230px;
+            height:350px;
+            border:1px solid lightgray;
+            border-radius: 20px 20px 0px 0px;
+            text-align: center;
+        }
+        #reviewbox1 span, #reviewbox2 span, #reviewbox3 span, #reviewbox4 span, #reviewbox5 span{
+            font-size: 35px;
+            color:gray;
+        }
+        #reviewbox1 p, #reviewbox2 p, #reviewbox3 p, #reviewbox4 p, #reviewbox5 p{
+            font: 25px solid;
+            font-family: 'Grape Nuts', cursive;
+            font-family: 'Nanum Pen Script', cursive;
+            color: gray;
+        }
+        #reviewbox2{
+            position: relative;
+            left:120px;
+            bottom:0px;
+            width:230px;
+            height:350px;
+            border:1px solid lightgray;
+            border-radius: 20px 20px 0px 0px;
+            text-align: center;
+        }
+        #reviewbread1{
+            width:226px;
+            height:150px;
+            border-radius: 20px 20px 0px 0px;
+        }
+        #reviewbread2{
+            width:228px;
+            height:150px;
+            border-radius: 20px 20px 0px 0px;
+        }
+        #reviewbread3{
+            width:227px;
+            height:150px;
+            border-radius: 20px 20px 0px 0px;
+        }
+        #reviewbread4{
+            width:228px;
+            height:150px;
+            border-radius: 20px 20px 0px 0px;
+        }
+        #reviewbread5{
+            width:226px;
+            height:150px;
+            border-radius: 20px 20px 0px 0px;
+        }
+        #reviewbox3{
+            position: relative;
+            left:160px;
+            bottom:0px;
+            width:230px;
+            height:350px;
+            border:1px solid lightgray;
+            border-radius: 20px 20px 0px 0px;
+            text-align: center;
+        }
+        #reviewbox4{
+            position: relative;
+            left:200px;
+            bottom:0px;
+            width:230px;
+            height:350px;
+            border:1px solid lightgray;
+            border-radius: 20px 20px 0px 0px;
+            text-align: center;
+        }
+        #reviewbox5{
+            position: relative;
+            left:240px;
+            bottom:0px;
+            width:230px;
+            height:350px;
+            border:1px solid lightgray;
+            border-radius: 20px 20px 0px 0px;
+            text-align: center;
+        }
+        #reviewbox1 b{
+            font-size:25px;
+            color:lightcoral;
+        }
+        #reviewbox2 b{
+            font-size:25px;
+            color:#F39C12;
+        }
+        #reviewbox3 b{
+            font-size: 25px;
+            color:blue;
+        }
+        #reviewbox4 b{
+            font-size: 25px;
+            color: green;
+        }
+        #reviewbox5 b{
+            font-size: 25px;
+            color: purple;
+        }
+        #goreview{
+            position: relative;
+            left:1360px;
+            top:85px;
+            width:144px;
+            height:100px;
+        }
+        #goreview a{
+            font: 45px solid bold;
+            color:gray;
+            font-family: 'Grape Nuts', cursive;
+            font-family: 'Nanum Pen Script', cursive;
+            text-decoration: none;
+        }
+        #subbox{
+            display: flex;
+            margin-top:300px;
+            width:1536px;
+            height:150px;
+            border-bottom: 1px solid lightgray
+        }
+        #subbox a{
+            font: 17px solid;
+            color:gray;
+            font-family: 'Black Han Sans', sans-serif;
+            font-family: 'Gasoek One', sans-serif;
+            font-family: 'Gothic A1', sans-serif;
+            font-family: 'Jua', sans-serif;
+        }
+        #subbox1{
+            position: relative;
+            width: 450px;
+            height: 150px;
+            border-right: 1px solid lightgray;
+        }
+        #subbox1::before {
+        content: "";
+        position: absolute;
+        width: 449px;
+        height: 150px;
+        background: linear-gradient(to bottom, white, orange);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        }
+        #subbox1:hover::before {
+        opacity: 0.3;
+        }
+        #subbox2{
+            position: relative;
+            margin-left: 95px;
+            width: 450px;
+            height: 150px;
+            border-right: 1px solid lightgray;
+        }
+        #subbox2::before {
+        content: "";
+        position: absolute;
+        right: 0px;
+        width: 544px;
+        height: 150px;
+        background: linear-gradient(to bottom, white, orange);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        }
+        #subbox2:hover::before {
+        opacity: 0.3;
+        }
+        #subbox3{
+            position: relative;
+            margin-left: 190px;
+            width: 447px;
+            height: 150px;
+            border-right: 1px solid lightgray;
+        }
+        #subbox3::before {
+        content: "";
+        position: absolute;
+        right:0px;
+        width: 541px;
+        height: 150px;
+        background: linear-gradient(to bottom, white, orange);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        }
+        #subbox3:hover::before {
+        opacity: 0.3;
+        }
+        .subboxtext{
+            text-decoration: none;
+            font: bold 16px solid; 
+            color: black;
+            width:450px;
+            height:150px;
+        }
+        /********** 푸터 영역 **********/
+        footer{
+            position:absolute;
+            width:1536px;
+            height:300px;
+            margin-bottom:0px;
+            background-color: rgb(245,246,247);
+        }
+        #infobox{
+            position: relative;
+            top:20px;
+            width:1536px;
+            height:300px;
+        }
+        #infobox ul{
+            width:400px;
+            height:400px;
+        }
+        #infobox ul li{
+            list-style: none;
+            width:400px;
+        }
+        #infobox span{
+            font: 40px solid;
+            color:gray;
+            font-family: 'Black Han Sans', sans-serif;
+            font-family: 'Gasoek One', sans-serif;
+            font-family: 'Gothic A1', sans-serif;
+            font-family: 'Jua', sans-serif;
+        }
+        #infobox a{
+            font: 30px solid;
+            color:gray;
+            font-family: 'Black Han Sans', sans-serif;
+            font-family: 'Gasoek One', sans-serif;
+            font-family: 'Gothic A1', sans-serif;
+            font-family: 'Jua', sans-serif;
+        }
+        #infobox p{
+            font: 20px solid;
+            color:gray;
+            font-family: 'Black Han Sans', sans-serif;
+            font-family: 'Gasoek One', sans-serif;
+            font-family: 'Gothic A1', sans-serif;
+            font-family: 'Jua', sans-serif;
+        }

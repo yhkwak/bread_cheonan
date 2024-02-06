@@ -1,0 +1,300 @@
+@charset "UTF-8";
+
+h1 {
+	font-size: 0;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	overflow-x: hidden;
+}
+
+#wrap {
+	width: 1536px;
+	height: 1500px;
+	margin: 0 auto;
+}
+/********** 헤더 영역 **********/
+header {
+	width: 1536px;
+	height: 245px;
+}
+
+#main_logo {
+	position: relative;
+	top: 50px;
+	left: -7px;
+	height: 200px;
+	width: 350px;
+	cursor: pointer;
+}
+
+#c1 {
+	position: relative;
+	left: 1160px;
+	bottom: 786px;
+	width: 36px;
+	height: 36px;
+}
+
+#c2 {
+	position: relative;
+	left: 37px;
+	top: 63px;
+	height: 45px;
+	width: 45px;
+}
+
+#c3 {
+	position: relative;
+	left: 262px;
+	top: 63px;
+	height: 45px;
+	width: 45px;
+}
+
+#c4 {
+	position: relative;
+	left: 462px;
+	top: 66px;
+	height: 45px;
+	width: 45px;
+}
+
+#c5 {
+	position: relative;
+	left: 663px;
+	top: 63px;
+	height: 45px;
+	width: 45px;
+}
+
+#header_list {
+	position: relative;
+	left: 457px;
+	bottom: 80px;
+}
+
+#header_list ul li {
+	display: inline;
+	width: 260px;
+	float: left;
+	list-style: none;
+}
+
+#header_list ul li a {
+	font: 40px solid;
+	font-family: 'Grape Nuts', cursive;
+	font-family: 'Nanum Pen Script', cursive;
+	color: gray;
+	text-decoration-line: none;
+}
+
+span {
+	font: bold 50px solid;
+	font-family: 'Grape Nuts', cursive;
+	font-family: 'Nanum Pen Script', cursive;
+	color: #F39C12;
+}
+
+#line1 {
+	position: relative;
+	left: 400px;
+	width: 1136px;
+	border-top: 1px solid gray;
+}
+/********** 메인 영역 **********/
+#container-content {
+	display: inline-block;
+	width: 1536px;
+	height: 1000px;
+}
+
+#side-nav {
+	float: left;
+	width: 300px;
+	height: 1000px; /* container-content height 크기와 동일하게 설정 */
+}
+
+#side-menu {
+	position: relative;
+	left: 70px;
+	top: 100px;
+	width: 220px;
+	height: 400px;
+	text-decoration: none;
+	text-align: center;
+}
+
+#side-menu h2 {
+	font: 45px solid;
+	color: rgba(0, 0, 0, 0.788);
+	font-family: 'Black Han Sans', sans-serif;
+	font-family: 'Gasoek One', sans-serif;
+	font-family: 'Gothic A1', sans-serif;
+	font-family: 'Jua', sans-serif;
+}
+
+#side-menu ul {
+	list-style: none;
+}
+
+#side-menu ul a {
+	text-decoration: none;
+}
+
+#side-menu ul li {
+	font: 35px solid;
+	color: gray;
+	font-family: 'Black Han Sans', sans-serif;
+	font-family: 'Gasoek One', sans-serif;
+	font-family: 'Gothic A1', sans-serif;
+	font-family: 'Jua', sans-serif;
+	margin-top: 30px;
+	padding-right: 35px;
+}
+
+form {
+	width: 100%;
+	max-width: 1200px;
+	height: 100%;
+	float: right;
+}
+
+#search_box {
+	width: 100%;
+	max-width: 1200px;
+	height: 100%;
+	text-align: center;
+}
+
+#search_table {
+	width: 100%;
+	height: 50px;
+	margin: 30px 0;
+}
+
+#search_table select {
+	width: 100px;
+	height: 40px;
+}
+/* #search_table_icon{
+            width: 40px;
+            height: 30px;
+            margin-left: 30px;
+            background-color: lightgray;
+        } */
+#submit_button {
+	font: 25px solid bold, sans-serif;
+	width: 100px;
+	height: 40px;
+	margin-left: 30px;
+}
+
+#search_text {
+	width: 300px;
+	height: 40px;
+	margin-left: 30px;
+	border: 1px solid lightgray;
+	font: 25px solid bold, sans-serif;
+}
+
+caption {
+	display: none;
+}
+
+#shop_table_list {
+	width: 60%;
+	height: 100%;
+	margin: 0 auto;
+	font: 25px solid;
+	font-family: 'Jua', sans-serif;
+}
+
+table tr td a {
+	color: inherit;
+}
+
+#shop_table_list td a {
+	text-decoration: none;
+}
+
+#shop_table_list tr, #shop_table_list td {
+	padding: 10px;
+}
+
+#shop_table_list tbody {
+	border: 1px solid lightgrey;
+}
+
+.shop_img {
+	width: 160px;
+	height: 80px;
+}
+
+.shop_img img {
+	width: 220px;
+	height: 160px;
+	border-radius: 15px;
+}
+
+.shop_table_text {
+	text-align: left;
+}
+
+/********** 푸터 영역 **********/
+footer {
+	position: absolute;
+	width: 1536px;
+	height: 300px;
+	margin-bottom: 0px;
+	background-color: rgb(245, 246, 247);
+}
+
+#infobox {
+	position: relative;
+	top: 20px;
+	width: 1536px;
+	height: 300px;
+}
+
+#infobox ul {
+	width: 400px;
+	height: 400px;
+}
+
+#infobox ul li {
+	list-style: none;
+	width: 400px;
+}
+
+#infobox span {
+	font: 40px solid;
+	color: gray;
+	font-family: 'Black Han Sans', sans-serif;
+	font-family: 'Gasoek One', sans-serif;
+	font-family: 'Gothic A1', sans-serif;
+	font-family: 'Jua', sans-serif;
+}
+
+#infobox a {
+	font: 30px solid;
+	color: gray;
+	font-family: 'Black Han Sans', sans-serif;
+	font-family: 'Gasoek One', sans-serif;
+	font-family: 'Gothic A1', sans-serif;
+	font-family: 'Jua', sans-serif;
+}
+
+#infobox p {
+	font: 20px solid;
+	color: gray;
+	font-family: 'Black Han Sans', sans-serif;
+	font-family: 'Gasoek One', sans-serif;
+	font-family: 'Gothic A1', sans-serif;
+	font-family: 'Jua', sans-serif;
+}

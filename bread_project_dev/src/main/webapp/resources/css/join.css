@@ -1,0 +1,297 @@
+@charset "UTF-8";
+		h1{font-size:0;}
+        * {margin:0;
+          padding:0;
+        }
+        body{
+            overflow-x: hidden;
+        }
+        #wrap{
+            width: 1536px;
+            height: 2000px;
+            margin: 0 auto;
+        }   
+        /********** 헤더 영역 **********/
+        header{
+            width:1536px;
+            height: 245px;
+        }
+        #main_logo{
+            position:relative;
+            top: 50px;
+            left:-7px;
+            height: 200px;
+            width: 350px;
+            cursor: pointer;
+        }
+        #c1{
+            position:relative;
+            left: 1160px;
+            bottom:786px;
+            width:36px;
+            height:36px;
+        }
+        #c2{
+            position: relative;
+            left: 37px;
+            top:63px;
+            height:45px;
+            width:45px;
+        }
+        #c3{
+            position: relative;
+            left:262px;
+            top:63px;
+            height:45px;
+            width:45px;
+        }
+        #c4{
+            position: relative;
+            left: 462px;
+            top:66px;
+            height:45px;
+            width:45px;
+        }
+        #c5{
+            position: relative;
+            left: 663px;
+            top:63px;
+            height:45px;
+            width:45px;
+        }
+        #header_list{
+            position: relative;
+            left:457px;
+            bottom:80px;
+        }
+        #header_list ul li{
+            display:inline;
+            width:260px;
+            float: left;
+            list-style: none;
+        }
+        #header_list ul li a{
+            font: 40px solid;
+            font-family: 'Grape Nuts', cursive;
+            font-family: 'Nanum Pen Script', cursive;
+            color:gray;
+            text-decoration-line: none;
+        }
+        span{
+            font: bold 50px solid;
+            font-family: 'Grape Nuts', cursive;
+            font-family: 'Nanum Pen Script', cursive;
+            color: #F39C12;
+        }
+        #line1{
+            position: relative;
+            left:400px;
+            width:1136px;
+            border-top: 1px solid gray;
+        }
+        /********** 메인 영역 **********/
+        #container-content{
+            width: 1536px;
+            height: 1500px;
+        }
+        #join-box{
+            width:800px;
+            height:1500px;
+            border:1px solid gray;
+            margin:0 auto;
+            margin-top: 100px;
+            border-radius: 15px;
+        }
+        #join-box h2{
+            position: relative;
+            left:295px;
+            top:50px;
+            font: 60px solid;
+            font-family: 'Black Han Sans', sans-serif;
+            font-family: 'Gasoek One', sans-serif;
+            font-family: 'Gothic A1', sans-serif;
+            font-family: 'Jua', sans-serif;
+            color:gray;
+            width:200px;
+            height: 90px;
+        }
+        #join-table{
+            position: relative;
+            width:700px;
+            height:480px;
+            top:100px;
+            left:50px;
+            border-bottom: 1px solid lightgray;
+        }
+        #table-join{
+            width:700px;
+            height:450px;
+        }
+        #table-join td{
+            font: 25px solid;
+            font-family: 'Black Han Sans', sans-serif;
+            font-family: 'Gasoek One', sans-serif;
+            font-family: 'Gothic A1', sans-serif;
+            font-family: 'Jua', sans-serif;
+            color:gray;
+            text-align: center;
+        }
+        #table-join input{
+            border: 1px solid lightgray;
+            border-radius: 20px;
+            margin-right:120px;
+            padding-left:10px;
+            width:300px;
+            height:40px;
+            color:gray;
+            font: 20px solid bold, sans-serif;
+        }
+        #table-join input:-webkit-autofill{
+            -webkit-box-shadow: 0 0 0 1000px white inset;
+            -webkit-text-fill-color: gray;
+        }
+        #table-join tr{
+            position: relative;
+            left:65px;
+            height: 70px;
+        }
+        #checkbox-area{
+            position: relative;
+            width:700px;
+            height:640px;
+            top:100px;
+            border: 1px solid lightgray;
+            border-radius: 15px;
+        }
+        #checkbox{
+            width:700px;
+            height:400px;
+        }
+        #checkbox-table{
+            width:700px;
+        }
+        #checkbox-table a{
+            position: relative;
+            bottom:6px;
+        }
+        #checkbox tr{
+            position: relative;
+            left:30px;
+            width:200px;
+            height:100px;
+        }
+        #checkbox td{
+            position: relative;
+            font: 25px solid;
+            font-family: 'Black Han Sans', sans-serif;
+            font-family: 'Gasoek One', sans-serif;
+            font-family: 'Gothic A1', sans-serif;
+            font-family: 'Jua', sans-serif;
+            color:gray;
+            height: 100px;
+        }
+        .checkbox{
+            position: relative;
+            width:30px;
+            height:30px;
+        }
+        textarea{
+            width:635px;
+            height:200px;
+            font:18px solid;
+            color:black;
+        }
+        button[type=reset]{
+            position: relative;
+            left:476px;
+            top:20px;
+            font: 25px solid;
+            font-family: 'Black Han Sans', sans-serif;
+            font-family: 'Gasoek One', sans-serif;
+            font-family: 'Gothic A1', sans-serif;
+            font-family: 'Jua', sans-serif;
+            color:gray;
+            background-color: white;
+            border:none;
+        }
+        button[type=reset]:hover{
+            color:#F39C12;
+            border:none;
+            transition: 0.5s;
+        }
+        button[type=submit]{
+            position: relative;
+            left:496px;
+            top:20px;
+            font: 25px solid;
+            font-family: 'Black Han Sans', sans-serif;
+            font-family: 'Gasoek One', sans-serif;
+            font-family: 'Gothic A1', sans-serif;
+            font-family: 'Jua', sans-serif;
+            color:gray;
+            background-color: white;
+            border:none;
+        }
+        button[type=submit]:hover{
+            color:#F39C12;
+            border:none;
+            transition: 0.5s;
+        }
+        .error-message {
+		    display: block;
+		    color: red;
+		    text-align: left;
+		    margin-left: 60px;
+		    font:18px solid;
+            font-family: 'Black Han Sans', sans-serif;
+            font-family: 'Gasoek One', sans-serif;
+            font-family: 'Gothic A1', sans-serif;
+            font-family: 'Jua', sans-serif;
+        }
+        /********** 푸터 영역 **********/
+        footer{
+            position:absolute;
+            width:1536px;
+            height:300px;
+            margin-top:300px;
+            margin-bottom:0px;
+            background-color: rgb(245,246,247);
+        }
+        #infobox{
+            position: relative;
+            top:20px;
+            width:1536px;
+            height:300px;
+        }
+        #infobox ul{
+            width:400px;
+            height:400px;
+        }
+        #infobox ul li{
+            list-style: none;
+            width:400px;
+        }
+        #infobox span{
+            font: 40px solid;
+            color:gray;
+            font-family: 'Black Han Sans', sans-serif;
+            font-family: 'Gasoek One', sans-serif;
+            font-family: 'Gothic A1', sans-serif;
+            font-family: 'Jua', sans-serif;
+        }
+        #infobox a{
+            font: 30px solid;
+            color:gray;
+            font-family: 'Black Han Sans', sans-serif;
+            font-family: 'Gasoek One', sans-serif;
+            font-family: 'Gothic A1', sans-serif;
+            font-family: 'Jua', sans-serif;
+        }
+        #infobox p{
+            font: 20px solid;
+            color:gray;
+            font-family: 'Black Han Sans', sans-serif;
+            font-family: 'Gasoek One', sans-serif;
+            font-family: 'Gothic A1', sans-serif;
+            font-family: 'Jua', sans-serif;
+        }
