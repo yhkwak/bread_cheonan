@@ -56,7 +56,7 @@
                                 <td rowspan="4" class="shop_img"><img src="../resources/css/img/test_img01.png"></td>
                             </tr>
                             <tr>
-                                <td class="shop_table_text"><a href="#">재송이네 죄송한 빵집</a></td>
+                                <td class="shop_table_text"><a href="${pageContext.request.contextPath}/search/viewBakery.do">재송이네 죄송한 빵집</a></td>
                             </tr>
                             <tr>
                                 <td class="shop_table_text">재송시 재송동 재송번지</td>
@@ -105,7 +105,7 @@
                     <div id="shop_table">
                         <table id="shop_table_list">
                             <tr>
-                                <td rowspan="4" class="shop_img"><img src="../resources/css/img/test_img04.png"></td>
+                                <td rowspan="4" class="shop_img"><img src="../resources/css/img/test_img04.jpeg"></td>
                             </tr>
                             <tr>
                                 <td class="shop_table_text"><a href="#">용환이네 국가 허용빵집</a></td>
@@ -123,7 +123,7 @@
                     <div id="shop_table">
                         <table id="shop_table_list">
                             <tr>
-                                <td rowspan="4" class="shop_img"><img src="../resources/css/img/test_img05.png"></td>
+                                <td rowspan="4" class="shop_img"><img src="../resources/css/img/test_img05.jpeg"></td>
                             </tr>
                             <tr>
                                 <td class="shop_table_text"><a href="#">나래네 날래 오라우 빵집</a></td>
