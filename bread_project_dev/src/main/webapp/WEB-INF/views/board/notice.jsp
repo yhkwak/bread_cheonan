@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -29,10 +30,10 @@
 			<div id="main-area">
 				<table id="table-notice">
 					<tr id="tr-tablehead">
-						<th id="th-num">No.</th>
+						<th id="th-num">No</th>
 						<th id="th-title">제목</th>
 						<th id="th-regDate">작성일</th>
-						<th id="th-count">조회수</th>
+						<th id="th-file">첨부파일</th>
 					</tr>
 					<tr>
 						<td>10</td>
@@ -95,9 +96,11 @@
 						<td>1</td>
 					</tr>
 				</table>
-				<div id="div-button">
-					<button type="button" id="button-write" onclick="notice_write()">글쓰기</button>
-				</div>
+<%-- 				<c:if test="${member.graed eq 2}"> --%>
+					<div id="div-button">
+						<button type="button" id="button-write" onclick="notice_write()">글쓰기</button>
+					</div>
+<%-- 				</c:if> --%>
 			</div>
 		</section>
 		
