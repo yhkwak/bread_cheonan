@@ -275,13 +275,13 @@
 
         #cart_btn{
             float: right;
-            width: 120px;
+            width: 150px;
             height: 40px;
             margin-top: 20px;
             background-color: white;
             border: none;
             color: gray;
-            font: 20px solid bold;
+            font: 25px solid bold;
             font-family: 'Jua', sans-serif;
         }
         #cart_btn:hover{
@@ -289,32 +289,6 @@
             border:none;
             transition: 0.5s;
         }
-
-
-        input[type="checkbox"]{
-            display: none;
-        }
-        input[type="checkbox"] + label{
-            position: relative;
-            width: 22px;
-            height: 22px;
-            cursor: pointer;
-            border: 2px solid lightgrey;
-            border-radius: 3px;
-            padding: 0;
-        }
-        input[id="check_box1"]:checked + label::after,
-        input[id="check_box2"]:checked + label::after,
-        input[id="check_box3"]:checked + label::after{
-            content: url('/img/checked.png');
-            font-size: 20px;
-            width: 22px;
-            height: 22px;
-            text-align: center;
-            position: absolute;
-            /* bottom: 1px; */
-        }
-
 
 
 

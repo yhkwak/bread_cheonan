@@ -1,4 +1,4 @@
-        h1{font-size:0;}
+    h1{font-size:0;}
         * {margin:0;
           padding:0;
         }
@@ -88,14 +88,19 @@
             width:1136px;
             border-top: 1px solid gray;
         }
+
+
+
         /********** 메인 영역 **********/
 
+        /********** 사이드 메뉴바 영역 **********/
 
-        
+
         #container-content{
             display: inline-block;
             width: 1536px; 
             height: 1000px;
+            margin: 0 auto;
         }
 
         #side-nav{
@@ -137,125 +142,57 @@
             padding-right:35px;
         }
 
-
-
-
-
-        form{
+        /********** 사이드 메뉴바 영역 끝 **********/
+        #all_box{
             width: 100%;
             max-width: 1200px;
             height: 100%;
             float: right;
+            font-family: 'Jua', sans-serif;
         }
-        #search_box{
+        #product_box{
             width: 100%;
-            max-width: 1200px;
+            max-width: 1000px;
             height: 100%;
+            margin: 0 auto;
             text-align: center;
-            margin: 0 auto;
-        }
-        #search_table{
-            width: 100%;
-            height: 50px;
-            margin-bottom: 30px;
-        }
-        #select_box{
-            width: 140px;
-            height: 40px;
-            display: inline-block;
-        }
-        #search_table select{
-            width: 100%;
-            height: 100%;
-            padding: 0 28px 0 10px;
-            border: 4px solid lightgray;
-            box-sizing: border-box;
-            -webkit-appearance:none; /* for chrome */
-            -moz-appearance:none; /*for firefox*/
-            appearance:none;
-            background: transparent;
-            font: 25px solid bold;
-            font-family: 'Jua', sans-serif;
-            color: gray;
-            background-image: url('img/select_icon.png');
-            background-repeat: no-repeat; /* 이미지를 반복하지 않음 */
-            background-position: right center;
-        }
-        #search_table select:active{
-            outline: none;
-            border: 4px solid lightgray;
-        }
-        #submit_button{
-            font: 25px solid bold;
-            font-family: 'Jua', sans-serif;
-            color:gray;
-            background-color: white;
-            border: none;
-            width: 100px;
-            height: 40px;
-            margin-left: 10px;
-        }
-        #submit_button:hover{
-            color:#F39C12;
-            border:none;
-            transition: 0.5s;
-        }
-        #search_text{
-            width:400px;
-            height:40px;
-            margin-left: 10px;
-            border: 1px solid lightgray;
-            font: 25px solid bold, sans-serif;
-        }
-
-        
-
-        
-
-
-
-
-        caption{
-            display: none;
-        }
-        #shop_table{
-            margin: 0 auto;
-            width: 60%;
-            border: 3px solid lightgrey;
+            border: 1px solid lightgrey;
             border-radius: 15px;
-            margin-bottom: 10px;
+            padding: 30px;
         }
-        #shop_table_list{
-            width: 100%;
-            height: 100%;
-            font: 25px solid;
-            font-family: 'Jua', sans-serif;
+        #product_text{
+            border-bottom: 1px solid gray;
         }
-        table tr td a{
-            color: inherit;
-        }
-        #shop_table_list td a{
-            text-decoration: none;
-        }
-        #shop_table_list td{
-            height: 46px;
+        #product_text ul{
+            display: flex;
             padding: 0;
         }
-
-        .shop_img{
-            width: 200px;
-            height: 140px;
+        #product_text ul li{
+            display: inline;
+            width: 166px;
+            list-style: none;
+            font-size: 25px;
         }
-        .shop_img img{
-            width: 200px;
-            height: 140px;
-            padding: 10px;
+        .product_table_box{
+            width: 100%;
+            max-width: 1000px;
+
+        }
+        .product_table{
+            margin-top: 19px;
+        }
+        .product_table tr td{
+            width: 166px;
+            height: 10%;
+            font-size: 20px;
+        }
+        .product_table tr td img{
+            width: 80px;
+            height: 70px;
             border-radius: 15px;
         }
-        .shop_table_text{
-            text-align: left;
-        }
-        
+
+        /********** 페이징 영역 **********/
         .page_box{
             clear: both;
             margin: 0 auto;
@@ -284,10 +221,12 @@
             border:none;
             transition: 0.2s;
         }
-        
-        /********** 푸터 영역 **********/
+
+
+        /********** 풋터 **********/
         footer{
             position:absolute;
+            top: 1450px;
             width:1536px;
             height:300px;
             margin-bottom:0px;
