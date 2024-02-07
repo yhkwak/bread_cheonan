@@ -19,6 +19,9 @@
     	<%@ include file = "../common/header.jsp" %>
     	
         <section id="container-content">
+
+
+
             <div id="side-nav">
                 <div id="side-menu">
                     <h2>빵집 보기</h2>
@@ -28,18 +31,21 @@
                 </div>
             </div>
 
+
             <div id="all_box">
+
+
                 <div id="view_box">
                     <table id="view_table">                            
                         <tr>
                             <th><h2>재송이네 죄송한 빵집</h2></th>
-                            <td rowspan="4" id="shop_img"><img src="${pageContext.request.contextPath}/resources/css/img/test_img02.jpeg"></td>
+                            <td rowspan="4" id="shop_img"><img src="../resources/css/img/test_img02.png"></td>
                         </tr>
                         <tr>
                             <td>재송시 재송동 재송번지 재송이네</td>
                         </tr>
                         <tr>
-                            <td><img id="tel_img" src="${pageContext.request.contextPath}/resources/css/img/tel_icon.png">041-123-456</td>
+                            <td><img id="tel_img" src="../resources/css/img/tel_icon.png">041-123-456</td>
                         </tr>
                         <tr>
                             <td><a href="#">홈페이지</a> | <a href="#">인스타그램</a></td>
@@ -53,7 +59,7 @@
                     <form name="frm-pickup">
                         <table>                          
                             <tr>
-                                <td rowspan="4" class="bakery_img"><img id="tel_img" src="${pageContext.request.contextPath}/resources/css/img/test_img06.png"></td>
+                                <td rowspan="5" class="bakery_img"><img id="tel_img" src="../resources/css/img/test_img06.png"></td>
                             </tr>
                             <tr>
                                 <td>사나이 눈물 소금빵</td>
@@ -64,14 +70,30 @@
                                 <td></td>
                             </tr>
                             <tr>
+                                <td>눈물 젖은 소금빵 드셔보셨습니까? 짠맛탱~</td>
+                                <td></td>
+                            </tr>
+                            <tr>
                                 <td>빵 나오는 시간: 08:00 / 13:00 / 16:00</td>
-                                <td><input type="submit" id="pickup_btn" value="픽업 예약"></td>
+                                <td>
+                                    <div id="select_box">
+                                        <select name="bread_cnt">
+                                            <option value="01">1</option>
+                                            <option value="02">2</option>
+                                            <option value="02">3</option>
+                                        </select>
+                                    </div>
+                                </td>
+                                <td>
+                                    <input type="checkbox" id="check_box1">
+                                    <label for="check_box1"></label>
+                                </td>
                             </tr>
                         </table>
 
                         <table>                          
                             <tr>
-                                <td rowspan="4" class="bakery_img"><img id="tel_img" src="${pageContext.request.contextPath}/resources/css/img/test_img06.png"></td>
+                                <td rowspan="5" class="bakery_img"><img id="tel_img" src="../resources/css/img/test_img06.png"></td>
                             </tr>
                             <tr>
                                 <td>사나이 눈물 소금빵</td>
@@ -82,14 +104,30 @@
                                 <td></td>
                             </tr>
                             <tr>
+                                <td>눈물 젖은 소금빵 드셔보셨습니까? 짠맛탱~</td>
+                                <td></td>
+                            </tr>
+                            <tr>
                                 <td>빵 나오는 시간: 08:00 / 13:00 / 16:00</td>
-                                <td><input type="submit" id="pickup_btn" value="픽업 예약"></td>
+                                <td>
+                                    <div id="select_box">
+                                        <select name="bread_cnt">
+                                            <option value="01">1</option>
+                                            <option value="02">2</option>
+                                            <option value="02">3</option>
+                                        </select>
+                                    </div>
+                                </td>
+                                <td>
+                                    <input type="checkbox" id="check_box2">
+                                    <label for="check_box2"></label>
+                                </td>
                             </tr>
                         </table>
 
                         <table>                          
                             <tr>
-                                <td rowspan="4" class="bakery_img"><img id="tel_img" src="${pageContext.request.contextPath}/resources/css/img/test_img06.png"></td>
+                                <td rowspan="5" class="bakery_img"><img id="tel_img" src="../resources/css/img/test_img06.png"></td>
                             </tr>
                             <tr>
                                 <td>사나이 눈물 소금빵</td>
@@ -100,14 +138,37 @@
                                 <td></td>
                             </tr>
                             <tr>
+                                <td>눈물 젖은 소금빵 드셔보셨습니까? 짠맛탱~</td>
+                                <td></td>
+                            </tr>
+                            <tr>
                                 <td>빵 나오는 시간: 08:00 / 13:00 / 16:00</td>
-                                <td><input type="submit" id="pickup_btn" value="픽업 예약"></td>
+                                <td>
+                                    <div id="select_box">
+                                        <select name="bread_cnt">
+                                            <option value="01">1</option>
+                                            <option value="02">2</option>
+                                            <option value="02">3</option>
+                                        </select>
+                                    </div>
+                                </td>
+                                <td>
+                                    <input type="checkbox" id="check_box3">
+                                    <label for="check_box3"></label>
+                                </td>
                             </tr>
                         </table>
+
+                        <div id="cart_box">
+                            <div><input type="submit" id="cart_btn" value="+ 장바구니 담기"></div>
+                        </div>
 
                     </form>
                 </div>
+
+
             </div>
+
         </section>
         
         <%@ include file = "../common/footer.jsp" %>
