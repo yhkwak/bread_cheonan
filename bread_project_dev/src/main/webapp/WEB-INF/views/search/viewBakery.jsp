@@ -48,7 +48,7 @@
                             <td><img id="tel_img" src="../resources/css/img/tel_icon.png">041-123-456</td>
                         </tr>
                         <tr>
-                            <td><a href="#">홈페이지</a> | <a href="#">인스타그램</a></td>
+                            <td><a href="#">홈페이지</a></td>
                         </tr>
                     </table>
                 </div>

@@ -1,5 +1,7 @@
 package com.bread.service.member;
 
+import javax.servlet.http.HttpServletRequest;
+
 import com.bread.app.vo.MemberVO;
 
 public interface MemberService {
@@ -12,7 +14,7 @@ public interface MemberService {
         return null;
     }
 
-    default MemberVO update(MemberVO memberVO) {
+    default MemberVO update(MemberVO memberVO, HttpServletRequest request) {
         return null;
     }
 
