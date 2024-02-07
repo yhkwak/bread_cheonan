@@ -162,68 +162,7 @@ span {
 	height: 900px;
 }
 
-#table-notice{
-	text-align: center;
-	margin: 40px auto 10px auto;
-	font-family: 'Black Han Sans', sans-serif;
-	font-family: 'Gasoek One', sans-serif;
-	font-family: 'Gothic A1', sans-serif;
-	font-family: 'Jua', sans-serif;
-	font-size: 20px;
-}
 
-#table-notice a{
-	text-decoration: none;
-	color: black;
-}
-
-#table-notice tr{
-	height: 60px;
-}
-
-#tr-tablehead{
-	background-color: rgba(243, 156, 18, 0.4);
-}
-
-#th-num{
-	width: 50px;
-	height: 50px;
-}
-
-#th-title{
-	width: 800px;
-	height: 50px;
-}
-
-#th-regDate{
-	width: 150px;
-	height: 50px;
-}
-
-#th-file{
-	width: 100px;
-	height: 50px;
-}
-
-#div-button{
-	width: 80px;
-	height: 50px;
-	position: relative;
-	left: 1088px;
-}
-
-#button-write{
-	width: 80px;
-	height: 50px;
-	border-radius: 5px;
-	border: none;
-	background-color: rgba(243, 156, 18, 0.4);
-	font-family: 'Black Han Sans', sans-serif;
-	font-family: 'Gasoek One', sans-serif;
-	font-family: 'Gothic A1', sans-serif;
-	font-family: 'Jua', sans-serif;
-	font-size: 20px;
-}
 /********** 푸터 영역 **********/
 footer {
 	position: absolute;
