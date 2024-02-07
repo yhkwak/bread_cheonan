@@ -4,6 +4,9 @@ import java.util.Date;
 
 import org.springframework.web.multipart.MultipartFile;
 
+import lombok.Data;
+
+@Data
 public class NoticeVO {
 	private int notice_idx;
 	private String title;

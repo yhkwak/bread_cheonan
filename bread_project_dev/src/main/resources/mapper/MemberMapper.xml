@@ -52,17 +52,11 @@
   	<!-- Update -->
   	<!-- 회원정보 수정 -->
   	<update id="updateMember" parameterType="memberVO">
- 		<choose>
- 			<when test="member_img != null">
- 			update bc_member set member_pw=#{member_pw}, member_name=#{member_name}, member_phone=#{member_phone},
- 			member_nickname=#{member_nickname}, member_img=#{member_img}, member_img_save=#{member_img_save},
- 			 last_mod_date=now() where member_idx=#{member_idx}
- 			</when>
- 			<otherwise>
- 			update bc_member set member_pw=#{member_pw}, member_name=#{member_name}, member_phone=#{member_phone},
- 			member_nickname=#{member_nickname}, last_mod_date=now() where member_idx=#{member_idx}
- 			</otherwise>
- 		</choose>
+		update bc_member
+		set member_pw=#{member_pw}, member_name=#{member_name}, member_phone=#{member_phone},
+		member_nickname=#{member_nickname}, member_img=#{member_img}, member_img_save=#{member_img_save},
+		last_mod_date=now()
+		where member_idx=#{member_idx}
  	</update>
  
   	<!-- 회원 탈퇴처리하기: update -->
