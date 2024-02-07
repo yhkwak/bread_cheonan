@@ -21,7 +21,7 @@ public class MemberController {
 	
 	//회원가입처리를 위한 Service클래스를 필드로 정의하기
 	@Setter(onMethod_={@Autowired})
-	MemberService mJoin, mLogin;
+	MemberService mJoin, mLogin, mUpdate;
 	
 	///////// 페이지 매핑 ///////////
 	
@@ -39,7 +39,10 @@ public class MemberController {
 	public String findId() {
 		return "member/findId";
 	}
-	
+	@GetMapping("/update.do")
+	public String update() {
+		return "member/update";
+	}
 	/////////////////////////////// 요청처리 메소드 /////////////////////////////////
 	//회원가입 처리 요청
 		@PostMapping("/joinProcess.do")
@@ -80,6 +83,24 @@ public class MemberController {
 				viewPage = "redirect:/main.do";//메인 페이지를 재요청함
 				
 			}else {//로그인 실패 시
+				model.addAttribute("msg", "아이디나 비밀번호가 일치하지 않습니다");
+			}
+			
+			return viewPage;
+		}
+		
+		@PostMapping("/updateProcess.do")
+		public String updateProcess(MemberVO memberVO, HttpServletRequest request, Model model) {
+			
+			String viewPage = "member/update"; // 변경 실패시 페이지
+			MemberVO newVO = mUpdate.update(memberVO, request);
+			
+			if (newVO != null) { // 로그인 성공시 세션으로 객체저장
+				HttpSession session = request.getSession();
+				session.removeAttribute("member");
+				session.setAttribute("member", newVO);
+				viewPage = "redirect:/main.do"; // 메인페이지 재요청
+			} else { // 로그인 실패 시
 				model.addAttribute("msg", "아이디나 비밀번호가 일치하지 않습니다");
 			}
 			

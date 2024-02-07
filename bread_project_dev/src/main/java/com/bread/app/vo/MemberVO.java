@@ -2,6 +2,8 @@ package com.bread.app.vo;
 
 import java.util.Date;
 
+import org.springframework.web.multipart.MultipartFile;
+
 import lombok.Data;
 
 @Data
@@ -20,5 +22,6 @@ public class MemberVO {
 	private Date last_mod_date;
 	private int member_del;
 	private int grade;
+	private MultipartFile uploadFile;
 	
 }

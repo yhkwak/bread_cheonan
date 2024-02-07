@@ -45,10 +45,19 @@
 			    <c:when test="${member.grade eq 0}">
 			        <div id="login_box">
 				        <div id="login_box2">
-				            <img id="login_logo" src="resources/css/img/c5.png">
+				            <c:choose>
+							    <c:when test="${not empty member.member_img_save}">
+								    <!-- 업로드한 경우 업로드한 이미지 표시 -->
+								    <img id="login_logo" src="${pageContext.request.contextPath}/resources/uploads/${member.member_img_save}">
+								</c:when>
+								<c:otherwise>
+								    <!-- 기본 이미지 표시 -->
+								    <img id="login_logo" src="${pageContext.request.contextPath}/resources/css/img/c5.png">
+								</c:otherwise>
+							</c:choose>
 				            <div id="text1">${member.member_nickname}<span> 님</span>&nbsp;&nbsp;환영합니다</div>
 				            <div id="login_list">
-				                <a href="${pageContext.request.contextPath}/mypage/update.do">마이페이지&nbsp;&nbsp;</a>
+				                <a href="${pageContext.request.contextPath}/member/update.do">마이페이지&nbsp;&nbsp;</a>
 				                <a href="${pageContext.request.contextPath}/cart/cart.do">장바구니&nbsp;&nbsp;</a>
 				                <a href="${pageContext.request.contextPath}/member/logout.do">로그아웃</a>
 				            </div>       
@@ -58,10 +67,19 @@
 			    <c:when test="${member.grade eq 1}">
 			        <div id="login_box">
 				        <div id="login_box2">
-				            <img id="login_logo" src="resources/css/img/c5.png">
+				            <c:choose>
+							    <c:when test="${not empty member.member_img_save}">
+								    <!-- 업로드한 경우 업로드한 이미지 표시 -->
+								    <img id="login_logo" src="${pageContext.request.contextPath}/resources/uploads/${member.member_img_save}">
+								</c:when>
+								<c:otherwise>
+								    <!-- 기본 이미지 표시 -->
+								    <img id="login_logo" src="${pageContext.request.contextPath}/resources/css/img/c5.png">
+								</c:otherwise>
+							</c:choose>
 				            <a href="#"><div id="text1"><span>${member.member_nickname}님</span>&nbsp;&nbsp;환영합니다</div></a>
 				            <div id="login_list">
-				                <a href="${pageContext.request.contextPath}/mypage/update.do">마이페이지&nbsp;&nbsp;</a>
+				                <a href="${pageContext.request.contextPath}/member/update.do">마이페이지&nbsp;&nbsp;</a>
 				                <a href="${pageContext.request.contextPath}/cart/cart.do">장바구니&nbsp;&nbsp;</a>
 				                <a href="${pageContext.request.contextPath}/member/logout.do">로그아웃</a>
 				            </div>       
@@ -74,7 +92,7 @@
 				            <img id="login_logo" src="resources/css/img/c5.png">
 				            <a href="#"><div id="text1"><span>${member.member_nickname}님</span>&nbsp;&nbsp;환영합니다</div></a>
 				            <div id="login_list">
-				                <a href="${pageContext.request.contextPath}/mypage/update.do">마이페이지&nbsp;&nbsp;</a>
+				                <a href="${pageContext.request.contextPath}/member/update.do">마이페이지&nbsp;&nbsp;</a>
 				                <a href="#">장바구니&nbsp;&nbsp;</a>
 				                <a href="${pageContext.request.contextPath}/member/logout.do">로그아웃</a>
 				            </div>       

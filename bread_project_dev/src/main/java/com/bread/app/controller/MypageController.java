@@ -22,10 +22,7 @@ public class MypageController {
 	@Setter(onMethod_={@Autowired})
 	BakeryService bakeryJoin, bakeryUpdate, bakeryGet;
 	
-	@GetMapping("/update.do")
-	public String update() {
-		return "mypage/update";
-	}
+	
 	@GetMapping("/shopinfo.do")
 	public String shopinfo(int member_idx, HttpServletRequest request) {
 		

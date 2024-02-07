@@ -36,15 +36,23 @@
             </div>
         </div>
         <div id="main-area">
-            <form name="frm_update" method="post" action="updateProcess.do">
+            <form name="frm_update" method="post" action="updateProcess.do" enctype="multipart/form-data">
             <input type="hidden" name="member_idx" value="${member.member_idx}">
                 <div id="update-box">
                 <h2>프로필 수정</h2>
                 <div id="update-table">
                     <div id="member_img">
                     <label for="file_input" style="cursor: pointer;">
-                    <img id="member_img1" src="${pageContext.request.contextPath}/resources/css/img/joinUpdate_title_img.png"></div>
-                    <input type="file" id="file_input" name="member_img" style="display: none;" onchange="readURL(this);">
+                    <img id="member_img1" name="member_img" src="<c:choose>
+					    <c:when test="${not empty member.member_img_save}">
+					        ${pageContext.request.contextPath}/resources/uploads/${member.member_img_save}
+					    </c:when>
+					    <c:otherwise>
+					        ${pageContext.request.contextPath}/resources/css/img/joinUpdate_title_img.png
+					    </c:otherwise>
+					</c:choose>">
+					</div>
+                    <input type="file" id="file_input" name="uploadFile" style="display: none;" onchange="readURL(this);">
                     </label>
                     <table id="table-update">
                             <tr>
