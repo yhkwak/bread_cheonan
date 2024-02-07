@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+ <mapper namespace="com.bread.app.BakeryMapper">
+ 	
+ 	<!-- Create -->
+ 	
+	<!-- 가게정보 입력 -->
+	<insert id="join" parameterType="bakeryVO">
+    	insert into bc_bakery (bakery_name, bakery_address, bakery_postcode, bakery_detail_address, bakery_homepage, bakery_phone, member_idx) values (#{bakery_name}, #{bakery_address}, #{bakery_postcode}, #{bakery_detail_address}, #{bakery_homepage}, #{bakery_phone}, #{member_idx})
+	</insert>
+  	
+  	<select id="getBakery" parameterType="_int" resultType="bakeryVO">
+  	 	select * from bc_bakery where member_idx=#{member_idx}
+  	</select>
+
+  	<!-- 가게 업데이트 처리 -->
+   	<update id="update" parameterType="bakeryVO">
+        update bc_bakery set bakery_name=#{bakery_name}, bakery_address=#{bakery_address}, bakery_postcode=#{bakery_detail_address}, bakery_homepage=#{bakery_homepage}, bakery_phone=#{bakery_phone}
+        where bakery_idx=#{bakery_idx}
+    </update>
+    
+ </mapper>
