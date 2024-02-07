@@ -6,6 +6,7 @@
 
  	<typeAliases>
  		<typeAlias alias="memberVO" type="com.bread.app.vo.MemberVO" />
+ 		<typeAlias alias="bakeryVO" type="com.bread.app.vo.BakeryVO" />
  	</typeAliases>
  
 </configuration>
