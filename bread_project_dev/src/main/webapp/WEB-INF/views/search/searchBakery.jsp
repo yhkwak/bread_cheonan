@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -23,7 +24,7 @@
                 <div id="side-menu">
                     <h2>빵집 찾기</h2>
                     <ul>
-                        <a href="${pageContext.request.contextPath}/search/searchBakery.do"><li>빵집 검색</li></a>
+                        <a href="#"><li>빵집 검색</li></a>
                     </ul>
                 </div>
             </div>
@@ -34,121 +35,52 @@
                     <table id="search_table">
                         <tr>
                             <td>
-                                <div id="select_box">
-                                    <select name="searchField">
-                                        <option value="title">빵집 이름</option>
-                                        <option value="content">빵 이름</option>
-                                    </select>
-                                </div>
                                 <input id="search_text" type="text" name="searchWord">
                                 <input id="submit_button" type="submit" value="검색하기">
                             </td>
                         </tr>
                     </table>
                 
-                    
-
-                    <div id="shop_table">
-
-
-                        <table id="shop_table_list">
-                            <tr>
-                                <td rowspan="4" class="shop_img"><img src="../resources/css/img/test_img01.png"></td>
-                            </tr>
-                            <tr>
-                                <td class="shop_table_text"><a href="${pageContext.request.contextPath}/search/viewBakery.do">재송이네 죄송한 빵집</a></td>
-                            </tr>
-                            <tr>
-                                <td class="shop_table_text">재송시 재송동 재송번지</td>
-                            </tr>
-                            <tr>
-                                <td class="shop_table_text">영업시간: 10:00 ~ 20:00</td>
-                            </tr>
-                        </table>
-                    </div>
-
-
-                    <div id="shop_table">
-                        <table id="shop_table_list">
-                            <tr>    
-                                <td rowspan="4" class="shop_img"><img src="../resources/css/img/test_img02.png"></td>                            
-                            </tr>
-                            <tr>
-                                <td class="shop_table_text"><a href="#"> 수희네 스윗한 빵집</a></td>
-                            </tr>
-                            <tr>
-                                <td class="shop_table_text">수희시 수희동 수희번지</td>
-                            </tr>
-                            <tr>
-                                <td class="shop_table_text">영업시간: 10:00 ~ 19:00</td>
-                            </tr>
-                        </table>
-                    </div>
-
-                    <div id="shop_table">
-                        <table id="shop_table_list">
-                            <tr>
-                                <td rowspan="4" class="shop_img"><img src="../resources/css/img/test_img03.png"></td>
-                            </tr>
-                            <tr>
-                                <td class="shop_table_text"><a href="#">경진이네 경지에 오른 빵집</a></td>
-                            </tr>
-                            <tr>
-                                <td class="shop_table_text">경진시 경진동 경진번지</td>
-                            </tr>
-                            <tr>
-                                <td class="shop_table_text">영업시간: 10:00 ~ 21:00</td>
-                            </tr>
-                        </table>
-                    </div>
-
-
-                    <div id="shop_table">
-                        <table id="shop_table_list">
-                            <tr>
-                                <td rowspan="4" class="shop_img"><img src="../resources/css/img/test_img04.jpeg"></td>
-                            </tr>
-                            <tr>
-                                <td class="shop_table_text"><a href="#">용환이네 국가 허용빵집</a></td>
-                            </tr>
-                            <tr>
-                                <td class="shop_table_text">용환시 용환동 용환번지</td>
-                            </tr>
-                            <tr>
-                                <td class="shop_table_text">영업시간: 10:00 ~ 21:20</td>
-                            </tr>
-                        </table>
-                    </div>
-
-
-                    <div id="shop_table">
-                        <table id="shop_table_list">
-                            <tr>
-                                <td rowspan="4" class="shop_img"><img src="../resources/css/img/test_img05.jpeg"></td>
-                            </tr>
-                            <tr>
-                                <td class="shop_table_text"><a href="#">나래네 날래 오라우 빵집</a></td>
-                            </tr>
-                                <tr>
-                                <td class="shop_table_text">나래시 나래동 나래번지</td>
-                            </tr>
-                            <tr>
-                                <td class="shop_table_text">영업시간: 10:00 ~ 20:30</td>
-                            </tr>
-                        </table>
-                        
-                    </div>
-                    <div class="page_box">
-                        <ul class="pageNav">
-                            <li><a href="#" class="arrow_left"><<</a></li>
-                            <li><a href="#" class="1">1</a></li>
-                            <li><a href="#" class="2">2</a></li>
-                            <li><a href="#" class="3">3</a></li>
-                            <li><a href="#" class="4">4</a></li>
-                            <li><a href="#" class="5">5</a></li>
-                            <li><a href="#" class="arrow_last">>></a></li>
-                        </ul>
-                    </div>
+                    <c:choose>
+                    	<c:when test="${empty bakeryList}">
+                    		<div id="shop_table">
+		                        <table id="shop_table_list">
+		                            <tr>
+		                                <td>해당하는 가게가 없습니다. 다시 검색해 주세요.</td>
+		                            </tr>
+		                        </table>
+		                    </div>
+                    	</c:when>
+                    	<c:otherwise>
+                    		<c:forEach var="i" begin="${pageNav.startNum}" end="${pageNav.endNum}" varStatus="vs">
+                    			<c:if test="${not empty bakeryList[vs.count-1]}">
+				                    <div id="shop_table">
+				                        <table id="shop_table_list">
+				                            <tr>
+				                                <td rowspan="4" class="shop_img"><img src="../resources/css/img/test_img01.png"></td>
+				                            </tr>
+				                            <tr>
+				                                <td class="shop_table_text"><a href="${pageContext.request.contextPath}/search/viewBakery.do">${bakeryList[vs.count-1].bakery_name}</a></td>
+				                            </tr>
+				                            <tr>
+				                                <td class="shop_table_text">${bakeryList[vs.count-1].bakery_address} ${bakeryList[vs.count-1].bakery_detail_address}</td>
+				                            </tr>
+				                            <tr>
+				                                <td class="shop_table_text">${bakeryList[vs.count-1].bakery_phone}</td>
+				                            </tr>
+				                        </table>
+				                    </div>
+			                    </c:if>
+		                    </c:forEach>
+		            	</c:otherwise>
+                    </c:choose>
+                    <c:if test="${not empty bakeryList}">
+				        <tr>
+				            <td colspan="6" id="td_paging">
+				                <%@ include file="paging.jsp" %>
+				            </td>
+				        </tr>
+				    </c:if>
                 </div>
             </form>
         </section>
