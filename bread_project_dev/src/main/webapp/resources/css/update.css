@@ -140,7 +140,6 @@ h1{font-size:0;}
         }
         #update-box{
             position: relative;
-            right:100px;
             width:800px;
             height:990px;
             border:1px solid gray;
@@ -210,6 +209,8 @@ h1{font-size:0;}
         #member_img1{
             width:150px;
             height:150px;
+            border:none;
+            border-radius:100%;
         }
         #update-submenu{
             margin-top:42px;
