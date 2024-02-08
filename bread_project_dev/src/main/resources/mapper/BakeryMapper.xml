@@ -17,7 +17,7 @@
 
   	<!-- 가게 업데이트 처리 -->
    	<update id="update" parameterType="bakeryVO">
-        update bc_bakery set bakery_name=#{bakery_name}, bakery_address=#{bakery_address}, bakery_postcode=#{bakery_detail_address}, bakery_homepage=#{bakery_homepage}, bakery_phone=#{bakery_phone}
+        update bc_bakery set bakery_name=#{bakery_name}, bakery_address=#{bakery_address}, bakery_postcode=#{bakery_postcode}, bakery_detail_address=#{bakery_detail_address}, bakery_homepage=#{bakery_homepage}, bakery_phone=#{bakery_phone}
         where bakery_idx=#{bakery_idx}
     </update>
     

@@ -1,3 +1,5 @@
+@charset "UTF-8";
+
 h1{font-size:0;}
         * {margin:0;
           padding:0;
@@ -9,7 +11,7 @@ h1{font-size:0;}
             width: 1536px;
             height: 1500px;
             margin: 0 auto;
-        }
+        }   
         /********** 헤더 영역 **********/
         header{
             width:1536px;
@@ -88,12 +90,21 @@ h1{font-size:0;}
             width:1136px;
             border-top: 1px solid gray;
         }
+
+
+
         /********** 메인 영역 **********/
+
+        /********** 사이드 메뉴바 영역 **********/
+
+
         #container-content{
             display: inline-block;
             width: 1536px; 
-            height: 1000px; /* 본인의 작업 사이즈에 맞게 변경 */
+            height: 1000px;
+            margin: 0 auto;
         }
+
         #side-nav{
             float: left;
             width:300px;
@@ -119,12 +130,12 @@ h1{font-size:0;}
         #side-menu ul{
             list-style: none;
         }
-        #side-menu ul a{
+        #side-menu ul li a{
             text-decoration: none;
+            color:gray;
         }
         #side-menu ul li{
             font: 35px solid;
-            color:gray;
             font-family: 'Black Han Sans', sans-serif;
             font-family: 'Gasoek One', sans-serif;
             font-family: 'Gothic A1', sans-serif;
@@ -132,171 +143,127 @@ h1{font-size:0;}
             margin-top: 30px;
             padding-right:35px;
         }
-        #main-area{
-            float:left;
-            width:1236px;
-            height:1000px;
-        }
-        #shopadd-box{
-            position: relative;
-            width:800px;
-            height:940px;
-            border:1px solid gray;
-            margin:0 auto;
-            border-radius:15px;  
-        }
-        #shopadd-box h2{
-            position: relative;
-            left:230px;
-            top:50px;
-            font: 60px solid;
-            font-family: 'Black Han Sans', sans-serif;
-            font-family: 'Gasoek One', sans-serif;
-            font-family: 'Gothic A1', sans-serif;
+
+        /********** 사이드 메뉴바 영역 끝 **********/
+        #all_box{
+            width: 100%;
+            max-width: 1200px;
+            height: 100%;
+            float: right;
             font-family: 'Jua', sans-serif;
-            color:gray;
-            width:340px;
-            height:90px;
         }
-        #shopadd-table{
-            position: relative;
-            width:700px;
-            height:630px;
-            top:100px;
-            left:50px;
-            border-bottom: 1px solid lightgray;
-        }
-        #table-shopadd{
-            position: relative;
-            right:15px;
-            margin-top:100px;
-            width:1100px;
-            height:400px;
-        }
-        #table-shopadd td{
-            font: 25px solid;
-            font-family: 'Black Han Sans', sans-serif;
-            font-family: 'Gasoek One', sans-serif;
-            font-family: 'Gothic A1', sans-serif;
-            font-family: 'Jua', sans-serif;
-            color:gray;
+        #order_box{
+            width: 100%;
+            max-width: 1137px;
+            height: 100%;
+            margin: 0 auto;
+            margin-left: 63px;
             text-align: center;
+            border: 1px solid lightgrey;
+            border-radius: 15px;
+            padding: 30px;
         }
-        #table-shopadd input{
-            border: 1px solid lightgray;
-            border-radius: 20px;
-            margin-right:61px;
-            padding-left:10px;
-            width:300px;
-            height:40px;
-            color:gray;
-            font:20px solid, sans-serif;
+        #order_text{
+            border-bottom: 1px solid gray;
         }
-        #table-shopadd input:-webkit-autofill{
-            -webkit-box-shadow: 0 0 0 1000px white inset;
-            -webkit-text-fill-color: gray;
+        #order_text ul{
+            display: flex;
+            margin-right: 25px;
+            padding: 0;
         }
-        #table-shopadd tr{
+        #order_text ul li{
+            display: inline;
+            width: 166px;
+            list-style: none;
+            font-size: 25px;
+        }
+        .order_table_box{
+            width: 100%;
+            max-width: 1000px;
+        }
+        .order_table{
             position: relative;
-            left:95px;
-            height:70px;
+            right:12px;
+            width:1100px;
+            margin-top: 19px;
         }
-        #bakery_img{
+        .order_table th{
             position: relative;
-            left:265px;
-            width:100px;
-            height:100px;
+            right:25px;
+            padding-bottom: 20px;
+            font-weight:normal;
+            font-size:25px;
+            font-family:'Jua', sans-serif;
         }
-        #bakery_img1{
-            width:150px;
-            height:150px;
-        }
-        #table-shopadd #bakery_address{
-            font:15px solid, sans-serif;
-        }
-        #table-shopadd #bakery_postcode{
-            font:15px solid, sans-serif;
-            margin-top: 10px;
-            margin-right:260px;
-            padding-right:10px;
-            width:100px;
-            height:40px;
-            text-align:center;
-        }
-        #table-shopadd #bakery_detail_address{
-            font:15px solid, sans-serif;
+        .order_table tr{
             position: relative;
-            right:363px;
-            top:25px;
-            width:195px;
-            height:40px;
-        }
-        button[type=button]{
-            position: relative;
-            background-color:white;
-            border:none;
-            color:gray;
-            top:25px;
-            right:475px;
-        }
-        button[type=button]:hover{
-            background-color:white;
-            border:none;
-            color:#F39C12;
-            transition: 0.5s;
-        }
-        #update-submenu{
-            margin-top:42px;
-            width:190px;
+            left:20px;
+            width:1536px;
             height:50px;
         }
-        input[type=password]{
-            padding-bottom: 5px;
+        .order_table tr td{
+            position: relative;
+            padding-top: 20px;
+            width: 166px;
+            height: 10%;
+            right:25px;
+            font-size: 20px;
+        } 
+        .order_table tr td img{
+            width: 80px;
+            height: 70px;
+            border-radius: 15px;
         }
-        input[type=password]::placeholder{
-            font: 14px solid, sans-serif;
+        #product{
+            width:410px;
+        }
+        input[type=button]{
+            border: 1px solid gray;
+            background-color: white;
+        }
+
+        /********** 페이징 영역 **********/
+        .page_box{
+            clear: both;
+            margin: 0 auto;
+            width: 50%;
+            text-align: center;
+        }
+        .pageNav{
+            display: flex;
+            margin: 30px 0 0 0;
+            justify-content: center;
+            list-style: none;
+            padding: 0;
+            font: 25px solid bold;
+            font-family: 'Jua', sans-serif;
+        }
+        .page_box ul li{
+            padding: 10px;
+            text-decoration: none;
+        }
+        .page_box ul li a{
+            text-decoration: none;
             color: gray;
         }
-        button[type=reset]{
-            position: relative;
-            left:497px;
-            font: 25px solid;
-            font-family: 'Black Han Sans', sans-serif;
-            font-family: 'Gasoek One', sans-serif;
-            font-family: 'Gothic A1', sans-serif;
-            font-family: 'Jua', sans-serif;
-            color:gray;
-            background-color: white;
-            border:none;
-        }
-        button[type=reset]:hover{
+        .page_box ul li a:hover{
             color:#F39C12;
             border:none;
-            transition: 0.5s;
+            transition: 0.2s;
         }
-        button[type=submit]{
-            position: relative;
-            left:517px;
-            font: 25px solid;
-            font-family: 'Black Han Sans', sans-serif;
-            font-family: 'Gasoek One', sans-serif;
-            font-family: 'Gothic A1', sans-serif;
-            font-family: 'Jua', sans-serif;
-            color:gray;
+        button{
+            width:60px;
+            height:35px;
+            border:1px solid gray;
             background-color: white;
-            border:none;
         }
-        button[type=submit]:hover{
-            color:#F39C12;
-            border:none;
-            transition: 0.5s;
-        }        
-        /********** 푸터 영역 **********/
+
+        /********** 풋터 **********/
         footer{
             position:absolute;
+            top: 1450px;
             width:1536px;
             height:300px;
-            margin-top:200px;
             margin-bottom:0px;
             background-color: rgb(245,246,247);
         }

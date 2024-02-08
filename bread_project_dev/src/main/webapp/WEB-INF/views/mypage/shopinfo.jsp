@@ -29,10 +29,10 @@
             <div id="side-menu">
                 <h2>마이 페이지</h2>
                 <ul>
-                    <a href="${pageContext.request.contextPath}/mypage/update.do"><li>프로필 수정</li></a>
+                    <a href="${pageContext.request.contextPath}/member/update.do"><li>프로필 수정</li></a>
                     <a href="#"><li>구매내역</li></a>
                     <a href="#"><li>장바구니</li></a>
-                    <a href="${pageContext.request.contextPath}/mypage/shopinfo.do"><li>가게관리</li></a>
+                    <a href="${pageContext.request.contextPath}/mypage/shopinfo.do?member_idx=${member.member_idx}"><li>가게관리</li></a>
                     <a href="#"><li>상품관리</li></a>
                     <a href="#"><li>주문관리</li></a>
                 </ul>
@@ -106,7 +106,7 @@
 			                            </tr>
 			                    </table>
 			                    <div id="update-submenu" colspan="2">
-			                        <button type="reset" id="cancel" value="">등록 취소</button>
+			                        <button type="reset" id="cancel" value="" onclick="location.href='/myapp'">수정 취소</button>
 			                        <button type="submit" id="create" value="">가게 수정</button>
 			                    </div>
 			                </div>

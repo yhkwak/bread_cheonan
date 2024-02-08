@@ -46,13 +46,13 @@
 			        <div id="login_box">
 				        <div id="login_box2">
 				            <c:choose>
-							    <c:when test="${not empty member.member_img_save}">
+							    <c:when test="${member.member_img_save ne default_img.png}">
 								    <!-- 업로드한 경우 업로드한 이미지 표시 -->
 								    <img id="login_logo" src="${pageContext.request.contextPath}/resources/uploads/${member.member_img_save}">
 								</c:when>
 								<c:otherwise>
 								    <!-- 기본 이미지 표시 -->
-								    <img id="login_logo" src="${pageContext.request.contextPath}/resources/css/img/c5.png">
+								    <img id="login_logo_default" src="${pageContext.request.contextPath}/resources/css/img/c5.png">
 								</c:otherwise>
 							</c:choose>
 				            <div id="text1">${member.member_nickname}<span> 님</span>&nbsp;&nbsp;환영합니다</div>
