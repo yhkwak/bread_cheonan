@@ -130,6 +130,7 @@
         }
         #side-menu ul a{
             text-decoration: none;
+            color:gray;
         }
         #side-menu ul li{
             font: 35px solid;
@@ -149,84 +150,93 @@
             height: 100%;
             float: right;
             font-family: 'Jua', sans-serif;
+            text-align: center;
+        }
+        #all_box h2{
+            font-size: 50px;
+            margin: 30px 0 30px 0;
         }
         #product_box{
             width: 100%;
-            max-width: 1000px;
+            max-width: 1050px;
             height: 100%;
             margin: 0 auto;
             text-align: center;
             border: 1px solid lightgrey;
             border-radius: 15px;
-            padding: 30px;
+            padding: 10px 30px 30px 30px;
         }
-        #product_text{
-            border-bottom: 1px solid gray;
+        .product_table tr:first-child {
+            width: 100%;
+            max-width: 1000px;
+            height: 75px;
+            vertical-align: middle;
+            border-bottom: 1px solid lightgray;
         }
-        #product_text ul{
-            display: flex;
-            padding: 0;
+        .product_table tr th:first-child{
+            width: 283px;
         }
-        #product_text ul li{
-            display: inline;
-            width: 166px;
-            list-style: none;
-            font-size: 25px;
+        .product_table tr th{
+            font: 25px solid;
+            font-family: 'Jua', sans-serif;
         }
         .product_table_box{
             width: 100%;
             max-width: 1000px;
-
         }
-        .product_table{
-            margin-top: 19px;
+        .product_table tr td:first-child{
+            width: 285px;
+        }
+        .product_table tr td p{
+            vertical-align: middle;
         }
         .product_table tr td{
-            width: 166px;
+            width: 144px;
             height: 10%;
             font-size: 20px;
+            padding-top: 10px;
         }
         .product_table tr td img{
             width: 80px;
             height: 70px;
             border-radius: 15px;
+            float: left;
         }
 
-        /********** 페이징 영역 **********/
-        .page_box{
-            clear: both;
-            margin: 0 auto;
-            width: 50%;
-            text-align: center;
+
+
+        .update_btn{
+            background-color: #fff;
+            border: none;
         }
-        .pageNav{
-            display: flex;
-            margin: 30px 0 0 0;
-            justify-content: center;
-            list-style: none;
-            padding: 0;
-            font: 25px solid bold;
-            font-family: 'Jua', sans-serif;
-        }
-        .page_box ul li{
-            padding: 10px;
-            text-decoration: none;
-        }
-        .page_box ul li a{
-            text-decoration: none;
-            color: gray;
-        }
-        .page_box ul li a:hover{
+        .update_btn:hover{
             color:#F39C12;
             border:none;
-            transition: 0.2s;
+            transition: 0.5s;
         }
+        #product_btn_box{
+            width: 100px;
+            float: right;
+            margin: 30px 125px 0 0;
+            
+        }
+        #product_btn_box input[type="submit"]{
+            border: none;
+            background-color: #fff;
+            font-size: 25px;
+        }
+        #product_btn_box input:hover{
+            color:#F39C12;
+            border:none;
+            transition: 0.5s;
+        }
+
 
 
         /********** 풋터 **********/
         footer{
             position:absolute;
-            top: 1450px;
+            top: 1500px;
             width:1536px;
             height:300px;
             margin-bottom:0px;
