@@ -23,7 +23,7 @@
                 <div id="side-menu">
                     <h2>빵집 찾기</h2>
                     <ul>
-                        <a href="#"><li>빵집 검색</li></a>
+                        <a href="${pageContext.request.contextPath}/search/searchBakery.do"><li>빵집 검색</li></a>
                     </ul>
                 </div>
             </div>
@@ -71,7 +71,8 @@
                     <div id="shop_table">
                         <table id="shop_table_list">
                             <tr>    
-                                <td rowspan="4" class="shop_img"><img src="../resources/css/img/test_img02.png"></td>                            </tr>
+                                <td rowspan="4" class="shop_img"><img src="../resources/css/img/test_img02.png"></td>                            
+                            </tr>
                             <tr>
                                 <td class="shop_table_text"><a href="#"> 수희네 스윗한 빵집</a></td>
                             </tr>
@@ -136,6 +137,17 @@
                             </tr>
                         </table>
                         
+                    </div>
+                    <div class="page_box">
+                        <ul class="pageNav">
+                            <li><a href="#" class="arrow_left"><<</a></li>
+                            <li><a href="#" class="1">1</a></li>
+                            <li><a href="#" class="2">2</a></li>
+                            <li><a href="#" class="3">3</a></li>
+                            <li><a href="#" class="4">4</a></li>
+                            <li><a href="#" class="5">5</a></li>
+                            <li><a href="#" class="arrow_last">>></a></li>
+                        </ul>
                     </div>
                 </div>
             </form>

@@ -26,7 +26,7 @@
                 <div id="side-menu">
                     <h2>빵집 보기</h2>
                     <ul>
-                        <a href="#"><li>빵집 검색</li></a>
+                        <a href="${pageContext.request.contextPath}/search/searchBakery.do"><li>빵집 검색</li></a>
                     </ul>
                 </div>
             </div>
@@ -84,10 +84,6 @@
                                         </select>
                                     </div>
                                 </td>
-                                <td>
-                                    <input type="checkbox" id="check_box1">
-                                    <label for="check_box1"></label>
-                                </td>
                             </tr>
                         </table>
 
@@ -118,10 +114,6 @@
                                         </select>
                                     </div>
                                 </td>
-                                <td>
-                                    <input type="checkbox" id="check_box2">
-                                    <label for="check_box2"></label>
-                                </td>
                             </tr>
                         </table>
 
@@ -151,10 +143,6 @@
                                             <option value="02">3</option>
                                         </select>
                                     </div>
-                                </td>
-                                <td>
-                                    <input type="checkbox" id="check_box3">
-                                    <label for="check_box3"></label>
                                 </td>
                             </tr>
                         </table>
@@ -162,7 +150,7 @@
                         <div id="cart_box">
                             <div><input type="submit" id="cart_btn" value="+ 장바구니 담기"></div>
                         </div>
-
+						
                     </form>
                 </div>
 

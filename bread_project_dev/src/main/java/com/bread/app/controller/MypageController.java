@@ -66,4 +66,14 @@ public class MypageController {
 		}
 		return viewPage;
 	}
+	
+	@GetMapping("/productManagement.do")
+	public String productManagement(HttpServletRequest request) {
+		
+		String viewPage = "mypage/productManagement";
+		
+		return viewPage;
+	}
+	
+	
 }
