@@ -162,6 +162,9 @@ span {
 	height: 900px;
 }
 
+#notice-title {
+	font-size: 20px;
+}
 
 /********** 푸터 영역 **********/
 footer {

@@ -1,6 +1,7 @@
 package com.bread.app.vo;
 
 import java.util.Date;
+import java.util.List;
 
 import org.springframework.web.multipart.MultipartFile;
 
@@ -18,4 +19,5 @@ public class NoticeVO {
 	private int del_or_not;
 	
 	private MultipartFile uploadFile;
+	private List<MultipartFile> uploadFiles; // 여러 파일을 처리하기 위한 리스트
 }
