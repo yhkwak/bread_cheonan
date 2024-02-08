@@ -4,7 +4,6 @@ import lombok.Data;
 
 @Data
 public class SearchVO {
-	private String searchField;
 	private String searchWord;
 	//보완된 SQL문으로 인해 추가함
 	private int pageNum;

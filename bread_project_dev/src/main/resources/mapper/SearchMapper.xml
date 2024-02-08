@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.bread.app.SearchMapper">
+	<!-- Create -->
+	
+	
+	
+	
+	<!-- Read -->
+	
+	<!-- 전체 빵집 수 조회 -->
+	<select id="getTotalCount" parameterType="searchVO"	resultType="_int">
+		<!-- 검색어가 있는 경우와 없는 경우 -->
+		<choose>
+			<when test="searchWord != null">
+				select count(*) from bc_bakery
+					and bakery_name like CONCAT('%',#{searchWord},'%')
+			</when>
+			<otherwise>
+				select count(*) from bc_bakery
+			</otherwise>
+		</choose>
+	</select>
+	
+	<!-- 빵집 조회 -->
+	<select id="getBakerys" parameterType="searchVO" resultType="bakeryVO">
+		<!-- if~else구문, switch구문은 JSTL과 같이 choose-when-otherwise구문을 사용함 -->
+		<choose>
+			<when test="searchWord != null"><!-- 검색어가 있는 경우 -->
+				select /*+ INDEX(bc_bakery bc_bakery_pk) */
+				*
+				from bc_bakery
+				and bakery_name like CONCAT('%',#{searchWord},'%')
+				order by bakery_idx
+				limit #{startIdx}, 5
+				<!-- limit (#{pageNum}-1)*10, 10 ~ MySQL 구문오류 발생 (#{pageNum}-1)*10 => 
+					searchVO 입력값에서 #{startIdx}으로 추출해서 사용할 수 있도록 소스를 변경함 -->
+
+			</when>
+			<otherwise><!-- 검색어가 없는 경우 -->
+				select /*+ INDEX(bc_bakery bc_bakery_pk) */
+				*
+				from bc_bakery
+				order by bakery_idx
+				limit #{startIdx}, 5
+				<!-- limit (#{pageNum}-1)*10, 10 ~ MySQL 구문오류 발생 (#{pageNum}-1)*10 => 
+					searchVO 입력값에서 #{startIdx}으로 추출해서 사용할 수 있도록 소스를 변경함 -->
+			</otherwise>
+		</choose>
+	</select>
+	
+	<!--  -->
+	
+	
+	<!-- Update -->
+	
+	<!-- Delete -->
+</mapper>

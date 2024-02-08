@@ -44,7 +44,7 @@
                     <div id="member_img">
                     <label for="file_input" style="cursor: pointer;">
                     <img id="member_img1" name="member_img" src="<c:choose>
-					    <c:when test="${not empty member.member_img_save}">
+					    <c:when test="${member.member_img_save ne default_img.png}">
 					        ${pageContext.request.contextPath}/resources/uploads/${member.member_img_save}
 					    </c:when>
 					    <c:otherwise>
