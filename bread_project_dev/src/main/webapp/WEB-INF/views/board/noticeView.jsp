@@ -1,4 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,7 +20,6 @@
 		<%@ include file = "../common/header.jsp" %>
 		
 		<section id="container-content">
-			<h1>내용 영역</h1>
 			<div id="side-nav">
 				<div id="side-menu">
 					<h2>공지사항</h2>
@@ -26,7 +27,22 @@
 				</div>
 			</div>
 			<div id="main-area">
-				
+				<form name="frm_noticeview" action="update.do">
+							<h2>${notice.title}</h2>
+			    <div id="notice-details">
+	                <p>작성일: <fmt:formatDate value="${notice.post_date}" pattern="yyyy.MM.dd" /></p>
+	                <p>내용:</p>
+                	<div>${notice.content}</div>
+                	<input type="hidden" name="notice_idx" value="${notice.notice_idx}" />
+	                <c:if test="${not empty notice.originfile_name}">
+	                    <p>첨부파일: <a href="${pageContext.request.contextPath}/board/download.do?originfile_name=${notice.originfile_name}&savefile_name=${notice.savefile_name}">${notice.originfile_name}</a></p>
+	                </c:if>
+	                 <c:if test="${member.grade eq 2}">
+	                	<button type="submit" id="update">수정하기</button>
+	                	<input type="button" value="삭제하기" onclick="location.href='delete.do'">
+	                </c:if>	
+	            </div>
+	            </form>
 			</div>
 		</section>
 		

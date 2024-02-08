@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+ <mapper namespace="com.bread.app.NoticeMapper">
+ 	
+ 	<!-- Create -->
+ 	
+	<!-- 글 등록 -->
+	<insert id="insert" parameterType="noticeVO">
+		<choose>
+			<when test="originfile_name != null"><!-- test 조건식에 사용되는 변수: 입력값에서 가져온 변수  -->
+				insert into bc_notice (notice_idx, title, content, originfile_name, savefile_name)
+					values(#{notice_idx},#{title},#{content},#{originfile_name},#{savefile_name})
+			</when>
+			<otherwise>
+				insert into bc_notice (notice_idx, title, content) 
+					values(#{notice_idx},#{title},#{content})
+			</otherwise>
+		</choose>
+	</insert>
+	
+	
+ 	<!-- Read -->
+ 	<!-- 모든 게시글 조회: select -->
+	<select id="getBoards" parameterType="searchVO" resultType="noticeVO">
+		    select /*+ INDEX(bc_notice bc_notice_pk) */
+		    *
+		    from bc_notice
+		    where del_or_not = 1
+		    order by notice_idx desc
+		    limit 
+		    <choose>
+		        <when test="startIdx >= 0">
+		            #{startIdx}, 10
+		        </when>
+		        <otherwise>
+		            0, 10
+		        </otherwise>
+		    </choose>
+	</select>
+	
+		<!-- 하나의 게시글 조회: select -->
+	<select id="getBoard" parameterType="_int" resultType="noticeVO">
+		select * from bc_notice where notice_idx = #{notice_idx}
+	</select>
+	
+	
+	<!-- Update -->
+	<!-- 게시글 수정 -->
+	<update id="update" parameterType="noticeVO">
+		<choose>
+			<when test="originfile_name != null"><!-- test 조건식에 사용되는 변수: 입력값에서 가져온 변수  -->
+				update bc_notice set title=#{title}, content=#{content}, originfile_name=#{originfile_name},
+				savefile_name=#{savefile_name}, update_date=now() 
+				where notice_idx=#{notice_idx}
+			</when>
+			<otherwise>
+				update bc_notice set title=#{title}, content=#{content}, update_date=now()
+				where notice_idx=#{notice_idx}
+			</otherwise>
+		</choose>	
+	</update>
+		
+	<!-- Delete -->
+	<!-- 게시글 삭제 -->
+	<update id="delete" parameterType="_int">
+		update bc_notice set del_or_not=-1, update_date=now()
+				        where notice_idx=#{notice_idx}
+	</update>
+ </mapper>
