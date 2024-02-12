@@ -27,7 +27,7 @@
 		    select /*+ INDEX(bc_notice bc_notice_pk) */
 		    *
 		    from bc_notice
-		    where del_or_not = 1
+		    where del_or_not != -1
 		    order by notice_idx desc
 		    limit 
 		    <choose>
@@ -42,7 +42,7 @@
 	
 		<!-- 하나의 게시글 조회: select -->
 	<select id="getBoard" parameterType="_int" resultType="noticeVO">
-		select * from bc_notice where notice_idx = #{notice_idx}
+		select * from bc_notice where notice_idx = #{notice_idx} AND del_or_not != -1
 	</select>
 	
 	

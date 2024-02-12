@@ -9,7 +9,7 @@
  		<typeAlias alias="bakeryVO" type="com.bread.app.vo.BakeryVO" />
  		<typeAlias alias="searchVO" type="com.bread.app.vo.SearchVO" />
  		<typeAlias alias="noticeVO" type="com.bread.app.vo.NoticeVO" />
- 		
+		<typeAlias alias="breadVO" type="com.bread.app.vo.BreadVO" />
  	</typeAliases>
  
 </configuration>

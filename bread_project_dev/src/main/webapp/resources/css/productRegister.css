@@ -1,0 +1,308 @@
+@charset "UTF-8";
+
+h1{font-size:0;}
+* {margin:0;
+    padding:0;
+}
+body{
+    overflow-x: hidden;
+}
+#wrap{
+    width: 1536px;
+    height: 1500px;
+    margin: 0 auto;
+}
+/********** 헤더 영역 **********/
+header{
+    width:1536px;
+    height: 245px;
+}
+#main_logo{
+    position:relative;
+    top: 50px;
+    left:-7px;
+    height: 200px;
+    width: 350px;
+    cursor: pointer;
+}
+#c1{
+    position:relative;
+    left: 1160px;
+    bottom:786px;
+    width:36px;
+    height:36px;
+}
+#c2{
+    position: relative;
+    left: 37px;
+    top:63px;
+    height:45px;
+    width:45px;
+}
+#c3{
+    position: relative;
+    left:262px;
+    top:63px;
+    height:45px;
+    width:45px;
+}
+#c4{
+    position: relative;
+    left: 462px;
+    top:66px;
+    height:45px;
+    width:45px;
+}
+#c5{
+    position: relative;
+    left: 663px;
+    top:63px;
+    height:45px;
+    width:45px;
+}
+#header_list{
+    position: relative;
+    left:457px;
+    bottom:80px;
+}
+#header_list ul li{
+    display:inline;
+    width:260px;
+    float: left;
+    list-style: none;
+}
+#header_list ul li a{
+    font: 40px solid;
+    font-family: 'Grape Nuts', cursive;
+    font-family: 'Nanum Pen Script', cursive;
+    color:gray;
+    text-decoration-line: none;
+}
+span{
+    font: bold 50px solid;
+    font-family: 'Grape Nuts', cursive;
+    font-family: 'Nanum Pen Script', cursive;
+    color: #F39C12;
+}
+#line1{
+    position: relative;
+    left:400px;
+    width:1136px;
+    border-top: 1px solid gray;
+}
+/********** 메인 영역 **********/
+#container-content{
+    display: inline-block;
+    width: 1536px;
+    height: 1000px; /* 본인의 작업 사이즈에 맞게 변경 */
+}
+#side-nav{
+    float: left;
+    width:300px;
+    height: 1000px; /* container-content height 크기와 동일하게 설정 */
+}
+#side-menu{
+    position: relative;
+    left:70px;
+    top:100px;
+    width: 220px;
+    height: 400px;
+    text-decoration: none;
+    text-align: center;
+}
+#side-menu h2{
+    font: 45px solid;
+    color:rgba(0, 0, 0, 0.788);
+    font-family: 'Black Han Sans', sans-serif;
+    font-family: 'Gasoek One', sans-serif;
+    font-family: 'Gothic A1', sans-serif;
+    font-family: 'Jua', sans-serif;
+}
+#side-menu ul{
+    list-style: none;
+}
+#side-menu ul li a{
+    text-decoration: none;
+    color:gray;
+}
+#side-menu ul li{
+    font: 35px solid;
+    font-family: 'Black Han Sans', sans-serif;
+    font-family: 'Gasoek One', sans-serif;
+    font-family: 'Gothic A1', sans-serif;
+    font-family: 'Jua', sans-serif;
+    margin-top: 30px;
+    padding-right:35px;
+}
+#main-area{
+    float:left;
+    width:1236px;
+    height:1000px;
+}
+#register-box{
+    position: relative;
+    width:800px;
+    height:990px;
+    border:1px solid gray;
+    margin:0 auto;
+    border-radius:15px;
+}
+#register-box h2{
+    position: relative;
+    left:260px;
+    top:50px;
+    font: 60px solid;
+    font-family: 'Black Han Sans', sans-serif;
+    font-family: 'Gasoek One', sans-serif;
+    font-family: 'Gothic A1', sans-serif;
+    font-family: 'Jua', sans-serif;
+    color:gray;
+    width:260px;
+    height:90px;
+}
+#register-table{
+    position: relative;
+    width:700px;
+    height:680px;
+    top:100px;
+    left:50px;
+    border-bottom: 1px solid lightgray;
+}
+#table-register{
+    margin-top:100px;
+    width:700px;
+    height:450px;
+}
+#table-update td{
+    font: 25px solid;
+    font-family: 'Black Han Sans', sans-serif;
+    font-family: 'Gasoek One', sans-serif;
+    font-family: 'Gothic A1', sans-serif;
+    font-family: 'Jua', sans-serif;
+    color:gray;
+    text-align: center;
+}
+#table-update input{
+    border: 1px solid lightgray;
+    border-radius: 20px;
+    margin-right:120px;
+    padding-left:10px;
+    width:300px;
+    height:40px;
+    color:gray;
+    font:20px solid, sans-serif;
+}
+#table-update input:-webkit-autofill{
+    -webkit-box-shadow: 0 0 0 1000px white inset;
+    -webkit-text-fill-color: gray;
+}
+#table-update tr{
+    position: relative;
+    left:95px;
+    height:70px;
+}
+#product_img{
+    position: relative;
+    left:265px;
+    width:100px;
+    height:100px;
+}
+#product_img1{
+    width:150px;
+    height:150px;
+    border:none;
+    border-radius:100%;
+}
+#register-submenu{
+    margin-top:42px;
+    width:205px;
+    height:50px;
+}
+input[type=password]{
+    padding-bottom: 5px;
+}
+input[type=password]::placeholder{
+    font: 14px solid, sans-serif;;
+    color: gray;
+}
+button[type=reset]{
+    position: relative;
+    left:476px;
+    font: 25px solid;
+    font-family: 'Black Han Sans', sans-serif;
+    font-family: 'Gasoek One', sans-serif;
+    font-family: 'Gothic A1', sans-serif;
+    font-family: 'Jua', sans-serif;
+    color:gray;
+    background-color: white;
+    border:none;
+}
+button[type=reset]:hover{
+    color:#F39C12;
+    border:none;
+    transition: 0.5s;
+}
+button[type=submit]{
+    position: relative;
+    left:496px;
+    font: 25px solid;
+    font-family: 'Black Han Sans', sans-serif;
+    font-family: 'Gasoek One', sans-serif;
+    font-family: 'Gothic A1', sans-serif;
+    font-family: 'Jua', sans-serif;
+    color:gray;
+    background-color: white;
+    border:none;
+}
+button[type=submit]:hover{
+    color:#F39C12;
+    border:none;
+    transition: 0.5s;
+}
+/********** 푸터 영역 **********/
+footer{
+    position:absolute;
+    width:1536px;
+    height:300px;
+    margin-top:200px;
+    margin-bottom:0px;
+    background-color: rgb(245,246,247);
+}
+#infobox{
+    position: relative;
+    top:20px;
+    width:1536px;
+    height:300px;
+}
+#infobox ul{
+    width:400px;
+    height:400px;
+}
+#infobox ul li{
+    list-style: none;
+    width:400px;
+}
+#infobox span{
+    font: 40px solid;
+    color:gray;
+    font-family: 'Black Han Sans', sans-serif;
+    font-family: 'Gasoek One', sans-serif;
+    font-family: 'Gothic A1', sans-serif;
+    font-family: 'Jua', sans-serif;
+}
+#infobox a{
+    font: 30px solid;
+    color:gray;
+    font-family: 'Black Han Sans', sans-serif;
+    font-family: 'Gasoek One', sans-serif;
+    font-family: 'Gothic A1', sans-serif;
+    font-family: 'Jua', sans-serif;
+}
+#infobox p{
+    font: 20px solid;
+    color:gray;
+    font-family: 'Black Han Sans', sans-serif;
+    font-family: 'Gasoek One', sans-serif;
+    font-family: 'Gothic A1', sans-serif;
+    font-family: 'Jua', sans-serif;
+}
