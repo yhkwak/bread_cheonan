@@ -2,18 +2,34 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<script type="text/javascript" src="${pageContext.request.contextPath}/resources/se2/js/HuskyEZCreator.js" charset="utf-8"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/noticeWrite.js"></script>
-<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/noticeWrite.css">
-<title>공지사항 글수정</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Grape+Nuts&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Gasoek+One&family=Gothic+A1:wght@700&family=Jua&display=swap" rel="stylesheet">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+	<script type="text/javascript" src="${pageContext.request.contextPath}/resources/se2/js/HuskyEZCreator.js" charset="utf-8"></script>
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/noticeWrite.css">
+	<script>
+		// 이 변수를 global scope에 추가하여 JS 파일에서 사용할 수 있음
+		var contextPath = "${pageContext.request.contextPath}";
+	</script>
+	<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/noticeUpdate.js"></script>
+	<title>공지사항 글수정</title>
 </head>
 <body>
-	
-	<div id="wrap">
-		<section id="container-content">
-			<h2>공지사항 글수정</h2>
-			<hr>
+
+<div id="wrap">
+	<%@ include file = "../common/header.jsp" %>
+	<section id="container-content">
+		<h1>내용 영역</h1>
+		<div id="side-nav">
+			<div id="side-menu">
+				<h2>공지사항</h2>
+			</div>
+		</div>
+		<div id="main-area">
 			<form action="updateProcess.do" id="frm_update" name="frm_update" method="post" enctype="multipart/form-data">
 				<input type="hidden" name="notice_idx" value="${notice.notice_idx}" >
 				<input type="hidden" name="member_idx" value="${member.member_idx}" >
@@ -32,13 +48,17 @@
 						<td class="td-input"><input type="file" name="uploadFile" ></td>
 					</tr>
 				</table>
-				<div>
-					<input type="button" value="취소하기" onclick="location.href='notice.do'" >
-					<input type="submit" value="등록하기" id="submitBtn">
+				<div id="div-button">
+					<input type="button" id="button-write" value="취소" onclick="location.href='notice.do'" >
+					<input type="submit" value="수정하기" id="submitBtn">
 				</div>
 			</form>
-		</section>
-	</div>
+		</div>
+	</section>
+
+	<%@ include file = "../common/footer.jsp" %>
+
+</div>
 </body>
 <!--  <script>
 	var oEditors = [];
@@ -51,43 +71,43 @@
 </script>  -->
 
 <script>
-// 페이지 로드 시 SmartEditor 초기화
-var oEditors = [];
-window.onload = function() {
-    nhn.husky.EZCreator.createInIFrame({
-        oAppRef: oEditors,
-        elPlaceHolder: "content",
-        sSkinURI: "${pageContext.request.contextPath}/resources/se2/SmartEditor2Skin.html",
-        fCreator: "createSEditor2"
-    });
-};
+	// 페이지 로드 시 SmartEditor 초기화
+	var oEditors = [];
+	window.onload = function() {
+		nhn.husky.EZCreator.createInIFrame({
+			oAppRef: oEditors,
+			elPlaceHolder: "content",
+			sSkinURI: "${pageContext.request.contextPath}/resources/se2/SmartEditor2Skin.html",
+			fCreator: "createSEditor2"
+		});
+	};
 
-document.getElementById('submitBtn').addEventListener('click', function(event) {
-/*     event.preventDefault(); // 폼 기본 제출 동작 방지 */
+	document.getElementById('submitBtn').addEventListener('click', function(event) {
+		/*     event.preventDefault(); // 폼 기본 제출 동작 방지 */
 
-    // SmartEditor 내용을 textarea에 업데이트
-    oEditors[0].exec("UPDATE_CONTENTS_FIELD", []); // 에디터 인스턴스 사용
+		// SmartEditor 내용을 textarea에 업데이트
+		oEditors[0].exec("UPDATE_CONTENTS_FIELD", []); // 에디터 인스턴스 사용
 
-    var formData = new FormData(document.getElementById('frm_update'));
+		var formData = new FormData(document.getElementById('frm_update'));
 
-    fetch('updateProcess.do', {
-        method: 'POST',
-        body: formData,
-    })
-    .then(response => {
-        if (response.ok) {
-            return response.text(); // 또는 response.json() 등 서버 응답에 맞게 처리
-        }
-        throw new Error('네트워크 응답이 없습니다.');
-    })
-    .then(data => {
-        alert('글 수정이 완료되었습니다.');
-        window.location.href = 'notice.do'; // 수정 완료 후 리다이렉션 할 페이지 경로
-    })
-/*     .catch(error => {
-        console.error('글 수정 중 오류가 발생했습니다.', error);
-        alert('글 수정 중 오류가 발생했습니다.');
-    }); */
-});
+		fetch('updateProcess.do', {
+			method: 'POST',
+			body: formData,
+		})
+				.then(response => {
+					if (response.ok) {
+						return response.text(); // 또는 response.json() 등 서버 응답에 맞게 처리
+					}
+					throw new Error('네트워크 응답이 없습니다.');
+				})
+				.then(data => {
+					alert('글 수정이 완료되었습니다.');
+					window.location.href = 'notice.do'; // 수정 완료 후 리다이렉션 할 페이지 경로
+				})
+				.catch(error => {
+					console.error('글 수정 중 오류가 발생했습니다.', error);
+					alert('글 수정 중 오류가 발생했습니다.');
+				});
+	});
 </script>
 </html>

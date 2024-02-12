@@ -1,20 +1,38 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<script type="text/javascript" src="${pageContext.request.contextPath}/resources/se2/js/HuskyEZCreator.js" charset="utf-8"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/noticeWrite.js"></script>
-<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/noticeWrite.css">
-<title>공지사항 글쓰기</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Grape+Nuts&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Gasoek+One&family=Gothic+A1:wght@700&family=Jua&display=swap" rel="stylesheet">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+	<script type="text/javascript" src="${pageContext.request.contextPath}/resources/se2/js/HuskyEZCreator.js" charset="utf-8"></script>
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/noticeWrite.css">
+	<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/noticeWrite.js"></script>
+	<script>
+		// 변수를 global scope에 추가하여 JS 파일에서 사용할 수 있게 함
+		var contextPath = "${pageContext.request.contextPath}";
+	</script>
+	<title>공지사항 글쓰기</title>
 </head>
 <body>
-	
-	<div id="wrap">
-		<section id="container-content">
-			<h2>공지사항 쓰기</h2>
-			<hr>
-			<form action="${pageContext.request.contextPath}/board/noticeWriteProcess.do" id="frm_write" name="frm_write" method="post" enctype="multipart/form-data">
+
+<div id="wrap">
+	<%@ include file = "../common/header.jsp" %>
+	<section id="container-content">
+		<h1>내용 영역</h1>
+		<div id="side-nav">
+			<div id="side-menu">
+				<h2>공지사항</h2>
+			</div>
+		</div>
+		<div id="main-area">
+			<form action="${pageContext.request.contextPath}/board/noticeWriteProcess.do" id="frm_write" name="frm_write"
+				  method="post" enctype="multipart/form-data" onsubmit="return handleSubmit(event);"><!-- onsubmit 서밋버튼 눌렀을시 -> js handleSubmit 함수를 호출 -->
 				<table id="table-main">
 					<tr id="tr-title">
 						<th class="td-main">제목</th>
@@ -29,65 +47,17 @@
 						<td class="td-input"><input type="file" name="uploadFile" ></td>
 					</tr>
 				</table>
-				<div>
-					<input type="button" value="취소하기">
+				<div id="div-button">
+					<input type="button" id="button-write" value="취소">
 					<input type="submit" value="등록하기" id="submitBtn">
 				</div>
 			</form>
-		</section>
-	</div>
+		</div>
+	</section>
+
+	<%@ include file = "../common/footer.jsp" %>
+
+</div>
 </body>
-<!-- <script>
-	var oEditors = [];
-	nhn.husky.EZCreator.createInIFrame({
-	 oAppRef: oEditors,
-	 elPlaceHolder: "content",
-	 sSkinURI: "${pageContext.request.contextPath}/resources/se2/SmartEditor2Skin.html",
-	 fCreator: "createSEditor2"
-	});
-</script> -->
 
-<script>
-// 페이지 로드 시 SmartEditor 초기화
-var oEditors = [];
-window.onload = function() {
-    nhn.husky.EZCreator.createInIFrame({
-        oAppRef: oEditors,
-        elPlaceHolder: "content",
-        sSkinURI: "${pageContext.request.contextPath}/resources/se2/SmartEditor2Skin.html",
-        fCreator: "createSEditor2"
-    });
-};
-
-// "등록하기" 버튼 클릭 시 실행되는 함수
-document.getElementById('submitBtn').addEventListener('click', function(event) {
-    event.preventDefault(); // 폼 기본 제출 동작 방지
-
-    // SmartEditor 내용을 textarea에 업데이트
-    oEditors[0].exec("UPDATE_CONTENTS_FIELD", []); // 첫 번째 에디터 인스턴스 사용
-
-    var formData = new FormData(document.getElementById('frm_write'));
-
-    // fetch API를 사용하여 폼 데이터 제출
-    fetch('${pageContext.request.contextPath}/board/noticeWriteProcess.do', {
-        method: 'POST',
-        body: formData,
-    })
-    .then(response => {
-        if (response.ok) {
-            return response.text(); // 또는 response.json() 등 서버 응답에 맞게 처리
-        }
-        throw new Error('Network response was not ok.');
-    })
-    .then(data => {
-        alert('글 작성이 완료되었습니다.');
-        window.close(); // 현재 창 닫기
-        window.opener.location.reload(); // 부모 창 새로고침
-    })
-    .catch(error => {
-        console.error('글 작성 중 오류가 발생했습니다.', error);
-        alert('글 작성 중 오류가 발생했습니다.');
-    });
-});
-</script>
 </html>
