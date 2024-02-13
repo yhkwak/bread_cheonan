@@ -2,6 +2,9 @@ package com.bread.app.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.bread.app.common.FivePageNav;
 import com.bread.app.vo.BakeryVO;
+import com.bread.app.vo.BreadVO;
 import com.bread.app.vo.SearchVO;
 import com.bread.service.search.SearchService;
 
@@ -21,7 +25,7 @@ import lombok.Setter;
 public class SearchBakeryController {
 	
 		@Setter(onMethod_= {@Autowired})
-		SearchService bkList, bkPage, bkTotalCount;
+		SearchService bkList, bkPage, bkTotalCount, vBakery, getBreads;
 		@Setter(onMethod_= {@Autowired})
 		FivePageNav pageNav;
 	
@@ -48,8 +52,17 @@ public class SearchBakeryController {
 		}
 		
 		@GetMapping("/viewBakery.do")
-		public String viewBakery() {
-			return "search/viewBakery";
+		public String viewBakery(int bakery_idx, HttpServletRequest request, Model model) {
+			String viewPage = "search/viewBakery";
+			
+			BakeryVO bakeryVO = vBakery.getBakery(bakery_idx);
+			HttpSession session = request.getSession();
+			session.setAttribute("bakery", bakeryVO);
+			
+			List<BreadVO> breadList = getBreads.getBreads(bakery_idx);
+			model.addAttribute("breadList", breadList);
+			
+			return viewPage;
 		}
 
 }

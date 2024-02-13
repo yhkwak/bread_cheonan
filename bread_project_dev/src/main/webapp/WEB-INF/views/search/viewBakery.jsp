@@ -1,5 +1,8 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+<c:set var="bakery_idx" value="${param.bakery_idx}" />
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,10 +19,12 @@
 <body>
     <div id="wrap">
     
+    
     	<%@ include file = "../common/header.jsp" %>
     	
         <section id="container-content">
-
+        
+		<input type="hidden" value="${bakery_idx}">
 
 
             <div id="side-nav">
@@ -38,114 +43,59 @@
                 <div id="view_box">
                     <table id="view_table">                            
                         <tr>
-                            <th><h2>재송이네 죄송한 빵집</h2></th>
-                            <td rowspan="4" id="shop_img"><img src="../resources/css/img/test_img02.png"></td>
+                            <th><h2>${bakery.bakery_name}</h2></th>
+                            <td rowspan="4" id="shop_img"><img src="../resources/css/img/${bakey.bakery_img_save}"></td>
                         </tr>
                         <tr>
-                            <td>재송시 재송동 재송번지 재송이네</td>
+                            <td>${bakery.bakery_address} ${bakery.bakery_detail_address}</td>
                         </tr>
                         <tr>
-                            <td><img id="tel_img" src="../resources/css/img/tel_icon.png">041-123-456</td>
+                            <td><img id="tel_img" src="../resources/css/img/tel_icon.png">${bakery.bakery_phone}</td>
                         </tr>
                         <tr>
-                            <td><a href="#">홈페이지</a></td>
+                            <td><a href="https://${bakery.bakery_homepage}" target="_blank">홈페이지</a></td>
                         </tr>
                     </table>
                 </div>
 
 
-
+				
                 <div id="pickup_box">
-                    <form name="frm-pickup">
-                        <table>                          
-                            <tr>
-                                <td rowspan="5" class="bakery_img"><img id="tel_img" src="../resources/css/img/test_img06.png"></td>
-                            </tr>
-                            <tr>
-                                <td>사나이 눈물 소금빵</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>2300원</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>눈물 젖은 소금빵 드셔보셨습니까? 짠맛탱~</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>빵 나오는 시간: 08:00 / 13:00 / 16:00</td>
-                                <td>
-                                    <div id="select_box">
-                                        <select name="bread_cnt">
-                                            <option value="01">1</option>
-                                            <option value="02">2</option>
-                                            <option value="02">3</option>
-                                        </select>
-                                    </div>
-                                </td>
-                            </tr>
-                        </table>
-
-                        <table>                          
-                            <tr>
-                                <td rowspan="5" class="bakery_img"><img id="tel_img" src="../resources/css/img/test_img06.png"></td>
-                            </tr>
-                            <tr>
-                                <td>사나이 눈물 소금빵</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>2300원</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>눈물 젖은 소금빵 드셔보셨습니까? 짠맛탱~</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>빵 나오는 시간: 08:00 / 13:00 / 16:00</td>
-                                <td>
-                                    <div id="select_box">
-                                        <select name="bread_cnt">
-                                            <option value="01">1</option>
-                                            <option value="02">2</option>
-                                            <option value="02">3</option>
-                                        </select>
-                                    </div>
-                                </td>
-                            </tr>
-                        </table>
-
-                        <table>                          
-                            <tr>
-                                <td rowspan="5" class="bakery_img"><img id="tel_img" src="../resources/css/img/test_img06.png"></td>
-                            </tr>
-                            <tr>
-                                <td>사나이 눈물 소금빵</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>2300원</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>눈물 젖은 소금빵 드셔보셨습니까? 짠맛탱~</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>빵 나오는 시간: 08:00 / 13:00 / 16:00</td>
-                                <td>
-                                    <div id="select_box">
-                                        <select name="bread_cnt">
-                                            <option value="01">1</option>
-                                            <option value="02">2</option>
-                                            <option value="02">3</option>
-                                        </select>
-                                    </div>
-                                </td>
-                            </tr>
-                        </table>
+                    <form name="frm-pickup" method="post" action="#">
+                        <c:forEach var="i" begin="0" end="2">
+	                        <table>                          
+	                            <tr>
+	                                <td rowspan="5" class="bakery_img"><img id="tel_img" src="${pageContext.request.contextPath}/resources/uploads/${member.member_img_save}"></td>
+	                            </tr>
+	                            <tr>
+	                                <td>${breadList[i].bread_name}</td>
+	                                <td></td>
+	                            </tr>
+	                            <tr>
+	                                <td>${breadList[i].bread_price}원</td>
+	                                <td></td>
+	                            </tr>
+	                            <tr>
+	                                <td>${breadList[i].bread_content}</td>
+	                                <td></td>
+	                            </tr>
+	                            <tr>
+	                                <td>빵 나오는 시간: ${breadList[i].bread_time1}  ${breadList[i].bread_time2}  ${breadList[i].bread_time3}</td>
+	                                <td>
+	                                    <div id="select_box">
+	                                    	<input type="hidden" name="member_idx" value="${member.member_idx}">
+	                                    	<input type="hidden" name="bread_idx" value="${breadList[i].bread_idx}">
+	                                        <select name="bread_count">
+	                                        	<option value="0" selected>0</option>
+	                                            <option value="1">1</option>
+	                                            <option value="2">2</option>
+	                                            <option value="3">3</option>
+	                                        </select>
+	                                    </div>
+	                                </td>
+	                            </tr>
+	                        </table>
+						</c:forEach>
 
                         <div id="cart_box">
                             <div><input type="submit" id="cart_btn" value="+ 장바구니 담기"></div>

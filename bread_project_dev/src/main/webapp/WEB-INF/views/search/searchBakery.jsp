@@ -60,7 +60,7 @@
 				                                <td rowspan="4" class="shop_img"><img src="../resources/css/img/test_img01.png"></td>
 				                            </tr>
 				                            <tr>
-				                                <td class="shop_table_text"><a href="${pageContext.request.contextPath}/search/viewBakery.do">${bakeryList[vs.count-1].bakery_name}</a></td>
+				                                <td class="shop_table_text"><a href="${pageContext.request.contextPath}/search/viewBakery.do?bakery_idx=${bakeryList[vs.count-1].bakery_idx}">${bakeryList[vs.count-1].bakery_name}</a></td>
 				                            </tr>
 				                            <tr>
 				                                <td class="shop_table_text">${bakeryList[vs.count-1].bakery_address} ${bakeryList[vs.count-1].bakery_detail_address}</td>
