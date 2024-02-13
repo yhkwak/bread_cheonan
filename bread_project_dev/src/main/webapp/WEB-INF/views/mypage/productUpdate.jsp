@@ -28,7 +28,7 @@
             <div id="side-menu">
                 <h2>마이 페이지</h2>
                 <ul>
-                    <li><a href="${pageContext.request.contextPath}/mypage/update.do">프로필 수정</a></li>
+                    <li><a href="${pageContext.request.contextPath}/member/update.do">프로필 수정</a></li>
                     <li><a href="#">구매내역</a></li>
                     <li><a href="#">장바구니</a></li>
                     <li><a href="${pageContext.request.contextPath}/mypage/shopinfo.do?member_idx=${member.member_idx}">가게관리</a></li>

@@ -19,9 +19,9 @@
             </when>
             <otherwise>
                 insert into bc_bread (
-                bread_name, bread_price, bread_content, bakery_idx, bread_stock
+                bread_name, bread_price, bread_content, bakery_idx, bread_stock, bread_time1, bread_time2, bread_time3
                 ) values (
-                #{bread_name}, #{bread_price}, #{bread_content}, #{bakery_idx},#{bread_stock}
+                #{bread_name}, #{bread_price}, #{bread_content}, #{bakery_idx},#{bread_stock}, #{bread_time1}, #{bread_time2}, #{bread_time3}
                 )
             </otherwise>
         </choose>

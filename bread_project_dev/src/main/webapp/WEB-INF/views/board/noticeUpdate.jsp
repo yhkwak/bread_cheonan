@@ -106,7 +106,7 @@
 				})
 				.catch(error => {
 					console.error('글 수정 중 오류가 발생했습니다.', error);
-					alert('글 수정 중 오류가 발생했습니다.');
+					// alert('글 수정 중 오류가 발생했습니다.');
 				});
 	});
 </script>
