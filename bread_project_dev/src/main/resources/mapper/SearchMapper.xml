@@ -24,7 +24,7 @@
 		</choose>
 	</select>
 	
-	<!-- 빵집 조회 -->
+	<!-- 빵집 전체 조회 -->
 	<select id="getBakerys" parameterType="searchVO" resultType="bakeryVO">
 		<!-- if~else구문, switch구문은 JSTL과 같이 choose-when-otherwise구문을 사용함 -->
 		<choose>
@@ -51,7 +51,17 @@
 		</choose>
 	</select>
 	
-	<!--  -->
+	<!-- 빵집 한개 조회 -->
+	<select id="getBakery" parameterType="_int" resultType="bakeryVO">
+		select * from bc_bakery where bakery_idx = #{bakery_idx}
+	</select>
+	
+	<!-- 빵 정보 조회 -->
+	<select id="getBreads" parameterType="_int" resultType="breadVO">
+		select bread_name, bread_price, bread_content, bread_time1, bread_time2, bread_time3, bread_img_save, bread_stock
+			from bc_bakery bc inner join bc_bread b
+			on bc.bakery_idx = b.bakery_idx = #{bakery_idx};
+	</select>
 	
 	
 	<!-- Update -->
