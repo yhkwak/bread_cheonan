@@ -30,11 +30,11 @@
 				<h2>마이 페이지</h2>
 				<ul>
 					<a href="${pageContext.request.contextPath}/member/update.do"><li>프로필 수정</li></a>
-					<a href="#"><li>구매내역</li></a>
+					<a href="${pageContext.request.contextPath}/mypage/orderList.do"><li>구매내역</li></a>
 					<a href="#"><li>장바구니</li></a>
 					<a href="${pageContext.request.contextPath}/mypage/shopinfo.do?member_idx=${member.member_idx}"><li>가게관리</li></a>
-					<a href="#"><li>상품관리</li></a>
-					<a href="#"><li>주문관리</li></a>
+					<a href="${pageContext.request.contextPath}/mypage/productManagement.do"><li>상품관리</li></a>
+					<a href="${pageContext.request.contextPath}/mypage/orderManagement.do"><li>주문관리</li></a>
 				</ul>
 			</div>
 		</div>

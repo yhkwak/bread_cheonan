@@ -31,7 +31,7 @@
                     <li><a href="#">장바구니</a></li>
                     <li><a href="${pageContext.request.contextPath}/mypage/shopinfo.do?member_idx=${member.member_idx}">가게관리</a></li>
                     <li><a href="${pageContext.request.contextPath}/mypage/productManagement.do">상품관리</a></li>
-                    <li><a href="#">주문관리</a></li>
+                    <li><a href="${pageContext.request.contextPath}/mypage/orderManagement.do">주문관리</a></li>
                 </ul>
             </div>
         </div>
