@@ -20,4 +20,8 @@ public class HomeController {
 	public String info() {
 		return "info/companyProfile";
 	}
+	@GetMapping("/info/accessterms.do")
+	public String info2() {
+		return "info/accessterms";
+	}
 }

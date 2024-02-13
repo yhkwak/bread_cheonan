@@ -9,7 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Grape+Nuts&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Gasoek+One&family=Gothic+A1:wght@700&family=Jua&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <link rel="stylesheet" href="resources/css/orderManagement.css">
+    <link rel="stylesheet" href="../resources/css/orderManagement.css">
     
 <title>주문관리</title>
 </head>
@@ -24,7 +24,7 @@
                 <div id="side-menu">
                     <h2>마이 페이지</h2>
                     <ul>
-                        <li><a href="${pageContext.request.contextPath}/mypage/update.do">프로필 수정</a></li>
+                        <li><a href="${pageContext.request.contextPath}/member/update.do">프로필 수정</a></li>
                         <li><a href="#">구매내역</a></li>
                         <li><a href="#">장바구니</a></li>
                         <li><a href="${pageContext.request.contextPath}/mypage/shopinfo.do?member_idx=${member.member_idx}">가게관리</a></li>
@@ -51,7 +51,7 @@
                                 </tr>                            
                                 <tr>
                                     <td rowspan="2">1</td>
-                                    <td id="product" rowspan="2"><img src="resources/css/img/bread10.PNG">&emsp;경진이네 기본에 충실한 식빵</td>
+                                    <td id="product" rowspan="2"><img src="${pageContext.request.contextPath}/resources/css/img/bread10.PNG">&emsp;경진이네 기본에 충실한 식빵</td>
                                     <td rowspan="2">조경진</td>
                                     <td rowspan="2">02/07<br>19:21</td>
                                     <td rowspan="2">3</td>

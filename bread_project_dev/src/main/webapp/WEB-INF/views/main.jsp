@@ -68,7 +68,7 @@
 			        <div id="login_box">
 				        <div id="login_box2">
 				            <c:choose>
-							    <c:when test="${not empty member.member_img_save}">
+							    <c:when test="${member.member_img_save ne default_img.png}">
 								    <!-- 업로드한 경우 업로드한 이미지 표시 -->
 								    <img id="login_logo" src="${pageContext.request.contextPath}/resources/uploads/${member.member_img_save}">
 								</c:when>
@@ -77,7 +77,7 @@
 								    <img id="login_logo" src="${pageContext.request.contextPath}/resources/css/img/c5.png">
 								</c:otherwise>
 							</c:choose>
-				            <a href="#"><div id="text1"><span>${member.member_nickname}님</span>&nbsp;&nbsp;환영합니다</div></a>
+				            <div id="text1">${member.member_nickname}<span> 님</span>&nbsp;&nbsp;환영합니다</div>
 				            <div id="login_list">
 				                <a href="${pageContext.request.contextPath}/member/update.do">마이페이지&nbsp;&nbsp;</a>
 				                <a href="${pageContext.request.contextPath}/cart/cart.do">장바구니&nbsp;&nbsp;</a>
@@ -89,19 +89,26 @@
 			    <c:when test="${member.grade eq 2}">
 			        <div id="login_box">
 				        <div id="login_box2">
-				            <img id="login_logo" src="resources/css/img/c5.png">
-				            <a href="#"><div id="text1"><span>${member.member_nickname}님</span>&nbsp;&nbsp;환영합니다</div></a>
+				        <c:choose>
+				        	<c:when test="${member.member_img_save ne default_img.png}">
+								<!-- 업로드한 경우 업로드한 이미지 표시 -->
+								<img id="login_logo" src="${pageContext.request.contextPath}/resources/uploads/${member.member_img_save}">
+							</c:when>
+							<c:otherwise>
+								<!-- 기본 이미지 표시 -->
+								<img id="login_logo" src="${pageContext.request.contextPath}/resources/css/img/c5.png">
+								</c:otherwise>
+							</c:choose>
+				            <div id="text1">${member.member_nickname}<span> 님</span>&nbsp;&nbsp;환영합니다</div>
 				            <div id="login_list">
 				                <a href="${pageContext.request.contextPath}/member/update.do">마이페이지&nbsp;&nbsp;</a>
-				                <a href="#">장바구니&nbsp;&nbsp;</a>
+				                <a href="${pageContext.request.contextPath}/cart/cart.do">장바구니&nbsp;&nbsp;</a>
 				                <a href="${pageContext.request.contextPath}/member/logout.do">로그아웃</a>
 				            </div>       
 				        </div>
 			        </div>
 			    </c:when>
 			</c:choose>
-             
-            
                 <a href="#"><div id="banner1"><img id="adimage1" src="resources/css/img/adimage1.PNG"></div></a>
                 <a href="#"><div id="banner2"><img id="adimage2" src="resources/css/img/adimage2.PNG"></div></a> 
         </div>
@@ -217,7 +224,7 @@
         <div id="subbox">
             <a href="#" class="subboxtext"><div id="subbox1"><span>고객센터</span><br><br>고객의 소리를 항상 귀담아듣고 고객의 만족을 위해 <br>최선을 다하겠습니다.</div></a>
             <a href="#" class="subboxtext"><div id="subbox2"><span>광고문의</span><br><br>빵빵한천안 내에 광고를 원하시면 문의 부탁드립니다.</div></a>
-            <a href="#" class="subboxtext"><div id="subbox3"><span>이용약관</span><br><br>빵빵한천안의 이용약관을 안내하는 페이지입니다.</div></a>
+            <a href="${pageContext.request.contextPath}/info/accessterms.do" class="subboxtext"><div id="subbox3"><span>이용약관</span><br><br>빵빵한천안의 이용약관을 안내하는 페이지입니다.</div></a>
         </div> 
         </section>
 		
