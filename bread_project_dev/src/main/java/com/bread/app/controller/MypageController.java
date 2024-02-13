@@ -165,5 +165,10 @@ public class MypageController {
 	public String orderManagement() {
 		return "mypage/orderManagement";
 	}
+	
+	@GetMapping("/orderList.do")
+	public String orderList() {
+		return "mypage/orderList";
+	}
 
 }
