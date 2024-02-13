@@ -161,5 +161,9 @@ public class MypageController {
 		}
 		return viewPage;
 	}
+	@GetMapping("/orderManagement.do")
+	public String orderManagement() {
+		return "mypage/orderManagement";
+	}
 
 }
