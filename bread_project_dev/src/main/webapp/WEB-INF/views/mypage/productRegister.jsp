@@ -10,6 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Grape+Nuts&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Gasoek+One&family=Gothic+A1:wght@700&family=Jua&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/productRegister.js"></script>
     <link rel="stylesheet" href="../resources/css/productRegister.css">
     <style>
 
@@ -27,7 +28,7 @@
             <div id="side-menu">
                 <h2>마이 페이지</h2>
                 <ul>
-                    <li><a href="${pageContext.request.contextPath}/mypage/update.do">프로필 수정</a></li>
+                    <li><a href="${pageContext.request.contextPath}/member/update.do">프로필 수정</a></li>
                     <li><a href="#">구매내역</a></li>
                     <li><a href="#">장바구니</a></li>
                     <li><a href="${pageContext.request.contextPath}/mypage/shopinfo.do?member_idx=${member.member_idx}">가게관리</a></li>
@@ -63,22 +64,22 @@
                             </tr>
                             <tr>
                                 <td>제품명</td>
-                                <td><input type="text" name="bread_name" required></td>
+                                <td><input type="text" name="bread_name" oninput="validateStock(this)"  required></td>
                             </tr>
                             <tr>
                                 <td>가격</td>
-                                <td><input type="number" name="bread_price" required></td>
+                                <td><input type="text" name="bread_price" oninput="validatePrice(this)"  required></td>
                             </tr>
                             <tr>
                                 <td>빵 나오는 시간</td>
                                 <td>
-                                    <input type="text" name="bread_time1" required placeholder="예: 08:00, 13:00">
+                                    <input type="text" name="bread_time1" onkeyup="inputTimeColon(this);"  required placeholder="예: 08:00, 13:00"  maxlength ="5" >
                                 </td>
                                 <td>
-                                    <input type="text" name="bread_time2" required placeholder="예: 08:00, 13:00">
+                                    <input type="text" name="bread_time2" onkeyup="inputTimeColon(this);" placeholder="예: 08:00, 13:00"  maxlength ="5" >
                                 </td>
                                 <td>
-                                    <input type="text" name="bread_time3" required placeholder="예: 08:00, 13:00">
+                                    <input type="text" name="bread_time3" onkeyup="inputTimeColon(this);"  placeholder="예: 08:00, 13:00"  maxlength ="5" >
                                 </td>
                             </tr>
                             <tr>
@@ -103,5 +104,50 @@
     <%@ include file = "../common/footer.jsp" %>
 
 </div>
+<%--<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded", function() {
+        // 가격과 재고수량 필드에 숫자만 입력되도록 설정
+        var priceInput = document.querySelector('input[name="bread_price"]');
+        var stockInput = document.querySelector('input[name="bread_stock"]');
+
+        priceInput.addEventListener("input", enforceNumericInput);
+        stockInput.addEventListener("input", enforceNumericInput);
+
+        // 가격과 재고수량이 유효한 범위 내에 있는지 검증
+        priceInput.addEventListener("blur", function() {
+            validatePrice(this);
+        });
+
+        stockInput.addEventListener("blur", function() {
+            validateStock(this);
+        });
+    });
+
+    function enforceNumericInput(event) {
+        event.target.value = event.target.value.replace(/[^0-9]/g, '');
+    }
+
+    function validatePrice(input) {
+        const minPrice = 1000;
+        const maxPrice = 500000;
+        let value = parseInt(input.value, 10) || 0;
+
+        if (value < minPrice || value > maxPrice) {
+            alert(`가격은 ${minPrice}원 이상 ${maxPrice}원 이하여야 합니다.`);
+            input.value = "";
+        }
+    }
+
+    function validateStock(input) {
+        const minStock = 10;
+        const maxStock = 10000;
+        let value = parseInt(input.value, 10) || 0;
+
+        if (value < minStock || value > maxStock) {
+            alert(`재고수량은 ${minStock}개 이상 ${maxStock}개 이하여야 합니다.`);
+            input.value = "";
+        }
+    }
+</script>--%>
 </body>
 </html>

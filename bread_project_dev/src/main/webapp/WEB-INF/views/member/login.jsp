@@ -26,7 +26,7 @@
 	                    <table id="table-login">
 	                        <tr>
 	                            <td>아이디</td>
-	                            <td><input type="text" name="member_id" id="member_id"><br></td>
+	                            <td><input type="text" name="member_id" id="member_id" value="${saved_id}"><br></td>
 	                        </tr>
 	                        <tr>
 	                            <td>비밀번호</td>
@@ -35,9 +35,9 @@
 	                    </table>
 	                    <div id="login-menu">
 	                        <div id="save-id">
-	                            <input type="checkbox" id="checkbox">
-	                            <label for="checkbox"></label>
-	                            <a>아이디 저장하기</a>
+								<input type="checkbox" id="checkbox" name="remember_id" value="true" ${not empty saved_id ? 'checked' : ''}>
+								<label for="checkbox"></label>
+								<a>아이디 저장하기</a>
 	                        </div>
 	                        <div id="login-button">
 	                            <button type="submit" id="login" value=""><a><span>빵빵</span>한천안&emsp;로그인</a></button>
