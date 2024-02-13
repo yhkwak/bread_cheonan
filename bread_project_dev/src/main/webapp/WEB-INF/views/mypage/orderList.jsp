@@ -62,7 +62,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
                   >상품관리</a
                 >
               </li>
-              <li><a href="#">주문관리</a></li>
+              <li><a href="${pageContext.request.contextPath}/mypage/orderManagement.do">주문관리</a></li>
             </ul>
           </div>
         </div>
