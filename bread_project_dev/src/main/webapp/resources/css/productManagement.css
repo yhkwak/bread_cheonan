@@ -147,7 +147,6 @@
         #all_box{
             width: 100%;
             max-width: 1200px;
-            height: 100%;
             float: right;
             font-family: 'Jua', sans-serif;
             text-align: center;
@@ -158,58 +157,69 @@
         }
         #product_box{
             width: 100%;
-            max-width: 1050px;
+            max-width: 1200px;
             height: 100%;
             margin: 0 auto;
             text-align: center;
             border: 1px solid lightgrey;
             border-radius: 15px;
-            padding: 10px 30px 30px 30px;
+            padding: 0 30px 30px 30px;
+        }
+        .product_table{
+            width: 100%;
+            max-width: 1200px;
         }
         .product_table tr:first-child {
             width: 100%;
-            max-width: 1000px;
+            max-width: 1200px;
             height: 75px;
             vertical-align: middle;
             border-bottom: 1px solid lightgray;
         }
         .product_table tr th:first-child{
-            width: 283px;
+            width: 385px;
+            height: 90px;
         }
         .product_table tr th{
             font: 25px solid;
             font-family: 'Jua', sans-serif;
+            width: 148px;
+            height: 90px;
         }
         .product_table_box{
             width: 100%;
-            max-width: 1000px;
+            max-width: 1200px;
         }
         .product_table tr td:first-child{
-            width: 285px;
+            width: 385px;
+            height: 90px;
+            display: flex;
         }
-        .product_table tr td p{
-            vertical-align: middle;
+        .product_table tr td #product_title {
+            width: 250px;
+            margin: auto;
+            line-height: 80px;
         }
-        .product_table tr td{
-            width: 144px;
-            height: 10%;
+        .product_table tr td {
+            width: 148px;
+            height: 90px;
             font-size: 20px;
             padding-top: 10px;
         }
-        .product_table tr td img{
+        .product_table tr td img {
             width: 80px;
-            height: 70px;
+            height: 80px;
             border-radius: 15px;
-            float: left;
         }
 
 
 
-        .update_btn{
+
+        #product_btn{
             background-color: #fff;
             border: none;
         }
-        .update_btn:hover{
+         #product_btn:hover{
             color:#F39C12;
             border:none;
             transition: 0.5s;
@@ -217,10 +227,10 @@
         #product_btn_box{
             width: 100px;
             float: right;
-            margin: 30px 125px 0 0;
+            margin: 40px 25px 0 0;
             
         }
-        #product_btn_box input[type="submit"]{
+        #product_btn_box input[type="button"]{
             border: none;
             background-color: #fff;
             font-size: 25px;
