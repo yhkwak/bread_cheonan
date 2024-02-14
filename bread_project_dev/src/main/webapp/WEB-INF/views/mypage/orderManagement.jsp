@@ -22,7 +22,7 @@
 
             <div id="side-nav">
                 <div id="side-menu">
-                    <h2>마이 페이지</h2>
+                    <h2>마이페이지</h2>
                     <ul>
                         <li><a href="${pageContext.request.contextPath}/member/update.do">프로필 수정</a></li>
                         <li><a href="${pageContext.request.contextPath}/mypage/orderList.do">구매내역</a></li>

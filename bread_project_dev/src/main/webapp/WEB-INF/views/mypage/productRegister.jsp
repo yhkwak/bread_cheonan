@@ -26,14 +26,14 @@
         <h1>내용 영역</h1>
         <div id="side-nav">
             <div id="side-menu">
-                <h2>마이 페이지</h2>
+                <h2>마이페이지</h2>
                 <ul>
                     <li><a href="${pageContext.request.contextPath}/member/update.do">프로필 수정</a></li>
-                    <li><a href="#">구매내역</a></li>
+                    <li><a href="${pageContext.request.contextPath}/mypage/orderList.do">구매내역</a></li>
                     <li><a href="#">장바구니</a></li>
                     <li><a href="${pageContext.request.contextPath}/mypage/shopinfo.do?member_idx=${member.member_idx}">가게관리</a></li>
                     <li><a href="${pageContext.request.contextPath}/mypage/productManagement.do">상품관리</a></li>
-                    <li><a href="#">주문관리</a></li>
+                    <li><a href="${pageContext.request.contextPath}/mypage/orderManagement.do">주문관리</a></li>
                 </ul>
             </div>
         </div>

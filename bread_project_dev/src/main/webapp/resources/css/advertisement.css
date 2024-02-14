@@ -1,0 +1,198 @@
+h1{font-size:0;}
+        * {margin:0;
+          padding:0;
+        }
+        body{
+            overflow-x: hidden;
+        }
+        #wrap{
+            width: 1536px;
+            height: 2000px;
+            margin: 0 auto;
+        }   
+        /********** 헤더 영역 **********/
+        header{
+            width:1536px;
+            height: 245px;
+        }
+        #main_logo{
+            position:relative;
+            top: 50px;
+            left:-7px;
+            height: 200px;
+            width: 350px;
+            cursor: pointer;
+        }
+        #c1{
+            position:relative;
+            left: 1160px;
+            bottom:786px;
+            width:36px;
+            height:36px;
+        }
+        #c2{
+            position: relative;
+            left: 37px;
+            top:63px;
+            height:45px;
+            width:45px;
+        }
+        #c3{
+            position: relative;
+            left:262px;
+            top:63px;
+            height:45px;
+            width:45px;
+        }
+        #c4{
+            position: relative;
+            left: 462px;
+            top:66px;
+            height:45px;
+            width:45px;
+        }
+        #c5{
+            position: relative;
+            left: 663px;
+            top:63px;
+            height:45px;
+            width:45px;
+        }
+        #header_list{
+            position: relative;
+            left:457px;
+            bottom:80px;
+        }
+        #header_list ul li{
+            display:inline;
+            width:260px;
+            float: left;
+            list-style: none;
+        }
+        #header_list ul li a{
+            font: 40px solid;
+            font-family: 'Grape Nuts', cursive;
+            font-family: 'Nanum Pen Script', cursive;
+            color:gray;
+            text-decoration-line: none;
+        }
+        span{
+            font: bold 50px solid;
+            font-family: 'Grape Nuts', cursive;
+            font-family: 'Nanum Pen Script', cursive;
+            color: #F39C12;
+        }
+        #line1{
+            position: relative;
+            left:400px;
+            width:1136px;
+            border-top: 1px solid gray;
+        }
+        /********** 메인 영역 **********/
+        #container-content{
+            width: 1536px;
+            height: 1050px;
+        }
+        #join-box{
+            width:800px;
+            height:1050px;
+            border:1px solid gray;
+            margin:0 auto;
+            margin-top: 100px;
+            border-radius: 15px;
+            white-space: pre-line;
+            font: 17px sans-serif;
+        }
+        #join-box h2{
+            position: relative;
+            left:295px;
+            top:50px;
+            font: 60px solid;
+            font-family: 'Black Han Sans', sans-serif;
+            font-family: 'Gasoek One', sans-serif;
+            font-family: 'Gothic A1', sans-serif;
+            font-family: 'Jua', sans-serif;
+            color:gray;
+            width:200px;
+            height: 90px;
+        }
+        #text{
+            margin-top: 40px;
+            margin-left: 150px;
+            font: 25px solid;
+            font-family: 'Black Han Sans', sans-serif;
+            font-family: 'Gasoek One', sans-serif;
+            font-family: 'Gothic A1', sans-serif;
+            font-family: 'Jua', sans-serif;
+            color:gray;
+        }
+        #text a{
+            font: 40px solid;
+            font-family: 'Grape Nuts', cursive;
+            font-family: 'Nanum Pen Script', cursive;
+            color:gray;
+        }
+        #text p{
+            position: relative;
+            top:50px;
+            right:65px;
+            font: 25px solid;
+            color:gray;
+            font-family: 'Black Han Sans', sans-serif;
+            font-family: 'Gasoek One', sans-serif;
+            font-family: 'Gothic A1', sans-serif;
+            font-family: 'Jua', sans-serif;
+        }
+        #adintroduce{
+            position: relative;
+            width:750px;
+            height: 500px;
+            right:125px;
+        }
+        /********** 푸터 영역 **********/
+        footer{
+            position:absolute;
+            width:1536px;
+            height:300px;
+            margin-top:300px;
+            margin-bottom:0px;
+            background-color: rgb(245,246,247);
+        }
+        #infobox{
+            position: relative;
+            top:20px;
+            width:1536px;
+            height:300px;
+        }
+        #infobox ul{
+            width:400px;
+            height:400px;
+        }
+        #infobox ul li{
+            list-style: none;
+            width:400px;
+        }
+        #infobox span{
+            font: 40px solid;
+            color:gray;
+            font-family: 'Black Han Sans', sans-serif;
+            font-family: 'Gasoek One', sans-serif;
+            font-family: 'Gothic A1', sans-serif;
+            font-family: 'Jua', sans-serif;
+        }
+        #infobox a{
+            font: 30px solid;
+            color:gray;
+            font-family: 'Black Han Sans', sans-serif;
+            font-family: 'Gasoek One', sans-serif;
+            font-family: 'Gothic A1', sans-serif;
+            font-family: 'Jua', sans-serif;
+        }
+        #infobox p{
+            font: 20px solid;
+            color:gray;
+            font-family: 'Black Han Sans', sans-serif;
+            font-family: 'Gasoek One', sans-serif;
+            font-family: 'Gothic A1', sans-serif;
+            font-family: 'Jua', sans-serif;
+        }

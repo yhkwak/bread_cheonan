@@ -27,7 +27,7 @@
 		<h1>내용 영역</h1>
 		<div id="side-nav">
 			<div id="side-menu">
-				<h2>마이 페이지</h2>
+				<h2>마이페이지</h2>
 				<ul>
 					<a href="${pageContext.request.contextPath}/member/update.do"><li>프로필 수정</li></a>
 					<a href="${pageContext.request.contextPath}/mypage/orderList.do"><li>구매내역</li></a>
