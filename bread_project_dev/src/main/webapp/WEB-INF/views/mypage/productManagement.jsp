@@ -26,12 +26,12 @@
             <div id="side-menu">
                 <h2>마이페이지</h2>
                 <ul>
-                    <li><a href="${pageContext.request.contextPath}/member/update.do">프로필 수정</a></li>
-                    <li><a href="${pageContext.request.contextPath}/mypage/orderList.do">구매내역</a></li>
+                    <li><a href="${pageContext.request.contextPath}/mypage/member.do">프로필 수정</a></li>
+                    <li><a href="#">구매내역</a></li>
                     <li><a href="#">장바구니</a></li>
                     <li><a href="${pageContext.request.contextPath}/mypage/shopinfo.do?member_idx=${member.member_idx}">가게관리</a></li>
                     <li><a href="${pageContext.request.contextPath}/mypage/productManagement.do">상품관리</a></li>
-                    <li><a href="${pageContext.request.contextPath}/mypage/orderManagement.do">주문관리</a></li>
+                    <li><a href="#">주문관리</a></li>
                 </ul>
             </div>
         </div>
@@ -59,14 +59,14 @@
                                 <c:forEach items="${breadList}" var="breadList">
                                     <tr>
                                         <form action="${pageContext.request.contextPath}/mypage/productUpdate.do">
-                                        <td><img src="<c:choose>
+                                        <td><div id="product_title_img"><img src="<c:choose>
                                             <c:when test="${breadList.bread_img_save ne test_img07.png}">
                                                 ${pageContext.request.contextPath}/resources/uploads/${breadList.bread_img_save}
                                             </c:when>
                                             <c:otherwise>
                                                 ${pageContext.request.contextPath}/resources/css/img/test_img07.png
                                             </c:otherwise>
-                                        </c:choose>">&nbsp;<p>${breadList.bread_name}</p></td>
+                                        </c:choose>"></div>&nbsp;<div id="product_title"><p>${breadList.bread_name}</p></div></td>
                                         <td>${breadList.bread_price}</td>
                                         <td>${breadList.bakery_name}</td>
                                         <td>${breadList.bread_stock}</td>
