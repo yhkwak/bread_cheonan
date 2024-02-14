@@ -223,7 +223,7 @@
         </div>
         <div id="subbox">
             <a href="#" class="subboxtext"><div id="subbox1"><span>고객센터</span><br><br>고객의 소리를 항상 귀담아듣고 고객의 만족을 위해 <br>최선을 다하겠습니다.</div></a>
-            <a href="#" class="subboxtext"><div id="subbox2"><span>광고문의</span><br><br>빵빵한천안 내에 광고를 원하시면 문의 부탁드립니다.</div></a>
+            <a href="${pageContext.request.contextPath}/info/advertisement.do" class="subboxtext"><div id="subbox2"><span>광고문의</span><br><br>빵빵한천안 내에 광고를 원하시면 문의 부탁드립니다.</div></a>
             <a href="${pageContext.request.contextPath}/info/accessterms.do" class="subboxtext"><div id="subbox3"><span>이용약관</span><br><br>빵빵한천안의 이용약관을 안내하는 페이지입니다.</div></a>
         </div> 
         </section>

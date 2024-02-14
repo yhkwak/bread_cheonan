@@ -24,4 +24,8 @@ public class HomeController {
 	public String info2() {
 		return "info/accessterms";
 	}
+	@GetMapping("/info/advertisement.do")
+	public String info3() {
+		return "info/advertisement";
+	}
 }
