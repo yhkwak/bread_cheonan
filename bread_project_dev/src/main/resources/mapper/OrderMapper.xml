@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.bread.app.OrderMapper">
+	<!-- Create -->
+		
+	<!-- Read -->
+	<!-- 구매 내역 조회 -->
+	<select id="orderList" parameterType="_int" resultType="orderListVO">
+		select o.payment_status, o.order_idx, o.payment_date, o.count,
+				m.member_idx, bk.bakery_name, b.bread_name, b.bread_price
+			from bc_order o 
+				 left outer join bc_member m on o.member_idx = m.member_idx
+				 left outer join bc_bread b on o.bread_idx = b.bread_idx
+				 left outer join bc_bakery bk on o.bakery_idx = bk.bakery_idx
+			where m.member_idx = #{member_idx}
+			order by payment_date desc
+			
+	</select>
+
+	<!-- Update -->
+	
+	<!-- Delete -->
+</mapper>
