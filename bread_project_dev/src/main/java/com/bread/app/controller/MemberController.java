@@ -54,6 +54,12 @@ public class MemberController {
 	public String findId() {
 		return "member/findId";
 	}
+	
+	@GetMapping("/findPw.do")
+	public String findPw() {
+		return "member/findPw";
+	}
+	
 	@GetMapping("/update.do")
 	public String update() {
 		return "member/update";

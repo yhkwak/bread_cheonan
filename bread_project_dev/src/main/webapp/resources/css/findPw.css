@@ -129,28 +129,28 @@ span {
 }
 #container-content h2{
 	position: relative;
-    left:250px;
+    left:235px;
     top:50px;
     font: 60px solid;
     font-family: 'Jua', sans-serif;
     color:gray;
-    width:300px;
+    width:310px;
     height:90px;
 }
-#find_id_table{
+#find_pw_table{
 	position: relative;
     width:700px;
     height:480px;
     top:100px;
     left:50px;
 }
-#table_find_id{
+#table_find_pw{
 	position: relative;
 	top: 40px;
 	width:700px;
     height:150px;
 }
-#find_id_table input{
+#find_pw_table input{
 	border: 1px solid lightgray;
     border-radius: 20px;
     margin-right:120px;
@@ -160,19 +160,19 @@ span {
     color:gray;
     font: 20px solid bold, sans-serif;
 }
-#table_find_id tr{
+#table_find_pw tr{
 	position: relative;
 	left: 65px;
 	height: 70px;
 }
-#table_find_id tr td{
+#table_find_pw tr td{
     padding-left: 30px;
     font: 25px solid;
     font-family: 'Jua', sans-serif;
     color:gray;
     text-align: center;
 }
-#table_find_id input:-webkit-autofill{
+#table_find_pw input:-webkit-autofill{
 	-webkit-box-shadow: 0 0 0 1000px white inset;
 	-webkit-text-fill-color: gray;
 }
@@ -181,7 +181,7 @@ span {
     height:330px;
     border-bottom: 1px solid lightgray;
 }
-#find_id_box{
+#find_pw_box{
 	position: relative;
     top:100px;
     left:150px;
@@ -214,21 +214,20 @@ span {
 	color:#F39C12;
 	transition: 0.5s;
 }
-#find_pw{
+#find_id{ 
 	position: relative;
 	top: 55px;
-	right: 230px;
+	right: 241px;
 }
 #login_btn{
 	position: relative;
 	top: 55px;
-	left: 250px
+	left: 220px
 }
 #cencel_btn{
 	position: relative;
 	top: 55px;
-    left: 262px;
-    cursor: pointer;
+    left: 242px;
 }
 
 
