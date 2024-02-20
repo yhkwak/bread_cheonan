@@ -38,13 +38,13 @@
                 <table class="orderlist">
                     <thead>
                     <tr>
-                        <th class="th-division">구분</th>
-                        <th class="th-orderNum">주문번호</th>
+                        <th class="th-orderNum">NO</th>
                         <th class="th-shopName">가게이름</th>
                         <th class="th-breadName">상품명</th>
                         <th class="th-orderQuantity">수량</th>
                         <th class="th-totalAmount">총 금액</th>
-                        <th class="th-paymentDate">결제일</th>
+                        <th class="th-paymentDate">주문일시</th>
+                        <th class="th-division">결제상태</th>
                         <th class="th-review">리뷰</th>
                     </tr>
                     </thead>
@@ -61,7 +61,14 @@
                                 <c:if test="${not empty orderList[vs.count-1]}">
                                     <tbody>
                                     <tr>
-                                    <!-- 결제 상태 출력 -->
+                                        <input type="hidden" name="bread_idx" value="${orderList[vs.count-1].bread_idx}">
+                                        <td>${orderList[vs.count-1].order_idx}</td>
+                                        <td>${orderList[vs.count-1].bakery_name}</td>
+                                        <td>${orderList[vs.count-1].bread_name}</td>
+                                        <td>${orderList[vs.count-1].count}</td>
+                                        <td>총금액은 스크립트 짜기로</td>
+                                        <td><fmt:formatDate value="${orderList[vs.count-1].payment_date}" pattern="yyyy-MM-dd HH:mm:ss" /></td>
+                                        <!-- 결제 상태 출력 -->
                                         <c:choose>
                                             <c:when test="${orderList[vs.count-1].payment_status eq 0}">
                                                 <td>결제 완료</td>
@@ -70,17 +77,10 @@
                                                 <td>결제 취소</td>
                                             </c:otherwise>
                                         </c:choose>
-                                        <input type="hidden" name="bread_idx" value="${orderList[vs.count-1].bread_idx}">
-                                        <td>${orderList[vs.count-1].order_idx}</td>
-                                        <td>${orderList[vs.count-1].bakery_name}</td>
-                                        <td>${orderList[vs.count-1].bread_name}</td>
-                                        <td>${orderList[vs.count-1].count}</td>
-                                        <td>총금액은 스크립트 짜기로</td>
-                                        <td><fmt:formatDate value="${orderList[vs.count-1].payment_date}" pattern="yyyy-MM-dd HH:mm:ss" /></td>
                                         <td>
                                             <c:choose>
                                                 <c:when test="${orderList[vs.count-1].payment_status eq 0 }">
-                                                    <button type="button" id="button-write" onclick="location.href='${pageContext.request.contextPath}/review/reviewWrite.do?breadId=${order.bread_idx}&orderId=${orderList[vs.count-1].order_idx}'">리뷰쓰기</button>
+                                                    <button type="button" id="button-write" onclick="location.href='${pageContext.request.contextPath}/review/reviewWrite.do?breadId=${order.bread_idx}&orderId=${orderList[vs.count-1].order_idx}'">리뷰작성</button>
                                                 </c:when>
                                             </c:choose>
                                         </td>

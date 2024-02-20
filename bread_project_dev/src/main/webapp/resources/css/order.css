@@ -147,24 +147,20 @@
 	}
 	/*구매내역*/
 	#main-area h2 {
-	  font: 50px solid;
-	  color: rgba(0, 0, 0, 0.788);
-	  font-family: "Black Han Sans", sans-serif;
-	  font-family: "Gasoek One", sans-serif;
-	  font-family: "Gothic A1", sans-serif;
-	  font-family: "Jua", sans-serif;
-	  margin: 30px 0 30px 0;
+	  font-size: 50px;
+      margin: 30px 0 30px 0;
+      color: rgba(0, 0, 0, 0.788);
 	}
 	
 	#payment_complete {
-	 		width: 1137px;
-            height: 1000px;
-            margin: 0 auto;
-            margin-left: 63px;
-            text-align: center;
-            border: 1px solid lightgrey;
-            border-radius: 15px;
-            padding:10px 30px 30px 30px;
+	width: 1137px;
+    height: 1000px;
+    margin: 0 auto;
+    margin-left: 63px;
+    text-align: center;
+    border: 1px solid lightgrey;
+    border-radius: 15px;
+    padding:10px 30px 30px 30px;
 	}	
 
 	.orderlist {
@@ -196,7 +192,7 @@
       color: rgba(0, 0, 0, 0.788);
 	}
 	
-	.th-division{
+/* 	.th-division{
 	  width: 150px;
 	  height: 50px;
 	}
@@ -233,7 +229,7 @@
 	.th-review {
 	  width: 100px;
 	  height: 50px;
-	}
+	} */
 	
 	#button-write:hover {
 	  color: #f39c12;
