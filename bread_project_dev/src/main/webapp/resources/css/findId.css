@@ -222,13 +222,12 @@ span {
 #login_btn{
 	position: relative;
 	top: 55px;
-	left: 250px
+	left: 210px
 }
 #cencel_btn{
 	position: relative;
 	top: 55px;
-    left: 262px;
-    cursor: pointer;
+    left: 232px;
 }
 
 

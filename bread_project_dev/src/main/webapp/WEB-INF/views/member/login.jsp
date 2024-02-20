@@ -43,9 +43,9 @@
 	                            <button type="submit" id="login" value=""><a><span>빵빵</span>한천안&emsp;로그인</a></button>
 	                        </div>
 	                        <div id="login-submenu">
-	                                <a href="${pageContext.request.contextPath}/member/findId.do">아이디 찾기</a>&emsp;
-	                                <a href="#">비밀번호 찾기</a>
-	                                <a href="${pageContext.request.contextPath}/member/join.do" id="login-submenu1">회원가입</a>
+	                              <a href="${pageContext.request.contextPath}/member/findId.do">아이디 찾기</a>&emsp;
+	                              <a href="${pageContext.request.contextPath}/member/findPw.do">비밀번호 찾기</a>
+	                              <a href="${pageContext.request.contextPath}/member/join.do" id="login-submenu1">회원가입</a>
 	                        </div>
 	                    </div>
 	                </div>
