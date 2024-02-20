@@ -59,6 +59,7 @@
                             <!-- 데이터가 있는 경우 -->
                             <c:forEach var="i" begin="${pageNav.startNum}" end="${pageNav.endNum}" varStatus="vs">
                                 <c:if test="${not empty orderList[vs.count-1]}">
+                                 <input type="hidden" name="bread_idx" value="${orderList[vs.count-1].bread_idx}">
                                     <tbody>
                                     <tr>
                                     <!-- 결제 상태 출력 -->
@@ -70,7 +71,7 @@
                                                 <td>결제 취소</td>
                                             </c:otherwise>
                                         </c:choose>
-                                        <input type="hidden" name="bread_idx" value="${orderList[vs.count-1].bread_idx}">
+                                       
                                         <td>${orderList[vs.count-1].order_idx}</td>
                                         <td>${orderList[vs.count-1].bakery_name}</td>
                                         <td>${orderList[vs.count-1].bread_name}</td>
@@ -93,7 +94,7 @@
                     <c:if test="${not empty orderList}">
                         <tr>
                             <td colspan="8" id="td_paging">
-                                <%-- <%@ include file="paging.jsp" %> --%>
+                                <%@ include file="paging.jsp" %>
                             </td>
                         </tr>
                     </c:if>
