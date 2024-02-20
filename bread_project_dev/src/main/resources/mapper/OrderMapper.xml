@@ -9,7 +9,7 @@
 	<!-- 구매 내역 조회 -->
 	<select id="orderList" parameterType="_int" resultType="orderListVO">
 		select o.payment_status, o.order_idx, o.payment_date, o.count,
-				m.member_idx, bk.bakery_name, b.bread_name, b.bread_price
+				m.member_idx, bk.bakery_name, b.bread_name, b.bread_price,b.bread_idx
 			from bc_order o 
 				 left outer join bc_member m on o.member_idx = m.member_idx
 				 left outer join bc_bread b on o.bread_idx = b.bread_idx
