@@ -40,6 +40,8 @@ public class SearchDAO {
 		return sqlSession.selectList(MAPPER+".getBreads", bakery_idx);
 	}
 	
-	
+	public BreadVO getBread(int bread_idx) {
+		return sqlSession.selectOne(MAPPER+".getBread", bread_idx);
+	}
 	
 }
