@@ -60,7 +60,7 @@
         r.review_del_or_not=1;
     </select>
     <!-- 추천수 순으로 5개만 게시글 나오게 -->
-    <select id="getTopReviews" resultType="ReviewVO">
+    <select id="getTopReviews" resultType="reviewVO">
         select
         r.review_content,
         m.member_nickname,

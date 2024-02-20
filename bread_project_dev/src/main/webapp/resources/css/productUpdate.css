@@ -1,4 +1,5 @@
 @charset "UTF-8";
+
 h1{font-size:0;}
 * {margin:0;
     padding:0;
@@ -136,19 +137,19 @@ span{
 #main-area{
     float:left;
     width:1236px;
-    height:1000px;
+    height:1200px;
 }
 #register-box{
     position: relative;
     width:800px;
-    height:990px;
-    border:1px solid gray;
+    height:1200px;
+    border:1px solid lightgray;
     margin:0 auto;
     border-radius:15px;
 }
 #register-box h2{
     position: relative;
-    left:260px;
+    left:280px;
     top:50px;
     font: 60px solid;
     font-family: 'Black Han Sans', sans-serif;
@@ -162,17 +163,20 @@ span{
 #register-table{
     position: relative;
     width:700px;
-    height:680px;
+    height:860px;
     top:100px;
     left:50px;
     border-bottom: 1px solid lightgray;
 }
 #table-register{
     margin-top:100px;
-    width:700px;
+    width:1500px;
     height:450px;
 }
-#table-update td{
+#table-register td{
+	position:relative;
+	width:130px;
+	height:90px;
     font: 25px solid;
     font-family: 'Black Han Sans', sans-serif;
     font-family: 'Gasoek One', sans-serif;
@@ -181,23 +185,27 @@ span{
     color:gray;
     text-align: center;
 }
-#table-update input{
+#timelist{
+	width:200px;
+	height:200px;
+}
+#table-register input{
     border: 1px solid lightgray;
     border-radius: 20px;
-    margin-right:120px;
+    margin-right:45px;
     padding-left:10px;
     width:300px;
     height:40px;
     color:gray;
     font:20px solid, sans-serif;
 }
-#table-update input:-webkit-autofill{
+#table-register input:-webkit-autofill{
     -webkit-box-shadow: 0 0 0 1000px white inset;
     -webkit-text-fill-color: gray;
 }
-#table-update tr{
+#table-register tr{
     position: relative;
-    left:95px;
+    left:67px;
     height:70px;
 }
 #product_img{
@@ -217,6 +225,33 @@ span{
     width:205px;
     height:50px;
 }
+#bread_time1{
+	padding-bottom:2px;
+}
+#bread_time2{
+	position:relative;
+	right:445px;
+	top:45px;
+}
+#bread_time3{
+	position:relative;
+	right:890px;
+	top:90px;
+}
+input[type=text]::placeholder{
+	font:15px solid, sans-serif
+}
+textarea{
+	position:relative;
+	right:22px;
+	border:1px solid lightgray;
+	resize:none;
+	padding-left:10px;	
+	font:20px solid, sans-serif;
+	color:gray;
+	width:298px;
+    height:100px;
+}
 input[type=password]{
     padding-bottom: 5px;
 }
@@ -224,9 +259,27 @@ input[type=password]::placeholder{
     font: 14px solid, sans-serif;;
     color: gray;
 }
+button[type=button]{
+	position: relative;
+	top:75px;
+	font: 25px solid;
+    font-family: 'Black Han Sans', sans-serif;
+    font-family: 'Gasoek One', sans-serif;
+    font-family: 'Gothic A1', sans-serif;
+    font-family: 'Jua', sans-serif;
+    color:gray;
+    background-color: white;
+    border:none;
+}
+button[type=button]:hover{
+	color:#F39C12;
+    border:none;
+    transition: 0.5s;
+}
 button[type=reset]{
     position: relative;
-    left:476px;
+    top:75px;
+    left:400px;
     font: 25px solid;
     font-family: 'Black Han Sans', sans-serif;
     font-family: 'Gasoek One', sans-serif;
@@ -243,7 +296,8 @@ button[type=reset]:hover{
 }
 button[type=submit]{
     position: relative;
-    left:496px;
+    top:39px;
+    left:612px;
     font: 25px solid;
     font-family: 'Black Han Sans', sans-serif;
     font-family: 'Gasoek One', sans-serif;
@@ -258,29 +312,12 @@ button[type=submit]:hover{
     border:none;
     transition: 0.5s;
 }
-button[type=button]{
-    position: relative;
-    left:476px;
-    font: 25px solid;
-    font-family: 'Black Han Sans', sans-serif;
-    font-family: 'Gasoek One', sans-serif;
-    font-family: 'Gothic A1', sans-serif;
-    font-family: 'Jua', sans-serif;
-    color:gray;
-    background-color: white;
-    border:none;
-}
-button[type=button]:hover{
-    color:#F39C12;
-    border:none;
-    transition: 0.5s;
-}
 /********** 푸터 영역 **********/
 footer{
     position:absolute;
     width:1536px;
     height:300px;
-    margin-top:1100px;
+    margin-top:300px;
     margin-bottom:0px;
     background-color: rgb(245,246,247);
 }

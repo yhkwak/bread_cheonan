@@ -107,7 +107,7 @@
 								</table>
 								<div id="update-submenu" colspan="2">
 									<button type="reset" id="cancel" value="" onclick="location.href='/myapp'">수정 취소</button>
-									<button type="submit" id="create" value="">가게 수정</button>
+									<button type="submit" id="create" value="">정보 수정</button>
 								</div>
 							</div>
 						</div>

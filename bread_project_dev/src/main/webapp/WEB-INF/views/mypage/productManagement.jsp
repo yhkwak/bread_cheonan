@@ -53,20 +53,21 @@
                         </tr>
                         <c:choose>
                             <c:when test="${empty breadList}">
-                                <tr><td colspan="6">등록신청 상품이 없습니다.</td></tr>
+                                <tr><td id="noproduct" colspan="6">등록된 상품이 없습니다</td></tr>
                             </c:when>
                             <c:otherwise>
                                 <c:forEach items="${breadList}" var="breadList">
                                     <tr>
                                         <form action="${pageContext.request.contextPath}/mypage/productUpdate.do">
-                                        <td><div id="product_title_img"><img src="<c:choose>
+                                        <td style="width: 350px; height: 90px; margin-top:10px; display: flex;"><div id="product_title_img">
+                                        <img src="<c:choose>
                                             <c:when test="${breadList.bread_img_save ne test_img07.png}">
                                                 ${pageContext.request.contextPath}/resources/uploads/${breadList.bread_img_save}
                                             </c:when>
                                             <c:otherwise>
                                                 ${pageContext.request.contextPath}/resources/css/img/test_img07.png
                                             </c:otherwise>
-                                        </c:choose>"></div>&nbsp;<div id="product_title"><p>${breadList.bread_name}</p></div></td>
+                                        </c:choose>"></div>&nbsp;<div style="width: 250px; margin: auto;" id="product_title"><p>${breadList.bread_name}</p></div></td>
                                         <td>${breadList.bread_price}</td>
                                         <td>${breadList.bakery_name}</td>
                                         <td>${breadList.bread_stock}</td>
@@ -89,7 +90,7 @@
                                         <td>
                                             <input type="hidden" name="bread_idx" value="${breadList.bread_idx}" />
                                             <c:if test="${sessionScope.member.grade == 2}">
-                                                <input type="submit" class="update_btn" value="수정하기">
+                                                <input type="submit" class="update_btn" value="수정">
                                             </c:if>
                                         </td>
                                         </form>
@@ -100,15 +101,16 @@
                     </table>
                 </div>
 
-                <div id="product_btn_box">
-                    <div><input type="button" id="product_btn" value="상품등록"  onclick="location.href='productWrite.do'"></div>
-                </div>
-
+            </div>
+            
+            <div id="product_btn_box">
+                <div><input type="button" id="product_btn" value="상품등록"  onclick="location.href='productWrite.do'"></div>
             </div>
         </div>
-
     </section>
+    
     <%@ include file = "../common/footer.jsp" %>
+    
 </div>
 </body>
 </html>

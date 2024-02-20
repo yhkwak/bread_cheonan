@@ -97,6 +97,7 @@
 	  display: inline-block;
 	  width: 1536px;
 	  height: 1000px; /* 본인의 작업 사이즈에 맞게 변경 */
+	  margin: 0 auto;
 	}
 	#side-nav {
 	  float: left;
@@ -137,41 +138,62 @@
 	  padding-right: 35px;
 	}
 	#main-area {
-	  float: left;
-	  width: 1236px;
-	  height: 1000px;
+      width: 100%;
+      max-width: 1200px;
+      height: 100%;
+      float: right;
+      text-align: center;
+      font-family: 'Jua', sans-serif;
 	}
 	/*구매내역*/
 	#main-area h2 {
-	  font: 40px solid;
+	  font: 50px solid;
 	  color: rgba(0, 0, 0, 0.788);
 	  font-family: "Black Han Sans", sans-serif;
 	  font-family: "Gasoek One", sans-serif;
 	  font-family: "Gothic A1", sans-serif;
 	  font-family: "Jua", sans-serif;
-	  margin-left: 20px;
+	  margin: 30px 0 30px 0;
 	}
 	
 	#payment_complete {
-	  padding-top: 50px;
-	}
-	
+	 		width: 1137px;
+            height: 1000px;
+            margin: 0 auto;
+            margin-left: 63px;
+            text-align: center;
+            border: 1px solid lightgrey;
+            border-radius: 15px;
+            padding:10px 30px 30px 30px;
+	}	
+
 	.orderlist {
-	  text-align: center;
-	  margin: 0 auto;
+	  width: 100%;
+      max-width: 1000px;
 	  font-family: "Black Han Sans", sans-serif;
 	  font-family: "Gasoek One", sans-serif;
 	  font-family: "Gothic A1", sans-serif;
 	  font-family: "Jua", sans-serif;
 	}
 	
-	.orderlist thead {
-	  font-size: 30px;
-	  background-color: rgba(243, 156, 18, 0.4);
+	.orderlist th {
+	  position: relative;
+      right:25px;
+      padding-bottom: 20px;
+      font-weight:normal;
+      font-size:25px;
+      font-family:'Jua', sans-serif;
+      color:gray;
 	}
 	
 	.orderlist td {
-	  font-size: 25px;
+	  position: relative;
+      padding-top: 20px;
+      width: 166px;
+      height: 10%;
+      right:25px;
+      font-size: 20px;
+      color: rgba(0, 0, 0, 0.788);
 	}
 	
 	.th-division{
@@ -229,12 +251,49 @@
 	  font-family: "Jua", sans-serif;
 	  font-size: 20px;
 	}
+	
+	/********** 페이징 영역 **********/
+        .page_box{
+            clear: both;
+            margin: 0 auto;
+            width: 50%;
+            text-align: center;
+        }
+        .pageNav{
+            display: flex;
+            margin: 30px 0 0 0;
+            justify-content: center;
+            list-style: none;
+            padding: 0;
+            font: 25px solid bold;
+            font-family: 'Jua', sans-serif;
+        }
+        .page_box ul li{
+            padding: 10px;
+            text-decoration: none;
+        }
+        .page_box ul li a{
+            text-decoration: none;
+            color: gray;
+        }
+        .page_box ul li a:hover{
+            color:#F39C12;
+            border:none;
+            transition: 0.2s;
+        }
+        button{
+            width:60px;
+            height:35px;
+            border:1px solid gray;
+            background-color: white;
+        }
+        
 	/********** 푸터 영역 **********/
 	footer {
 	  position: absolute;
 	  width: 1536px;
 	  height: 300px;
-	  margin-top: 200px;
+	  margin-top: 300px;
 	  margin-bottom: 0px;
 	  background-color: rgb(245, 246, 247);
 	}

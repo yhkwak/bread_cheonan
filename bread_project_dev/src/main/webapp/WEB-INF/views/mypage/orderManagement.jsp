@@ -36,6 +36,7 @@
 
 
             <div id="all_box">
+            	<h2>주문관리</h2>
                 <div id="order_box">
                     <form>
                         <div class="order_table_box">
@@ -64,13 +65,13 @@
                 </div>
                 <div class="page_box">
                     <ul class="pageNav">
-                        <li><a href="#" class="arrow_left"><<</a></li>
+                        <li><a href="#" class="arrow_left"><</a></li>
                         <li><a href="#" class="1">1</a></li>
                         <li><a href="#" class="2">2</a></li>
                         <li><a href="#" class="3">3</a></li>
                         <li><a href="#" class="4">4</a></li>
                         <li><a href="#" class="5">5</a></li>
-                        <li><a href="#" class="arrow_last">>></a></li>
+                        <li><a href="#" class="arrow_last">></a></li>
                     </ul>
                 </div>
             </div>

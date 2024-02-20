@@ -15,7 +15,7 @@
     <style>
 
     </style>
-    <title>제품 등록</title>
+    <title>상품 등록</title>
 </head>
 <body>
 <div id="wrap">
@@ -42,12 +42,12 @@
                 <input type="hidden" name="bread_bakery_idx" value="${breadVO.bakery_idx}">
                 <input type="hidden" name="bakery_idx" value="${bakery.bakery_idx}">
                 <div id="register-box">
-                    <h2>제품 등록</h2>
+                    <h2>상품 등록</h2>
                     <div id="register-table">
                         <div id="product_img">
                             <label for="file_input" style="cursor: pointer;">
                                 <c:choose>
-                                    <c:when test="${bread.bread_img_save ne 'test_img07.png'}">
+                                    <c:when test="${bread.bread_img_save ne test_img07.png}">
                                         <img id="product_img1" name="bread_img" src="${pageContext.request.contextPath}/resources/uploads/${bread.bread_img_save}">
                                     </c:when>
                                     <c:otherwise>
@@ -63,7 +63,7 @@
                                 <td><input type="text" name="bakery_name_display" value="${bakery.bakery_name}" disabled></td>
                             </tr>
                             <tr>
-                                <td>제품명</td>
+                                <td>상품명</td>
                                 <td><input type="text" name="bread_name" oninput="validateStock(this)"  required></td>
                             </tr>
                             <tr>
@@ -73,27 +73,27 @@
                             <tr>
                                 <td>빵 나오는 시간</td>
                                 <td>
-                                    <input type="text" name="bread_time1" onkeyup="inputTimeColon(this);"  required placeholder="예: 08:00, 13:00"  maxlength ="5" >
+                                    <input type="text" id="bread_time1" name="bread_time1" onkeyup="inputTimeColon(this);"  required placeholder="예: 09:00"  maxlength ="5" >
                                 </td>
                                 <td>
-                                    <input type="text" name="bread_time2" onkeyup="inputTimeColon(this);" placeholder="예: 08:00, 13:00"  maxlength ="5" >
+                                    <input type="text" id="bread_time2" name="bread_time2" onkeyup="inputTimeColon(this);"maxlength ="5" >
                                 </td>
                                 <td>
-                                    <input type="text" name="bread_time3" onkeyup="inputTimeColon(this);"  placeholder="예: 08:00, 13:00"  maxlength ="5" >
+                                    <input type="text" id="bread_time3" name="bread_time3" onkeyup="inputTimeColon(this);"maxlength ="5" >
                                 </td>
                             </tr>
-                            <tr>
-                                <td>재고수량</td>
+                            <tr style="top:90px;">
+                                <td class="category">재고수량</td>
                                 <td><input type="number" name="bread_stock" required></td>
                             </tr>
-                            <tr>
-                                <td>빵 내용</td>
-                                <td><textarea name="bread_content" required></textarea></td>
+                            <tr style="top:90px;">
+                                <td class="category">상품 설명</td>
+                                <td><textarea name="bread_content" spellcheck="false" required></textarea></td>
                             </tr>
                         </table>
-                        <div id="register-submenu">
-                            <button type="reset" id="cancel" onclick="location.href='productManagement.do'">취소</button>
-                            <button type="submit" id="create">등록</button>
+                        <div>
+                            <button type="reset" id="cancel" onclick="location.href='productManagement.do'">등록 취소</button>
+                            <button type="submit" id="create">상품 등록</button>
                         </div>
                     </div>
                 </div>
