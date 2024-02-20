@@ -34,10 +34,10 @@
             </div>
         </div>
         <div id="main-area">
+        	<h2>구매내역</h2>
             <div id="payment_complete">
                 <table class="orderlist">
-                    <thead>
-                    <tr>
+                    <tr style="border-bottom: 1px solid lightgray">
                         <th class="th-orderNum">NO</th>
                         <th class="th-shopName">가게이름</th>
                         <th class="th-breadName">상품명</th>
@@ -47,7 +47,6 @@
                         <th class="th-division">결제상태</th>
                         <th class="th-review">리뷰</th>
                     </tr>
-                    </thead>
                     <!-- 데이터가 없는 경우 -->
                     <c:choose>
                         <c:when test="${empty orderList}">
@@ -59,8 +58,6 @@
                             <!-- 데이터가 있는 경우 -->
                             <c:forEach var="i" begin="${pageNav.startNum}" end="${pageNav.endNum}" varStatus="vs">
                                 <c:if test="${not empty orderList[vs.count-1]}">
-                                 <input type="hidden" name="bread_idx" value="${orderList[vs.count-1].bread_idx}">
-                                    <tbody>
                                     <tr>
                                         <input type="hidden" name="bread_idx" value="${orderList[vs.count-1].bread_idx}">
                                         <td>${orderList[vs.count-1].order_idx}</td>
@@ -77,13 +74,7 @@
                                             <c:otherwise>
                                                 <td>결제 취소</td>
                                             </c:otherwise>
-                                        </c:choose>                     
-                                        <td>${orderList[vs.count-1].order_idx}</td>
-                                        <td>${orderList[vs.count-1].bakery_name}</td>
-                                        <td>${orderList[vs.count-1].bread_name}</td>
-                                        <td>${orderList[vs.count-1].count}</td>
-                                        <td>총금액은 스크립트 짜기로</td>
-                                        <td><fmt:formatDate value="${orderList[vs.count-1].payment_date}" pattern="yyyy-MM-dd HH:mm:ss" /></td>
+                                        </c:choose>
                                         <td>
                                             <c:choose>
                                                 <c:when test="${orderList[vs.count-1].payment_status eq 0 }">
@@ -92,7 +83,6 @@
                                             </c:choose>
                                         </td>
                                     </tr>
-                                    </tbody>
                                 </c:if>
                             </c:forEach>
                         </c:otherwise>
@@ -100,7 +90,7 @@
                     <c:if test="${not empty orderList}">
                         <tr>
                             <td colspan="8" id="td_paging">
-                                <%@ include file="paging.jsp" %>
+                                <%-- <%@ include file="paging.jsp" %> --%>
                             </td>
                         </tr>
                     </c:if>

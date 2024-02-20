@@ -1,155 +1,157 @@
 @charset "UTF-8";
 	h1 {
-	  font-size: 0;
+	font-size: 0;
 	}
 	* {
-	  margin: 0;
-	  padding: 0;
+	margin: 0;
+	padding: 0;
 	}
 	body {
-	  overflow-x: hidden;
+	overflow-x: hidden;
 	}
 	#wrap {
-	  width: 1536px;
-	  height: 1500px;
-	  margin: 0 auto;
+	width: 1536px;
+	height: 1500px;
+	margin: 0 auto;
 	}
 	/********** 헤더 영역 **********/
 	header {
-	  width: 1536px;
-	  height: 245px;
+	width: 1536px;
+	height: 245px;
 	}
 	#main_logo {
-	  position: relative;
-	  top: 50px;
-	  left: -7px;
-	  height: 200px;
-	  width: 350px;
-	  cursor: pointer;
+	position: relative;
+	top: 50px;
+	left: -7px;
+	height: 200px;
+	width: 350px;
+	cursor: pointer;
 	}
 	#c1 {
-	  position: relative;
-	  left: 1160px;
-	  bottom: 786px;
-	  width: 36px;
-	  height: 36px;
+	position: relative;
+	left: 1160px;
+	bottom: 786px;
+	width: 36px;
+	height: 36px;
 	}
 	#c2 {
-	  position: relative;
-	  left: 37px;
-	  top: 63px;
-	  height: 45px;
-	  width: 45px;
+	position: relative;
+	left: 37px;
+	top: 63px;
+	height: 45px;
+	width: 45px;
 	}
 	#c3 {
-	  position: relative;
-	  left: 262px;
-	  top: 63px;
-	  height: 45px;
-	  width: 45px;
+	position: relative;
+	left: 262px;
+	top: 63px;
+	height: 45px;
+	width: 45px;
 	}
 	#c4 {
-	  position: relative;
-	  left: 462px;
-	  top: 66px;
-	  height: 45px;
-	  width: 45px;
+	position: relative;
+	left: 462px;
+	top: 66px;
+	height: 45px;
+	width: 45px;
 	}
 	#c5 {
-	  position: relative;
-	  left: 663px;
-	  top: 63px;
-	  height: 45px;
-	  width: 45px;
+	position: relative;
+	left: 663px;
+	top: 63px;
+	height: 45px;
+	width: 45px;
 	}
 	#header_list {
-	  position: relative;
-	  left: 457px;
-	  bottom: 80px;
+	position: relative;
+	left: 457px;
+	bottom: 80px;
 	}
 	#header_list ul li {
-	  display: inline;
-	  width: 260px;
-	  float: left;
-	  list-style: none;
+	display: inline;
+	width: 260px;
+	float: left;
+	list-style: none;
 	}
 	#header_list ul li a {
-	  font: 40px solid;
-	  font-family: "Grape Nuts", cursive;
-	  font-family: "Nanum Pen Script", cursive;
-	  color: gray;
-	  text-decoration-line: none;
+	font: 40px solid;
+	font-family: "Grape Nuts", cursive;
+	font-family: "Nanum Pen Script", cursive;
+	color: gray;
+	text-decoration-line: none;
 	}
 	span {
-	  font: bold 50px solid;
-	  font-family: "Grape Nuts", cursive;
-	  font-family: "Nanum Pen Script", cursive;
-	  color: #f39c12;
+	font: bold 50px solid;
+	font-family: "Grape Nuts", cursive;
+	font-family: "Nanum Pen Script", cursive;
+	color: #f39c12;
 	}
 	#line1 {
-	  position: relative;
-	  left: 400px;
-	  width: 1136px;
-	  border-top: 1px solid gray;
+	position: relative;
+	left: 400px;
+	width: 1136px;
+	border-top: 1px solid gray;
 	}
 	/********** 메인 영역 **********/
 	#container-content {
-	  display: inline-block;
-	  width: 1536px;
-	  height: 1000px; /* 본인의 작업 사이즈에 맞게 변경 */
-	  margin: 0 auto;
+	display: inline-block;
+	width: 1536px;
+	height: 1000px; /* 본인의 작업 사이즈에 맞게 변경 */
+	margin: 0 auto;
 	}
 	#side-nav {
-	  float: left;
-	  width: 300px;
-	  height: 1000px; /* container-content height 크기와 동일하게 설정 */
+	float: left;
+	width: 300px;
+	height: 1000px; /* container-content height 크기와 동일하게 설정 */
 	}
 	#side-menu {
-	  position: relative;
-	  left: 70px;
-	  top: 100px;
-	  width: 220px;
-	  height: 400px;
-	  text-decoration: none;
-	  text-align: center;
+	position: relative;
+	left: 70px;
+	top: 101px;
+	width: 220px;
+	height: 400px;
+	text-decoration: none;
+	text-align: center;
 	}
 	#side-menu h2 {
-	  font: 45px solid;
-	  color: rgba(0, 0, 0, 0.788);
-	  font-family: "Black Han Sans", sans-serif;
-	  font-family: "Gasoek One", sans-serif;
-	  font-family: "Gothic A1", sans-serif;
-	  font-family: "Jua", sans-serif;
+	font: 45px solid;
+	color: rgba(0, 0, 0, 0.788);
+	font-family: "Black Han Sans", sans-serif;
+	font-family: "Gasoek One", sans-serif;
+	font-family: "Gothic A1", sans-serif;
+	font-family: "Jua", sans-serif;
 	}
 	#side-menu ul {
-	  list-style: none;
+	list-style: none;
 	}
 	#side-menu ul li a {
-	  text-decoration: none;
-	  color: gray;
+	text-decoration: none;
+	color: gray;
 	}
 	#side-menu ul li {
-	  font: 35px solid;
-	  font-family: "Black Han Sans", sans-serif;
-	  font-family: "Gasoek One", sans-serif;
-	  font-family: "Gothic A1", sans-serif;
-	  font-family: "Jua", sans-serif;
-	  margin-top: 30px;
-	  padding-right: 35px;
+	font: 35px solid;
+	font-family: "Black Han Sans", sans-serif;
+	font-family: "Gasoek One", sans-serif;
+	font-family: "Gothic A1", sans-serif;
+	font-family: "Jua", sans-serif;
+	margin-top: 30px;
+	padding-right: 35px;
 	}
+	
+	
 	#main-area {
-      width: 100%;
-      max-width: 1200px;
-      height: 100%;
-      float: right;
-      text-align: center;
-      font-family: 'Jua', sans-serif;
+    width: 100%;
+    max-width: 1200px;
+    height: 100%;
+    float: right;
+    text-align: center;
+    font-family: 'Jua', sans-serif;
 	}
 	/*구매내역*/
 	#main-area h2 {
-	  font-size: 50px;
-      margin: 30px 0 30px 0;
-      color: rgba(0, 0, 0, 0.788);
+	font-size: 50px;
+    margin: 5px 0 30px 0;
+    color: rgba(0, 0, 0, 0.788);
 	}
 	
 	#payment_complete {
@@ -160,129 +162,92 @@
     text-align: center;
     border: 1px solid lightgrey;
     border-radius: 15px;
-    padding:10px 30px 30px 30px;
+    padding:10px 18px 30px 18px;
 	}	
 
 	.orderlist {
-	  width: 100%;
-      max-width: 1000px;
-	  font-family: "Black Han Sans", sans-serif;
-	  font-family: "Gasoek One", sans-serif;
-	  font-family: "Gothic A1", sans-serif;
-	  font-family: "Jua", sans-serif;
+	width: 100%;
+	font-family: "Jua", sans-serif;
 	}
-	
+	.orderlist tr{
+    width:1536px;
+    height:50px;
+    position: relative;
+    left:20px;
+    }
 	.orderlist th {
-	  position: relative;
-      right:25px;
-      padding-bottom: 20px;
-      font-weight:normal;
-      font-size:25px;
-      font-family:'Jua', sans-serif;
-      color:gray;
+	position: relative;
+    right:25px;
+	width:50px;
+	padding-top: 19px;
+    padding-bottom: 19px;
+    font-weight:normal;
+    font-size:25px;
+    font-family:'Jua', sans-serif;
+    color:gray;
 	}
 	
 	.orderlist td {
-	  position: relative;
-      padding-top: 20px;
-      width: 166px;
-      height: 10%;
-      right:25px;
-      font-size: 20px;
-      color: rgba(0, 0, 0, 0.788);
+	position: relative;
+	right:25px;
+    padding-top: 20px;
+    width: 135px;
+    height: 10%;
+    font-size: 20px;
+    color: rgba(0, 0, 0, 0.788);
 	}
-	
-/* 	.th-division{
-	  width: 150px;
-	  height: 50px;
-	}
-	.th-orderNum {
-	  width: 150px;
-	  height: 50px;
-	}
-	
-	.th-shopName {
-	  width: 200px;
-	  height: 50px;
-	}
-	
-	.th-breadName {
-	  width: 200px;
-	  height: 50px;
-	}
-	
-	.th-orderQuantity {
-	  width: 50px;
-	  height: 50px;
-	}
-	
-	.th-totalAmount {
-	  width: 150px;
-	  height: 50px;
-	}
-	
-	.th-paymentDate {
-	  width: 200px;
-	  height: 50px;
-	}
-	
-	.th-review {
-	  width: 100px;
-	  height: 50px;
-	} */
-	
 	#button-write:hover {
-	  color: #f39c12;
-	  border: none;
-	  transition: 0.5s;
+	color: #f39c12;
+	border: none;
+	transition: 0.5s;
 	}
 	
 	#button-write {
-	  border: none;
-	  background-color: #fff;
-	  font-size: 25px;
-	  font-family: "Black Han Sans", sans-serif;
-	  font-family: "Gasoek One", sans-serif;
-	  font-family: "Gothic A1", sans-serif;
-	  font-family: "Jua", sans-serif;
-	  font-size: 20px;
+	border: none;
+	background-color: #fff;
+	font-size: 25px;
+	font-family: "Black Han Sans", sans-serif;
+	font-family: "Gasoek One", sans-serif;
+	font-family: "Gothic A1", sans-serif;
+	font-family: "Jua", sans-serif;
+	font-size: 20px;
 	}
 	
 	/********** 페이징 영역 **********/
-        .page_box{
-            clear: both;
-            margin: 0 auto;
-            width: 50%;
-            text-align: center;
+    .page_box{
+    clear: both;
+    margin: 0 auto;
+    width: 50%;
+    text-align: center;
         }
-        .pageNav{
-            display: flex;
-            margin: 30px 0 0 0;
-            justify-content: center;
-            list-style: none;
-            padding: 0;
-            font: 25px solid bold;
-            font-family: 'Jua', sans-serif;
-        }
-        .page_box ul li{
-            padding: 10px;
-            text-decoration: none;
-        }
-        .page_box ul li a{
-            text-decoration: none;
-            color: gray;
-        }
-        .page_box ul li a:hover{
-            color:#F39C12;
-            border:none;
-            transition: 0.2s;
-        }
-        button{
-            width:60px;
-            height:35px;
-            border:1px solid gray;
-            background-color: white;
-        }
+    .pageNav{
+    display: flex;
+    margin: 30px 0 0 0;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+    font: 25px solid bold;
+    font-family: 'Jua', sans-serif;
+    }
+    .page_box ul li{
+    padding: 10px;
+    text-decoration: none;
+    }
+    .page_box ul li a{
+    text-decoration: none;
+    color: gray;
+    }
+    .page_box ul li a:hover{
+    color:#F39C12;
+    border:none;
+    transition: 0.2s;
+    }
+    button{
+    width:130px;
+    height:35px;
+    border:1px solid gray;
+    background-color: white;
+    }
         
 	/********** 푸터 영역 **********/
 	footer {
