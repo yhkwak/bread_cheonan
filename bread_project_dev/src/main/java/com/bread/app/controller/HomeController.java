@@ -46,4 +46,8 @@ public class HomeController {
 	public String info3() {
 		return "info/advertisement";
 	}
+	@GetMapping("/info/faq.do")
+	public String info4() {
+		return "info/faq";
+	}
 }

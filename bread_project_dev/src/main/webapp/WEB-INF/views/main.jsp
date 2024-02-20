@@ -184,10 +184,70 @@
             <div id="reviewboard_subject"><a><span>빵빵</span>한 후기 마당</a></div>
                 <div id="reviewbox">
                     <ul>
-                        <c:forEach items="${topReviews}" var="review" varStatus="status">
+					    <li>
+					        <div id="reviewbox1">
+					            <img id="reviewbread1" src="resources/css/img/bread8.PNG">
+					            <span>용환이네<br>먹고 어깨 피자빵</span><br>
+					            <p>최근에 먹어본 피자빵 중에 제일 맛있는 피자빵..<br><br>
+					            &emsp;&emsp;&emsp;&emsp;<b>빵이최고야</b> 님</p>
+					        </div>
+					    </li>
+					    <li>
+					        <div id="reviewbox2">
+					            <img id="reviewbread2" src="resources/css/img/bread7.PNG">
+					            <span>용환이네<br>걔랑 먹는 계란빵</span><br>
+					            <p>이름도 너무 재미있고 맛도 너무 맛있어서 계속 먹고싶..<br><br>
+					            &emsp;&emsp;&emsp;&emsp;&emsp;<b>하루일빵</b> 님</p>
+					        </div>
+					    </li>
+					    <li>
+					        <div id="reviewbox3">
+					            <img id="reviewbread3" src="resources/css/img/bread10.PNG">
+					            <span>경진이네<br>기본에 충실한 식빵</span><br>
+					            <p>갓 나온 신선한 식빵을 먹을 수 있어서 너무 좋아..<br><br>
+					            &emsp;&emsp;&emsp;&nbsp;<b>밥보다빵이야</b> 님</p>
+					        </div>
+					    </li>
+					    <li>
+					        <div id="reviewbox4">
+					            <img id="reviewbread4" src="resources/css/img/bread6.PNG">
+					            <span>나래네<br>그 입을 꽈배기빵</span><br>
+					            <p>빵 이름도 너무 재미있고 진짜 아무말 없이 먹기만..<br><br>
+					            &emsp;&emsp;&emsp;&nbsp;&nbsp;<b>한국인은빵심</b> 님</p>
+					        </div>
+					    </li>
+					    <li>
+					        <div id="reviewbox5">
+					            <img id="reviewbread5" src="resources/css/img/bread4.PNG">
+					            <span>재송이네<br>그남자의 사나이빵</span><br>
+					            <p>저도 이 빵 먹고 남자가 된 거 같아서 매우 만족합니다 또..<br><br>
+					            &emsp;&emsp;&emsp;&nbsp;&nbsp;<b>의리맨입니다</b> 님</p>
+					        </div>
+					    </li>
+					</ul>
+                </div>
+                <div id="goreview"><a href="${pageContext.request.contextPath}/review/review.do">후기보러가기</a></div>
+            </div>
+        </div>
+        <div id="subbox">
+            <a href="${pageContext.request.contextPath}/info/faq.do" class="subboxtext"><div id="subbox1"><span>FAQ</span><br><br>고객의 소리를 항상 귀담아듣고 고객의 만족을 위해 <br>최선을 다하겠습니다.</div></a>
+            <a href="${pageContext.request.contextPath}/info/advertisement.do" class="subboxtext"><div id="subbox2"><span>광고문의</span><br><br>빵빵한천안 내에 광고를 원하시면 문의 부탁드립니다.</div></a>
+            <a href="${pageContext.request.contextPath}/info/accessterms.do" class="subboxtext"><div id="subbox3"><span>이용약관</span><br><br>빵빵한천안의 이용약관을 안내하는 페이지입니다.</div></a>
+        </div>
+        </section>
+
+		<%@ include file = "common/footer.jsp" %>
+
+    </div>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</body>
+</html>
+
+						<%-- <c:forEach items="${topReviews}" var="review" varStatus="status">
                             <li>
-                               <%-- <a href="${pageContext.request.contextPath}/review/view.do?review_idx=${review.review_idx}" style="text-decoration: none; display: block; height: 100%">
-                                여기에 a태그 달았을시 reviewbox의 relative left 80위치 조정 전의 위치에 a태그영역이 생겨서 링크태그위치랑 이미지위치가 달라짐 --%>
+                               <a href="${pageContext.request.contextPath}/review/view.do?review_idx=${review.review_idx}" style="text-decoration: none; display: block; height: 100%">
+                                여기에 a태그 달았을시 reviewbox의 relative left 80위치 조정 전의 위치에 a태그영역이 생겨서 링크태그위치랑 이미지위치가 달라짐
                                 <div id="reviewbox${status.index + 1}">
                                         <a href="${pageContext.request.contextPath}/review/view.do?review_idx=${review.review_idx}" style="text-decoration: none; display: block; height: 100%">
                                             <!-- display: block,height: 100%을 안줬을시에 a태그 영역범위 reviewbox보다 작은 영역으로 줄어듦 다른 방식도 있겠지만 되도록이면 이 방식으로 추천 -->
@@ -206,67 +266,4 @@
                                     </div>
 
                             </li>
-                        </c:forEach>
-                    </ul>
-                </div>
-                <div id="goreview"><a href="${pageContext.request.contextPath}/review/review.do">후기보러가기</a></div>
-            </div>
-        </div>
-        <div id="subbox">
-            <a href="#" class="subboxtext"><div id="subbox1"><span>고객센터</span><br><br>고객의 소리를 항상 귀담아듣고 고객의 만족을 위해 <br>최선을 다하겠습니다.</div></a>
-            <a href="${pageContext.request.contextPath}/info/advertisement.do" class="subboxtext"><div id="subbox2"><span>광고문의</span><br><br>빵빵한천안 내에 광고를 원하시면 문의 부탁드립니다.</div></a>
-            <a href="${pageContext.request.contextPath}/info/accessterms.do" class="subboxtext"><div id="subbox3"><span>이용약관</span><br><br>빵빵한천안의 이용약관을 안내하는 페이지입니다.</div></a>
-        </div>
-        </section>
-
-		<%@ include file = "common/footer.jsp" %>
-
-    </div>
-    <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/main.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-</body>
-</html>
-
-<%-- 후기마당 원본 -->
-<%--<ul>
-    <li>
-        <div id="reviewbox1">
-            <img id="reviewbread1" src="resources/css/img/bread8.PNG">
-            <span>용환이네<br>먹고 어깨 피자빵</span><br>
-            <p>최근에 먹어본 피자빵 중에 제일 맛있는 피자빵..<br><br>
-            &emsp;&emsp;&emsp;&emsp;<b>빵이최고야</b> 님</p>
-        </div>
-    </li>
-    <li>
-        <div id="reviewbox2">
-            <img id="reviewbread2" src="resources/css/img/bread7.PNG">
-            <span>용환이네<br>걔랑 먹는 계란빵</span><br>
-            <p>이름도 너무 재미있고 맛도 너무 맛있어서 계속 먹고싶..<br><br>
-            &emsp;&emsp;&emsp;&emsp;&emsp;<b>하루일빵</b> 님</p>
-        </div>
-    </li>
-    <li>
-        <div id="reviewbox3">
-            <img id="reviewbread3" src="resources/css/img/bread10.PNG">
-            <span>경진이네<br>기본에 충실한 식빵</span><br>
-            <p>갓 나온 신선한 식빵을 먹을 수 있어서 너무 좋아..<br><br>
-            &emsp;&emsp;&emsp;&nbsp;<b>밥보다빵이야</b> 님</p>
-        </div>
-    </li>
-    <li>
-        <div id="reviewbox4">
-            <img id="reviewbread4" src="resources/css/img/bread6.PNG">
-            <span>나래네<br>그 입을 꽈배기빵</span><br>
-            <p>빵 이름도 너무 재미있고 진짜 아무말 없이 먹기만..<br><br>
-            &emsp;&emsp;&emsp;&nbsp;&nbsp;<b>한국인은빵심</b> 님</p>
-        </div>
-    </li>
-    <li>
-        <div id="reviewbox5">
-            <img id="reviewbread5" src="resources/css/img/bread4.PNG">
-            <span>재송이네<br>그남자의 사나이빵</span><br>
-            <p>저도 이 빵 먹고 남자가 된 거 같아서 매우 만족합니다 또..<br><br>
-            &emsp;&emsp;&emsp;&nbsp;&nbsp;<b>의리맨입니다</b> 님</p>
-        </div>
-    </li>
-</ul>--%>
+                        </c:forEach> --%>

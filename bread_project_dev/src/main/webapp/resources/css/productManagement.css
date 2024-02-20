@@ -10,7 +10,6 @@
             height: 1500px;
             margin: 0 auto;
         }   
-        /********** 헤더 영역 **********/
         header{
             width:1536px;
             height: 245px;
@@ -89,29 +88,20 @@
             border-top: 1px solid gray;
         }
 
-
-
-        /********** 메인 영역 **********/
-
-        /********** 사이드 메뉴바 영역 **********/
-
-
         #container-content{
             display: inline-block;
             width: 1536px; 
-            height: 1000px;
-            margin: 0 auto;
+            height: 1000px; 
         }
-
         #side-nav{
             float: left;
             width:300px;
-            height: 1000px; /* container-content height 크기와 동일하게 설정 */
+            height: 1000px; 
         }
         #side-menu{
             position: relative;
             left:70px;
-            top:100px;
+            top:127px;
             width: 220px;
             height: 400px;
             text-decoration: none;
@@ -128,13 +118,12 @@
         #side-menu ul{
             list-style: none;
         }
-        #side-menu ul a{
+        #side-menu ul li a{
             text-decoration: none;
             color:gray;
         }
         #side-menu ul li{
             font: 35px solid;
-            color:gray;
             font-family: 'Black Han Sans', sans-serif;
             font-family: 'Gasoek One', sans-serif;
             font-family: 'Gothic A1', sans-serif;
@@ -143,52 +132,60 @@
             padding-right:35px;
         }
 
-        /********** 사이드 메뉴바 영역 끝 **********/
         #all_box{
             width: 100%;
             max-width: 1200px;
             float: right;
+            color:rgba(0, 0, 0, 0.788);
             font-family: 'Jua', sans-serif;
             text-align: center;
         }
         #all_box h2{
             font-size: 50px;
             margin: 30px 0 30px 0;
+            color:rgba(0, 0, 0, 0.788);
         }
         #product_box{
-            width: 100%;
-            max-width: 1200px;
-            height: 100%;
+            width: 1137px;
+            height: 1000px;
             margin: 0 auto;
+            margin-left: 63px;
             text-align: center;
             border: 1px solid lightgrey;
             border-radius: 15px;
-            padding: 0 30px 30px 30px;
+            padding: 0 30px 10px 30px;
         }
         .product_table{
             width: 100%;
-            max-width: 1200px;
+        }
+        #noproduct{
+        	position:relative;
+        	left:420px;
+        	top:415px;
+        	font: 25px solid;
+            color:gray;
+            font-family: 'Jua', sans-serif;
         }
         .product_table tr:first-child {
             width: 100%;
-            max-width: 1200px;
-            height: 75px;
+            height: 45px;
             vertical-align: middle;
             border-bottom: 1px solid lightgray;
         }
         .product_table tr th:first-child{
             width: 385px;
-            height: 90px;
         }
         .product_table tr th{
+        	position:relative;
+        	top:3px;
             font: 25px solid;
+            color:gray;
             font-family: 'Jua', sans-serif;
             width: 148px;
-            height: 90px;
+            height: 87px;
         }
         .product_table_box{
             width: 100%;
-            max-width: 1200px;
         }
         .product_table tr td:first-child{
             width: 385px;
@@ -212,9 +209,6 @@
             border-radius: 15px;
         }
 
-
-
-
         #product_btn{
             background-color: #fff;
             border: none;
@@ -227,28 +221,42 @@
         #product_btn_box{
             width: 100px;
             float: right;
-            margin: 40px 25px 0 0;
-            
         }
         #product_btn_box input[type="button"]{
+            position:relative;
+            left:11px;
+            top:20px;
             border: none;
-            background-color: #fff;
+            color:gray;
             font-size: 25px;
         }
-        #product_btn_box input:hover{
+        #product_btn_box input[type="button"]:hover{
             color:#F39C12;
             border:none;
             transition: 0.5s;
         }
+        
+        .product_table input[type="submit"]{
+            border: 1px solid lightgray;
+            color: rgba(0, 0, 0, 0.788);
+            font-size: 20px;
+            width:60px;
+            height:35px;
+            background-color: white;
+            padding-top: 3px;
+        }
+        .product_table input[type="submit"]:hover{
+            color:white;
+        	background-color:gray;
+        	transition:0.5s;
+        }
 
-
-
-        /********** 풋터 **********/
         footer{
             position:absolute;
             top: 1500px;
             width:1536px;
             height:300px;
+            margin-top: 300px;
             margin-bottom:0px;
             background-color: rgb(245,246,247);
         }

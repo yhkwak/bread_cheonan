@@ -113,7 +113,7 @@ h1{font-size:0;}
         #side-menu{
             position: relative;
             left:70px;
-            top:100px;
+            top:127px;
             width: 220px;
             height: 400px;
             text-decoration: none;
@@ -150,32 +150,23 @@ h1{font-size:0;}
             max-width: 1200px;
             height: 100%;
             float: right;
+            text-align: center;
             font-family: 'Jua', sans-serif;
         }
+        #all_box h2{
+            font-size: 50px;
+            margin: 30px 0 30px 0;
+            color: rgba(0, 0, 0, 0.788);
+        }
         #order_box{
-            width: 100%;
-            max-width: 1137px;
-            height: 100%;
+            width: 1137px;
+            height: 1000px;
             margin: 0 auto;
             margin-left: 63px;
             text-align: center;
             border: 1px solid lightgrey;
             border-radius: 15px;
-            padding: 30px;
-        }
-        #order_text{
-            border-bottom: 1px solid gray;
-        }
-        #order_text ul{
-            display: flex;
-            margin-right: 25px;
-            padding: 0;
-        }
-        #order_text ul li{
-            display: inline;
-            width: 166px;
-            list-style: none;
-            font-size: 25px;
+            padding:10px 30px 30px 30px;
         }
         .order_table_box{
             width: 100%;
@@ -194,6 +185,7 @@ h1{font-size:0;}
             font-weight:normal;
             font-size:25px;
             font-family:'Jua', sans-serif;
+            color:gray;
         }
         .order_table tr{
             position: relative;
@@ -208,6 +200,7 @@ h1{font-size:0;}
             height: 10%;
             right:25px;
             font-size: 20px;
+            color: rgba(0, 0, 0, 0.788);
         } 
         .order_table tr td img{
             width: 80px;
@@ -217,9 +210,15 @@ h1{font-size:0;}
         #product{
             width:410px;
         }
-        input[type=button]{
-            border: 1px solid gray;
-            background-color: white;
+        button[type=button]{
+        	padding-top: 3px;
+            border: 1px solid lightgray;
+            color: rgba(0, 0, 0, 0.788);
+        }
+        button[type=button]:hover{
+        	color:white;
+        	background-color:gray;
+        	transition:0.5s;
         }
 
         /********** 페이징 영역 **********/
@@ -264,6 +263,7 @@ h1{font-size:0;}
             top: 1450px;
             width:1536px;
             height:300px;
+            margin-top:200px;
             margin-bottom:0px;
             background-color: rgb(245,246,247);
         }

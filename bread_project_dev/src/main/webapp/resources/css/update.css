@@ -142,7 +142,7 @@ h1{font-size:0;}
             position: relative;
             width:800px;
             height:990px;
-            border:1px solid gray;
+            border:1px solid lightgray;
             margin:0 auto;
             border-radius:15px;  
         }
@@ -226,7 +226,7 @@ h1{font-size:0;}
         }
         button[type=reset]{
             position: relative;
-            left:476px;
+            left:478px;
             font: 25px solid;
             font-family: 'Black Han Sans', sans-serif;
             font-family: 'Gasoek One', sans-serif;
@@ -243,7 +243,7 @@ h1{font-size:0;}
         }
         button[type=submit]{
             position: relative;
-            left:496px;
+            left:498px;
             font: 25px solid;
             font-family: 'Black Han Sans', sans-serif;
             font-family: 'Gasoek One', sans-serif;

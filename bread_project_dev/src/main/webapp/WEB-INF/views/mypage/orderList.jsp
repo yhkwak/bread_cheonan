@@ -92,7 +92,7 @@
                     <c:if test="${not empty orderList}">
                         <tr>
                             <td colspan="8" id="td_paging">
-                                <%@ include file="paging.jsp" %>
+                                <%-- <%@ include file="paging.jsp" %> --%>
                             </td>
                         </tr>
                     </c:if>

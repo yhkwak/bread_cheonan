@@ -94,19 +94,19 @@ h1{font-size:0;}
             height: 1050px;
         }
         #join-box{
+            position: relative;
             width:800px;
             height:1050px;
-            border:1px solid lightgray;
             margin:0 auto;
             margin-top: 100px;
+            border:1px solid lightgray;
             border-radius: 15px;
-            white-space: pre-line;
             font: 17px sans-serif;
         }
         #join-box h2{
             position: relative;
-            left:295px;
-            top:50px;
+            left:340px;
+            top:70px;
             font: 60px solid;
             font-family: 'Black Han Sans', sans-serif;
             font-family: 'Gasoek One', sans-serif;
@@ -116,38 +116,111 @@ h1{font-size:0;}
             width:200px;
             height: 90px;
         }
-        #text{
-            margin-top: 40px;
-            margin-left: 150px;
-            font: 25px solid;
-            font-family: 'Black Han Sans', sans-serif;
-            font-family: 'Gasoek One', sans-serif;
-            font-family: 'Gothic A1', sans-serif;
-            font-family: 'Jua', sans-serif;
-            color:gray;
+
+        .faq-container {
+        position: relative;
+        top:100px;
+        max-width: 600px;
+        margin: 0 auto;
         }
-        #text a{
-            font: 40px solid;
-            font-family: 'Grape Nuts', cursive;
-            font-family: 'Nanum Pen Script', cursive;
-            color:gray;
+
+        .faq {
+        background-color: transparent;
+        border: 1px solid #9fa4a8;
+        border-radius: 10px;
+        margin: 20px 0;
+        padding: 30px;
+        position: relative;
+        overflow: hidden;
+        transition: 0.3s ease;
         }
-        #text p{
-            position: relative;
-            top:50px;
-            right:65px;
-            font: 25px solid;
-            color:gray;
-            font-family: 'Black Han Sans', sans-serif;
-            font-family: 'Gasoek One', sans-serif;
-            font-family: 'Gothic A1', sans-serif;
-            font-family: 'Jua', sans-serif;
+
+        .faq.active {
+        background-color: #fff;
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1), 0 3px 6px rgba(0, 0, 0, 0.1);
         }
-        #adintroduce{
-            position: relative;
-            width:750px;
-            height: 500px;
-            right:125px;
+
+        .faq.active::before,
+        .faq.active::after {
+        content: '\f075';
+        font-family: 'Font Awesome 5 Free';
+        color: #2ecc71;
+        font-size: 7rem;
+        position: absolute;
+        opacity: 0.2;
+        top: 20px;
+        left: 20px;
+        z-index: 0;
+        }
+
+        .faq.active::before {
+        color: #3498db;
+        top: -10px;
+        left: -30px;
+        transform: rotateY(180deg);
+        }
+
+        .faq-title {
+        position: relative;
+        top:10px;
+        color:gray;
+        font-family: 'Black Han Sans', sans-serif;
+        font-family: 'Gasoek One', sans-serif;
+        font-family: 'Gothic A1', sans-serif;
+        font-family: 'Jua', sans-serif;
+        }
+
+        .faq-text {
+        display: none;
+        margin: 30px 0 0;
+        color:gray;
+        font: 20px solid;
+        font-family: 'Black Han Sans', sans-serif;
+        font-family: 'Gasoek One', sans-serif;
+        font-family: 'Gothic A1', sans-serif;
+        font-family: 'Jua', sans-serif;
+        }
+
+        .faq.active .faq-text {
+        display: block;
+        }
+
+        .faq-toggle {
+        background-color: transparent;
+        border: 0;
+        border-radius: 50%;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 16px;
+        padding: 0;
+        position: absolute;
+        top: 35px;
+        right: 30px;
+        height: 40px;
+        width: 40px;
+        }
+
+        .faq-toggle:focus {
+        outline: 0;
+        }
+
+        .faq-toggle .fa-times {
+        display: none;
+        }
+
+        .faq.active .faq-toggle .fa-times {
+        color: #fff;
+        display: block;
+        }
+
+        .faq.active .faq-toggle .fa-chevron-down {
+        display: none;
+        }
+
+        .faq.active .faq-toggle {
+        background-color: orange;
         }
         /********** 푸터 영역 **********/
         footer{

@@ -141,7 +141,7 @@ h1{font-size:0;}
             position: relative;
             width:800px;
             height:940px;
-            border:1px solid gray;
+            border:1px solid lightgray;
             margin:0 auto;
             border-radius:15px;  
         }
