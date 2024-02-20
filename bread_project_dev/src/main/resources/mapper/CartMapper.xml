@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.bread.app.CartMapper">
+
+	<!-- Create -->
+ 	<insert id="addCart" parameterType="map">
+ 		insert into bc_cart (member_idx, bread_idx, bread_count) values(#{member_idx}, #{bread_idx}, #{bread_count})
+ 	</insert>
+
+  	<!-- Read -->
+	<select id="getCarts" parameterType="_int" resultType="cartVO">
+		SELECT c.cart_idx, c.bread_idx, c.member_idx, b.bread_name, bk.bakery_name, b.bread_price, c.bread_count
+			FROM bc_cart c
+			INNER JOIN bc_bread b ON c.bread_idx = b.bread_idx
+			INNER JOIN bc_bakery bk ON b.bakery_idx = bk.bakery_idx
+			WHERE c.member_idx = #{member_idx};
+	</select>
+
+  	<!-- Update -->
+
+
+	<!-- Delete -->
+</mapper>

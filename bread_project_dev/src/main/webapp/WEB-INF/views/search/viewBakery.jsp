@@ -14,7 +14,10 @@
         <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Gasoek+One&family=Gothic+A1:wght@700&family=Jua&display=swap" rel="stylesheet">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">          
         <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/viewBakery.css">
+        <script src="${pageContext.request.contextPath}/resources/js/jquery-3.7.1.min.js"></script>
+		<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/viewBakery.js"></script>
     <title>빵집 상세보기</title>
+    
 </head>
 <body>
     <div id="wrap">
@@ -61,49 +64,42 @@
 
 				
                 <div id="pickup_box">
-                    <form name="frm-pickup" method="post" action="#">
-                        <c:forEach var="i" begin="0" end="2">
-	                        <table>                          
-	                            <tr>
-	                                <td rowspan="5" class="bakery_img"><img id="tel_img" src="${pageContext.request.contextPath}/resources/uploads/${member.member_img_save}"></td>
-	                            </tr>
-	                            <tr>
-	                                <td>${breadList[i].bread_name}</td>
-	                                <td></td>
-	                            </tr>
-	                            <tr>
-	                                <td>${breadList[i].bread_price}원</td>
-	                                <td></td>
-	                            </tr>
-	                            <tr>
-	                                <td>${breadList[i].bread_content}</td>
-	                                <td></td>
-	                            </tr>
-	                            <tr>
-	                                <td>빵 나오는 시간: ${breadList[i].bread_time1}  ${breadList[i].bread_time2}  ${breadList[i].bread_time3}</td>
-	                                <td>
-	                                    <div id="select_box">
-	                                    	<input type="hidden" name="member_idx" value="${member.member_idx}">
-	                                    	<input type="hidden" name="bread_idx" value="${breadList[i].bread_idx}">
-	                                        <select name="bread_count">
-	                                        	<option value="0" selected>0</option>
-	                                            <option value="1">1</option>
-	                                            <option value="2">2</option>
-	                                            <option value="3">3</option>
-	                                        </select>
-	                                    </div>
-	                                </td>
-	                            </tr>
-	                        </table>
-						</c:forEach>
-
-                        <div id="cart_box">
-                            <div><input type="submit" id="cart_btn" value="+ 장바구니 담기"></div>
-                        </div>
-						
+                	<c:forEach var="i" begin="0" end="2">
+                		<input type="hidden" class="bread_idx" name="bread_idx" value="${breadList[i].bread_idx}">
+                    	<table>                          
+                            <tr>
+                                <td rowspan="5" class="bakery_img"><img id="tel_img" src="${pageContext.request.contextPath}/resources/uploads/${bread.bread_img_save}"></td>
+                            </tr>
+                            <tr>
+                                <td>${breadList[i].bread_name}</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>${breadList[i].bread_price}원</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>${breadList[i].bread_content}</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>빵 나오는 시간: ${breadList[i].bread_time1}  ${breadList[i].bread_time2}  ${breadList[i].bread_time3}</td>
+                                <td>
+                                    <div id="select_box">
+                                    	<input type="number" class="bread_count" min="1" max="10">
+                                    	<button type="button" id="product_add" onclick="cart_add(${i})">추가</button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+					</c:forEach>
+					<form method="post" action="cartProcess.do?member_idx=${member.member_idx}">
+						<div id="result_box"></div>
+	                    <div id="cart_box">
+	                        <div><input type="submit" id="cart_btn" value="+ 장바구니 담기"></div>
+	                    </div>
                     </form>
                 </div>
-
 
             </div>
 
@@ -112,5 +108,6 @@
         <%@ include file = "../common/footer.jsp" %>
         
         </div>
+        
 </body>
 </html>

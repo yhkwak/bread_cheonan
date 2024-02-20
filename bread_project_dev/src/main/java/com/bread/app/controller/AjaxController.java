@@ -3,10 +3,14 @@ package com.bread.app.controller;
 
 import java.sql.SQLException;
 
+import org.apache.taglibs.standard.tag.common.fmt.ParseDateSupport;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.bread.app.dao.MemberDAO;
+import com.bread.app.dao.SearchDAO;
+import com.bread.app.vo.BreadVO;
 
 import lombok.AllArgsConstructor;
 
@@ -16,6 +20,7 @@ import lombok.AllArgsConstructor;
 public class AjaxController {
 
     private MemberDAO memberDAO;
+    private SearchDAO searchDAO;
     
     //아이디 중복검사 처리 요청
     @PostMapping("/member/checkIdProcess.do")
@@ -41,5 +46,14 @@ public class AjaxController {
         }
 
         return result;
+    }
+    
+    @PostMapping("/search/cartAdd.do")
+    public BreadVO cartAdd(int bread_idx) throws SQLException{
+    	BreadVO breadVO = null;
+    	
+    	breadVO = searchDAO.getBread(bread_idx);
+    	
+    	return breadVO;
     }
 }
