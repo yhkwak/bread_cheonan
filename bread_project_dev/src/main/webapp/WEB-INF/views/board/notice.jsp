@@ -22,12 +22,8 @@
 		
 		<section id="container-content">
 			<h1>내용 영역</h1>
-			<div id="side-nav">
-				<div id="side-menu">
-					<h2>공지사항</h2>
-
-				</div>
-			</div>
+			<div id="all_box">
+				<h2>공지사항</h2>
 			<div id="main-area">
 				<table id="table-notice">
 					<tr id="tr-tablehead">
@@ -71,6 +67,7 @@
 						<button type="button" id="button-write" onclick="location.href='noticeWrite.do'">글쓰기</button>
 					</div>
  				</c:if>
+			</div>
 			</div>
 		</section>
 
