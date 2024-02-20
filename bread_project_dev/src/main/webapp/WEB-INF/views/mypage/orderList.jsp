@@ -59,6 +59,7 @@
                             <!-- 데이터가 있는 경우 -->
                             <c:forEach var="i" begin="${pageNav.startNum}" end="${pageNav.endNum}" varStatus="vs">
                                 <c:if test="${not empty orderList[vs.count-1]}">
+                                 <input type="hidden" name="bread_idx" value="${orderList[vs.count-1].bread_idx}">
                                     <tbody>
                                     <tr>
                                         <input type="hidden" name="bread_idx" value="${orderList[vs.count-1].bread_idx}">
@@ -76,7 +77,13 @@
                                             <c:otherwise>
                                                 <td>결제 취소</td>
                                             </c:otherwise>
-                                        </c:choose>
+                                        </c:choose>                     
+                                        <td>${orderList[vs.count-1].order_idx}</td>
+                                        <td>${orderList[vs.count-1].bakery_name}</td>
+                                        <td>${orderList[vs.count-1].bread_name}</td>
+                                        <td>${orderList[vs.count-1].count}</td>
+                                        <td>총금액은 스크립트 짜기로</td>
+                                        <td><fmt:formatDate value="${orderList[vs.count-1].payment_date}" pattern="yyyy-MM-dd HH:mm:ss" /></td>
                                         <td>
                                             <c:choose>
                                                 <c:when test="${orderList[vs.count-1].payment_status eq 0 }">
@@ -93,7 +100,7 @@
                     <c:if test="${not empty orderList}">
                         <tr>
                             <td colspan="8" id="td_paging">
-                                <%-- <%@ include file="paging.jsp" %> --%>
+                                <%@ include file="paging.jsp" %>
                             </td>
                         </tr>
                     </c:if>
