@@ -70,6 +70,7 @@
                                                 <td>결제 취소</td>
                                             </c:otherwise>
                                         </c:choose>
+                                        <input type="hidden" name="bread_idx" value="${orderList[vs.count-1].bread_idx}">
                                         <td>${orderList[vs.count-1].order_idx}</td>
                                         <td>${orderList[vs.count-1].bakery_name}</td>
                                         <td>${orderList[vs.count-1].bread_name}</td>
@@ -79,7 +80,7 @@
                                         <td>
                                             <c:choose>
                                                 <c:when test="${orderList[vs.count-1].payment_status eq 0 }">
-                                                    <button type="button" id="button-write" onclick="location.href='reviewWrite.do'">리뷰쓰기</button>
+                                                    <button type="button" id="button-write" onclick="location.href='${pageContext.request.contextPath}/review/reviewWrite.do?breadId=${order.bread_idx}&orderId=${orderList[vs.count-1].order_idx}'">리뷰쓰기</button>
                                                 </c:when>
                                             </c:choose>
                                         </td>
