@@ -1,12 +1,11 @@
 package com.bread.app.controller;
 
-import com.bread.app.vo.MemberVO;
-import com.bread.app.vo.OrderListVO;
-import com.bread.app.vo.ReviewVO;
-import com.bread.app.vo.SearchVO;
-import com.bread.service.Review.ReviewService;
-import com.bread.service.order.OrderService;
-import lombok.Setter;
+import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,23 +13,46 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-import java.util.List;
+import com.bread.app.common.FivePageNav;
+import com.bread.app.vo.MemberVO;
+import com.bread.app.vo.OrderListVO;
+import com.bread.app.vo.PageVO;
+import com.bread.app.vo.ReviewVO;
+import com.bread.service.Review.ReviewService;
+import com.bread.service.order.OrderService;
 
+import lombok.Setter;
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 @Controller
 @RequestMapping("/review")
 public class ReviewController {
 
 	@Setter(onMethod_ = {@Autowired})
-	ReviewService rList, rInsert, rView, rUpdate, rDelete, rDownload, rViewCount;
+	ReviewService rList, rInsert, rView, rUpdate, rDelete, rDownload, rViewCount, rPage, rTotalCount;
+	@Setter(onMethod_= {@Autowired})
+	FivePageNav pageNav;
 	@Setter(onMethod_ = {@Autowired})
 	OrderService oList;
 	@GetMapping("/review.do")
-	public String review(SearchVO searchVO, Model model) {
-		List<ReviewVO> reviewList = rList.getBoards(searchVO);
+	public String review(PageVO pageVO, Model model) {
+
+		
+		// pageNum이 0이면 1로 세팅, 처음 호출시 0이라서 오류 발생
+		if (pageVO.getPageNum() == 0) {
+			pageVO.setPageNum(1);
+		}
+		
+		List<ReviewVO> reviewList = rList.getBoards(pageVO);
 		model.addAttribute("reviewList", reviewList);
+		
+		pageNav.setTotalRows(rTotalCount.getTotalCount(pageVO));
+		pageNav = rPage.setPageNav(pageNav, pageVO.getPageNum(), pageVO.getPageBlock());
+		
+		model.addAttribute("pageNav", pageNav);
+		 log.debug("Page number received={}", pageVO.getPageNum());
+		
 		return "review/review";
 	}
 	@GetMapping("/reviewWrite.do")

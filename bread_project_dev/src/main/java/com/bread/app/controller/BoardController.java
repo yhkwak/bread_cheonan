@@ -9,11 +9,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.bread.app.common.FivePageNav;
 import com.bread.app.vo.NoticeVO;
-import com.bread.app.vo.SearchVO;
+import com.bread.app.vo.PageVO;
 import com.bread.service.notice.NoticeService;
 
 import lombok.Setter;
@@ -23,12 +25,27 @@ import lombok.Setter;
 public class BoardController {
 
 	@Setter(onMethod_={ @Autowired })
-	NoticeService nList, nInsert, nView, nUpdate, nDelete, nDownload;
-
+	NoticeService nList, nInsert, nView, nUpdate, nDelete, nDownload, nPage, nTotalCount;
+	@Setter(onMethod_= {@Autowired})
+	FivePageNav pageNav;
+	
 	@GetMapping("/notice.do")
-	public String notice(SearchVO searchVO, Model model) {
-		List<NoticeVO> noticeList = nList.getBoards(searchVO);
+	public String notice(@ModelAttribute("sVO") PageVO pageVO, Model model) {
+		
+		
+		// pageNum이 0이면 1로 세팅, 처음 호출시 0이라서 오류 발생
+		if (pageVO.getPageNum() == 0) {
+			pageVO.setPageNum(1);
+		}
+		
+		List<NoticeVO> noticeList = nList.getBoards(pageVO);
 		model.addAttribute("noticeList", noticeList);
+		
+		pageNav.setTotalRows(nTotalCount.getTotalCount(pageVO));
+		pageNav = nPage.setPageNav(pageNav, pageVO.getPageNum(), pageVO.getPageBlock());
+		
+		model.addAttribute("pageNav", pageNav);
+		
 		return "board/notice";
 	}
 
