@@ -66,7 +66,7 @@
 				            <div id="text1">${member.member_nickname}<span> 님</span>&nbsp;&nbsp;환영합니다</div>
 				            <div id="login_list">
 				                <a href="${pageContext.request.contextPath}/member/update.do">마이페이지&nbsp;&nbsp;</a>
-				                <a href="${pageContext.request.contextPath}/cart/cart.do">장바구니&nbsp;&nbsp;</a>
+				                <a href="${pageContext.request.contextPath}/cart/cart.do?member_idx=${member.member_idx}">장바구니&nbsp;&nbsp;</a>
 				                <a href="${pageContext.request.contextPath}/member/logout.do">로그아웃</a>
 				            </div>
 				        </div>
