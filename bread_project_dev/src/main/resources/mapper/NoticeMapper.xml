@@ -22,8 +22,13 @@
 	
 	
  	<!-- Read -->
+ 	
+ 	<!-- 전체 게시물 수 조회 -->
+ 	<select id="getTotalCount" parameterType="pageVO" resultType="_int">
+ 		select count(*) from bc_notice
+ 	</select>
  	<!-- 모든 게시글 조회: select -->
-	<select id="getBoards" parameterType="searchVO" resultType="noticeVO">
+	<select id="getBoards" parameterType="pageVO" resultType="noticeVO">
 		    select /*+ INDEX(bc_notice bc_notice_pk) */
 		    *
 		    from bc_notice

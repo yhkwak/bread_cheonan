@@ -6,7 +6,8 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
 import com.bread.app.vo.NoticeVO;
-import com.bread.app.vo.SearchVO;
+import com.bread.app.vo.PageVO;
+
 import lombok.RequiredArgsConstructor;
 
 @Repository
@@ -28,9 +29,15 @@ public class NoticeDAO {
 	}
 	
 	// Read 모든 게시글 조회
-	public List<NoticeVO> getBoards(SearchVO vo) {
+	public List<NoticeVO> getBoards(PageVO vo) {
 		return sqlSession.selectList(MAPPER+".getBoards",vo);
 	}
+	// Read 모든 게시글 조회
+	public int getTotalCount(PageVO vo) {
+		return sqlSession.selectOne(MAPPER+".getTotalCount",vo);
+	}
+	
+	
 	
 	// Update 수정하기
 	public int update(NoticeVO vo) {

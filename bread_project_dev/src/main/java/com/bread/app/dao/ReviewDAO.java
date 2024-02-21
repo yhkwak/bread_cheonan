@@ -1,13 +1,16 @@
 package com.bread.app.dao;
 
 
-import com.bread.app.vo.ReviewVO;
-import com.bread.app.vo.SearchVO;
-import lombok.RequiredArgsConstructor;
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
-import java.util.List;
+import com.bread.app.vo.PageVO;
+import com.bread.app.vo.ReviewVO;
+import com.bread.app.vo.SearchVO;
+
+import lombok.RequiredArgsConstructor;
 
 @Repository
 @RequiredArgsConstructor
@@ -28,7 +31,7 @@ public class ReviewDAO {
     }
 
     // Read 모든 게시글 조회
-    public List<ReviewVO> getBoards(SearchVO vo) {
+    public List<ReviewVO> getBoards(PageVO vo) {
         return sqlSession.selectList(MAPPER + ".getBoards", vo);
     }
 
@@ -51,5 +54,9 @@ public class ReviewDAO {
     public List<ReviewVO> getTopReviews() {
         return sqlSession.selectList(MAPPER + ".getTopReviews");
     }
+	// Read 모든 게시글 조회
+	public int getTotalCount(PageVO vo) {
+		return sqlSession.selectOne(MAPPER+".getTotalCount",vo);
+	}
 
 }

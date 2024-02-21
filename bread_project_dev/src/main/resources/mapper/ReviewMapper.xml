@@ -14,15 +14,19 @@
 
 
     <!-- Read -->
-
+<!-- 전체 게시물 수 조회 -->
+ 	<select id="getTotalCount" parameterType="pageVO" resultType="_int">
+ 		select count(*) from bc_review
+ 	</select>
+ 
     <!-- 모든 리뷰 조회: select -->
-    <select id="getBoards" parameterType="searchVO" resultType="reviewVO">
+    <select id="getBoards" parameterType="pageVO" resultType="reviewVO">
         select
         o.order_idx,
         b.bread_name, b.bread_img,
         ba.bakery_idx, ba.bakery_name,
         m.member_name, m.member_phone, m.member_nickname,
-        o.payment_date, o.count,
+        o.payment_date, o.bread_count,
         r.review_title, r.review_content, r.review_post_date, r.review_idx
         from
         bc_order o
@@ -35,7 +39,15 @@
         m.member_del = 0 and
         ba.bakery_del = 0 and
         r.review_del_or_not=1 order by
-        r.review_idx desc;
+        r.review_idx desc limit 
+		    <choose>
+		        <when test="startIdx >= 0">
+		            #{startIdx}, 12
+		        </when>
+		        <otherwise>
+		            0, 12
+		        </otherwise>
+		    </choose>;
     </select>
 
     <!-- 하나의 리뷰 조회: select -->
