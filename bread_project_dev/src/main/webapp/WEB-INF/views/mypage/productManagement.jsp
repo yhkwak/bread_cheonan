@@ -47,8 +47,8 @@
                             <th>상품명</th>
                             <th>가격</th>
                             <th>가게</th>
-                            <th>재고 수량</th>
-                            <th>승인 상태</th>
+                            <th class="category">재고 수량</th>
+                            <th class="category">승인 상태</th>
                             <th></th>
                         </tr>
                         <c:choose>

@@ -17,7 +17,7 @@
 		// 변수를 global scope에 추가하여 JS 파일에서 사용할 수 있게 함
 		var contextPath = "${pageContext.request.contextPath}";
 	</script>
-	<title>공지사항 글쓰기</title>
+	<title>공지사항 글작성</title>
 </head>
 <body>
 
@@ -25,34 +25,29 @@
 	<%@ include file = "../common/header.jsp" %>
 	<section id="container-content">
 		<h1>내용 영역</h1>
-		<div id="side-nav">
-			<div id="side-menu">
-				<h2>공지사항</h2>
-			</div>
-		</div>
 		<div id="main-area">
+		<h2>공지사항 작성</h2>
 			<form action="${pageContext.request.contextPath}/board/noticeWriteProcess.do" id="frm_write" name="frm_write"
-				  method="post" enctype="multipart/form-data" onsubmit="return handleSubmit(event);"><!-- onsubmit 서밋버튼 눌렀을시 -> js handleSubmit 함수를 호출 -->
+				  method="post" enctype="multipart/form-data" onsubmit="return handleSubmit(event);">
 				<table id="table-main">
 					<tr id="tr-title">
-						<th class="td-main">제목</th>
+						<th class="td-main" id="td-subject">제목</th>
 						<td class="td-input"><input type="text" name="title" id="input-title"></td>
 					</tr>
 					<tr>
-						<th class="td-main">내용</th>
+						<th class="td-main"></th>
 						<td class="td-input"><textarea name="content" id="content" rows="15" cols="40"></textarea></td>
 					</tr>
-					<tr>
-						<th class="td-main">첨부파일</th>
+					<tr id="tr-file">
+						<th class="td-main" id="td-file">첨부파일</th>
 						<td class="td-input"><input type="file" name="uploadFile" ></td>
 					</tr>
 				</table>
-				<div id="div-button">
-					<input type="button" id="button-write" value="취소">
-					<input type="submit" value="등록하기" id="submitBtn">
-				</div>
+					<button type="button" id="button-write" value="취소" onclick="location.href='/myapp/board/notice.do'">등록 취소</button>
+					<button type="submit" value="글 등록" id="submitBtn">글 등록</button>
 			</form>
 		</div>
+		<div id=border></div>
 	</section>
 
 	<%@ include file = "../common/footer.jsp" %>
