@@ -26,7 +26,9 @@ public class CartController {
 	///////// 페이지 매핑 ///////////
 	
 	@GetMapping("/cart/cart.do")
-	public String cart() {
+	public String cart(int member_idx, Model model) {
+		List<CartVO> cartList = cList.getCarts(member_idx);
+		model.addAttribute("cartList", cartList);
 		return "cart/cart";
 	}
 	

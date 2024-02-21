@@ -56,13 +56,13 @@ public class ReviewController {
 		return "review/review";
 	}
 	@GetMapping("/reviewWrite.do")
-	public String reviewWrite(HttpServletRequest request, Model model) {
+	public String reviewWrite(PageVO vo, HttpServletRequest request, Model model) {
 		HttpSession session = request.getSession();
 		MemberVO member = (MemberVO) session.getAttribute("member");
 
 		if (member != null) {
-			int member_idx = member.getMember_idx();
-			List<OrderListVO> writeList = oList.orderList(member_idx);
+			vo.setMember_idx(member.getMember_idx());
+			List<OrderListVO> writeList = oList.orderList(vo);
 			 model.addAttribute("writeList", writeList);
 		} else {
 			return "redirect:/member/login.do";

@@ -11,4 +11,5 @@ public class CartVO {
 	private String bread_name;
 	private String bakery_name;
 	private int bread_price;
+	private String bread_img_save;
 }
