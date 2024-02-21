@@ -108,142 +108,123 @@ span {
 }
 /********** 메인 영역 **********/
 #container-content {
-	display: inline-block;
 	width: 1536px;
-	height: 1000px; /* 본인의 작업 사이즈에 맞게 변경 */
+	height: 1000px;
+	margin: 0 auto; /* 본인의 작업 사이즈에 맞게 변경 */
 }
-
-#side-nav {
-	float: left;
-	width: 300px;
-	height: 1000px; /* container-content height 크기와 동일하게 설정 */
-}
-
-#side-menu {
-	position: relative;
-	left: 70px;
-	top: 100px;
-	width: 200px;
-	height: 400px;
-	text-decoration: none;
-}
-
-#side-menu h2 {
-	font: 45px solid;
-	color: rgba(0, 0, 0, 0.788);
-	font-family: 'Black Han Sans', sans-serif;
-	font-family: 'Gasoek One', sans-serif;
-	font-family: 'Gothic A1', sans-serif;
-	font-family: 'Jua', sans-serif;
-}
-
-#side-menu ul {
-	list-style: none;
-}
-
-#side-menu ul a {
-	text-decoration: none;
-}
-
-#side-menu ul li {
-	font: 35px solid;
-	color: gray;
-	font-family: 'Black Han Sans', sans-serif;
-	font-family: 'Gasoek One', sans-serif;
-	font-family: 'Gothic A1', sans-serif;
-	font-family: 'Jua', sans-serif;
-	margin-top: 30px;
-	padding-left: 18px;
-}
-
 #main-area {
-	float: left;
+	position:relative;
 	width: 1236px;
 	height: 1000px;
 }
-
-#table-notice{
-	text-align: center;
-	margin: 40px auto 10px auto;
+#main-area h2{
+	position:relative;
+	left:155px;
+	top:30px;
+	width:270px;
+	font-size: 50px;
+    margin: 0 auto;
+    color: gray;
+    font-family: 'Black Han Sans', sans-serif;
+	font-family: 'Gasoek One', sans-serif;
+	font-family: 'Gothic A1', sans-serif;
+	font-family: 'Jua', sans-serif;
+	font-size: 50px;
+}
+.td-main{
+	position:relative;
+	font:25px solid;
+	color:gray;
 	font-family: 'Black Han Sans', sans-serif;
 	font-family: 'Gasoek One', sans-serif;
 	font-family: 'Gothic A1', sans-serif;
 	font-family: 'Jua', sans-serif;
-	font-size: 20px;
 }
-
-#table-notice a{
-	text-decoration: none;
-	color: black;
+#td-subject{
+	position:relative;
+	left:30px;
 }
-
-#table-notice tr{
-	height: 60px;
+#td-file{
+	position:relative;
+	top:3px;
 }
-
-#tr-tablehead{
-	background-color: rgba(243, 156, 18, 0.4);
+#frm_write{
+	position:relative;
+	left:300px;
+	top:70px;
+	margin: 0 auto;
 }
-
-#th-num{
-	width: 50px;
-	height: 50px;
-}
-
-#th-title{
-	width: 800px;
-	height: 50px;
-}
-
-#th-regDate{
-	width: 150px;
-	height: 50px;
-}
-
-#th-file{
-	width: 100px;
-	height: 50px;
-}
-
 #div-button{
 	width: 190px;
 	height: 50px;
 	position: relative;
 	left: 820px;
 }
-
-#submitBtn,#button-write{
-	width: 80px;
-	height: 50px;
-	border-radius: 5px;
+#border{
+	position:relative;
+	bottom:850px;
+	width:950px;
+	height:900px;
+	border: 1px solid lightgray;
+	border-radius: 20px;
+	margin: 0 auto;
+	z-index: -1;
+}
+#submitBtn{
+	position:relative;
+	left:780px;
+	top:60px;
 	border: none;
-	background-color: rgba(243, 156, 18, 0.4);
+	font: 25px solid;
 	font-family: 'Black Han Sans', sans-serif;
 	font-family: 'Gasoek One', sans-serif;
 	font-family: 'Gothic A1', sans-serif;
 	font-family: 'Jua', sans-serif;
-	font-size: 20px;
+	color: gray;
+	background-color:white;
 }
-
+#submitBtn:hover{
+	color:#F39C12;
+    border:none;
+    transition: 0.5s;
+}
+#button-write{
+	position:relative;
+	top:60px;
+	left:760px;
+	border: none;
+	font: 25px solid;
+	font-family: 'Black Han Sans', sans-serif;
+	font-family: 'Gasoek One', sans-serif;
+	font-family: 'Gothic A1', sans-serif;
+	font-family: 'Jua', sans-serif;
+	color: gray;
+	background-color:white;
+}
+#button-write:hover{
+	color:#F39C12;
+    border:none;
+    transition: 0.5s;
+}
+#tr-file{
+	position:relative;
+	top:5px;
+}
 #table-main{
-	width: 1000px;
+	width: 1200px;
 	height: 500px;
-
-	margin: 40px auto 10px auto;
-
+	margin: 0 auto;
 }
-
 #input-title{
 	border: 1px solid lightgray;
 	border-radius: 20px;
 	margin-right: 120px;
 	padding-left: 10px;
-	width: 800px;
+	width: 804px;
 	height: 40px;
 	color: gray;
-	font: 20px solid bold, sans-serif;
+	font: 20px solid, sans-serif;
 }
-
 #tr-title{
 	height: 120px;
 }
@@ -259,6 +240,7 @@ footer {
 	position: absolute;
 	width: 1536px;
 	height: 300px;
+	margin-top: 300px;
 	margin-bottom: 0px;
 	background-color: rgb(245, 246, 247);
 }

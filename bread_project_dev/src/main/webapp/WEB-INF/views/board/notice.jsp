@@ -16,44 +16,39 @@
 <title>공지사항</title>
 </head>
 <body>
-	<div id="wrap">
+<div id="wrap">
 	
 		<%@ include file = "../common/header.jsp" %>
 		
 		<section id="container-content">
-			<h1>내용 영역</h1>
-			<div id="all_box">
-				<h2>공지사항</h2>
-			<div id="main-area">
-				<table id="table-notice">
-					<tr id="tr-tablehead">
-						<th id="th-num">No</th>
-						<th id="th-title">제목</th>
-						<th id="th-regDate">작성일</th>
-						<th id="th-file">첨부파일</th>
-					</tr>
-					<c:choose>
+            <div id="all_box">
+            	<h2>공지사항</h2>
+                <div id="order_box">
+                    <form>
+                        <div class="order_table_box">
+                            <table class="order_table">
+                                <tr style="border-bottom: 1px solid lightgray">
+                                    <th id="no">NO</th>
+                                    <th id="subject">제목</th>
+                                    <th id="date">작성일</th>
+                                    <th id="uploadfile">첨부파일</th>
+                                </tr>                            
+                                <c:choose>
 						<c:when test="${empty noticeList}">
-							<tr><td colspan="6">등록된 게시물이 없습니다</td></tr>
+							<tr><td id="noproduct" colspan="6">등록된 게시물이 없습니다</td></tr>
 						</c:when>
 						<c:otherwise>
-							<c:forEach items="${noticeList}" var="notice" varStatus="status"> <!-- 페이징 필요부분인것같아서 다른 로직으로 대체 -->
-							<%-- <c:forEach var="i" begin="${pageNav.startNum}" end="${pageNav.endNum}" varStatus="vs">
-								<c:if test="${not empty noticeList[vs.count-1]}"><!-- noticeList에 저장된 데이터가 있는 경우 출력--> 강사님 원문 --%>
+							<c:forEach items="${noticeList}" var="notice" varStatus="status">
 						        <tr>
-						            <td>${status.index + 1}</td><!-- 페이징 필요부분인것같아서 다른 로직으로 대체 -->
-						            <%-- <td>${i}</td> 강사님 원문 --%>
-						            <td>
+						            <td id="notice1">${status.index + 1}</td>
+						            <td id="notice2">
 						            	<a href="view.do?notice_idx=${notice.notice_idx}">${notice.title}</a>
-						            	<%-- <a href="view.do?notice_idx=${noticeList[vs.count-1].notice_idx}"> ${noticeList[vs.count-1].title} 강사님 원문 </a> --%>
 						            </td>
-						            <%-- <td>${notice.post_date}</td> --%>
-						            <td><fmt:formatDate value="${notice.post_date}" pattern="yyyy.MM.dd" /></td>
-						            <td>
-										<!-- 첨부파일이 있는 경우에는 정해진 이미지를 출력시키고 없는 경우에는 공란으로 처리함 -->
+						            <td id="notice3"><fmt:formatDate value="${notice.post_date}" pattern="yyyy.MM.dd" /></td>
+						            <td id="notice4">
 										<c:if test="${not empty notice.originfile_name}">
 										    <a href="download.do?originfile_name=${notice.originfile_name}&savefile_name=${notice.savefile_name}">
-										        <img src="${pageContext.request.contextPath}/resources/css/img/fileattachment.png" alt="첨부파일 이미지" width="15px" height="17px">
+										        <img src="${pageContext.request.contextPath}/resources/css/img/fileattachment.png" alt="첨부파일 이미지" width="20px" height="20px">
 										    </a>
 										</c:if>
 									</td>
@@ -61,18 +56,29 @@
 						    </c:forEach>
 						</c:otherwise>
 					</c:choose>
-				</table>
- 				<c:if test="${member.grade eq 2}">
-					<div id="div-button">
-						<button type="button" id="button-write" onclick="location.href='noticeWrite.do'">글쓰기</button>
-					</div>
- 				</c:if>
-			</div>
-			</div>
-		</section>
-
-		<%@ include file = "../common/footer.jsp" %>
+                            </table>
+                        </div>
+                    </form>
+                </div>
+                <c:if test="${member.grade eq 2}">
+                            <button type="button" id="button-write" onclick="location.href='noticeWrite.do'">글 작성</button>
+                </c:if>
+                <div class="page_box">
+                    <ul class="pageNav">
+                        <li><a href="#" class="arrow_left"><</a></li>
+                        <li><a href="#" class="1">1</a></li>
+                        <li><a href="#" class="2">2</a></li>
+                        <li><a href="#" class="3">3</a></li>
+                        <li><a href="#" class="4">4</a></li>
+                        <li><a href="#" class="5">5</a></li>
+                        <li><a href="#" class="arrow_last">></a></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
+        <%@ include file = "../common/footer.jsp" %>
 		
-	</div>
+</div>		
 </body>
 </html>

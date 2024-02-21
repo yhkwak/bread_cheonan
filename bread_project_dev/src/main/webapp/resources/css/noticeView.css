@@ -76,7 +76,7 @@
             color:gray;
             text-decoration-line: none;
         }
-        span{
+        #header_list span{
             font: bold 50px solid;
             font-family: 'Grape Nuts', cursive;
             font-family: 'Nanum Pen Script', cursive;
@@ -92,134 +92,234 @@
 
 
         /********** 메인 영역 **********/
-        #all_box{
-            width: 100%;
-            max-width: 1200px;
-            height: 100%;
-            float: right;
-        }
-        #view_box{
-            margin: 0 auto;
-            width: 100%;
-            max-width: 1000px;
-            text-align: center;
-        }
-        .view_table_box{
-            height: 800px;
-            border: 3px solid lightgrey;
-            border-radius: 15px;
-        }
-        .view_table{
-            width: 100%;
-            max-width: 1000px;
-            height: 100%;
-        }
-        .view_table tr th{
-            width: 130px;
-            height: 55px;
-            font: 25px solid;
-            font-family: 'Jua', sans-serif;
-        }
-        .view_table tr td{
-            text-align: left;
-            padding-left: 20px;
-            font: 20px solid;
-            font-family: 'Jua', sans-serif;
-        }
-        .view_table tr:nth-child(2){
-            border-bottom: 3px solid lightgrey;
-        }
-        .view_table tr:nth-child(3) td{
-            padding: 20px;
-        }
-        #foot_box{
-            display: flex;
-            width: 100%;
-            height: 40px;
-            padding: 10px;
-            text-align: left;
-            font: 18px solid;
-            font-family: 'Jua', sans-serif;
-        }
-        #foot_box p{
-            width: 700px;
-            margin: 0;
-        }
-        #view_btn_box{
-            display: flex;
-            width: 300px;
-        }
-        #view_btn_box input{
-            width: 100px;
-            background-color: white;
-            border: none;
-            color: gray;
-            font: 20px solid bold;
-            font-family: 'Jua', sans-serif;
-        }
-        #view_btn_box input:hover{
-            color:#F39C12;
-            border:none;
-            transition: 0.5s;
-        }
+
         /********** 사이드 메뉴바 영역 **********/
 
 
         #container-content{
             display: inline-block;
             width: 1536px; 
-            height: 1000px;
+            height: 650px;
             margin: 0 auto;
         }
-
-        #side-nav{
-            float: left;
-            width:300px;
-            height: 1000px; /* container-content height 크기와 동일하게 설정 */
+        #all_box{
+            width: 100%;
+            max-width: 1200px;
+            height: 650px;
+            margin: 0 auto;
+            text-align: center;
+            font-family: 'Jua', sans-serif;
         }
-        #side-menu{
+        #all_box h2{
+            font-size: 50px;
+            margin: 30px 0 30px 0;
+            color: rgba(0, 0, 0, 0.788);
+        }
+        #order_box{
+            width: 1137px;
+            height: 650px;
+            margin: 0 auto;
+            text-align: center;
+            border: 1px solid lightgrey;
+            border-radius: 15px;
+            padding:10px 30px 30px 30px;
+        }
+        .order_table_box{
+            width: 100%;
+            max-width: 1000px;
+        }
+        .order_table{
             position: relative;
-            left:70px;
-            top:100px;
-            width: 220px;
-            height: 400px;
-            text-decoration: none;
+            right:12px;
+            width:1100px;
+            margin-top: 19px;
+            border-bottom: 1px solid lightgray;
+        }
+        .order_table th{
+            position: relative;
+            padding-bottom: 20px;
+            font-weight:normal;
+            font-size:25px;
+            font-family:'Jua', sans-serif;
+            color:gray;
+        }
+        #no{
+        	position:relative;
+        	right:20px;
+        	width:40px;
+        }
+        #subject{
+        	position:relative;
+        	width:40px;
+        	right:102px;
+        }
+        #date{
+        	position:relative;
+        	width:70px;
+        	right:92px;
+        }
+        #uploadfile{
+        	position:relative;
+        	width:100px;
+        }
+        #main_box{
+        	position:relative;
+        	width:1100px;
+        	height:460px;
+        	top:20px;
+        	right:12px;
+        	text-align:left;
+        	
+        }
+        #main_box span{
+        	width:1100px;
+        	height:460px;
+        }
+        .notice_class{
+        	position:relative;
+        	right:120px;
+        	color:gray;
+        	font: 20px solid;
+        	font-family: 'Jua', sans-serif;
+        }
+        #notice1{
+        	position:relative;
+        	right:20px;
+        	color:gray;
+        	font: 20px solid;
+        	font-family: 'Jua', sans-serif;
+        }
+        #notice2{
+        	position:relative;
+        	width:300px;
+        	text-align:left;
+        	left:40px;
+        }
+        #notice2 a{
+        	text-decoration:none;
+        	color:black;
+        	font: 20px solid;
+        	font-family: 'Jua', sans-serif;
+        }
+        #notice2:hover{
+        	text-decoration:underline;
+        	transition:1s;
+        }
+        #notice3{
+        	position:relative;
+        	color:gray;
+        	font: 20px solid;
+        	bottom:40px;
+        	font-family: 'Jua', sans-serif;
+        }
+        #notice4{
+        	position:relative;
+        	font: 25px solid;
+        	font-family: 'Jua', sans-serif;
+        }
+        .order_table tr{
+            position: relative;
+            left:20px;
+            width:1536px;
+            height:50px;
+        }
+        .order_table td{
+            position: relative;
+            font: 20px solid;
+        	font-family: 'Jua', sans-serif;
+        	color:rgba(0, 0, 0, 0.788);
+        }
+        #td_subject{
+            position:relative;
+            text-align:left;
+            width:300px;
+            bottom:12px;
+        }
+        #td_date{
+        	position:relative;
+        	text-align:left;
+            bottom:12px;
+        }
+        button[type=button]{
+        	position:relative;
+        	width:83px;
+        	top:50px;
+        	font: 25px solid;
+            font-family: 'Black Han Sans', sans-serif;
+            font-family: 'Gasoek One', sans-serif;
+            font-family: 'Gothic A1', sans-serif;
+            font-family: 'Jua', sans-serif;
+            color:gray;
+            background-color: white;
+            border:none;
+        }
+        button[type=button]:hover, button[type=submit]:hover{
+        	color:#F39C12;
+            border:none;
+            transition: 0.5s;
+        }
+        button[type=submit]{
+        	position:relative;
+        	width:83px;
+        	left:477px;
+        	top:50px;
+        	font: 25px solid;
+            font-family: 'Black Han Sans', sans-serif;
+            font-family: 'Gasoek One', sans-serif;
+            font-family: 'Gothic A1', sans-serif;
+            font-family: 'Jua', sans-serif;
+            color:gray;
+            background-color: white;
+            border:none;
+        }
+		#view_btn{
+			position:relative;
+			right:588px;
+		}
+		#delete_btn{
+			position:relative;
+			left:661px;
+		}
+        /********** 페이징 영역 **********/
+        .page_box{
+            clear: both;
+            margin: 0 auto;
+            width: 50%;
             text-align: center;
         }
-        #side-menu h2{
-            font: 45px solid;
-            color:rgba(0, 0, 0, 0.788);
-            font-family: 'Black Han Sans', sans-serif;
-            font-family: 'Gasoek One', sans-serif;
-            font-family: 'Gothic A1', sans-serif;
-            font-family: 'Jua', sans-serif;
-        }
-        #side-menu ul{
+        .pageNav{
+            display: flex;
+            margin: 30px 0 0 0;
+            justify-content: center;
             list-style: none;
-        }
-        #side-menu ul a{
-            text-decoration: none;
-            color:gray;
-        }
-        #side-menu ul li{
-            font: 35px solid;
-            color:gray;
-            font-family: 'Black Han Sans', sans-serif;
-            font-family: 'Gasoek One', sans-serif;
-            font-family: 'Gothic A1', sans-serif;
+            padding: 0;
+            font: 25px solid bold;
             font-family: 'Jua', sans-serif;
-            margin-top: 30px;
-            padding-right:35px;
         }
-
-        /********** 사이드 메뉴바 영역 끝 **********/
-        
-
+        .page_box ul li{
+            padding: 10px;
+            text-decoration: none;
+        }
+        .page_box ul li a{
+            text-decoration: none;
+            color: gray;
+        }
+        .page_box ul li a:hover{
+            color:#F39C12;
+            border:none;
+            transition: 0.2s;
+        }
+        button{
+            width:60px;
+            height:35px;
+            border:1px solid gray;
+            background-color: white;
+        }
 
         /********** 풋터 **********/
         footer{
             position:absolute;
-            top: 1500px;
+            top: 1450px;
             width:1536px;
             height:300px;
             margin-bottom:0px;

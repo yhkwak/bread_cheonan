@@ -32,11 +32,11 @@ function handleSubmit(event) {
             throw new Error('네트워크 응답이 없습니다.');
         })
         .then(data => {
-            alert('글 작성이 완료되었습니다.');
+            alert('글 등록이 완료되었습니다.');
             window.location.href = contextPath + '/board/notice.do';  // 성공 시 공지사항 목록 페이지로 이동
         })
         .catch(error => {
-            console.error('글 작성 중 오류가 발생했습니다.', error);
+            console.error('글 등록 중 오류가 발생했습니다.', error);
         });
 
     return false; // 폼 기본 제출 동작 방지
