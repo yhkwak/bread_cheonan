@@ -151,7 +151,7 @@ span {
 #frm_write{
 	position:relative;
 	left:300px;
-	top:70px;
+	top:50px;
 	margin: 0 auto;
 }
 #div-button{
@@ -162,7 +162,7 @@ span {
 }
 #border{
 	position:relative;
-	bottom:850px;
+	bottom:858px;
 	width:950px;
 	height:900px;
 	border: 1px solid lightgray;
@@ -173,7 +173,7 @@ span {
 #submitBtn{
 	position:relative;
 	left:780px;
-	top:60px;
+	top:80px;
 	border: none;
 	font: 25px solid;
 	font-family: 'Black Han Sans', sans-serif;
@@ -190,7 +190,7 @@ span {
 }
 #button-write{
 	position:relative;
-	top:60px;
+	top:80px;
 	left:760px;
 	border: none;
 	font: 25px solid;
