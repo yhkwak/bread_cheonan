@@ -13,6 +13,7 @@
 		<typeAlias alias="orderListVO" type="com.bread.app.vo.OrderListVO" />
 		<typeAlias alias="reviewVO" type="com.bread.app.vo.ReviewVO" />
 		<typeAlias alias="cartVO" type="com.bread.app.vo.CartVO" />
+		<typeAlias alias="pageVO" type="com.bread.app.vo.PageVO" />
  	</typeAliases>
  
 </configuration>
