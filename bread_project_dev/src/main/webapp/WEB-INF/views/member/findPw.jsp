@@ -41,8 +41,8 @@
                                 </div>
                                 <div id="search_box">
                                     <a href="${pageContext.request.contextPath}/member/findId.do" id="find_id">아이디 찾기</a>
-                                    <a id="login_btn" onclick="location.href='/app/member/login.do'">로그인</a>
-                                    <a id="cencel_btn" onclick="location.href='/app'">취소</a>
+                                    <a href="${pageContext.request.contextPath}/member/login.do" id="login_btn" >로그인</a>
+                                    <a id="cencel_btn" onclick="location.href='/myapp'">취소</a>
                                 </div>
                             </div>
 
