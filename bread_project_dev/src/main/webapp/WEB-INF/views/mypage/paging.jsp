@@ -3,7 +3,7 @@
 
 
 		<!-- 3. 현재 페이지번호가 블록당 페이지수보다 큰 경우 '이전'과 맨 처음페이지 기호(<<) 출력 -->
-		<c:if test="${pageNav.pageNum > 5}">
+		<c:if test="${pageNav.pageNum > 10}">
 			<a href="orderList.do?pageNum=1&pageBlock=1">&lt;&lt;</a>&nbsp;
     		<a href="orderList.do?pageNum=${(pageNav.pageBlock-2)*pageNav.pages_pageBlock+1}&pageBlock=${pageNav.pageBlock-1}">이전</a>
 		</c:if>
@@ -20,7 +20,7 @@
 				</a>
 			</c:if>
 		</c:forEach>
-
+		
 		<!-- 2. 총 페이지번호가 페이지블록을 초과하는 경우 '다음'과 맨 마지막페이지 기호(>>) 출력 -->
 		<c:if test="${pageNav.total_pageNum > (pageNav.pageBlock*pageNav.pages_pageBlock)}">
 			<a href="orderList.do?pageNum=${(pageNav.pageBlock*pageNav.pages_pageBlock)+1}&pageBlock=${pageNav.pageBlock+1}">다음</a>&nbsp;

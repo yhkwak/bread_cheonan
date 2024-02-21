@@ -7,7 +7,7 @@
 		
 	<!-- Read -->
 	<!-- 개인 주문 내역 조회 -->
-	<select id="orderList" parameterType="_int" resultType="orderListVO">
+	<select id="orderList" parameterType="pageVO" resultType="orderListVO">
 		select o.payment_status, o.order_idx, o.payment_date, o.bread_count,
 				m.member_idx, bk.bakery_name, b.bread_name, b.bread_price,b.bread_idx
 			from bc_order o 
@@ -20,7 +20,7 @@
 	</select>
 	
 		<!-- 개인 주문 내역의 총 갯수 조회 -->
-	<select id="getTotalCount" parameterType="_int" resultType="_int">
+	<select id="getTotalCount" parameterType="pageVO" resultType="_int">
 		select count(*)
 			from bc_order o 
 				 left outer join bc_member m on o.member_idx = m.member_idx
@@ -30,7 +30,6 @@
 			order by payment_date desc
 	</select>
 
-	<!-- Update -->
-	
+	<!-- Update -->	
 	<!-- Delete -->
 </mapper>
