@@ -21,9 +21,4 @@ public class OrderListVO {
 	private int bread_idx; // 상품 외래키
 	private int bakery_idx; //가게 외래키
 	private int cart_idx; // 장바구니 외래키
-	
-	//페이징
-	private int pageNum;
-	private int pageBlock;
-	private int startIdx;
 }

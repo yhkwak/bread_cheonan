@@ -71,7 +71,6 @@
                                                 <td>결제 취소</td>
                                             </c:otherwise>
                                         </c:choose>
-                                       
                                         <td>${orderList[vs.count-1].order_idx}</td>
                                         <td>${orderList[vs.count-1].bakery_name}</td>
                                         <td>${orderList[vs.count-1].bread_name}</td>

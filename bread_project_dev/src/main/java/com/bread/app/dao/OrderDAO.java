@@ -6,6 +6,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
 import com.bread.app.vo.OrderListVO;
+import com.bread.app.vo.PageVO;
 
 import lombok.RequiredArgsConstructor;
 
@@ -19,12 +20,12 @@ public class OrderDAO {
 	private	final SqlSession sqlSession;
 	
 	// 주문내역 조회
-	public List<OrderListVO> orderList(int member_idx){
-		return sqlSession.selectList(MAPPER+".orderList", member_idx);
+	public List<OrderListVO> orderList(PageVO vo){
+		return sqlSession.selectList(MAPPER+".orderList", vo);
 	}
 	//개인 주문내역의 총 갯수-페이징
-	public int getTotalCount(int member_idx) {
-		return sqlSession.selectOne(MAPPER+".getTotalCount",member_idx);
+	public int getTotalCount(PageVO vo) {
+		return sqlSession.selectOne(MAPPER+".getTotalCount",vo);
 	}
 
 }
