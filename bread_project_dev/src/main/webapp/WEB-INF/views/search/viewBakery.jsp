@@ -66,7 +66,7 @@
                 <div id="pickup_box">
                 	<c:forEach var="i" begin="0" end="2">
                 		<input type="hidden" class="bread_idx" name="bread_idx" value="${breadList[i].bread_idx}">
-                    	<table>                          
+                    	<table id="pickup_box_table">                          
                             <tr>
                                 <td rowspan="5" class="bakery_img"><img id="tel_img" src="${pageContext.request.contextPath}/resources/uploads/${bread.bread_img_save}"></td>
                             </tr>
@@ -83,7 +83,7 @@
                                 <td></td>
                             </tr>
                             <tr>
-                                <td>빵 나오는 시간: ${breadList[i].bread_time1}  ${breadList[i].bread_time2}  ${breadList[i].bread_time3}</td>
+                                <td id="bread_time">빵 나오는 시간: ${breadList[i].bread_time1}  ${breadList[i].bread_time2}  ${breadList[i].bread_time3}</td>
                                 <td>
                                     <div id="select_box">
                                     	<input type="number" class="bread_count" min="1" max="10">

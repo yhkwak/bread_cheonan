@@ -154,7 +154,7 @@
     color: rgba(0, 0, 0, 0.788);
 	}
 	
-	#payment_complete {
+	#cart_list {
 	width: 1137px;
     height: 1000px;
     margin: 0 auto;
@@ -162,7 +162,7 @@
     text-align: center;
     border: 1px solid lightgrey;
     border-radius: 15px;
-    padding:10px 18px 30px 18px;
+    padding:10px 17px 30px 18px;
 	}	
 
 	.orderlist {
@@ -248,7 +248,13 @@
     border:1px solid gray;
     background-color: white;
     }
-        
+    #noOrder{
+    position: relative;
+    top: 405px;
+    font: 25px solid;
+    color: gray;
+    font-family: 'Jua', sans-serif;
+    }
 	/********** 푸터 영역 **********/
 	footer {
 	  position: absolute;
