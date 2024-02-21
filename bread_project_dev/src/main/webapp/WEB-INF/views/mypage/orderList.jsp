@@ -51,7 +51,7 @@
                     <c:choose>
                         <c:when test="${empty orderList}">
                             <tr>
-                                <td colspan="8">주문내역이 없습니다</td>
+                                <td colspan="8" id="noOrder">구매내역이 없습니다</td>
                             </tr>
                         </c:when>
                         <c:otherwise>
