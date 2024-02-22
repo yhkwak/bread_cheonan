@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.bread.app.AdminMemMapper">
+	<!-- Create -->
+		
+	<!-- Read -->
+	<!-- 전체 회원 조회 -->
+	<select id="adminMem" parameterType="searchVO" resultType="memberVO">
+		<choose>
+			<when test="searchWord != null"><!-- 검색어가 있는 경우 -->
+				select /*+ INDEX(bc_member bc_member_pk) */
+					*
+					from bc_member
+					where member_del = 0
+					<choose>
+						<when test="searchField == 'member_id'"><!-- 검색영역: 아이디 -->
+							and member_id like CONCAT('%',#{searchWord},'%')
+						</when>
+						<when test="searchField == 'member_nickname'"><!-- 검색영역: 닉네임 -->
+							and member_nickname like CONCAT('%',#{searchWord},'%')
+						</when>
+						<otherwise><!-- 검색영역: 이름 -->
+							and member_name like CONCAT('%',#{searchWord},'%')
+						</otherwise>
+					</choose>
+							order by member_idx desc
+							limit ${startIdx}, 10
+			</when>
+			<otherwise><!-- 검색어가 없는 경우 -->
+			select /*+ INDEX(bc_member bc_member_pk) */
+				*
+				from bc_member
+				where member_del = 0
+				order by member_idx desc
+				limit ${startIdx}, 10
+			</otherwise>
+		</choose>
+	</select>
+	<!-- 회원 한명 조회 -->
+		<select id="getMember" parameterType="_int" resultType="memberVO">
+		select * from bc_member where member_idx = #{member_idx}	
+	</select>   
+	
+	
+	
+		<!-- 총 회원 수 조회 -->
+	<select id="getTotalCount" parameterType="searchVO" resultType="_int">
+		<!-- 검색어가 있는 경우와 없는 경우 -->
+		<choose>
+			<when test="searchWord != null">
+				select count(*)
+					from bc_member
+					where member_del = 0
+					<choose>
+						<when test="searchField == 'member_id'"><!-- 검색영역: 아이디 -->
+							and member_id like CONCAT('%',#{searchWord},'%')
+						</when>
+						<when test="searchField == 'member_nickname'"><!-- 검색영역: 닉네임 -->
+							and member_nickname like CONCAT('%',#{searchWord},'%')
+						</when>
+						<otherwise><!-- 검색영역: 이름 -->
+							and member_name like CONCAT('%',#{searchWord},'%')
+						</otherwise>
+					</choose>
+			</when>
+			<otherwise><!-- 검색영역: 없음 -->
+				select count(*)
+					from bc_member
+					where member_del = 0
+			</otherwise>
+		</choose>
+	</select>
+
+	<!-- Update : 회원 등급 수정-->
+		<update id="adminMemUpdate" parameterType="memberVO">
+					update bc_member set grade=#{grade}
+					     			where member_idx=#{member_idx}
+	</update>	
+
+	<!-- Delete : 회원 탈퇴 처리-->
+    <update id="adminMemDel" parameterType="_int">
+        update bc_member set member_del=1, last_mod_date_date=now() 
+                             where member_idx=#{member_idx}
+    </update>
+</mapper>

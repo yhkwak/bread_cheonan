@@ -109,7 +109,7 @@
 							</c:choose>
 				            <div id="text1">${member.member_nickname}<span> 님</span>&nbsp;&nbsp;환영합니다</div>
 				            <div id="login_list2">
-				                <a href="#">관리페이지&nbsp;&nbsp;</a>
+				                <a href="${pageContext.request.contextPath}/admin/AdminMemManagement.do">관리페이지&nbsp;&nbsp;</a>
 				                <a href="${pageContext.request.contextPath}/member/logout.do">로그아웃</a>
 				            </div>
 				        </div>
