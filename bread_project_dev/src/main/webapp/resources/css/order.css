@@ -114,6 +114,8 @@
 	text-align: center;
 	}
 	#side-menu h2 {
+	position:relative;
+	bottom:1px;
 	font: 45px solid;
 	color: rgba(0, 0, 0, 0.788);
 	font-family: "Black Han Sans", sans-serif;
@@ -137,7 +139,10 @@
 	margin-top: 30px;
 	padding-right: 35px;
 	}
-	
+	#li_2, #li_4, #li_6{
+		position:relative;
+		bottom:1px;
+	}
 	
 	#main-area {
     width: 100%;
@@ -201,10 +206,10 @@
 	border: none;
 	transition: 0.5s;
 	}
-	
 	#button-write {
 	border: none;
 	background-color: #fff;
+	color: rgba(0, 0, 0, 0.788);
 	font-size: 25px;
 	font-family: "Black Han Sans", sans-serif;
 	font-family: "Gasoek One", sans-serif;

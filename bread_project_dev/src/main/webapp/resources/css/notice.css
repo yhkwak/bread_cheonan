@@ -232,7 +232,9 @@ h1{font-size:0;}
             border:none;
             transition: 0.5s;
         }
-
+        #attachimg{
+        	margin-bottom:10px;
+        }
         /********** 페이징 영역 **********/
         .page_box{
             clear: both;

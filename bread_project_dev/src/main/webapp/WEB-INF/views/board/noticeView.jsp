@@ -40,14 +40,16 @@
                                 </table>
                                 <div id="main_box">
 	                                ${notice.content}
-                                </div>                          
+                                </div>
+                                <div id="select_box">                          
 								<input type="hidden" name="notice_idx" value="${notice.notice_idx}" />
 								<p><c:if test="${not empty notice.originfile_name}">첨부파일 : <a href="${pageContext.request.contextPath}/board/download.do?originfile_name=${notice.originfile_name}&savefile_name=${notice.savefile_name}">${notice.originfile_name}</a></c:if></p>
-								<c:if test="${member.grade eq 2}">
-									<button type="button" id="delete_btn" value="삭제하기" onclick="location.href='delete.do?notice_idx=${notice.notice_idx}'">글 삭제</button>
-									<button type="submit" id="update_btn" value="수정하기">글 수정</button>
-								</c:if>
 								<button type="button" id="view_btn" value="목록보기" onclick="location.href='notice.do'">글 목록</button>
+								<c:if test="${member.grade eq 2}">
+									<button type="submit" id="update_btn" value="수정하기">글 수정</button>
+									<button type="button" id="delete_btn" value="삭제하기" onclick="location.href='delete.do?notice_idx=${notice.notice_idx}'">글 삭제</button>
+								</c:if>
+								</div>
                         </div>
                     </form>
                 </div>

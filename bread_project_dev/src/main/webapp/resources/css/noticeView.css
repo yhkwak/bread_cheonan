@@ -240,10 +240,18 @@
         	text-align:left;
             bottom:12px;
         }
-        button[type=button]{
+        #select_box{
         	position:relative;
+        	right:30px;
+        	text-align:left;
+        	width:1136px;
+        	height:100px;
+        }
+        #view_btn{
+        	position:relative;
+        	right:10px;
+   			top:50px;
         	width:83px;
-        	top:50px;
         	font: 25px solid;
             font-family: 'Black Han Sans', sans-serif;
             font-family: 'Gasoek One', sans-serif;
@@ -253,15 +261,15 @@
             background-color: white;
             border:none;
         }
-        button[type=button]:hover, button[type=submit]:hover{
+        #view_btn:hover, #update_btn:hover, #delete_btn:hover{
         	color:#F39C12;
             border:none;
             transition: 0.5s;
         }
-        button[type=submit]{
+        #update_btn{
         	position:relative;
         	width:83px;
-        	left:477px;
+        	left:862px;
         	top:50px;
         	font: 25px solid;
             font-family: 'Black Han Sans', sans-serif;
@@ -272,13 +280,19 @@
             background-color: white;
             border:none;
         }
-		#view_btn{
-			position:relative;
-			right:588px;
-		}
 		#delete_btn{
 			position:relative;
-			left:661px;
+        	width:83px;
+        	top:50px;
+        	left:882px;
+        	font: 25px solid;
+            font-family: 'Black Han Sans', sans-serif;
+            font-family: 'Gasoek One', sans-serif;
+            font-family: 'Gothic A1', sans-serif;
+            font-family: 'Jua', sans-serif;
+            color:gray;
+            background-color: white;
+            border:none;
 		}
         /********** 페이징 영역 **********/
         .page_box{
