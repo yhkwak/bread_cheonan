@@ -151,7 +151,7 @@ span {
 #frm_update{
 	position:relative;
 	left:300px;
-	top:70px;
+	top:50px;
 	margin: 0 auto;
 }
 #div-button{
@@ -162,7 +162,7 @@ span {
 }
 #border{
 	position:relative;
-	bottom:850px;
+	bottom:858px;
 	width:950px;
 	height:900px;
 	border: 1px solid lightgray;

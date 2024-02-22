@@ -224,7 +224,22 @@ h1{font-size:0;}
             width:330px;
             height:30px;
         }
+        #login_list2{
+            position: relative;
+            left:175px;
+            top:80px;
+            width:330px;
+            height:30px;
+        }
         #login_list a{
+            font: 21px solid;
+            font-family: 'Black Han Sans', sans-serif;
+            font-family: 'Gasoek One', sans-serif;
+            font-family: 'Gothic A1', sans-serif;
+            font-family: 'Jua', sans-serif;
+            color: gray;
+        }
+        #login_list2 a{
             font: 21px solid;
             font-family: 'Black Han Sans', sans-serif;
             font-family: 'Gasoek One', sans-serif;

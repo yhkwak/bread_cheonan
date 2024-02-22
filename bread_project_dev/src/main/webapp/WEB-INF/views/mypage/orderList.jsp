@@ -87,15 +87,15 @@
                             </c:forEach>
                         </c:otherwise>
                     </c:choose>
-                    <c:if test="${not empty orderList}">
-                        <tr>
-                            <td colspan="8" id="td_paging">
-                                <%@ include file="paging.jsp" %>
-                            </td>
-                        </tr>
-                    </c:if>
                 </table>
             </div>
+            <c:if test="${not empty orderList}">
+                 <tr>
+                     <td colspan="8" id="td_paging">
+                         <%@ include file="paging.jsp" %>
+                     </td>
+                 </tr>
+            </c:if>
         </div>
     </section>
     <%@ include file = "../common/footer.jsp" %>
