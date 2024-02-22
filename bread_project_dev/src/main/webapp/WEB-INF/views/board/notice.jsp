@@ -48,7 +48,7 @@
 						            <td id="notice4">
 										<c:if test="${not empty notice.originfile_name}">
 										    <a href="download.do?originfile_name=${notice.originfile_name}&savefile_name=${notice.savefile_name}">
-										        <img src="${pageContext.request.contextPath}/resources/css/img/fileattachment.png" alt="첨부파일 이미지" width="20px" height="20px">
+										        <img id="attachimg" src="${pageContext.request.contextPath}/resources/css/img/fileattachment.png" alt="첨부파일 이미지" width="30px" height="30px">
 										    </a>
 										</c:if>
 									</td>

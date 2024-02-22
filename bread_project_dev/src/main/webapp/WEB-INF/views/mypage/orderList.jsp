@@ -25,11 +25,11 @@
                 <h2>마이페이지</h2>
                 <ul>
                     <li><a href="${pageContext.request.contextPath}/member/update.do">프로필 수정</a></li>
-                    <li><a href="${pageContext.request.contextPath}/mypage/orderList.do">구매내역</a></li>
+                    <li id="li_2"><a href="${pageContext.request.contextPath}/mypage/orderList.do">구매내역</a></li>
                     <li><a href="${pageContext.request.contextPath}/cart/cart.do">장바구니</a></li>
-                    <li><a href="${pageContext.request.contextPath}/mypage/shopinfo.do?member_idx=${member.member_idx}">가게관리</a></li>
+                    <li id="li_4"><a href="${pageContext.request.contextPath}/mypage/shopinfo.do?member_idx=${member.member_idx}">가게관리</a></li>
                     <li><a href="${pageContext.request.contextPath}/mypage/productManagement.do">상품관리</a></li>
-                    <li><a href="${pageContext.request.contextPath}/mypage/orderManagement.do">주문관리</a></li>
+                    <li id="li_6"><a href="${pageContext.request.contextPath}/mypage/orderManagement.do">주문관리</a></li>
                 </ul>
             </div>
         </div>
@@ -78,7 +78,7 @@
                                         <td>
                                             <c:choose>
                                                 <c:when test="${orderList[vs.count-1].payment_status eq 0 }">
-                                                    <button type="button" id="button-write" onclick="location.href='${pageContext.request.contextPath}/review/reviewWrite.do?breadId=${order.bread_idx}&orderId=${orderList[vs.count-1].order_idx}'">리뷰작성</button>
+                                                    <button type="button" id="button-write" onclick="location.href='${pageContext.request.contextPath}/review/reviewWrite.do?breadId=${order.bread_idx}&orderId=${orderList[vs.count-1].order_idx}'">작성</button>
                                                 </c:when>
                                             </c:choose>
                                         </td>
