@@ -32,7 +32,7 @@
 					</div>
 				</div>
 				<div id="main-area">
-					<form action="${pageContext.request.contextPath}/review/reviewWriteProcess.do" id="frm_write" name="frm_write" method="post" enctype="multipart/form-data" onsubmit="return handleSubmit(event)">
+					<form action="${pageContext.request.contextPath}/review/reviewWriteProcess.do" id="frm_write" name="frm_write" method="post" enctype="multipart/form-data">
 						<table id="table-main">
 							<c:forEach items="${writeList}" var="write">
 								<tr>

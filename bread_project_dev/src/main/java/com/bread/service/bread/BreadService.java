@@ -1,11 +1,14 @@
 package com.bread.service.bread;
 
-import com.bread.app.vo.BreadVO;
-import com.bread.app.vo.SearchVO;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.util.List;
+
+import com.bread.app.common.TenPageNav;
+import com.bread.app.vo.BreadVO;
+import com.bread.app.vo.PageVO;
+import com.bread.app.vo.SearchVO;
 
 public interface BreadService {
 
@@ -32,4 +35,10 @@ public interface BreadService {
     default List<BreadVO> getBoards(SearchVO vo) {
         return null;
     }
+    
+	default int getTotalCount(SearchVO searchVO) {
+		return 0;
+	}
+    
+	default TenPageNav setPageNav(TenPageNav pageNav, int pageNum, int pageBlock) {return null;}
 }

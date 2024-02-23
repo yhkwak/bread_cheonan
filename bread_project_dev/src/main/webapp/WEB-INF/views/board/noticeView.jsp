@@ -14,8 +14,11 @@
 <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Gasoek+One&family=Gothic+A1:wght@700&family=Jua&display=swap" rel="stylesheet">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/noticeView.css">
-<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/notice.js"></script>
-<title>공지사항 상세화면</title>
+<script>
+    // JSP 변수 값을 JavaScript 변수에 할당
+    var noticeIdx = "${notice.notice_idx}";
+</script>
+<script src="${pageContext.request.contextPath}/resources/js/noticeView.js"></script><title>공지사항 상세화면</title>
 </head>
 <body>
 <div id="wrap">
@@ -47,7 +50,7 @@
 								<button type="button" id="view_btn" value="목록보기" onclick="location.href='notice.do'">글 목록</button>
 								<c:if test="${member.grade eq 2}">
 									<button type="submit" id="update_btn" value="수정하기">글 수정</button>
-									<button type="button" id="delete_btn" value="삭제하기" onclick="location.href='delete.do?notice_idx=${notice.notice_idx}'">글 삭제</button>
+									<button type="button" id="delete_btn" value="삭제하기" onclick="confirmDelete()">글 삭제</button>
 								</c:if>
 								</div>
                         </div>

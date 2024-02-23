@@ -28,22 +28,29 @@
     </insert>
 
     <!-- 상품 목록 조회 -->
-    <select id="getBoards" parameterType="searchVO"  resultType="breadVO">
-        SELECT b.*, ba.bakery_name
-        FROM bc_bread b
-                 LEFT JOIN bc_bakery ba ON b.bakery_idx = ba.bakery_idx
-        WHERE b.bread_del != -1
-        ORDER BY b.bread_idx DESC
-            LIMIT
-        <choose>
-            <when test="startIdx >= 0">
-                #{startIdx}, 10
-            </when>
-            <otherwise>
-                0, 10
-            </otherwise>
-        </choose>
-    </select>
+ <select id="getBoards" parameterType="searchVO" resultType="breadVO">
+		       <choose>
+			<when test="searchWord != null"><!-- 검색어가 있는 경우 -->
+		        SELECT /*+ INDEX(bc_bakery bc_bakery_pk) */ b.*, ba.bakery_name, ba.member_idx
+		        FROM bc_bread b
+		                 LEFT JOIN bc_bakery ba ON b.bakery_idx = ba.bakery_idx
+		        WHERE bread_name like CONCAT('%',#{searchWord},'%') and b.bread_del = 0
+		         AND ba.member_idx = #{member_idx}
+		        ORDER BY b.bread_idx DESC
+		            LIMIT #{startIdx}, 10
+
+		     </when>
+			<otherwise>
+				SELECT /*+ INDEX(bc_bakery bc_bakery_pk) */ b.*, ba.bakery_name, ba.member_idx
+				FROM bc_bread b
+				LEFT JOIN bc_bakery ba ON b.bakery_idx = ba.bakery_idx
+				WHERE b.bread_del = 0 AND ba.member_idx = #{member_idx}
+				ORDER BY b.bread_idx DESC
+				LIMIT #{startIdx}, 10
+			</otherwise>
+			</choose>
+
+</select>
 
 
     <!-- 개별 상품 조회 -->
@@ -51,7 +58,7 @@
         SELECT b.*, bk.bakery_name
         FROM bc_bread b
         INNER JOIN bc_bakery bk ON b.bakery_idx = bk.bakery_idx
-        WHERE b.bread_idx = #{bread_idx} AND b.bread_del != -1
+        WHERE b.bread_idx = #{bread_idx} AND b.bread_del = 0
     </select>
 
     <!-- 상품 정보 수정 -->
@@ -83,6 +90,17 @@
         where bread_idx = #{bread_idx}
     </update>
 
-    <!-- 추가적인 매퍼 엘리먼트가 필요한 경우 여기에 구현 -->
+<select id="getTotalCount" parameterType="searchVO" resultType="_int">
+    SELECT COUNT(*)
+    FROM bc_bread b
+    LEFT JOIN bc_bakery ba ON b.bakery_idx = ba.bakery_idx
+    WHERE b.bread_del = 0
+    <if test="member_idx != null">
+        AND ba.member_idx = #{member_idx}
+    </if>
+    <if test="searchWord != null and searchWord != ''">
+        AND b.bread_name LIKE CONCAT('%', #{searchWord}, '%')
+    </if>
+</select>
 
 </mapper>

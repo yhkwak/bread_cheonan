@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,11 +12,11 @@
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 	<script type="text/javascript" src="${pageContext.request.contextPath}/resources/se2/js/HuskyEZCreator.js" charset="utf-8"></script>
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/noticeUpdate.css">
+	<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/noticeUpdate.js"></script>
 	<script>
 		// 이 변수를 global scope에 추가하여 JS 파일에서 사용할 수 있음
 		var contextPath = "${pageContext.request.contextPath}";
 	</script>
-	<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/noticeUpdate.js"></script>
 	<title>공지사항 글수정</title>
 </head>
 <body>
@@ -55,7 +56,7 @@
 
 </div>
 </body>
-<script>
+<!-- <script>
 	// 페이지 로드 시 SmartEditor 초기화
 	var oEditors = [];
 	window.onload = function() {
@@ -94,5 +95,5 @@
 					// alert('글 수정 중 오류가 발생했습니다.');
 				});
 	});
-</script>
+</script> -->
 </html>

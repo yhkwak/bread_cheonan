@@ -1,20 +1,20 @@
-package com.bread.service.notice;
+package com.bread.service.adminProduct;
 
 import org.springframework.stereotype.Service;
 
-import com.bread.app.common.FivePageNav;
+import com.bread.app.common.TenPageNav;
 
 import lombok.AllArgsConstructor;
 
-@Service("nPage")
+@Service("APPage")
 @AllArgsConstructor
-public class NoticePageService implements NoticeService {
-	//페이지 네비게이션을 위한 9개의 변수에 대한 설정
+public class AdminProductPageService implements AdminProductService {
+
 	@Override
-	public FivePageNav setPageNav(FivePageNav pageNav, int pageNum, int pageBlock) {
+	public TenPageNav setPageNav(TenPageNav pageNav, int pageNum, int pageBlock) {
 		int totalRows = pageNav.getTotalRows(); //1. 총 게시물 수
 		int rows_page = 10; //2. 한 페이지에 보여줄 게시물 수
-		int pages_pageBlock = 5; //3. 한 페이지에 보여줄 페이지 수
+		int pages_pageBlock = 10; //3. 한 페이지에 보여줄 페이지 수
 		
 		pageNav.setRows_page(rows_page);
 		pageNav.setPages_pageBlock(pages_pageBlock);

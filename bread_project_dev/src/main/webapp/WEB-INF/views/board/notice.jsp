@@ -40,7 +40,7 @@
 						<c:otherwise>
 							<c:forEach items="${noticeList}" var="notice" varStatus="status">
 						        <tr>
-						            <td id="notice1">${status.index + 1}</td>
+						            <td id="notice1">${startNumber - status.index}</td>
 						            <td id="notice2">
 						            	<a href="view.do?notice_idx=${notice.notice_idx}">${notice.title}</a>
 						            </td>
@@ -63,7 +63,8 @@
                 <c:if test="${member.grade eq 2}">
                             <button type="button" id="button-write" onclick="location.href='noticeWrite.do'">글 작성</button>
                 </c:if>
-                <div class="page_box">
+                 <%@ include file="paging.jsp" %> 
+<!--                 <div class="page_box">
                     <ul class="pageNav">
                         <li><a href="#" class="arrow_left"><</a></li>
                         <li><a href="#" class="1">1</a></li>
@@ -73,7 +74,7 @@
                         <li><a href="#" class="5">5</a></li>
                         <li><a href="#" class="arrow_last">></a></li>
                     </ul>
-                </div>
+                </div> -->
             </div>
         </section>
         
