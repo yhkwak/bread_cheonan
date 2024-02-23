@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 
 import com.bread.app.dao.NoticeDAO;
 import com.bread.app.vo.NoticeVO;
-import com.bread.app.vo.PageVO;
+import com.bread.app.vo.SearchVO;
 
 import lombok.AllArgsConstructor;
 
@@ -16,7 +16,7 @@ public class NoticeListService implements NoticeService {
 
 	private NoticeDAO dao;
 	@Override
-	public List<NoticeVO> getBoards(PageVO vo) {
+	public List<NoticeVO> getBoards(SearchVO vo) {
 		vo.setStartIdx((vo.getPageNum()-1)*10);
 		return dao.getBoards(vo);
 	}

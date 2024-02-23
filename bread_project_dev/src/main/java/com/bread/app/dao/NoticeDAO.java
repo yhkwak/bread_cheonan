@@ -7,6 +7,7 @@ import org.springframework.stereotype.Repository;
 
 import com.bread.app.vo.NoticeVO;
 import com.bread.app.vo.PageVO;
+import com.bread.app.vo.SearchVO;
 
 import lombok.RequiredArgsConstructor;
 
@@ -29,7 +30,7 @@ public class NoticeDAO {
 	}
 	
 	// Read 모든 게시글 조회
-	public List<NoticeVO> getBoards(PageVO vo) {
+	public List<NoticeVO> getBoards(SearchVO vo) {
 		return sqlSession.selectList(MAPPER+".getBoards",vo);
 	}
 	// Read 모든 게시글 조회

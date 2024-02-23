@@ -1,68 +1,72 @@
-// 페이지 로드 시 SmartEditor 초기화
-var oEditors = [];
-window.onload = function() {
+document.addEventListener('DOMContentLoaded', function() {
+    // SmartEditor 초기화
+    var oEditors = [];
     nhn.husky.EZCreator.createInIFrame({
         oAppRef: oEditors,
         elPlaceHolder: "content",
         sSkinURI: contextPath + "/resources/se2/SmartEditor2Skin.html",
         fCreator: "createSEditor2"
-
     });
-};
-function previewImage(input) {
-    var preview = document.getElementById('imagePreview');
-    var existingImage = document.getElementById('existingImage'); // 기존 이미지
 
-    if (input.files && input.files[0]) {
-        var reader = new FileReader();
+    // 이미지 미리보기 기능
+    function previewImage(input) {
+        var preview = document.getElementById('imagePreview');
+        var existingImage = document.getElementById('existingImage'); // 기존 이미지
 
-        reader.onload = function(e) {
-            // 기존 이미지가 있다면 숨김
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function(e) {
+                // 기존 이미지가 있다면 숨김
+                if (existingImage) {
+                    existingImage.style.display = 'none';
+                }
+                // 새 이미지 미리보기 표시
+                preview.src = e.target.result;
+                preview.style.display = 'block';
+            };
+
+            reader.readAsDataURL(input.files[0]);
+        } else {
+            // 파일이 선택되지 않았을 때 기존 이미지를 그대로 유지
             if (existingImage) {
-                existingImage.style.display = 'none';
+                preview.src = existingImage.src;
+                preview.style.display = 'block';
             }
-            // 새 이미지 미리보기 표시
-            preview.src = e.target.result;
-            preview.style.display = 'block';
-        };
-
-        reader.readAsDataURL(input.files[0]);
-    } else {
-        // 파일이 선택되지 않았을 때 기존 이미지를 그대로 유지
-        if (existingImage) {
-            preview.src = existingImage.src;
-            preview.style.display = 'block';
         }
     }
-}
-// "등록하기" 버튼 클릭 함수
-function handleSubmit(event) {
-    event.preventDefault();
+    // 파일 입력 변경 이벤트에 이미지 미리보기 기능 연결
+    document.getElementById('uploadFile').addEventListener('change', function() {
+        previewImage(this);
+    });
 
-    // SmartEditor 내용을 textarea에 업데이트
-    oEditors[0].exec("UPDATE_CONTENTS_FIELD", []);
+    // 폼 제출 이벤트 핸들러
+    document.getElementById('frm_reviewUpdate').addEventListener('submit', function(event) {
+        event.preventDefault(); // 폼 기본 제출 동작 방지
 
-    // 폼 데이터 준비
-    var formData = new FormData(document.getElementById('frm_reviewUpdate'));
+        // SmartEditor 내용을 textarea에 업데이트
+        oEditors[0].exec("UPDATE_CONTENTS_FIELD", []);
 
-    // fetch API를 사용하여 폼 데이터 제출
-    fetch(contextPath + '/review/reviewUpdateProcess.do', {
-        method: 'POST',
-        body: formData,
-    })
-        .then(response => {
-            if (response.ok) {
-                return response.text();  // 또는 response.json() 등 서버 응답에 맞게 처리
-            }
-            throw new Error('Network response was not ok.');
-        })
-        .then(data => {
-            alert('글 수정이 완료되었습니다.');
-            window.location.href = contextPath + '/review/review.do';  // 성공 시 공지사항 목록 페이지로 이동
-        })
-        .catch(error => {
-            console.error('글 작성 중 오류가 발생했습니다.', error);
-        });
+        // 입력된 제목과 내용 가져오기
+        var title = document.getElementById('input-title').value.trim();
+        var content = oEditors[0].getContents();
 
-    return false; // 폼 기본 제출 동작 방지
-}
+        // 제목과 내용이 비어있는지 확인
+        if (!title && isContentEmpty(content)) {
+            alert('제목과 내용을 모두 입력해주세요.');
+        } else if (!title) {
+            alert('제목을 입력해주세요.');
+        } else if (isContentEmpty(content)) {
+            alert('내용을 입력해주세요.');
+        } else {
+            // 모든 검증을 통과했을 때 폼 데이터 제출
+            this.submit();
+        }
+    });
+
+    // 스마트 에디터 내용에서 HTML 태그를 제거하고 공백이 아닌 문자가 있는지 확인하는 함수
+    function isContentEmpty(content) {
+        var textContent = content.replace(/<[^>]*>/g, '').trim();
+        return textContent.length === 0;
+    }
+});

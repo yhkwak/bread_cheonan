@@ -91,12 +91,12 @@
         #container-content{
             display: inline-block;
             width: 1536px; 
-            height: 1500px; 
+            height: 1400px; 
         }
         #side-nav{
             float: left;
             width:300px;
-            height: 1350px; 
+            height: 1000px; 
         }
         #side-menu{
             position: relative;
@@ -137,6 +137,7 @@
         #all_box{
             width: 100%;
             max-width: 1200px;
+            height: 1250px;
             float: right;
             color:rgba(0, 0, 0, 0.788);
             font-family: 'Jua', sans-serif;
@@ -149,7 +150,7 @@
         }
         #product_box{
             width: 1137px;
-            height: 1100px;
+            height: 1120px;
             margin: 0 auto;
             margin-left: 63px;
             text-align: center;
@@ -242,7 +243,7 @@
             border: 1px solid lightgray;
             color: rgba(0, 0, 0, 0.788);
             font-size: 20px;
-            width:60px;
+            width:70px;
             height:35px;
             background-color: white;
             padding-top: 3px;

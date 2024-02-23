@@ -2,6 +2,7 @@ package com.bread.app.dao;
 
 
 import com.bread.app.vo.BreadVO;
+import com.bread.app.vo.PageVO;
 import com.bread.app.vo.SearchVO;
 import lombok.RequiredArgsConstructor;
 import org.apache.ibatis.session.SqlSession;
@@ -25,8 +26,8 @@ public class BreadDAO {
         return sqlSession.selectOne(MAPPER + ".getBoard", bread_idx);
     }
 
-    public List<BreadVO> getBoards(SearchVO searchVO) {
-        return sqlSession.selectList(MAPPER + ".getBoards", searchVO);
+    public List<BreadVO> getBoards(SearchVO vo) {
+        return sqlSession.selectList(MAPPER + ".getBoards", vo);
     }
     public int update(BreadVO vo) {
         return sqlSession.update(MAPPER + ".update", vo);
@@ -35,4 +36,10 @@ public class BreadDAO {
     public int delete(int bread_idx) {
         return sqlSession.update(MAPPER + ".delete", bread_idx);
     }
+    
+	// Read 모든 게시글 조회
+    public int getTotalCount(SearchVO searchVO) {
+        return sqlSession.selectOne(MAPPER + ".getTotalCount", searchVO);
+    }
+
 }

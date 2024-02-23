@@ -25,7 +25,7 @@
                     <ul>
 	                    <li><a href="${pageContext.request.contextPath}/admin/AdminMemManagement.do">회원관리</a></li>
 	                    <li><a href="${pageContext.request.contextPath}/admin/AdminStoreManagement.do">매장관리</a></li>
-	                    <li><a href="${pageContext.request.contextPath}/admin/">상품관리</a></li>
+	                    <li><a href="${pageContext.request.contextPath}/admin/productManagement.do">상품관리</a></li>
                     </ul>
                 </div>
             </div>

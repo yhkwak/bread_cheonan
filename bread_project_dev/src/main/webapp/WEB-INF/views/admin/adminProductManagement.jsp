@@ -11,8 +11,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Grape+Nuts&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Gasoek+One&family=Gothic+A1:wght@700&family=Jua&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <link rel="stylesheet" href="../resources/css/productManagement.css">
-    <title>가게-상품관리</title>
+    <link rel="stylesheet" href="../resources/css/adminProductManagement.css">
+    <title>삭제된 상품 관리</title>
 </head>
 <body>
 
@@ -24,26 +24,23 @@
 
         <div id="side-nav">
             <div id="side-menu">
-                <h2>마이페이지</h2>
+                <h2>관리자페이지</h2>
                 <ul>
-                    <li><a href="${pageContext.request.contextPath}/member/update.do">프로필 수정</a></li>
-                    <li><a href="${pageContext.request.contextPath}/mypage/orderList.do">구매내역</a></li>
-                    <li><a href="#">장바구니</a></li>
-                    <li><a href="${pageContext.request.contextPath}/mypage/shopinfo.do?member_idx=${member.member_idx}">가게관리</a></li>
-                    <li><a href="${pageContext.request.contextPath}/mypage/productManagement.do">상품관리</a></li>
-                    <li><a href="${pageContext.request.contextPath}/mypage/orderManagement.do">주문관리</a></li>
-                </ul>
+	            	<li><a href="${pageContext.request.contextPath}/admin/AdminMemManagement.do">회원관리</a></li>
+	            	<li><a href="${pageContext.request.contextPath}/admin/AdminStoreManagement.do">매장관리</a></li>
+	                <li><a href="${pageContext.request.contextPath}/admin/productManagement.do">상품관리</a></li>
+            	</ul>    
             </div>
         </div>
 
 
         <div id="all_box">
             <h2>상품관리</h2>
-                                   <form name="frm-search">
+                        <form name="frm-search">
 				<table id="search_table">
                 	<tr>
                     	<td>
-                        	<input type="text" name="searchWord" id="search_text" placeholder="상품명으로 검색">
+                        	<input type="text" name="searchWord" id="search_text" placeholder="가게 이름으로 검색">
                         	<input id="submit_button" type="submit" value="검색하기">
                     	</td>
                 	</tr>
@@ -59,37 +56,36 @@
                             <th>가게</th>
                             <th class="category">재고 수량</th>
                             <th class="category">승인 상태</th>
-                            <th></th>
                         </tr>
                         <c:choose>
-                            <c:when test="${empty breadList}">
+                            <c:when test="${empty adminProductList}">
                                 <tr><td id="noproduct" colspan="6">등록된 상품이 없습니다</td></tr>
                             </c:when>
                             <c:otherwise>
-                                <c:forEach items="${breadList}" var="breadList">
+                                <c:forEach items="${adminProductList}" var="adminProductList">
                                     <tr>
-                                        <form action="${pageContext.request.contextPath}/mypage/productUpdate.do">
+                                        <form action="${pageContext.request.contextPath}/admin/adminProductUpdate.do">
                                         <td style="width: 350px; height: 90px; margin-top:10px; display: flex;"><div id="product_title_img">
                                         <img src="<c:choose>
-                                            <c:when test="${breadList.bread_img_save ne test_img07.png}">
-                                                ${pageContext.request.contextPath}/resources/uploads/${breadList.bread_img_save}
+                                            <c:when test="${adminProductList.bread_img_save ne test_img07.png}">
+                                                ${pageContext.request.contextPath}/resources/uploads/${adminProductList.bread_img_save}
                                             </c:when>
                                             <c:otherwise>
                                                 ${pageContext.request.contextPath}/resources/css/img/test_img07.png
                                             </c:otherwise>
-                                        </c:choose>"></div>&nbsp;<div style="width: 250px; margin: auto;" id="product_title"><p>${breadList.bread_name}</p></div></td>
-                                        <td>${breadList.bread_price}</td>
-                                        <td>${breadList.bakery_name}</td>
-                                        <td>${breadList.bread_stock}</td>
+                                        </c:choose>"></div>&nbsp;<div style="width: 250px; margin: auto;" id="product_title"><p>${adminProductList.bread_name}</p></div></td>
+                                        <td>${adminProductList.bread_price}</td>
+                                        <td>${adminProductList.bakery_name}</td>
+                                        <td>${adminProductList.bread_stock}</td>
                                             <td>
                                                 <c:choose>
-                                                    <c:when test="${breadList.bread_status == 0}">
+                                                    <c:when test="${adminProductList.bread_status == 0}">
                                                         승인 대기
                                                     </c:when>
-                                                    <c:when test="${breadList.bread_status == 1}">
+                                                    <c:when test="${adminProductList.bread_status == 1}">
                                                         승인 완료
                                                     </c:when>
-                                                    <c:when test="${breadList.bread_status == 2}">
+                                                    <c:when test="${adminProductList.bread_status == 2}">
                                                         승인 거절
                                                     </c:when>
                                                     <c:otherwise>
@@ -98,9 +94,9 @@
                                                 </c:choose>
                                             </td>
                                         <td>
-                                            <input type="hidden" name="bread_idx" value="${breadList.bread_idx}" />
-                                            <c:if test="${sessionScope.member.grade == 1}">
-                                                <input type="submit" class="update_btn" value="수정">
+                                            <input type="hidden" name="bread_idx" value="${adminProductList.bread_idx}" />
+                                            <c:if test="${sessionScope.member.grade == 2}">
+                                                <input type="submit" class="update_btn" value="등록관리">
                                             </c:if>
                                         </td>
                                         </form>
@@ -109,24 +105,26 @@
                             </c:otherwise>
                         </c:choose>
                     </table>
+
                 </div>
 
             </div>
             
-            <div id="product_btn_box">
+            <!-- <div id="product_btn_box">
                 <div><input type="button" id="product_btn" value="상품등록"  onclick="location.href='productWrite.do'"></div>
-            </div>
-            			            <c:if test="${not empty breadList}">
+            </div> -->
+			            <c:if test="${not empty adminMem}">
 			                 <tr>
 			                     <td colspan="8" id="td_paging">
-			                         <%@ include file="productPaging.jsp" %>
+			                         <%@ include file="adminProductPaging.jsp" %>
 			                     </td>
 			                 </tr>
 			            </c:if>
         </div>
+
     </section>
     
-    <%@ include file = "../common/footer.jsp" %>
+<%--     <%@ include file = "../common/footer.jsp" %> --%>
     
 </div>
 </body>

@@ -24,25 +24,20 @@
  	<!-- Read -->
  	
  	<!-- 전체 게시물 수 조회 -->
- 	<select id="getTotalCount" parameterType="pageVO" resultType="_int">
- 		select count(*) from bc_notice
+ 	<select id="getTotalCount" parameterType="searchVO" resultType="_int">
+ 		select count(*) from bc_notice where del_or_not = 1
  	</select>
+ 	
+ 	
  	<!-- 모든 게시글 조회: select -->
-	<select id="getBoards" parameterType="pageVO" resultType="noticeVO">
+	<select id="getBoards" parameterType="searchVO" resultType="noticeVO">
 		    select /*+ INDEX(bc_notice bc_notice_pk) */
 		    *
 		    from bc_notice
-		    where del_or_not != -1
-		    order by notice_idx desc
-		    limit 
-		    <choose>
-		        <when test="startIdx >= 0">
-		            #{startIdx}, 10
-		        </when>
-		        <otherwise>
-		            0, 10
-		        </otherwise>
-		    </choose>
+		    where del_or_not = 1
+		    order by notice_idx DESC
+		    limit #{startIdx}, 10
+		       
 	</select>
 	
 		<!-- 하나의 게시글 조회: select -->

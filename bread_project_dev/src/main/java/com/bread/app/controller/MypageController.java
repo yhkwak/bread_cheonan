@@ -4,9 +4,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.bread.app.common.TenPageNav;
 import com.bread.app.dao.BreadDAO;
 import com.bread.app.vo.BreadVO;
 import com.bread.app.vo.MemberVO;
+import com.bread.app.vo.PageVO;
 import com.bread.app.vo.SearchVO;
 import com.bread.service.bread.BreadService;
 import lombok.extern.slf4j.Slf4j;
@@ -33,8 +35,9 @@ public class MypageController {
 	@Setter(onMethod_ = {@Autowired})
 	BakeryService bakeryJoin, bakeryUpdate, bakeryGet;
 	@Setter(onMethod_ = {@Autowired})
-	BreadService bDelete, bDownload, bInsert, bList, bUpdate, bView;
-
+	BreadService bDelete, bDownload, bInsert, bList, bUpdate, bView, bPage, bTotalCount;
+	@Setter(onMethod_= {@Autowired})
+	TenPageNav pageNav;
 	@Setter(onMethod_ = {@Autowired})
 	private BreadDAO breadDAO;
 
@@ -83,20 +86,30 @@ public class MypageController {
 	}
 
 	@GetMapping("/productManagement.do")
-	public String productManagement(SearchVO searchVO,HttpServletRequest request, Model model) {
-//		HttpSession session = request.getSession();
-//		BakeryVO bakery = (BakeryVO) session.getAttribute("bakery");
+	public String productManagement(SearchVO searchVO, PageVO pageVO, HttpServletRequest request, Model model) {
+		HttpSession session = request.getSession();
+	    MemberVO member = (MemberVO) session.getAttribute("member");
+	    if (member != null) {
+	        searchVO.setMember_idx(member.getMember_idx());
+	    }
 
-//		if (bakery != null) {
-//			searchVO.setBakery_idx(bakery.getBakery_idx());
+	    if (searchVO.getPageNum() == 0) {
+	        searchVO.setPageNum(1);
+	    }
 
-			List<BreadVO> breadList = bList.getBoards(searchVO);
-			model.addAttribute("breadList", breadList);
-//		} else {
-//			return "redirect:/member/login"; // 수정된 리다이렉트 경로
-//		}
-		return "mypage/productManagement";
+	    List<BreadVO> breadList = bList.getBoards(searchVO);
+	    model.addAttribute("breadList", breadList);
+
+	    int totalRows = bTotalCount.getTotalCount(searchVO); // 검색 조건을 반영한 총 상품 수 계산
+	    pageNav.setTotalRows(totalRows);
+
+	    pageNav = bPage.setPageNav(pageNav, searchVO.getPageNum(), searchVO.getPageBlock());
+
+	    model.addAttribute("pageNav", pageNav);
+
+	    return "mypage/productManagement";
 	}
+	
 	@GetMapping("/productWrite.do")
 	public String productWrite(HttpServletRequest request, Model model) {
 		HttpSession session = request.getSession();
@@ -130,9 +143,9 @@ public class MypageController {
 
 	@GetMapping("/productUpdate.do")
 	public String productUpdate(@RequestParam("bread_idx") int bread_idx, Model model) {
-		BreadVO bread = bView.getBoard(bread_idx);  // 특정 빵의 상세 정보를 조회합니다.
-		model.addAttribute("bread", bread);  // 조회된 정보를 모델에 추가합니다.
-		return "mypage/productUpdate";  // 뷰 이름을 반환합니다.
+		BreadVO bread = bView.getBoard(bread_idx);
+		model.addAttribute("bread", bread);
+		return "mypage/productUpdate";
 	}
 
 	@PostMapping("/productUpdateProcess.do")
@@ -161,13 +174,10 @@ public class MypageController {
 		}
 		return viewPage;
 	}
+	
 	@GetMapping("/orderManagement.do")
 	public String orderManagement() {
 		return "mypage/orderManagement";
 	}
-	/*
-	 * @GetMapping("/orderList.do") public String orderList() { return
-	 * "mypage/orderList"; }
-	 */
-
+	
 }
