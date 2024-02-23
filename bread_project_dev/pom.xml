@@ -144,6 +144,13 @@
             <artifactId>jackson-core</artifactId>
             <version>2.13.2</version>
         </dependency>
+        
+        <!-- 아임포트 관련 의존모듈 추가 -->
+        <dependency>
+			<groupId>com.github.iamport</groupId>
+			<artifactId>iamport-rest-client-java</artifactId>
+			<version>0.2.14</version>
+		</dependency>
 
 		<!-- Test -->
 		<dependency>
@@ -196,7 +203,14 @@
 			<name>ORACLE JDBC Repository</name>
 			<url>http://maven.jahia.org/maven2</url>
 		</repository>
+		
+		<repository>
+		    <id>jitpack.io</id>
+		    <url>https://jitpack.io</url>
+		</repository>
 	</repositories>
+	
+	
 
 	<build>
 		<plugins>
