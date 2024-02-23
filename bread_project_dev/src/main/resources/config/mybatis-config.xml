@@ -14,6 +14,7 @@
 		<typeAlias alias="reviewVO" type="com.bread.app.vo.ReviewVO" />
 		<typeAlias alias="cartVO" type="com.bread.app.vo.CartVO" />
 		<typeAlias alias="pageVO" type="com.bread.app.vo.PageVO" />
+		<typeAlias alias="adminProductVO" type="com.bread.app.vo.AdminProductVO" />
  	</typeAliases>
  
 </configuration>
