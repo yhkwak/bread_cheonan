@@ -56,7 +56,7 @@
 										<img alt="사진없음" src="${pageContext.request.contextPath}/resources/uploads/${cartList[i].bread_img_save}"> 
 									</td>
 									<td>
-										<input type="hidden" name="bread_img_save" value="${cartList[i].bread_name}">
+										<input type="hidden" class="bread_name" name="bread_name" value="${cartList[i].bread_name}">
 										${cartList[i].bread_name}
 									</td>
 									<td>
@@ -87,20 +87,59 @@
 							IMP.init("imp31458078");
 							
 							var amount = $("#amount").val();
+							var member_idx = ${member_idx};
+							var member_name = "<c:out value='${member.member_name}'/>";
+							var member_phone = "<c:out value='${member.member_phone}'/>";
+							var product_name = $(".bread_name").val() + " 외";
 							
 							function requestPay() {
 							  IMP.request_pay({
-							    pg: "uplus",
+							    pg: "kcp",
 							    pay_method: "card",
 							    merchant_uid: createOrderNum(),
-							    name: "테스트 결제",
+							    name: product_name,
 							    amount: amount,
-							    buyer_tel: "010-0000-0000",
-							    m_redirect_url: "https://localhost:9090/myapp",
+							    buyer_name: member_name,
+							    buyer_tel: member_phone,
 							  }, function(rsp){
 									console.log(rsp);
-							  }
-							  );
+									//결제 검증
+									$.ajax({
+							        	type : "POST",
+							        	url : "verifyIamport/" + rsp.imp_uid
+							  }).done(function(data){
+									var cartList;
+								  	
+									$.ajax({
+								  		type: "POST",
+								  		url: "getCartList.do",
+								  		data: {"member_idx": member_idx},
+								  		success: function(resData){
+								  			cartList = resData;
+								  			
+								  		},
+								  		error: function(){
+								  			alert("getCartList 에러");
+								  		}
+								  	})
+								  
+								  	console.log(data);
+								  	
+								  	if(rsp.paid_amount == data.response.amount){
+								  		$.ajax({
+								  			type:"POST",
+								  			data:JSON.stringify({ cartList: cartList }),
+								  			contentType: "application/json; charset=utf-8",
+						                    dataType: "json",
+								  			url: "payProcess.do"
+								  		})
+								  		alert("결제 완료");
+								  	}else{
+								  		alert("결제 실패");
+								  	}
+							  
+							  });
+							  });
 							}
 							
 							
