@@ -63,7 +63,7 @@
                                         </div>
                                         
                                         <div class="bread_pricent"><input type="hidden" name="bread_price" value="${cartList[i].bread_price}">
-                                            <fmt:formatNumber pattern="###,###,###" value="${cartList[i].bread_price}"/>10,000 <p>원</p>
+                                            <fmt:formatNumber pattern="###,###,###" value="${cartList[i].bread_price}"/> <p>원</p>
                                         </div>
                                         
                                         <div class="info_textarea2">
@@ -73,7 +73,7 @@
                                             </div>
                                             
                                             <div class="product_all_price">
-                                                <span class="price_text"><fmt:formatNumber pattern="###,###,###" value="${cartList[i].bread_price * cartList[i].bread_count}"/>20,000</span> <p>원</p>
+                                                <span class="price_text"><fmt:formatNumber pattern="###,###,###" value="${cartList[i].bread_price * cartList[i].bread_count}"/></span> <p>원</p>
                                                 <c:set var="sum" value="${sum+ cartList[i].bread_price * cartList[i].bread_count}" />
                                             </div>
 
@@ -89,7 +89,7 @@
                         
                         <div class="product_buy">
                             <div class="all_price">총 결제 금액 : <span id="price_text2"><input type="hidden" id="amount" name="amount" value="${sum}">
-                                <fmt:formatNumber pattern="###,###,###" value="${sum}"/>20,000</span> 원</div>
+                                <fmt:formatNumber pattern="###,###,###" value="${sum}"/></span> 원</div>
                             <div>
                                 <button id="product_buy_btn" onclick="requestPay()">구매하기</button>
                             </div>
