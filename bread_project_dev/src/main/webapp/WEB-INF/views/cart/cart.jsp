@@ -46,7 +46,7 @@
 				<div id="main-area">
 					<h2>장바구니</h2>
 					<div id="cart_list">
-                        <c:forEach var="i" begin="0""bin/.project" end="${fn:length(cartList)-1}">
+                        <c:forEach var="i" begin="0" end="${fn:length(cartList)-1}">
 						<div class="product_list">
                             <div class="product_box">
                                 <div class="bakery_name"><input type="hidden" id="bakery_name" name="bakery_name" value="${cartList[i].bakery_name}">
