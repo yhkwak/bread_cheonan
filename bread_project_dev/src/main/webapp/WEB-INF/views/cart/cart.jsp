@@ -21,8 +21,10 @@
 		
 	</script>
 </head>
+
 <body>
 	<div id="wrap">
+
 
 		<%@ include file="../common/header.jsp" %>
 
@@ -30,134 +32,139 @@
 				<h1>내용 영역</h1>
 				<div id="side-nav">
 					<div id="side-menu">
-						<h2>장바구니</h2>
-					</div>
+                <h2>마이페이지</h2>
+                <ul>
+                    <li><a href="${pageContext.request.contextPath}/member/update.do">프로필 수정</a></li>
+                    <li><a href="${pageContext.request.contextPath}/mypage/orderList.do">구매내역</a></li>
+                    <li><a href="${pageContext.request.contextPath}/cart/cart.do">장바구니</a></li>
+                    <li><a href="${pageContext.request.contextPath}/mypage/shopinfo.do?member_idx=${member.member_idx}">가게관리</a></li>
+                    <li><a href="${pageContext.request.contextPath}/mypage/productManagement.do">상품관리</a></li>
+                    <li><a href="${pageContext.request.contextPath}/mypage/orderManagement.do">주문관리</a></li>
+                </ul>
+            </div>
 				</div>
 				<div id="main-area">
+					<h2>장바구니</h2>
 					<div id="cart_list">
-						<table border="1">
-							<tr>
-								<th>상호명</th>
-								<th>상품이미지</th>
-								<th>상품명</th>
-								<th>수량</th>
-								<th>단가</th>
-								<th>합계</th>
-								<th>취소</th>
-							</tr>
-							<c:forEach var="i" begin="0" end="${fn:length(cartList)-1}">
-								<tr>
-									<td>
-										<input type="hidden" id="bakery_name" name="bakery_name" value="${cartList[i].bakery_name}">
-										${cartList[i].bakery_name}
-									</td>
-									<td>
-										<input type="hidden" name="bread_img_save" value="${cartList[i].bread_img_save}">
-										<img alt="사진없음" src="${pageContext.request.contextPath}/resources/uploads/${cartList[i].bread_img_save}"> 
-									</td>
-									<td>
-										<input type="hidden" class="bread_name" name="bread_name" value="${cartList[i].bread_name}">
-										${cartList[i].bread_name}
-									</td>
-									<td>
-										<input type="number" name="bread_count" min='1' max='10' value="${cartList[i].bread_count}">							
-									</td>
-									<td>
-										<input type="hidden" name="bread_price" value="${cartList[i].bread_price}">
-										<fmt:formatNumber pattern="###,###,###" value="${cartList[i].bread_price}"/> 원
-									</td>
-									<td>
-										<fmt:formatNumber pattern="###,###,###" value="${cartList[i].bread_price * cartList[i].bread_count}"/> 원
-										<c:set var="sum" value="${sum+ cartList[i].bread_price * cartList[i].bread_count}" />
-									</td>
-									<td>
-										<button type="button">삭제</button>
-									</td>
-								</tr>
-							</c:forEach>
-							<tr>
-								<td colspan="6" align="right">
-									총 결제 금액 : 	<input type="hidden" id="amount" name="amount" value="${sum}">
-													<fmt:formatNumber pattern="###,###,###" value="${sum}"/> 원
-								</td>
-							</tr>
-						</table>
-						<button onclick="requestPay()">결제하기</button>
-						<script>
-							IMP.init("imp31458078");
-							
-							var amount = $("#amount").val();
-							var member_idx = ${member_idx};
-							var member_name = "<c:out value='${member.member_name}'/>";
-							var member_phone = "<c:out value='${member.member_phone}'/>";
-							var product_name = $(".bread_name").val() + " 외";
-							var order_idx = createOrderNum();
-							
-							function requestPay() {
-							  IMP.request_pay({
-							    pg: "kcp",
-							    pay_method: "card",
-							    merchant_uid: order_idx,
-							    name: product_name,
-							    amount: amount,
-							    buyer_name: member_name,
-							    buyer_tel: member_phone,
-							  }, function(rsp){
-									console.log(rsp);
-									//결제 검증
-									$.ajax({
-							        	type : "POST",
-							        	url : "verifyIamport/" + rsp.imp_uid
-							  }).done(function(data){
-								  
-								  	console.log(data);
-								  	
-								  	if(rsp.paid_amount == data.response.amount){
-								  		$.ajax({
-											type: 'post',
-											url:"payProcess.do",
-											data: {"order_idx": order_idx,
-												   "amount": amount,
-												   "member_idx": member_idx},
-											error: function(error){
-												alert("ajax 에러");
-											}
-										}).done(function(res){
-											if(res == "OK"){
-												alert("결제 완료");
-												location.href="/";
-											}
-											else{
-												alert("결제 실패");
-											}
-										});
-								  	}else{
-								  		alert("결제 실패");
-								  	}
-							  
-							  });
-							  });
-							}
-							
-							
-							
-							// 주문번호 만들기
-							function createOrderNum(){
-								const date = new Date();
-								const year = date.getFullYear();
-								const month = String(date.getMonth() + 1).padStart(2, "0");
-								const day = String(date.getDate()).padStart(2, "0");
-								
-								let orderNum = year + month + day;
-								for(let i=0;i<10;i++) {
-									orderNum += Math.floor(Math.random() * 8);	
-								}
-								return orderNum;
-							}
-						</script>
-					</div>
-				</div>
-			</section>
+                        <c:forEach var="i" begin="0" end="${fn:length(cartList)-1}">
+						<div class="product_list">
+                            <div class="product_box">
+                                <div class="bakery_name"><input type="hidden" id="bakery_name" name="bakery_name" value="${cartList[i].bakery_name}">
+                                    ${cartList[i].bakery_name}</div>
+                                <div class="product_info">
+                                    <div class="bakery_img" style="text-align: center;">
+                                        <input type="hidden" name="bread_img_save" value="${cartList[i].bread_img_save}">
+										<img alt="사진없음" src="${pageContext.request.contextPath}/resources/uploads/${cartList[i].bread_img_save}">
+                                    </div>
+                                    <div class="info_textarea">
+                                        
+                                        <div class="bread_name"><input type="hidden" name="bread_img_save" value="${cartList[i].bread_name}">
+                                            ${cartList[i].bread_name}
+                                        </div>
+                                        
+                                        <div class="bread_pricent"><input type="hidden" name="bread_price" value="${cartList[i].bread_price}">
+                                            <fmt:formatNumber pattern="###,###,###" value="${cartList[i].bread_price}"/>10,000 <p>원</p>
+                                        </div>
+                                        
+                                        <div class="info_textarea2">
+
+                                            <div class="bread_count">수량 : 
+                                                <input type="number" name="bread_count" value="${cartList[i].bread_count}">
+                                            </div>
+                                            
+                                            <div class="product_all_price">
+                                                <span class="price_text"><fmt:formatNumber pattern="###,###,###" value="${cartList[i].bread_price * cartList[i].bread_count}"/>20,000</span> <p>원</p>
+                                                <c:set var="sum" value="${sum+ cartList[i].bread_price * cartList[i].bread_count}" />
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                    <div class="btn_box"><button type="button" class="product_del_btn">✕</button></div>
+
+                                </div>
+                            </div>
+                        </div>
+                        </c:forEach>
+                        
+                        <div class="product_buy">
+                            <div class="all_price">총 결제 금액 : <span id="price_text2"><input type="hidden" id="amount" name="amount" value="${sum}">
+                                <fmt:formatNumber pattern="###,###,###" value="${sum}"/>20,000</span> 원</div>
+                            <div>
+                                <button id="product_buy_btn" onclick="requestPay()">구매하기</button>
+                            </div>
+                            <script>
+                                IMP.init("imp31458078");
+                                
+                                var amount = $("#amount").val();
+                                var member_idx = ${member_idx};
+                                var member_name = "<c:out value='${member.member_name}'/>";
+                                var member_phone = "<c:out value='${member.member_phone}'/>";
+                                var product_name = $(".bread_name").val() + " 외";
+                                var order_idx = createOrderNum();
+                                
+                                function requestPay() {
+                                  IMP.request_pay({
+                                    pg: "kcp",
+                                    pay_method: "card",
+                                    merchant_uid: order_idx,
+                                    name: product_name,
+                                    amount: amount,
+                                    buyer_name: member_name,
+                                    buyer_tel: member_phone,
+                                  }, function(rsp){
+                                        console.log(rsp);
+                                        //결제 검증
+                                        $.ajax({
+                                            type : "POST",
+                                            url : "verifyIamport/" + rsp.imp_uid
+                                  }).done(function(data){
+                                      
+                                          console.log(data);
+                                          
+                                          if(rsp.paid_amount == data.response.amount){
+                                              $.ajax({
+                                                type: 'post',
+                                                url:"payProcess.do",
+                                                data: {"order_idx": order_idx,
+                                                       "amount": amount,
+                                                       "member_idx": member_idx},
+                                                error: function(error){
+                                                    alert("ajax 에러");
+                                                }
+                                            }).done(function(res){
+                                                if(res == "OK"){
+                                                    alert("결제 완료");
+                                                    location.href="/";
+                                                }
+                                                else{
+                                                    alert("결제 실패");
+                                                }
+                                            });
+                                          }else{
+                                              alert("결제 실패");
+                                          }
+                                  
+                                  });
+                                  });
+                                }
+                                
+                                
+                                
+                                // 주문번호 만들기
+                                function createOrderNum(){
+                                    const date = new Date();
+                                    const year = date.getFullYear();
+                                    const month = String(date.getMonth() + 1).padStart(2, "0");
+                                    const day = String(date.getDate()).padStart(2, "0");
+                                    
+                                    let orderNum = year + month + day;
+                                    for(let i=0;i<10;i++) {
+                                        orderNum += Math.floor(Math.random() * 8);	
+                                    }
+                                    return orderNum;
+                                }
+                            </script>
 
 			<%@ include file="../common/footer.jsp" %>
 
