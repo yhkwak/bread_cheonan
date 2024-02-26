@@ -8,10 +8,18 @@
  	<insert id="addCart" parameterType="map">
  		insert into bc_cart (member_idx, bread_idx, bread_count) values(#{member_idx}, #{bread_idx}, #{bread_count})
  	</insert>
+ 	
+ 	<insert id="addOrder" parameterType="orderVO">
+ 		insert into bc_order (order_idx, amount, member_idx) values(#{order_idx}, #{amount}, #{member_idx})
+ 	</insert>
+ 	
+ 	<insert id="addItem" parameterType="itemVO">
+ 		insert into bc_item (bread_idx, bakery_idx, order_idx) values(#{bread_idx}, #{bakery_idx}, #{order_idx})
+ 	</insert>
 
   	<!-- Read -->
 	<select id="getCarts" parameterType="_int" resultType="cartVO">
-		SELECT c.cart_idx, c.bread_idx, c.member_idx, b.bread_name, bk.bakery_name, b.bread_price, c.bread_count, b.bread_img_save
+		SELECT c.cart_idx, c.bread_idx, c.member_idx, b.bread_name, bk.bakery_name, b.bread_price, c.bread_count, b.bread_img_save, bk.bakery_idx
 			FROM bc_cart c
 			INNER JOIN bc_bread b ON c.bread_idx = b.bread_idx
 			INNER JOIN bc_bakery bk ON b.bakery_idx = bk.bakery_idx
@@ -19,7 +27,13 @@
 	</select>
 
   	<!-- Update -->
+  	<update id="updateStock" parameterType="map">
+  		update bc_bread set bread_stock = bread_stock - #{bread_count} where bread_idx = #{bread_idx}
+  	</update>
 
 
 	<!-- Delete -->
+	<delete id="deleteCart" parameterType="_int">
+		delete from bc_cart where cart_idx = #{cart_idx};
+	</delete>
 </mapper>

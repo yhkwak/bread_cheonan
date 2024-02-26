@@ -9,6 +9,8 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
 import com.bread.app.vo.CartVO;
+import com.bread.app.vo.ItemVO;
+import com.bread.app.vo.OrderVO;
 
 import lombok.RequiredArgsConstructor;
 
@@ -31,5 +33,36 @@ public class CartDAO {
 	
 	public List<CartVO> getCarts(int member_idx) throws SQLException {
 		return sqlSession.selectList(MAPPER+".getCarts", member_idx);
+	}
+	
+	public int addOrder(String order_idx, int amount, int member_idx) {
+		OrderVO orderVO = new OrderVO();
+		
+		orderVO.setOrder_idx(order_idx);
+		orderVO.setAmount(amount);
+		orderVO.setMember_idx(member_idx);
+		
+		return sqlSession.insert(MAPPER+".addOrder", orderVO);
+	}
+	
+	public int addItem(int bread_idx, int bakery_idx, String order_idx) {
+		ItemVO itemVO = new ItemVO();
+		
+		itemVO.setBread_idx(bread_idx);
+		itemVO.setBakery_idx(bakery_idx);
+		itemVO.setOrder_idx(order_idx);
+		
+		return sqlSession.insert(MAPPER+".addItem", itemVO);
+	}
+	
+	public int updateStock(int bread_count, int bread_idx) {
+		Map<String, Integer> map = new HashMap<String, Integer>();
+		map.put("bread_count", bread_count);
+		map.put("bread_idx", bread_idx);
+		return sqlSession.update(MAPPER+".updateStock", map);
+	}
+	
+	public int deleteCart(int cart_idx) {
+		return sqlSession.delete(MAPPER+".deleteCart", cart_idx);
 	}
 }

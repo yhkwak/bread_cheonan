@@ -2,15 +2,18 @@ package com.bread.app.controller;
 
 
 import java.sql.SQLException;
+import java.util.List;
 
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.bread.app.dao.AdminMemDAO;
 import com.bread.app.dao.AdminStoreDAO;
+import com.bread.app.dao.CartDAO;
 import com.bread.app.dao.MemberDAO;
 import com.bread.app.dao.SearchDAO;
 import com.bread.app.vo.BreadVO;
+import com.bread.app.vo.CartVO;
 import com.bread.app.vo.MemberVO;
 
 import lombok.AllArgsConstructor;
@@ -24,7 +27,9 @@ public class AjaxController {
     private SearchDAO searchDAO;
     private AdminMemDAO adminMemDAO;
     private AdminStoreDAO adminStoreDAO;
+    private CartDAO cartDAO;
     
+    //////////////////// 중복 검사 ////////////////////
     
     //아이디 중복검사 처리 요청
     @PostMapping("/member/checkIdProcess.do")
@@ -52,6 +57,8 @@ public class AjaxController {
         return result;
     }
     
+    //////////////////// 장바구니 페이지 ////////////////////
+    
     @PostMapping("/search/cartAdd.do")
     public BreadVO cartAdd(int bread_idx) throws SQLException{
     	BreadVO breadVO = null;
@@ -61,6 +68,31 @@ public class AjaxController {
     	return breadVO;
     }
     
+    @PostMapping("/**/payProcess.do")
+    public String payProcess(String order_idx, int amount, int member_idx) throws SQLException {
+    	
+    	List<CartVO> cartList = cartDAO.getCarts(member_idx);
+    	
+    	cartDAO.addOrder(order_idx, amount, member_idx);
+   
+    	for(int i=0; i<cartList.size(); i++) {
+    		int bread_idx = cartList.get(i).getBread_idx();
+    		int bakery_idx = cartList.get(i).getBakery_idx();
+    		int bread_count = cartList.get(i).getBread_count();
+    		int cart_idx = cartList.get(i).getCart_idx();
+    		
+    		cartDAO.addItem(bread_idx, bakery_idx, order_idx);
+    		cartDAO.updateStock(bread_count, bread_idx);
+    		cartDAO.deleteCart(cart_idx);
+    	}
+    	
+    	
+    	
+    	return "OK";
+    }
+    
+    
+    //////////////////// 관리자 페이지 ////////////////////
 
     @PostMapping("/admin/updateMem.do")
     public MemberVO updateMem(MemberVO memberVO) throws SQLException {
