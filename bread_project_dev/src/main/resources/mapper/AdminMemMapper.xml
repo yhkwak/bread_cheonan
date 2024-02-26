@@ -13,7 +13,6 @@
 				select /*+ INDEX(bc_member bc_member_pk) */
 					*
 					from bc_member
-					where member_del = 0
 					<choose>
 						<when test="searchField == 'member_id'"><!-- 검색영역: 아이디 -->
 							and member_id like CONCAT('%',#{searchWord},'%')
@@ -32,7 +31,6 @@
 			select /*+ INDEX(bc_member bc_member_pk) */
 				*
 				from bc_member
-				where member_del = 0
 				order by member_idx desc
 				limit ${startIdx}, 10
 			</otherwise>
@@ -52,7 +50,6 @@
 			<when test="searchWord != null">
 				select count(*)
 					from bc_member
-					where member_del = 0
 					<choose>
 						<when test="searchField == 'member_id'"><!-- 검색영역: 아이디 -->
 							and member_id like CONCAT('%',#{searchWord},'%')
@@ -68,20 +65,19 @@
 			<otherwise><!-- 검색영역: 없음 -->
 				select count(*)
 					from bc_member
-					where member_del = 0
 			</otherwise>
 		</choose>
 	</select>
 
 	<!-- Update : 회원 등급 수정-->
-		<update id="adminMemUpdate" parameterType="memberVO">
-					update bc_member set grade=#{grade}
-					     			where member_idx=#{member_idx}
+		<update id="updateMem" parameterType="memberVO">
+			update bc_member set grade=#{grade}
+			     			where member_idx=#{member_idx}
 	</update>	
 
 	<!-- Delete : 회원 탈퇴 처리-->
-    <update id="adminMemDel" parameterType="_int">
-        update bc_member set member_del=1, last_mod_date_date=now() 
+    <update id="deleteMem" parameterType="_int">
+        update bc_member set member_del=1, last_mod_date=now() 
                              where member_idx=#{member_idx}
     </update>
 </mapper>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.bread.app.AdminStoreMapper">
+	<!-- Create -->
+		
+	<!-- Read -->
+	<!-- 전체 매장 조회 -->
+	<select id="adminStore" parameterType="searchVO" resultType="BakeryVO">
+		<choose>
+			<when test="searchWord != null"><!-- 검색어가 있는 경우 -->
+				select /*+ INDEX(bc_bakery bc_bakery_pk) */
+					*
+					from bc_bakery
+					order by bakery_idx desc
+					limit ${startIdx}, 10
+			</when>
+			<otherwise><!-- 검색어가 없는 경우 -->
+			select /*+ INDEX(bc_bakery bc_bakery_pk) */
+				*
+				from bc_bakery
+				order by bakery_idx desc
+				limit ${startIdx}, 10
+			</otherwise>
+		</choose>
+	</select>
+	<!-- 한개의 매장 조회 -->
+		<select id="getBakery" parameterType="_int" resultType="bakeryVO">
+		select * from bc_bakery where bakery_idx = #{bakery_idx}	
+	</select>   
+	
+		<!-- 총 매장 수 조회 -->
+	<select id="getTotalCount" parameterType="searchVO" resultType="_int">
+		<!-- 검색어가 있는 경우와 없는 경우 -->
+		<choose>
+			<when test="searchWord != null">
+				select count(*)
+					from bc_bakery
+			</when>
+			<otherwise><!-- 검색영역: 없음 -->
+				select count(*)
+					from bc_bakery
+			</otherwise>
+		</choose>
+	</select>
+
+	<!-- Update -->
+	<!-- Delete : 매장 삭제 처리-->
+    <update id="deleteStore" parameterType="_int">
+        update bc_bakery set bakery_del=1
+                             where bakery_idx=#{bakery_idx}
+    </update>
+</mapper>
