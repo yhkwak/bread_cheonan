@@ -6,9 +6,12 @@ import java.sql.SQLException;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.bread.app.dao.AdminMemDAO;
+import com.bread.app.dao.AdminStoreDAO;
 import com.bread.app.dao.MemberDAO;
 import com.bread.app.dao.SearchDAO;
 import com.bread.app.vo.BreadVO;
+import com.bread.app.vo.MemberVO;
 
 import lombok.AllArgsConstructor;
 
@@ -19,7 +22,8 @@ public class AjaxController {
 
     private MemberDAO memberDAO;
     private SearchDAO searchDAO;
-    
+    private AdminMemDAO adminMemDAO;
+    private AdminStoreDAO adminStoreDAO;
     
     
     //아이디 중복검사 처리 요청
@@ -58,5 +62,18 @@ public class AjaxController {
     }
     
 
+    @PostMapping("/admin/updateMem.do")
+    public MemberVO updateMem(MemberVO memberVO) throws SQLException {
+        return adminMemDAO.updateMem(memberVO);
+    }
 
+    @PostMapping("/admin/deleteMem.do")
+    public int deleteMem(int member_idx) throws SQLException {
+        return adminMemDAO.deleteMem(member_idx);
+    }
+    
+    @PostMapping("/admin/deleteStore.do")
+    public int deleteStore(int bakery_idx) throws SQLException {
+        return adminStoreDAO.deleteStore(bakery_idx);
+    }
 }

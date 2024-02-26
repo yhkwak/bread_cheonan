@@ -34,17 +34,13 @@ public class AdminMemDAO { //작업중
 		return sqlSession.selectOne(MAPPER+".getMember", member_idx);
 	}
 	
-	// 회원정보 update
-	public MemberVO adminMemUpdate(MemberVO vo) throws SQLException{
-		MemberVO newVO = null;		
-		if(sqlSession.update(MAPPER+".adminMemUpdate", vo) == 1) {//회원정보 업데이트 성공
-			newVO = getMember(vo.getMember_idx());
-		}
-		return newVO;
+	// 회원 등급변경
+	public MemberVO updateMem(MemberVO vo) throws SQLException{
+		return sqlSession.selectOne(MAPPER+".updateMem", vo);
 	}
 
-	//회원 탈퇴하기
-	public int adminMemDel(int member_idx) throws SQLException {
-		return sqlSession.update(MAPPER+".adminMemDel",member_idx);
+	//회원 탈퇴처리
+	public int deleteMem(int member_idx) {
+		return sqlSession.update(MAPPER+".deleteMem",member_idx);
 	}
 }

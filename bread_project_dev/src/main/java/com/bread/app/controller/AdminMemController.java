@@ -3,7 +3,6 @@ package com.bread.app.controller;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -11,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.bread.app.common.TenPageNav;
 import com.bread.app.vo.MemberVO;
@@ -28,7 +28,7 @@ public class AdminMemController {  //작업중
 	@Setter(onMethod_={ @Autowired } )
 	TenPageNav pageNav;
 	
-	//페이징
+	//회원 목록 조회
 	@GetMapping("/AdminMemManagement.do")
 	public String adminMem(SearchVO vo, Model model) {
 	
@@ -41,56 +41,49 @@ public class AdminMemController {  //작업중
 		List<MemberVO> adminMem = aList.adminMem(vo);
 		model.addAttribute("adminMem", adminMem);
 		
-		System.out.println("[테스트] : " + adminMem.size());
-
 		//페이징
 		pageNav.setTotalRows(aTotalCount.getTotalCount(vo));
 		pageNav = aPage.setPageNav(pageNav, vo.getPageNum(), vo.getPageBlock());
 		model.addAttribute("pageNav", pageNav);
-		
+
 		return "admin/AdminMemManagement";
+		
 	}
 	
 	
 	//회원정보 변경 처리 요청
-	@PostMapping("/adminMemUpdate.do")
-	public String adminMemUpdate(MemberVO memberVO, HttpServletRequest request, Model model) {
-			
-		String viewPage = "admin/AdminMemManagement";//회원정보 변경 실패 시 JSP페이지
-		
-		//AdminMemUpdateService클래스를 이용한 회원등급 처리
-		MemberVO newVO = aUpdate.adminMemUpdate(memberVO, request);
-		
-		if(newVO != null) { //회원정보 변경 성공 시
-			//세션 객체에 기존 회원정보 객체를 삭제하고 새로운 회원정보 객체를 저장함
-			HttpSession session = request.getSession();
-			session.removeAttribute("member");//기존의 회원정보 객체 삭제
-			session.setAttribute("member", newVO);//새로운 회원정보 객체 저장
-			viewPage = "admin/AdminMemManagement.do";//메인 페이지를 재요청함
-			
-		}else {//회원정보 변경 실패 시
-			model.addAttribute("msg", "시스템 오류로 회원정보 변경이 이루어지지 않았습니다.");
-		}
-		
-		return viewPage;
+	@PostMapping("/updateProcess.do")
+	@ResponseBody
+	public String updateMem(MemberVO memberVO, HttpServletRequest request) {
+	    try {
+	        // 클라이언트에서 전달된 회원 등급 값을 가져오기
+	        int grade = Integer.parseInt(request.getParameter("grade"));
+	        //vo에 변경된 등급 값 넣기
+	        memberVO.setGrade(grade);
+	        // 변경된 회원 정보를 서비스를 통해 업데이트
+	        MemberVO updatedMember = aUpdate.updateMem(memberVO, request);
+	        
+	        if (updatedMember != null) {
+	            return "업데이트 성공";
+	        } else {
+	            return "업데이트 실패";
+	        }
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	        return "업데이트 실패";
+	    }
 	}
 	
-	
-	//계정삭제 처리 요청
-	@GetMapping("/adminMemDel.do")
-	public String adminMemDel(HttpServletRequest request) {
-		HttpSession session = request.getSession();
-		MemberVO vo = (MemberVO)session.getAttribute("member");
-		int member_idx = vo.getMember_idx();
-		
-		String viewPage = "admin/AdminMemManagement";//계정삭제 실패시 JSP페이지
-		
-		//AdminMemDelService클래스를 이용한 계정삭제 처리
-		if(aDel.adminMemDel(member_idx) == 1) {
-			session.invalidate(); //세션 초기화
-			viewPage = "admin/AdminMemManagement.do";
+	//회원 탈퇴 처리 요청
+	@ResponseBody
+	public String deleteMem(int member_idx) {
+		int result = aDel.deleteMem(member_idx);
+		if(result >0) {
+			return "탈퇴처리 성공";
+		}else {
+			return "탈퇴처리 실패";
 		}
-		
-		return viewPage;
 	}
+
 }
+	
