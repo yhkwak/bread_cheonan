@@ -27,7 +27,7 @@ public class PaymentAPIController {
     }
     
     @ResponseBody
-	@RequestMapping(value="/cart/verifyIamport/{imp_uid}")
+	@RequestMapping(value="/**/verifyIamport/{imp_uid}")
 	public IamportResponse<Payment> paymentByImpUid(
 			Model model
 			, Locale locale
@@ -36,15 +36,5 @@ public class PaymentAPIController {
     	
 			return api.paymentByImpUid(imp_uid);
 	}
-    
-    @ResponseBody
-	@RequestMapping(value="/search/verifyIamport/{imp_uid}")
-	public IamportResponse<Payment> paymentByImpUid2(
-			Model model
-			, Locale locale
-			, HttpSession session
-			, @PathVariable(value= "imp_uid") String imp_uid) throws IamportResponseException, IOException{	
-    	
-			return api.paymentByImpUid(imp_uid);
-	}
+
 }

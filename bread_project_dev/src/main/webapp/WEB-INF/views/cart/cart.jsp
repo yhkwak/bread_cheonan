@@ -60,7 +60,7 @@
 										${cartList[i].bread_name}
 									</td>
 									<td>
-										<input type="number" name="bread_count" value="${cartList[i].bread_count}">							
+										<input type="number" name="bread_count" min='1' max='10' value="${cartList[i].bread_count}">							
 									</td>
 									<td>
 										<input type="hidden" name="bread_price" value="${cartList[i].bread_price}">
@@ -91,12 +91,13 @@
 							var member_name = "<c:out value='${member.member_name}'/>";
 							var member_phone = "<c:out value='${member.member_phone}'/>";
 							var product_name = $(".bread_name").val() + " 외";
+							var order_idx = createOrderNum();
 							
 							function requestPay() {
 							  IMP.request_pay({
 							    pg: "kcp",
 							    pay_method: "card",
-							    merchant_uid: createOrderNum(),
+							    merchant_uid: order_idx,
 							    name: product_name,
 							    amount: amount,
 							    buyer_name: member_name,
@@ -108,32 +109,28 @@
 							        	type : "POST",
 							        	url : "verifyIamport/" + rsp.imp_uid
 							  }).done(function(data){
-									var cartList;
-								  	
-									$.ajax({
-								  		type: "POST",
-								  		url: "getCartList.do",
-								  		data: {"member_idx": member_idx},
-								  		success: function(resData){
-								  			cartList = resData;
-								  			
-								  		},
-								  		error: function(){
-								  			alert("getCartList 에러");
-								  		}
-								  	})
 								  
 								  	console.log(data);
 								  	
 								  	if(rsp.paid_amount == data.response.amount){
 								  		$.ajax({
-								  			type:"POST",
-								  			data:JSON.stringify({ cartList: cartList }),
-								  			contentType: "application/json; charset=utf-8",
-						                    dataType: "json",
-								  			url: "payProcess.do"
-								  		})
-								  		alert("결제 완료");
+											type: 'post',
+											url:"payProcess.do",
+											data: {"order_idx": order_idx,
+												   "amount": amount,
+												   "member_idx": member_idx},
+											error: function(error){
+												alert("ajax 에러");
+											}
+										}).done(function(res){
+											if(res == "OK"){
+												alert("결제 완료");
+												location.href="/";
+											}
+											else{
+												alert("결제 실패");
+											}
+										});
 								  	}else{
 								  		alert("결제 실패");
 								  	}
