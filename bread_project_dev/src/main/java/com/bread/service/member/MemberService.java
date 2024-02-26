@@ -24,5 +24,10 @@ public interface MemberService {
 
     default int checkId(String Member_Id) {
     	return 0;
-    };
+    }
+
+	default MemberVO findId(String member_name, String member_phone) {
+		return null;
+	}
+
 }

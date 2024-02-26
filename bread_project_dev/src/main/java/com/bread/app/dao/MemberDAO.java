@@ -60,5 +60,13 @@ public class MemberDAO {
 			}
 			return newVO;
 		}
+		
+		//아이디 찾기
+		public MemberVO getFindId(String member_name, String member_phone) throws SQLException{
+			Map<String, String> map = new HashMap<String, String>();
+			map.put("member_name", member_name);
+			map.put("member_phone", member_phone);
+			return sqlSession.selectOne(MAPPER+".getFindId", map);
+		}
 
 }
