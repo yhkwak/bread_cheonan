@@ -208,19 +208,23 @@ header {
 	height: 165px;
 }
 
-#price_text {
+.price_text {/*빵 갯수*단가 폰트*/
 	font-size: 34px;
 	color: rgba(0, 0, 0, 0.788);
 }
 
-#price_text2 {
+#price_text2 {/*총 결제금액 폰트*/
 	font-size: 40px;
 	color: #F39C12;
 }
 
-#price_text3 {
+.price_text3 {/*빵 단가 폰트*/
 	position: relative;
 	bottom: 3px
+}
+.won{
+	position: relative;
+	bottom: 3px;
 }
 
 .bakery_img {

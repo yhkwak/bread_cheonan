@@ -6,6 +6,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
@@ -62,8 +63,8 @@
                                             ${cartList[i].bread_name}
                                         </div>
                                         
-                                        <div class="bread_pricent"><input type="hidden" name="bread_price" value="${cartList[i].bread_price}">
-                                            <fmt:formatNumber pattern="###,###,###" value="${cartList[i].bread_price}"/> <p>원</p>
+                                        <div class="bread_pricent"><span class="price_text3"><input type="hidden" name="bread_price" value="${cartList[i].bread_price}">
+                                            <fmt:formatNumber pattern="###,###,###" value="${cartList[i].bread_price}"/>원
                                         </div>
                                         
                                         <div class="info_textarea2">
@@ -73,8 +74,8 @@
                                             </div>
                                             
                                             <div class="product_all_price">
-                                                <span class="price_text"><fmt:formatNumber pattern="###,###,###" value="${cartList[i].bread_price * cartList[i].bread_count}"/></span> <p>원</p>
-                                                <c:set var="sum" value="${sum+ cartList[i].bread_price * cartList[i].bread_count}" />
+                                                <span class="price_text"><fmt:formatNumber pattern="###,###,###" value="${cartList[i].bread_price * cartList[i].bread_count}"/>
+                                                <c:set var="sum" value="${sum+ cartList[i].bread_price * cartList[i].bread_count}" /></span><span class="won">원</span>
                                             </div>
 
                                         </div>
@@ -165,6 +166,11 @@
                                     return orderNum;
                                 }
                             </script>
+    
+                        </div>
+					</div>
+				</div>
+			</section>
 
 			<%@ include file="../common/footer.jsp" %>
 
