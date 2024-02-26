@@ -1,0 +1,377 @@
+@charset "UTF-8";
+@charset "UTF-8";
+h1 {
+	font-size: 0;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	overflow-x: hidden;
+}
+
+#wrap {
+	width: 1536px;
+	height: 1500px;
+	margin: 0 auto;
+}
+/********** 헤더 영역 **********/
+header {
+	width: 1536px;
+	height: 245px;
+}
+
+#main_logo {
+	position: relative;
+	top: 50px;
+	left: -7px;
+	height: 200px;
+	width: 350px;
+	cursor: pointer;
+}
+
+#c1 {
+	position: relative;
+	left: 1160px;
+	bottom: 786px;
+	width: 36px;
+	height: 36px;
+}
+
+#c2 {
+	position: relative;
+	left: 37px;
+	top: 63px;
+	height: 45px;
+	width: 45px;
+}
+
+#c3 {
+	position: relative;
+	left: 262px;
+	top: 63px;
+	height: 45px;
+	width: 45px;
+}
+
+#c4 {
+	position: relative;
+	left: 462px;
+	top: 66px;
+	height: 45px;
+	width: 45px;
+}
+
+#c5 {
+	position: relative;
+	left: 663px;
+	top: 63px;
+	height: 45px;
+	width: 45px;
+}
+
+#header_list {
+	position: relative;
+	left: 457px;
+	bottom: 80px;
+}
+
+#header_list ul li {
+	display: inline;
+	width: 260px;
+	float: left;
+	list-style: none;
+}
+
+#header_list ul li a {
+	font: 40px solid;
+	font-family: 'Grape Nuts', cursive;
+	font-family: 'Nanum Pen Script', cursive;
+	color: gray;
+	text-decoration-line: none;
+}
+
+#header_list span {
+	font: bold 50px solid;
+	font-family: 'Grape Nuts', cursive;
+	font-family: 'Nanum Pen Script', cursive;
+	color: #F39C12;
+}
+
+#line1 {
+	position: relative;
+	left: 400px;
+	width: 1136px;
+	border-top: 1px solid gray;
+}
+
+/********** 메인 영역 **********/
+#container-content {
+	display: inline-block;
+	width: 1536px;
+	height: 1000px; /* 본인의 작업 사이즈에 맞게 변경 */
+	margin: 0 auto;
+}
+
+#side-nav {
+	float: left;
+	width: 300px;
+	height: 1000px; /* container-content height 크기와 동일하게 설정 */
+}
+
+#side-menu {
+	position: relative;
+	left: 70px;
+	top: 101px;
+	width: 220px;
+	height: 400px;
+	text-decoration: none;
+	text-align: center;
+}
+
+#side-menu h2 {
+	font: 45px solid;
+	color: rgba(0, 0, 0, 0.788);
+	font-family: "Black Han Sans", sans-serif;
+	font-family: "Gasoek One", sans-serif;
+	font-family: "Gothic A1", sans-serif;
+	font-family: "Jua", sans-serif;
+}
+
+#side-menu ul {
+	list-style: none;
+}
+
+#side-menu ul li a {
+	text-decoration: none;
+	color: gray;
+}
+
+#side-menu ul li {
+	font: 35px solid;
+	font-family: "Black Han Sans", sans-serif;
+	font-family: "Gasoek One", sans-serif;
+	font-family: "Gothic A1", sans-serif;
+	font-family: "Jua", sans-serif;
+	margin-top: 30px;
+	padding-right: 35px;
+}
+
+#main-area {
+	width: 100%;
+	max-width: 1200px;
+	height: 100%;
+	float: right;
+	text-align: center;
+	font-family: 'Jua', sans-serif;
+}
+
+#main-area h2 {
+	font-size: 50px;
+	margin: 5px 0 20px 0;
+	color: rgba(0, 0, 0, 0.788);
+}
+
+#cart_list {
+	width: 1137px;
+	height: 1000px;
+	margin: 0 auto;
+	margin-left: 45px;
+	text-align: center;
+	border-radius: 15px;
+	padding: 10px 17px 30px 18px;
+}
+
+.product_list {
+	display: flex;
+	width: 100%;
+	height: 260px;
+}
+
+.product_box {
+	display: block;
+	font-size: 25px;
+	color: gray;
+	position: absolute;
+	width: 600px;
+	height: 240px;
+	border: 4px solid #F39C12;
+	border-radius: 15px;
+}
+
+.product_info {
+	display: flex;
+	width: 100%;
+	height: 165px;
+}
+
+#price_text {
+	font-size: 34px;
+	color: rgba(0, 0, 0, 0.788);
+}
+
+#price_text2 {
+	font-size: 40px;
+	color: #F39C12;
+}
+
+#price_text3 {
+	position: relative;
+	bottom: 3px
+}
+
+.bakery_img {
+	position: relative;
+	top: 25px;
+	left: 20px;
+	width: 120px;
+	height: 120px;
+}
+
+.bakery_img img {
+	width: 120px;
+	height: 120px;
+	border-radius: 15px;
+}
+
+.bakery_name {
+	width: 570px;
+	height: 50px;
+	margin: 15px 0 0 12px;
+	padding-left: 10px;
+	text-align: left;
+	border-bottom: 1px solid gray;
+	font-size: 30px;
+	font-family: 'Jua', sans-serif;
+	color: rgba(0, 0, 0, 0.788);
+}
+
+.info_textarea {
+	position: relative;
+	top: 25px;
+	left: 30px;
+	width: 430px;
+	height: 80px;
+	text-align: left;
+}
+
+.info_textarea2 {
+	display: flex;
+	width: 430px;
+	height: 40px;
+}
+
+.bread_count input {
+	width: 100px;
+	margin-left: 10px;
+}
+
+.bread_count, .product_all_price {
+	width: 210px;
+}
+
+.product_all_price {
+	position: relative;
+	bottom: 3px;
+}
+
+.product_del_btn {
+	position: relative;
+	top: 25px;
+	right: 5px;
+	border: none;
+	background-color: #fff;
+}
+
+.product_buy {
+	position: relative;
+	left: 620px;
+	bottom: 260px;
+	width: 480px;
+	height: 240px;
+	text-align: center;
+	font-size: 30px;
+	border: 4px solid #F39C12;
+	border-radius: 15px;
+}
+
+.all_price {
+	width: 450px;
+	height: 110px;
+	margin-left: 12px;
+	padding-top: 40px;
+	border-bottom: 1px solid gray;
+}
+
+#product_buy_btn {
+	width: 450px;
+	height: 60px;
+	border-radius: 10px;
+	border: 1px solid gray;
+	background-color: #fff;
+	margin-top: 35px;
+	padding-top: 5px;
+}
+
+#product_buy_btn:hover {
+	color: white;
+	background-color: #F39C12;
+	transition: 0.5s;
+}
+
+/********** 푸터 영역 **********/
+footer {
+	position: absolute;
+	top: 1450px;
+	width: 1536px;
+	height: 300px;
+	margin-bottom: 0px;
+	background-color: rgb(245, 246, 247);
+}
+
+#infobox {
+	position: relative;
+	top: 20px;
+	width: 1536px;
+	height: 300px;
+}
+
+#infobox ul {
+	width: 400px;
+	height: 400px;
+}
+
+#infobox ul li {
+	list-style: none;
+	width: 400px;
+}
+
+#infobox span {
+	font: 40px solid;
+	color: gray;
+	font-family: 'Black Han Sans', sans-serif;
+	font-family: 'Gasoek One', sans-serif;
+	font-family: 'Gothic A1', sans-serif;
+	font-family: 'Jua', sans-serif;
+}
+
+#infobox a {
+	font: 30px solid;
+	color: gray;
+	font-family: 'Black Han Sans', sans-serif;
+	font-family: 'Gasoek One', sans-serif;
+	font-family: 'Gothic A1', sans-serif;
+	font-family: 'Jua', sans-serif;
+}
+
+#infobox p {
+	font: 20px solid;
+	color: gray;
+	font-family: 'Black Han Sans', sans-serif;
+	font-family: 'Gasoek One', sans-serif;
+	font-family: 'Gothic A1', sans-serif;
+	font-family: 'Jua', sans-serif;
+}
