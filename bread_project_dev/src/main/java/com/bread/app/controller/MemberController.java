@@ -23,7 +23,7 @@ public class MemberController {
 
 	//회원가입처리를 위한 Service클래스를 필드로 정의하기
 	@Setter(onMethod_={@Autowired})
-	MemberService mJoin, mLogin, mUpdate;
+	MemberService mJoin, mLogin, mUpdate, mFindId;
 
 	///////// 페이지 매핑 ///////////
 
@@ -53,6 +53,11 @@ public class MemberController {
 	@GetMapping("/findId.do")
 	public String findId() {
 		return "member/findId";
+	}
+	
+	@GetMapping("/findIdResult.do")
+	public String findIdResult() {
+		return "member/findIdResult";
 	}
 	
 	@GetMapping("/findPw.do")
@@ -147,6 +152,30 @@ public class MemberController {
 			HttpSession session = request.getSession();
 			session.invalidate();
 			return "redirect:/main.do";//메인 페이지 재요청
+		}
+		
+		//아이디 찾기
+		@PostMapping("/findIdProcess.do")
+		public String findIdProcess(String member_name, String member_phone,
+								   HttpServletRequest request, HttpServletResponse response, Model model) {
+
+			String viewPage = "member/findId"; //로그인 실패 시 JSP페이지
+
+			MemberVO memberVO = mFindId.findId(member_name, member_phone);
+			model.addAttribute("member_id", memberVO.getMember_id());
+
+			if(memberVO != null) { //로그인 성공 시
+				//세션 객체에 회원정보 객체 저장
+				//HttpSession session = request.getSession();
+				//session.setAttribute("member", memberVO);
+				//session.invalidate();
+				viewPage = "/member/findIdResult";//
+				
+			} else {//로그인 실패 시
+				model.addAttribute("msg", "이름이나 핸드폰 번호가 일치하지 않습니다");
+			}
+
+			return viewPage;
 		}
 
 }
