@@ -92,8 +92,8 @@ public class AjaxController {
         }
         
         // SMS 발송 로직 추가
-        String message = String.format("주문이 성공적으로 처리되었습니다. 주문 번호: %s, 금액: %d", order_idx, amount);
-        smsService.sendSms(memberPhone, message); // 수정된 부분: member_phone 대신 조회한 회원의 전화번호 사용
+//        String message = String.format("주문이 성공적으로 처리되었습니다. 주문 번호: %s, 금액: %d", order_idx, amount);
+//        smsService.sendSms(memberPhone, message); // 수정된 부분: member_phone 대신 조회한 회원의 전화번호 사용
 
         return "OK";
     }
