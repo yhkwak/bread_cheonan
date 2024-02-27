@@ -66,4 +66,11 @@ public class CartDAO {
 	public int deleteCart(int cart_idx) {
 		return sqlSession.delete(MAPPER+".deleteCart", cart_idx);
 	}
+	
+	public int updateCount(int cart_idx, int bread_count) {
+		Map<String, Integer> map = new HashMap<String, Integer>();
+		map.put("cart_idx", cart_idx);
+		map.put("bread_count", bread_count);
+		return sqlSession.update(MAPPER+".updateCount", map);
+	}
 }
