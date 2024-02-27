@@ -47,13 +47,13 @@
 				
 				function cartAdd(data){
 					let result = $("#result_box").html();
-					result += "<div id='result_box'>"
+					result += "<div id='result_box2'>"
 							   + "<input type='hidden' name='bread_idx' value='"+data.bread_idx+"'>"
 							   + "<input type='hidden' name='member_idx' value='${member.member_idx}'>"
 							   + 	"<div class='tb_cart" + data.bread_idx + "'>"
 							   + 		"<table>"
 							   + 			"<tr>"
-							   + 				"<td colspan='2'>" + data.bread_name + "</td>"
+							   + 				"<td rowspan='2' class='b_name'>" + "<span id='r_text'>" + data.bread_name + "</span>" +"</td>"
 						       + 			"</tr>"
 						       + 			"<tr>"
 							   + 			"<td>"
@@ -64,6 +64,9 @@
 							   + 			"</td>"
 							   + 			"</tr>"
 							   + 		"</table>"
+							   + 	"</div>"
+							   +	"<div id='re_del_box'>"
+							   +		"<button type='button' id='re_del_btn'>" + "✕" + "</button>" 
 							   + 	"</div>"
 							   + "</div>";
 							   
@@ -85,16 +88,6 @@
 		<input type="hidden" value="${bakery_idx}">
 
 
-            <div id="side-nav">
-                <div id="side-menu">
-                    <h2>빵집 보기</h2>
-                    <ul>
-                        <a href="${pageContext.request.contextPath}/search/searchBakery.do"><li>빵집 검색</li></a>
-                    </ul>
-                </div>
-            </div>
-
-
             <div id="all_box">
 
 
@@ -102,7 +95,8 @@
                     <table id="view_table">                            
                         <tr>
                             <th><h2>${bakery.bakery_name}</h2></th>
-                            <td rowspan="4" id="shop_img"><img src="../resources/css/img/${bakey.bakery_img_save}"></td>
+                            <%-- <td rowspan="4" id="shop_img"><img src="../resources/css/img/${bakey.bakery_img_save}"></td> --%>
+                            <td rowspan="4" id="shop_img"><img src="../resources/css/img/test_img08.png"></td>
                         </tr>
                         <tr>
                             <td>${bakery.bakery_address} ${bakery.bakery_detail_address}</td>
@@ -123,10 +117,12 @@
                 		<input type="hidden" class="bread_idx" name="bread_idx" value="${breadList[i].bread_idx}">
                     	<table id="pickup_box_table">                          
                             <tr>
-                                <td rowspan="5" class="bakery_img"><img id="tel_img" src="${pageContext.request.contextPath}/resources/uploads/${bread.bread_img_save}"></td>
+                                <td rowspan="6" class="bakery_img">
+                                <%-- <img id="tel_img" src="${pageContext.request.contextPath}/resources/uploads/${bread.bread_img_save}"></td> --%>
+                                <img id="tel_img" src="../resources/css/img/test_img07.png"></td>
                             </tr>
                             <tr>
-                                <td>${breadList[i].bread_name}</td>
+                                <td><span id="bread_name">${breadList[i].bread_name}</span></td>
                                 <td></td>
                             </tr>
                             <tr>
@@ -146,9 +142,12 @@
                                     </div>
                                 </td>
                             </tr>
+                            <tr style="height: 10px;">
+                            	<td></td>
+                            </tr>
                         </table>
 					</c:forEach>
-					<form method="post" action="cartProcess.do">
+					<form id="f_r_box" method="post" action="cartProcess.do">
 						<div id="result_box"></div>
 	                    <div id="cart_box">
 	                        <div><input type="submit" id="cart_btn" value="+ 장바구니 담기"></div>

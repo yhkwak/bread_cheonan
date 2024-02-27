@@ -19,22 +19,28 @@
         	<%@ include file = "../common/header.jsp" %>
       	
 	        <section id="container-content">
-		        <h2>아이디 찾기</h2>
-
-		        <form name="frm_findId">
+	        	<div id="container_box">
+		        	<h2>아이디 찾기</h2>
+		        
 		            <div id="find_id_table">
 		                <table id="table_find_id">
 		                    <tr>
-		                        <td>아이디</td>
-	                            <td>${member_id}</td>
+		                        <td id="id_text">아이디 : </td>
+	                            <td id="m_id"><span>${member_id}</span></td>
 	                        </tr>                          
 		                </table>
-		                <div id="find_id_button">
-	                        <a href="${pageContext.request.contextPath}/member/login.do">로그인하기</a>
-	                    </div>
+		                <div id="search_menu">
+	    	                <div id="find_id_box">
+                                <button type="submit" id="find_id" onclick="fnSubmit(); return false;">로그인하러가기</button>
+                            </div>
+                            <div id="search_box">
+                                <a href="${pageContext.request.contextPath}/member/findPw.do" id="find_pw">비밀번호 찾기</a>
+                                <a id="cencel_btn" onclick="location.href='/myapp'">취소</a>
+                            </div>
+                        </div>
                     </div>
-
-		        </form>
+                    
+                </div>
         	</section>
 	        
         	<%@ include file = "../common/footer.jsp" %>

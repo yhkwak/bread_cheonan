@@ -80,6 +80,10 @@
 			                                                <input type="number" name="bread_count" min="1" max="10" value="${cartList[i].bread_count}" oninput="updateCount(${cartList[i].cart_idx}, event)">
 			                                            </div>
 			                                            
+			                                            <div id="f_btn_box">
+			                                            	<button type="button" id="f_btn">변경</button>
+			                                            </div>
+			                                            
 			                                            <div class="product_all_price">
 			                                                <span class="price_text"><fmt:formatNumber pattern="###,###,###" value="${cartList[i].bread_price * cartList[i].bread_count}"/>
 			                                                <c:set var="sum" value="${sum + cartList[i].bread_price * cartList[i].bread_count}" /></span><span class="won">원</span>
