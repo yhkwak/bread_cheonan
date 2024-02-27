@@ -94,7 +94,7 @@ header {
 	text-decoration-line: none;
 }
 
-span {
+header span {
 	font: bold 50px solid;
 	font-family: 'Grape Nuts', cursive;
 	font-family: 'Nanum Pen Script', cursive;
@@ -119,49 +119,109 @@ span {
 	font-family: 'Jua', sans-serif;
 	text-align: center;
 }
-
+#container_box{
+	width:800px;
+    height:750px;
+    border:1px solid lightgrey;
+    margin:0 auto;
+    margin-top: 100px;
+    border-radius: 15px;
+}
 #container-content h2{
-	font-size: 50px;
-	margin: 30px 0 30px 0;
+	position: relative;
+    left:250px;
+    top:50px;
+    font: 60px solid;
+    font-family: 'Jua', sans-serif;
+    color:gray;
+    width:300px;
+    height:90px;
 }
 #find_id_table{
-	width: 740px;
-	height: 380px;
-	border: 3px solid lightgrey;
-	border-radius: 15px;
-	margin: 0 auto;
-	padding: 100px 30px;
+	position: relative;
+    width:700px;
+    height:480px;
+    top:100px;
+    left:50px;
 }
-#find_id_table input{
-	width: 400px;
-	height: 55px;
-	font: 20px solid bold, sans-serif;
+#table_find_id{
+	position: relative;
+	top: 40px;
+	width:700px;
+    height:150px;
 }
-#table_find_id tr td:first-child{
-	width: 160px;
-	font-size: 25px;
-	padding: 30px 0 30px 0;
-	vertical-align: middle;
+#table_find_id tr{
+	height: 70px;
 }
-#table_find_id tr td:last-child{
-	width: 500px;
-	font-size: 25px;
-	vertical-align: middle;
-	padding: 30px 0 30px 0;
+#table_find_id tr td{
+	padding-right: 30px;
+    font-family: 'Jua', sans-serif;
+    color:gray;
 }
-#find_id_button{
-	margin-top: 60px;
+#id_text{
+	width: 350px;
+	font: 35px solid;
+	text-align: right;
 }
-#find_id_button button{
-	border: none;
-    background-color: #fff;
-    font-size: 25px;
+#m_id{
+	width: 350px;
+	text-align: left;
 }
-#find_id_button button:hover{
+#m_id span{
 	color:#F39C12;
-    border:none;
-    transition: 0.5s;
+	font: 45px solid;
+	font-family: 'Jua', sans-serif;
 }
+#search_menu{
+	width:700px;
+    height:330px;
+    border-bottom: 1px solid lightgray;
+}
+#find_id_box{
+	position: relative;
+    top:100px;
+    left:150px;
+    width:350px;
+    height:70px;
+}
+#search_menu button{
+	width:400px;
+    background-color: white;
+    border:1px solid lightgray;
+    border-radius: 15px;
+	font: 45px solid;
+    font-family: 'Nanum Pen Script', cursive;
+    color:gray;
+}
+#search_box{
+	position: relative;
+    width:700px;
+    height:50px;
+    top:150px;
+}
+#search_box a{
+	text-decoration: none;
+    font: 25px solid;
+    font-family: 'Jua', sans-serif;
+    color:gray;
+    cursor: pointer;
+}
+#search_box a:hover{
+	color:#F39C12;
+	transition: 0.5s;
+}
+#find_pw{
+	position: relative;
+	top: 55px;
+	right: 262px;
+}
+#cencel_btn{
+	position: relative;
+	top: 55px;
+    left: 262px;
+}
+
+
 
 
 
