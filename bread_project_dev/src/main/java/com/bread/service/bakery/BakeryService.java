@@ -6,7 +6,7 @@ import com.bread.app.vo.BakeryVO;
 
 public interface BakeryService {
 	
-    default int join(BakeryVO bakeryVO) {
+    default int join(BakeryVO bakeryVO, HttpServletRequest request) {
         return 0;
     }
 

@@ -8,7 +8,7 @@
  	
 	<!-- 가게정보 입력 -->
 	<insert id="join" parameterType="bakeryVO">
-    	insert into bc_bakery (bakery_name, bakery_address, bakery_postcode, bakery_detail_address, bakery_homepage, bakery_phone, member_idx) values (#{bakery_name}, #{bakery_address}, #{bakery_postcode}, #{bakery_detail_address}, #{bakery_homepage}, #{bakery_phone}, #{member_idx})
+    	insert into bc_bakery (bakery_name, bakery_address, bakery_postcode, bakery_detail_address, bakery_homepage, bakery_phone, member_idx, bakery_img, bakery_img_save) values (#{bakery_name}, #{bakery_address}, #{bakery_postcode}, #{bakery_detail_address}, #{bakery_homepage}, #{bakery_phone}, #{member_idx}, #{bakery_img}, #{bakery_img_save})
 	</insert>
   	
   	<select id="getBakery" parameterType="_int" resultType="bakeryVO">
@@ -17,7 +17,7 @@
 
   	<!-- 가게 업데이트 처리 -->
    	<update id="update" parameterType="bakeryVO">
-        update bc_bakery set bakery_name=#{bakery_name}, bakery_address=#{bakery_address}, bakery_postcode=#{bakery_postcode}, bakery_detail_address=#{bakery_detail_address}, bakery_homepage=#{bakery_homepage}, bakery_phone=#{bakery_phone}
+        update bc_bakery set bakery_name=#{bakery_name}, bakery_address=#{bakery_address}, bakery_postcode=#{bakery_postcode}, bakery_detail_address=#{bakery_detail_address}, bakery_homepage=#{bakery_homepage}, bakery_phone=#{bakery_phone}, bakery_img=#{bakery_img}, bakery_img_save=#{bakery_img_save} 
         where bakery_idx=#{bakery_idx}
     </update>
     

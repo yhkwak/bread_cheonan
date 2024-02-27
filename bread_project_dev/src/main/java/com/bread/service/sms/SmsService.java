@@ -18,12 +18,12 @@ public class SmsService {
     private String apiSecret;
 
     public SmsService() {
-        this.messageService = new DefaultMessageService("NCS8J4LD7WMQBTKI", "MKR4UXPCCMZVUMLA56WKTBKHXPI9LYDO", "https://api.coolsms.co.kr");
+        this.messageService = new DefaultMessageService("NCSVZXCGPVMWFJVC", "AQWGIHXC6MKKRMI1RLXNE939DJASTLBA", "https://api.coolsms.co.kr");
     }
 
     public SingleMessageSentResponse sendSms(String to, String text) {
         Message message = new Message();
-        message.setFrom("0415787576");
+        message.setFrom("01021041216");
         message.setTo(to);
         message.setText(text);
 

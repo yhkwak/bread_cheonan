@@ -291,6 +291,18 @@ h1{font-size:0;}
             border:none;
             transition: 0.5s;
         }        
+        input[readonly] {/*readonly css추가 지울시에는 일반 input text모양으로 나옴*/
+			background-color: #f2f2f2;
+		  	color: #b3b3b3;
+		  	cursor: not-allowed;
+    		pointer-events: none;
+		}
+		input[readonly]:hover,
+		input[readonly]:focus {/*readonly css추가 지울시에는 일반 input text모양으로 나옴*/
+		    box-shadow: none;
+		    outline: none;
+		}
+		
         /********** 푸터 영역 **********/
         footer{
             position:absolute;

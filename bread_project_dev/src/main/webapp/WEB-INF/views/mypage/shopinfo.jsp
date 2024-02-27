@@ -17,6 +17,7 @@
 	<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/shopinfo.js"></script>
 
 	<title>가게관리</title>
+
 </head>
 <body>
 <div id="wrap">
@@ -41,12 +42,27 @@
 		<div id="main-area">
 			<c:choose>
 				<c:when test="${empty bakery}">
-					<form name="frm_shopadd" method="post" action="joinProcess.do">
+					<form name="frm_shopadd" method="post" action="joinProcess.do" enctype="multipart/form-data" onsubmit="return validateForm()">
 						<input type="hidden" name="member_idx" value="${member.member_idx}">
 						<div id="shopadd-box">
 							<h2>가게 정보 등록</h2>
 							<div id="shopadd-table">
-								<div id="bakery_img"><img id="bakery_img1" src="${pageContext.request.contextPath}/resources/css/img/joinUpdate_title_img.png"></div>
+
+								<div id="bakery_img">
+									<label for="file_input2" style="cursor: pointer;">
+                    					<c:choose>
+					    					<c:when test="${bakery.bakery_img_save ne test_img02.png}">
+					        					<img id="bakery_img1" name="bakery_img" src="${pageContext.request.contextPath}/resources/uploads/${bakery.bakery_img_save}">
+					    					</c:when>
+					    					<c:otherwise>
+					        					<img id="bakery_img1" name="bakery_img" src="${pageContext.request.contextPath}/resources/css/img/test_img02.png">
+					    					</c:otherwise>
+										</c:choose>
+									</label>
+									<input type="file" id="file_input2" name="uploadFile" style="display: none;" onchange="readURL(this);">
+								</div>
+								
+                    				
 								<table id="table-shopadd">
 									<tr>
 										<td>가게 이름</td>
@@ -55,7 +71,7 @@
 									<tr>
 										<td>가게 주소</td>
 										<td><input type="text" name="bakery_address" id="bakery_address"><br>
-											<input type="text" name="bakery_postcode" id="bakery_postcode"></td>
+											<input type="text" name="bakery_postcode" id="bakery_postcode" readonly></td>
 										<td><input type="text" name="bakery_detail_address" id="bakery_detail_address"></td>
 										<td><button type="button" onclick="execDaumPostcode()" id="search_button">주소 검색</button></td>
 									</tr>
@@ -77,22 +93,36 @@
 					</form>
 				</c:when>
 				<c:otherwise>
-					<form name="frm_shopadd" method="post" action="updateProcess.do">
+					<form name="frm_shopadd" method="post" action="updateProcess.do" enctype="multipart/form-data" onsubmit="return validateForm()">
 						<input type="hidden" name="member_idx" value="${member.member_idx}">
 						<input type="hidden" name="bakery_idx" value="${bakery.bakery_idx}"> <!-- 가게 수정 시 포함 -->
 						<div id="shopadd-box">
 							<h2>가게 정보 수정</h2>
 							<div id="shopadd-table">
-								<div id="bakery_img"><img id="bakery_img1" src="${pageContext.request.contextPath}/resources/css/img/joinUpdate_title_img.png"></div>
+								
+								<div id="bakery_img">
+									<label for="file_input2" style="cursor: pointer;">
+                    					<c:choose>
+					    					<c:when test="${bakery.bakery_img_save ne test_img02.png}">
+					        					<img id="bakery_img1" name="bakery_img" src="${pageContext.request.contextPath}/resources/uploads/${bakery.bakery_img_save}">
+					    					</c:when>
+					    					<c:otherwise>
+					        					<img id="bakery_img1" name="bakery_img" src="${pageContext.request.contextPath}/resources/css/img/test_img02.png">
+					    					</c:otherwise>
+										</c:choose>
+									</label>
+									<input type="file" id="file_input2" name="uploadFile" style="display: none;" onchange="readURL(this);">
+								</div>
+								
 								<table id="table-shopadd">
 									<tr>
 										<td>가게 이름</td>
 										<td><input type="text" name="bakery_name" id="bakery_name" value="${bakery.bakery_name}"><br></td>
 									</tr>
-									<tr>
+										<tr>
 										<td>가게 주소</td>
 										<td><input type="text" name="bakery_address" id="bakery_address" value="${bakery.bakery_address}"><br>
-											<input type="text" name="bakery_postcode" id="bakery_postcode" value="${bakery.bakery_postcode}"></td>
+											<input type="text" name="bakery_postcode" id="bakery_postcode" value="${bakery.bakery_postcode}" readonly></td>
 										<td><input type="text" name="bakery_detail_address" id="bakery_detail_address" value="${bakery.bakery_detail_address}"></td>
 										<td><button type="button" onclick="execDaumPostcode()" id="search_button">주소 검색</button></td>
 									</tr>
