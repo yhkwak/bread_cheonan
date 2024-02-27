@@ -1,5 +1,7 @@
 package com.bread.app.vo;
 
+import org.springframework.web.multipart.MultipartFile;
+
 import lombok.Data;
 
 @Data
@@ -16,5 +18,6 @@ public class BakeryVO {
 	private String bakery_img;
 	private String bakery_img_save;
 	private int bakery_del;
+	private MultipartFile uploadFile; 
 	
 }

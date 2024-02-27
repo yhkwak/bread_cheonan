@@ -96,8 +96,12 @@
 			<artifactId>commons-fileupload</artifactId>
 			<version>1.4</version>
 		</dependency>
-
-
+		<!-- 문자메세지coolsms -->
+		<dependency>
+		    <groupId>net.nurigo</groupId>
+		    <artifactId>sdk</artifactId>
+		    <version>4.2.7</version>
+		</dependency>
 		<!-- Servlet: servlet-api, jsp-api를 파일 업로드 관련 버전 업데이트 -->
 		<dependency>
 			<groupId>javax.servlet</groupId>

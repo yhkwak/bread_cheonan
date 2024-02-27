@@ -1,5 +1,7 @@
 package com.bread.service.bakery;
 
+import javax.servlet.http.HttpServletRequest;
+
 import com.bread.app.vo.BakeryVO;
 
 public interface BakeryService {
@@ -8,7 +10,7 @@ public interface BakeryService {
         return 0;
     }
 
-	default BakeryVO update(BakeryVO bakeryVO) {
+	default BakeryVO update(BakeryVO bakeryVO, HttpServletRequest reques) {
 		return null;
 	}
 
