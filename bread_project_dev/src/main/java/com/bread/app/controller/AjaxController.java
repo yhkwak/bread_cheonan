@@ -15,6 +15,7 @@ import com.bread.app.dao.SearchDAO;
 import com.bread.app.vo.BreadVO;
 import com.bread.app.vo.CartVO;
 import com.bread.app.vo.MemberVO;
+import com.bread.service.sms.SmsService;
 
 import lombok.AllArgsConstructor;
 
@@ -22,7 +23,7 @@ import lombok.AllArgsConstructor;
 @RestController
 @AllArgsConstructor
 public class AjaxController {
-
+	private SmsService smsService;
     private MemberDAO memberDAO;
     private SearchDAO searchDAO;
     private AdminMemDAO adminMemDAO;
@@ -70,25 +71,31 @@ public class AjaxController {
     
     @PostMapping("/**/payProcess.do")
     public String payProcess(String order_idx, int amount, int member_idx) throws SQLException {
-    	
-    	List<CartVO> cartList = cartDAO.getCarts(member_idx);
-    	
-    	cartDAO.addOrder(order_idx, amount, member_idx);
-   
-    	for(int i=0; i<cartList.size(); i++) {
-    		int bread_idx = cartList.get(i).getBread_idx();
-    		int bakery_idx = cartList.get(i).getBakery_idx();
-    		int bread_count = cartList.get(i).getBread_count();
-    		int cart_idx = cartList.get(i).getCart_idx();
-    		
-    		cartDAO.addItem(bread_idx, bakery_idx, order_idx);
-    		cartDAO.updateStock(bread_count, bread_idx);
-    		cartDAO.deleteCart(cart_idx);
-    	}
-    	
-    	
-    	
-    	return "OK";
+        
+        // 회원 정보 조회
+        MemberVO member = memberDAO.getMember(member_idx);
+        String memberPhone = member.getMember_phone(); // 회원 전화번호 가져오기
+
+        List<CartVO> cartList = cartDAO.getCarts(member_idx);
+        
+        cartDAO.addOrder(order_idx, amount, member_idx);
+
+        for(int i=0; i<cartList.size(); i++) {
+            int bread_idx = cartList.get(i).getBread_idx();
+            int bakery_idx = cartList.get(i).getBakery_idx();
+            int bread_count = cartList.get(i).getBread_count();
+            int cart_idx = cartList.get(i).getCart_idx();
+            
+            cartDAO.addItem(bread_idx, bakery_idx, order_idx, bread_idx);
+            cartDAO.updateStock(bread_count, bread_idx);
+            cartDAO.deleteCart(cart_idx);
+        }
+        
+        // SMS 발송 로직 추가
+        String message = String.format("주문이 성공적으로 처리되었습니다. 주문 번호: %s, 금액: %d", order_idx, amount);
+        smsService.sendSms(memberPhone, message); // 수정된 부분: member_phone 대신 조회한 회원의 전화번호 사용
+
+        return "OK";
     }
     
     

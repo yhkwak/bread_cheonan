@@ -72,7 +72,7 @@ public class MypageController {
 		String viewPage = "mypage/shopinfo";
 
 
-		BakeryVO newBakeryVO = bakeryUpdate.update(bakeryVO);
+		BakeryVO newBakeryVO = bakeryUpdate.update(bakeryVO, request);
 
 		if (newBakeryVO != null) {
 			HttpSession session = request.getSession();
