@@ -40,8 +40,8 @@
 				<table id="search_table">
                 	<tr>
                     	<td>
-                        	<input type="text" name="searchWord" id="search_text" placeholder="가게 이름으로 검색">
-                        	<input id="submit_button" type="submit" value="검색하기">
+                        	<input type="text" name="searchWord" id="search_text" placeholder="가게명">
+                        	<input id="submit_button" type="submit" value="검색">
                     	</td>
                 	</tr>
                 </table>
@@ -73,7 +73,7 @@
                                             <c:otherwise>
                                                 ${pageContext.request.contextPath}/resources/css/img/test_img07.png
                                             </c:otherwise>
-                                        </c:choose>"></div>&nbsp;<div style="width: 250px; margin: auto;" id="product_title"><p>${adminProductList.bread_name}</p></div></td>
+                                        </c:choose>"></div>&nbsp;<div id="product_title"><p>${adminProductList.bread_name}</p></div></td>
                                         <td>${adminProductList.bread_price}</td>
                                         <td>${adminProductList.bakery_name}</td>
                                         <td>${adminProductList.bread_stock}</td>
@@ -96,7 +96,7 @@
                                         <td>
                                             <input type="hidden" name="bread_idx" value="${adminProductList.bread_idx}" />
                                             <c:if test="${sessionScope.member.grade == 2}">
-                                                <input type="submit" class="update_btn" value="등록관리">
+                                                <input type="submit" class="update_btn" value="상품관리">
                                             </c:if>
                                         </td>
                                         </form>
@@ -124,7 +124,7 @@
 
     </section>
     
-<%--     <%@ include file = "../common/footer.jsp" %> --%>
+<%@ include file = "../common/footer.jsp" %>
     
 </div>
 </body>

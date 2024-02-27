@@ -150,13 +150,14 @@
         }
         #product_box{
             width: 1137px;
-            height: 1120px;
+            height: 1000px;
             margin: 0 auto;
             margin-left: 63px;
+            margin-top:3px;
             text-align: center;
             border: 1px solid lightgrey;
             border-radius: 15px;
-            padding: 0 17px 10px 18px;
+            padding: 10px 18px 30px 18px;
         }
         .product_table{
             width: 100%;
@@ -198,7 +199,7 @@
         .product_table tr td #product_title {
             width: 250px;
             margin: auto;
-            line-height: 80px;
+            line-height: 70px;
         }
         .product_table tr td {
             width: 148px;
@@ -240,20 +241,32 @@
         }
         
         .product_table input[type="submit"]{
-            border: 1px solid lightgray;
+            border: 1px solid gray;
             color: rgba(0, 0, 0, 0.788);
             font-size: 20px;
-            width:70px;
+            width:80px;
             height:35px;
             background-color: white;
             padding-top: 3px;
         }
-        .product_table input[type="submit"]:hover{
-            color:white;
-        	background-color:gray;
-        	transition:0.5s;
+        #search_text{
+        	position:relative;
+        	top:1px;
+        	margin-left:77px;
+        	padding-left:5px;
+        	width:175px;
+        	height:27px;
+        	color:rgba(0, 0, 0, 0.788);
+        	font:15px solid;
         }
-
+        #submit_button{
+        	position:relative;
+        	width:40px;
+        	color:rgba(0, 0, 0, 0.788);
+        	background-color:white;
+       		text-align:center;
+        	border:1px solid gray;
+        }
         footer{
             position:absolute;
             top: 1500px;

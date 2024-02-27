@@ -98,7 +98,7 @@ $(document).ready(function(){
             <form name="frm_update" method="post" action="updateProcess.do">
                     <table id="search_table">
 						<tr>
-							<td>총 회원수 : ${pageNav.totalRows}</td>
+							<td id="total_mem">총 회원 수 : ${pageNav.totalRows}</td>
 							<td>
 								<select name="searchField">
 									<option value="member_id">아이디</option>
@@ -106,14 +106,14 @@ $(document).ready(function(){
 									<option value="member_name">이름</option>
 								</select>
                                 <input id="search_text" type="text" name="searchWord">
-                                <input id="submit_button" type="submit" value="검색하기">
+                                <input id="submit_button" type="submit" value="검색">
 							</td>
 						</tr>
 					</table>
                     <div id="admin_table_box">
                         <table id="admin_table">
                             <tr style="border-bottom: 1px solid lightgray;">
-                                <th>NO.</th>
+                                <th>NO</th>
                                 <th>아이디</th>
                                 <th>닉네임</th>
                                 <th>회원등급</th>

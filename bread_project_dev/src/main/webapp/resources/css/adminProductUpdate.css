@@ -279,7 +279,7 @@ button[type=button]:hover{
 button[type=reset]{
     position: relative;
     top:75px;
-    left:400px;
+    left:594px;
     font: 25px solid;
     font-family: 'Black Han Sans', sans-serif;
     font-family: 'Gasoek One', sans-serif;
@@ -297,7 +297,7 @@ button[type=reset]:hover{
 button[type=submit]{
     position: relative;
     top:75px;
-    left:442px;
+    left:614px;
     font: 25px solid;
     font-family: 'Black Han Sans', sans-serif;
     font-family: 'Gasoek One', sans-serif;
@@ -311,6 +311,30 @@ button[type=submit]:hover{
     color:#F39C12;
     border:none;
     transition: 0.5s;
+}
+#product_condition{
+	width:100px;
+	position:relative;
+	top:20px;
+	padding-top: 2px;
+	font:22px solid;
+	color: rgba(0, 0, 0, 0.788);
+    font-family: 'Black Han Sans', sans-serif;
+    font-family: 'Gasoek One', sans-serif;
+    font-family: 'Gothic A1', sans-serif;
+    font-family: 'Jua', sans-serif;
+}
+select{
+	position:relative;
+	left:90px;
+	bottom:25px;
+	width:110px;
+	height:27px;
+	color: rgba(0, 0, 0, 0.788);
+    font-family: 'Black Han Sans', sans-serif;
+    font-family: 'Gasoek One', sans-serif;
+    font-family: 'Gothic A1', sans-serif;
+    font-family: 'Jua', sans-serif;
 }
 /********** 푸터 영역 **********/
 footer{

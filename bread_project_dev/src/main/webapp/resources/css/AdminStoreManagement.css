@@ -1,6 +1,5 @@
 @charset "UTF-8";
-
-h1{font-size:0;}
+    h1{font-size:0;}
         * {margin:0;
           padding:0;
         }
@@ -90,6 +89,9 @@ h1{font-size:0;}
             width:1136px;
             border-top: 1px solid gray;
         }
+
+
+
         /********** 메인 영역 **********/
 
         /********** 사이드 메뉴바 영역 **********/
@@ -98,13 +100,9 @@ h1{font-size:0;}
         #container-content{
             display: inline-block;
             width: 1536px; 
-            height: 1000px;
-            margin: 0 auto;
+            height: 1000px; /* 본인의 작업 사이즈에 맞게 변경 */
         }
-
         #side-nav{
-        	position:relative;
-        	bottom:1px;
             float: left;
             width:300px;
             height: 1000px; /* container-content height 크기와 동일하게 설정 */
@@ -142,8 +140,12 @@ h1{font-size:0;}
             margin-top: 30px;
             padding-right:35px;
         }
-
+        #search_table tr{
+        	position:relative;
+        	left:75px;
+        }
         /********** 사이드 메뉴바 영역 끝 **********/
+
         #all_box{
             width: 100%;
             max-width: 1200px;
@@ -157,7 +159,7 @@ h1{font-size:0;}
             margin: 30px 0 30px 0;
             color: rgba(0, 0, 0, 0.788);
         }
-        #order_box{
+        #admin_table_box{
             width: 1137px;
             height: 1000px;
             margin: 0 auto;
@@ -165,104 +167,123 @@ h1{font-size:0;}
             text-align: center;
             border: 1px solid lightgrey;
             border-radius: 15px;
-            padding:10px 30px 30px 30px;
+            padding:10px 18px 30px 18px;
         }
-        .order_table_box{
+        #admin_table{
             width: 100%;
-            max-width: 1000px;
+            font-family: "Jua", sans-serif;
         }
-        .order_table{
+        #admin_table tr{
+            width:1536px;
+            height:50px;
             position: relative;
-            right:12px;
-            width:1100px;
-            margin-top: 19px;
+            left:20px;
         }
-        .order_table th{
+        #admin_table tr th{
             position: relative;
             right:25px;
-            padding-bottom: 20px;
+	        padding-top: 19px;
+            padding-bottom: 19px;
             font-weight:normal;
             font-size:25px;
             font-family:'Jua', sans-serif;
-            color:gray;
+            color:#616161;
         }
-        .order_table tr{
+        #admin_table tr td{
             position: relative;
-            left:20px;
-            width:1536px;
-            height:50px;
-        }
-        .order_table tr td{
-            position: relative;
+	        right:25px;
             padding-top: 20px;
-            width: 166px;
             height: 10%;
-            right:25px;
             font-size: 20px;
             color: rgba(0, 0, 0, 0.788);
-        } 
-        .order_table tr td img{
-            width: 80px;
-            height: 70px;
-            border-radius: 15px;
         }
-        #product{
-            width:410px;
+        #admin_table input{
+            padding: 30px;
         }
-        button[type=button]{
-        	padding-top: 3px;
-            border: 1px solid lightgray;
-            color: rgba(0, 0, 0, 0.788);
-        }
-        button[type=button]:hover{
-        	color:white;
-        	background-color:gray;
-        	transition:0.5s;
-        }
-
-        /********** 페이징 영역 **********/
-        .page_box{
-            clear: both;
-            margin: 0 auto;
-            width: 50%;
-            text-align: center;
-        }
-        .pageNav{
-            display: flex;
-            margin: 30px 0 0 0;
-            justify-content: center;
-            list-style: none;
-            padding: 0;
-            font: 25px solid bold;
+        #total_mem{
+        	font: 22px solid;
+        	color:rgba(0, 0, 0, 0.788);
+        	font-family: 'Black Han Sans', sans-serif;
+            font-family: 'Gasoek One', sans-serif;
+            font-family: 'Gothic A1', sans-serif;
             font-family: 'Jua', sans-serif;
         }
-        .page_box ul li{
-            padding: 10px;
-            text-decoration: none;
+        select{
+        	position:relative;
+        	bottom:1px;
+        	width:80px;
+        	height:27px;
+        	color:rgba(0, 0, 0, 0.788);
+        	margin-left:10px;
         }
-        .page_box ul li a{
-            text-decoration: none;
-            color: gray;
+        #search_text{
+        	position:relative;
+        	padding-left:5px;
+        	padding-bottom:2px;
+        	margin-left:9px;
+        	width:175px;
+        	height:27px;
+        	bottom:1px;
+        	color:rgba(0, 0, 0, 0.788);
+        	font:15px solid;
         }
-        .page_box ul li a:hover{
-            color:#F39C12;
-            border:none;
-            transition: 0.2s;
+        #submit_button{
+        	position:relative;
+        	bottom:1px;
+        	width:40px;
+        	color:rgba(0, 0, 0, 0.788);
+        	background-color:white;
+       		text-align:center;
+        	border:1px solid gray;
         }
-        button{
-            width:60px;
-            height:35px;
-            border:1px solid gray;
-            background-color: white;
+        #member_del_btn_box {
+            display: inline;
+            float: right;
         }
+        .paging_a{
+        	position:relative;
+        	top:50px;
+        	text-decoration:none;
+        }
+		.paging_a span{
+			color:gray;
+			font:bold 25px solid ;
+		}
+		.paging_a span:hover{
+			color:#F39C12;
+			transition: 0.5s;
+			font:bold 25px solid ;
+		}
+		button[type=button]{
+			width:80px;
+			height:30px;
+			border:1px solid gray;
+			text-align:center;
+			background-color:white;
+			color:rgba(0, 0, 0, 0.788);
+		}
+		.paging_a{
+        	position:relative;
+        	top:50px;
+        	text-decoration:none;
+        }
+		.paging_a span{
+			color:gray;
+			font:bold 25px solid ;
+		}
+		.paging_a span:hover{
+			color:#F39C12;
+			transition: 0.5s;
+			font:bold 25px solid ;
+		}
 
         /********** 풋터 **********/
         footer{
             position:absolute;
-            top: 1450px;
+            top: 1500px;
             width:1536px;
             height:300px;
-            margin-top:200px;
+            margin-top: 300px;
             margin-bottom:0px;
             background-color: rgb(245,246,247);
         }
