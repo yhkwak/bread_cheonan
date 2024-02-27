@@ -38,7 +38,7 @@
                     		<div id="shop_table">
 		                        <table id="shop_table_list">
 		                            <tr>
-		                                <td>해당하는 가게가 없습니다. 다시 검색해 주세요.</td>
+		                                <td>빵빵한 가족 명단에서 찾을 수 없습니다</td>
 		                            </tr>
 		                        </table>
 		                    </div>
@@ -53,9 +53,11 @@
 				                            </tr>
 				                            <tr>
 				                                <td class="shop_table_text1"><a href="${pageContext.request.contextPath}/search/viewBakery.do?bakery_idx=${bakeryList[vs.count-1].bakery_idx}">${bakeryList[vs.count-1].bakery_name}</a></td>
+				                            <tr/>
+				                            <tr>
+				                                <td><div id="go_button"><a href="${pageContext.request.contextPath}/search/viewBakery.do?bakery_idx=${bakeryList[vs.count-1].bakery_idx}">놀러가기</a></div></td>
 				                            </tr>
 				                        </table>
-				                        <a href="${pageContext.request.contextPath}/search/viewBakery.do?bakery_idx=${bakeryList[vs.count-1].bakery_idx}">${bakeryList[vs.count-1].bakery_name}></a>
 				                    </div>
 			                    </c:if>
 		                    </c:forEach>

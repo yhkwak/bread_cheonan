@@ -14,7 +14,7 @@
         <link href="https://fonts.googleapis.com/css2?family=Grape+Nuts&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Gasoek+One&family=Gothic+A1:wght@700&family=Jua&display=swap" rel="stylesheet">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">          
-        <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/AdminMemManagement.css">
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/AdminStoreManagement.css">
         <script src="${pageContext.request.contextPath}/resources/js/jquery-3.7.1.min.js"></script>
 
     
@@ -61,17 +61,17 @@ $(document).ready(function(){
             <form name="frm_update" method="post" action="updateStoreProcess.do">
                     <table id="search_table">
 						<tr>
-							<td>총 매장수 : ${pageNav.totalRows}</td>
+							<td id="total_mem">총 매장 수 : ${pageNav.totalRows}</td>
 							<td>
-                                <input id="search_text" type="text" name="searchWord" placeholder="상호명만 검색가능합니다">
-                                <input id="submit_button" type="submit" value="검색하기">
+                                <input id="search_text" type="text" name="searchWord" placeholder="상호명">
+                                <input id="submit_button" type="submit" value="검색">
 							</td>
 						</tr>
 					</table>
                     <div id="admin_table_box">
                         <table id="admin_table">
                             <tr style="border-bottom: 1px solid lightgray;">
-                                <th>NO.</th>
+                                <th>NO</th>
                                 <th>상호명</th>
                                 <th>전화번호</th>
                                 <th>상세주소</th>

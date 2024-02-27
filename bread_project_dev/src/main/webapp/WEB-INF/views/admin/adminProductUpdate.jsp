@@ -15,7 +15,7 @@
     <style>
 
     </style>
-    <title>제품승인 관리</title>
+    <title>상품관리</title>
 </head>
 <body>
 <div id="wrap">
@@ -39,7 +39,7 @@
                     <input type="hidden" name="bread_idx" value="${bread.bread_idx}">
                     <input type="hidden" name="bread_bakery_idx" value="${breadVO.bakery_idx}">
                     <div id="register-box">
-                        <h2>제품 승인</h2>
+                        <h2>상품 승인</h2>
                         <div id="register-table">
                             <!-- 제품 이미지 -->
                             <div id="product_img">
@@ -101,23 +101,20 @@
 
                             <div id="register-submenu">
                                 <button type="reset" onclick="location.href='productManagement.do'">취소</button>
-                                <button type="submit">확인</button>
+                                <button type="submit">승인</button>
                             </div>
-                    <tr>
-					    <td>상품 상태</td>
-					    <td>
+                    	
+					    <p id="product_condition">상품 상태</p>
 					        <select name="bread_status">
 					            <option value="0" ${vo.bread_status == '0' ? 'selected' : ''}>승인 대기</option>
 					            <option value="1" ${vo.bread_status == '1' ? 'selected' : ''}>승인 완료</option>
 					            <option value="2" ${vo.bread_status == '2' ? 'selected' : ''}>승인 거절</option>
-					        </select>
-					    </td>
-					</tr>
-                        </div>
-                    </div>
-                </form>
-            </div> 
-        </section>
+					        </select>		
+                       </div>
+                   </div>
+               </form>
+           </div> 
+       </section>
 
     <%@ include file = "../common/footer.jsp" %>
 
