@@ -40,9 +40,6 @@ public class CartController {
 		String[] arr_bread_count = bread_count.split(",");
 		
 		for(int i=0; i <arr_member_idx.length; i++) {
-			System.out.println(arr_member_idx[i]);
-			System.out.println(arr_bread_idx[i]);
-			System.out.println(arr_bread_count[i]);
 			
 			int int_member_idx = Integer.parseInt(arr_member_idx[i]);
 			int int_bread_idx = Integer.parseInt(arr_bread_idx[i]);
