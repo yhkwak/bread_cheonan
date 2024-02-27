@@ -77,11 +77,11 @@
 			                                        <div class="info_textarea2">
 			
 			                                            <div class="bread_count">수량 : 
-			                                                <input type="number" name="bread_count" min="1" max="10" value="${cartList[i].bread_count}" oninput="updateCount(${cartList[i].cart_idx}, event)">
+			                                                <input type="number" name="bread_count" min="1" max="10" value="${cartList[i].bread_count}" oninput="setCount(event)">
 			                                            </div>
 			                                            
 			                                            <div id="f_btn_box">
-			                                            	<button type="button" id="f_btn">변경</button>
+			                                            	<button type="button" id="f_btn" onclick="updateCount(${cartList[i].cart_idx}, ${cartList[i].bread_count})">변경</button>
 			                                            </div>
 			                                            
 			                                            <div class="product_all_price">
@@ -119,6 +119,7 @@
 	                var member_phone = "<c:out value='${member.member_phone}'/>";
 	                var product_name = $(".bread_name").val() + " 외";
 	                var order_idx = createOrderNum();
+	                var bread_count = 0;
 	                
 	                function requestPay() {
 	                  IMP.request_pay({
@@ -194,15 +195,25 @@
 	                	})
 	                }
 	                
+	                // bread_count 설정
+	                function setCount(event){
+	                	bread_count = event.target.value;
+	                }
+	                
 	                // 수량 변경
-	                function updateCount(cart_idx, event){
-	                	const bread_count = event.target.value;
+	                function updateCount(cart_idx, origin_count){
+	                	if(bread_count == 0){
+	                		bread_count = origin_count;
+	                	}
 	                	
 	                	$.ajax({
 	                		type: "post",
 	                		url: "updateCount.do",
 	                		data: {"cart_idx":cart_idx,
-	                			   "bread_count":bread_count}
+	                			   "bread_count":bread_count},
+	                		success: function(){
+	                			location.reload();
+	                		}
 	                	})
 	                }
 	                
