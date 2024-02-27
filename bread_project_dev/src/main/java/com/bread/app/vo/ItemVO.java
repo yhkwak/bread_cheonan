@@ -8,4 +8,5 @@ public class ItemVO {
 	private int bread_idx;
 	private int bakery_idx;
 	private String order_idx;
+	private int bread_count;
 }

@@ -98,6 +98,15 @@ public class AjaxController {
         return "OK";
     }
     
+    @PostMapping("/**/deleteCart.do")
+    public int deleteCart(int cart_idx) {
+    	int result = 0;
+    	
+    	result = cartDAO.deleteCart(cart_idx);
+    	
+    	return result;
+    }
+    
     
     //////////////////// 관리자 페이지 ////////////////////
 

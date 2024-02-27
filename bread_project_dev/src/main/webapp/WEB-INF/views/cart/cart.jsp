@@ -81,7 +81,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="btn_box"><button type="button" class="product_del_btn">✕</button></div>
+                                    <div class="btn_box"><button type="button" class="product_del_btn" onclick="deleteCart(${cartList[i].cart_idx})">✕</button></div>
 
                                 </div>
                             </div>
@@ -136,7 +136,7 @@
                                             }).done(function(res){
                                                 if(res == "OK"){
                                                     alert("결제 완료");
-                                                    location.href="/";
+                                                    location.href="/myapp/";
                                                 }
                                                 else{
                                                     alert("결제 실패");
@@ -164,6 +164,18 @@
                                         orderNum += Math.floor(Math.random() * 8);	
                                     }
                                     return orderNum;
+                                }
+                                
+                                // 장바구니 삭제
+                                function deleteCart(cart_idx){
+                                	$.ajax({
+                                		type: "post",
+                                		url: "deleteCart.do",
+                                		data: {"cart_idx":cart_idx}
+                                	}).done(function(){
+                                		alert("장바구니 삭제 완료");
+                                		location.href="${pageContext.request.contextPath}/cart/cart.do?member_idx="+member_idx;
+                                	})
                                 }
                             </script>
     
