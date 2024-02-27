@@ -30,6 +30,10 @@
   	<update id="updateStock" parameterType="map">
   		update bc_bread set bread_stock = bread_stock - #{bread_count} where bread_idx = #{bread_idx}
   	</update>
+  	
+  	<update id="updateCount" parameterType="map">
+  		update bc_cart set bread_count = #{bread_count} where cart_idx = #{cart_idx}
+  	</update>
 
 
 	<!-- Delete -->

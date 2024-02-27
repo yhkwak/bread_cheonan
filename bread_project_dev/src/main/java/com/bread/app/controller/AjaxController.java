@@ -107,6 +107,11 @@ public class AjaxController {
     	return result;
     }
     
+    @PostMapping("/**/updateCount.do")
+    public void updateCount(int cart_idx, int bread_count) {
+    	cartDAO.updateCount(cart_idx, bread_count);
+    }
+    
     
     //////////////////// 관리자 페이지 ////////////////////
 
