@@ -86,7 +86,7 @@ public class AjaxController {
             int bread_count = cartList.get(i).getBread_count();
             int cart_idx = cartList.get(i).getCart_idx();
             
-            cartDAO.addItem(bread_idx, bakery_idx, order_idx, bread_idx);
+            cartDAO.addItem(bread_idx, bakery_idx, order_idx, bread_count);
             cartDAO.updateStock(bread_count, bread_idx);
             cartDAO.deleteCart(cart_idx);
         }
