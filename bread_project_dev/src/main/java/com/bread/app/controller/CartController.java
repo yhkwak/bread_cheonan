@@ -62,4 +62,11 @@ public class CartController {
 		return "cart/cart";
 	}
 	
+	@PostMapping("/cart/payment_complete.do")
+	public String paymentComplete() {
+		
+		
+		return "cart/payment_complete";
+	}
+	
 }

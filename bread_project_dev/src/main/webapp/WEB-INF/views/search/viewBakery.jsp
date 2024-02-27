@@ -15,38 +15,45 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">          
         <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/viewBakery.css">
         <script src="${pageContext.request.contextPath}/resources/js/jquery-3.7.1.min.js"></script>
-		<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/viewBakery.js"></script>
 		<script>
+			var arry_chk = [];
+			
 			function cart_add(i){
 				let bread_idx;
 				let bread_count;
 				
-				switch(i){
-				case 0: bread_idx = $(".bread_idx:eq(0)").val();
-						bread_count = $(".bread_count:eq(0)").val();
-						break;
-						
-				case 1: bread_idx = $(".bread_idx:eq(1)").val();
-						bread_count = $(".bread_count:eq(1)").val();
-						break;
-				
-				case 2: bread_idx = $(".bread_idx:eq(2)").val();
-						bread_count = $(".bread_count:eq(2)").val();
-						break;
-				}
-				
-				$.ajax({
-					type: 'post',
-					url:"cartAdd.do",
-					data: {"bread_idx": bread_idx},
-					success: cartAdd,
-					error: function(error){
-						alert("ajax 에러")
+				if(arry_chk.includes(i)){
+					alert("이미 추가 된 상품입니다. 수량을 조절해주세요.");
+				}else{
+					switch(i){
+					case 0: bread_idx = $(".bread_idx:eq(0)").val();
+							bread_count = $(".bread_count:eq(0)").val();
+							break;
+							
+					case 1: bread_idx = $(".bread_idx:eq(1)").val();
+							bread_count = $(".bread_count:eq(1)").val();
+							break;
+					
+					case 2: bread_idx = $(".bread_idx:eq(2)").val();
+							bread_count = $(".bread_count:eq(2)").val();
+							break;
 					}
-				}); //end of ajax
+					arry_chk[i] = i;
+					
+					$.ajax({
+						type: 'post',
+						url:"cartAdd.do",
+						data: {"bread_idx": bread_idx},
+						success: cartAdd,
+						error: function(error){
+							alert("ajax 에러")
+						}
+					}); //end of ajax
+				}
 				
 				function cartAdd(data){
 					let result = $("#result_box").html();
+					
 					result += "<div id='result_box2'>"
 							   + "<input type='hidden' name='bread_idx' value='"+data.bread_idx+"'>"
 							   + "<input type='hidden' name='member_idx' value='${member.member_idx}'>"
@@ -137,7 +144,7 @@
                                 <td id="bread_time">빵 나오는 시간: ${breadList[i].bread_time1}  ${breadList[i].bread_time2}  ${breadList[i].bread_time3}</td>
                                 <td>
                                     <div id="select_box">
-                                    	<input type="number" class="bread_count" min="1" max="10">
+                                    	<input type="number" class="bread_count" min="1" max="10" value="1">
                                     	<button type="button" id="product_add" onclick="cart_add(${i})">추가</button>
                                     </div>
                                 </td>
