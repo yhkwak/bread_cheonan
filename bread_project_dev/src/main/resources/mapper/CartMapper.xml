@@ -14,7 +14,7 @@
  	</insert>
  	
  	<insert id="addItem" parameterType="itemVO">
- 		insert into bc_item (bread_idx, bakery_idx, order_idx) values(#{bread_idx}, #{bakery_idx}, #{order_idx})
+ 		insert into bc_item (bread_idx, bakery_idx, order_idx, bread_count) values(#{bread_idx}, #{bakery_idx}, #{order_idx}, #{bread_count)}
  	</insert>
 
   	<!-- Read -->

@@ -45,12 +45,13 @@ public class CartDAO {
 		return sqlSession.insert(MAPPER+".addOrder", orderVO);
 	}
 	
-	public int addItem(int bread_idx, int bakery_idx, String order_idx) {
+	public int addItem(int bread_idx, int bakery_idx, String order_idx, int bread_count) {
 		ItemVO itemVO = new ItemVO();
 		
 		itemVO.setBread_idx(bread_idx);
 		itemVO.setBakery_idx(bakery_idx);
 		itemVO.setOrder_idx(order_idx);
+		itemVO.setBread_count(bread_count);
 		
 		return sqlSession.insert(MAPPER+".addItem", itemVO);
 	}
