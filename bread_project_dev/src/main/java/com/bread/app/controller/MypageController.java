@@ -57,7 +57,7 @@ public class MypageController {
 		//커맨드 객체: 폼의 name과 같은 필드를 가지고 set메소드를 정의하고 있어야 함 - VO클래스
 		String viewPage = "mypage/shopinfo.do";//가게정보 등록 실패 시 JSP페이지
 
-		if (bakeryJoin.join(bakeryVO) == 1) {
+		if (bakeryJoin.join(bakeryVO, request) == 1) {
 			HttpSession session = request.getSession();
 			session.setAttribute("bakery", bakeryVO);
 			viewPage = "redirect:/main.do";
