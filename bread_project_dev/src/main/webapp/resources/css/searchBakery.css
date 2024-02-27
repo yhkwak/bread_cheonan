@@ -74,7 +74,7 @@
             font-family: 'Grape Nuts', cursive;
             font-family: 'Nanum Pen Script', cursive;
             color:gray;
-            text-decoration-line: none;
+            text-decoration: none;
         }
         span{
             font: bold 50px solid;
@@ -89,65 +89,54 @@
             border-top: 1px solid gray;
         }
         /********** 메인 영역 **********/
-
-
-        
         #container-content{
-            display: inline-block;
             width: 1536px; 
             height: 1000px;
+            margin: 0 auto;
         }
-
-        #side-nav{
-            float: left;
-            width:300px;
-            height: 1000px; /* container-content height 크기와 동일하게 설정 */
-        }
-        #side-menu{
-            position: relative;
-            left:70px;
-            top:100px;
-            width: 220px;
-            height: 400px;
-            text-decoration: none;
-            text-align: center;
-        }
-        #side-menu h2{
-            font: 45px solid;
-            color:rgba(0, 0, 0, 0.788);
-            font-family: 'Black Han Sans', sans-serif;
-            font-family: 'Gasoek One', sans-serif;
-            font-family: 'Gothic A1', sans-serif;
-            font-family: 'Jua', sans-serif;
-        }
-        #side-menu ul{
-            list-style: none;
-        }
-        #side-menu ul a{
-            text-decoration: none;
-        }
-        #side-menu ul li{
-            font: 35px solid;
-            color:gray;
-            font-family: 'Black Han Sans', sans-serif;
-            font-family: 'Gasoek One', sans-serif;
-            font-family: 'Gothic A1', sans-serif;
-            font-family: 'Jua', sans-serif;
-            margin-top: 30px;
-            padding-right:35px;
-        }
-
-
-
-
-
         form{
             width: 100%;
             max-width: 1200px;
             height: 100%;
             float: right;
+            margin-top:25px;
+        }
+        form span{
+            font: bold 60px solid;
+            font-family: 'Grape Nuts', cursive;
+            font-family: 'Nanum Pen Script', cursive;
+            color: #F39C12;
+            text-decoration:none;
+        }
+        form h2{
+        	position:relative;
+        	right:160px;
+        	font:50px solid;
+        	text-align:center;
+        	color:gray;
+            font-family: 'Grape Nuts', cursive;
+            font-family: 'Nanum Pen Script', cursive;
+        }
+        .paging_a{
+            text-decoration: none;
+        }
+        .paging_a span{
+        	position:relative;
+        	top:80px;
+        	font: 25px solid;
+            color:gray;
+            font-family: 'Black Han Sans', sans-serif;
+            font-family: 'Gasoek One', sans-serif;
+            font-family: 'Gothic A1', sans-serif;
+            font-family: 'Jua', sans-serif;
+        }
+        .paging_a span:hover{
+            color:#F39C12;
+            transition: 0.5s;
         }
         #search_box{
+        	position:relative;
+        	right:135px;
             width: 100%;
             max-width: 1200px;
             height: 100%;
@@ -193,6 +182,7 @@
             border: none;
             width: 100px;
             height: 40px;
+            margin-top:50px;
             margin-left: 10px;
         }
         #submit_button:hover{
@@ -201,29 +191,27 @@
             transition: 0.5s;
         }
         #search_text{
-            width:400px;
+            width:500px;
             height:40px;
             margin-left: 10px;
-            border: 1px solid lightgray;
-            font: 25px solid bold, sans-serif;
+            padding-left: 10px;
+            border: 4px solid #F39C12;
+            border-radius: 10px;
+            font: 20px solid bold, sans-serif;
         }
-
-        
-
-        
-
-
-
-
+        input:focus{
+            outline:#F39C12;
+        }
         caption{
             display: none;
         }
         #shop_table{
+        	position:relative;
+        	top:30px;
             margin: 0 auto;
             width: 60%;
-            border: 3px solid lightgrey;
-            border-radius: 15px;
-            margin-bottom: 10px;
+            border-bottom: 1px solid lightgray;
+            margin-bottom:20px;
         }
         #shop_table_list{
             width: 100%;
@@ -243,19 +231,32 @@
         }
 
         .shop_img{
-            width: 200px;
+        	position:relative;
+            width: 180px;
             height: 140px;
+            barkground-color:none;
         }
         .shop_img img{
-            width: 200px;
+            width: 180px;
             height: 140px;
             padding: 10px;
-            border-radius: 15px;
+            border-radius:18px;
+            
         }
-        .shop_table_text{
+        .shop_table_text1{
+       		position:relative;
+        	left:15px;
+        	font-size:30px;
+        	color: rgba(0, 0, 0, 0.788);
             text-align: left;
         }
-        
+        .shop_table_text2{
+        	position:relative;
+        	left:15px;
+        	font-size:25px;
+        	color: gray;
+            text-align: left;
+        }
         .page_box{
             clear: both;
             margin: 0 auto;
@@ -284,12 +285,12 @@
             border:none;
             transition: 0.2s;
         }
-        
         /********** 푸터 영역 **********/
         footer{
             position:absolute;
             width:1536px;
             height:300px;
+            margin-top:300px;
             margin-bottom:0px;
             background-color: rgb(245,246,247);
         }

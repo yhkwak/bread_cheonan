@@ -1,5 +1,3 @@
-@charset "UTF-8";
-
 h1{font-size:0;}
         * {margin:0;
           padding:0;
@@ -11,7 +9,7 @@ h1{font-size:0;}
             width: 1536px;
             height: 1500px;
             margin: 0 auto;
-        }   
+        }
         /********** 헤더 영역 **********/
         header{
             width:1536px;
@@ -23,7 +21,6 @@ h1{font-size:0;}
             left:-7px;
             height: 200px;
             width: 350px;
-            cursor: pointer;
         }
         #c1{
             position:relative;
@@ -90,182 +87,145 @@ h1{font-size:0;}
             width:1136px;
             border-top: 1px solid gray;
         }
-
-
-
         /********** 메인 영역 **********/
-
-        /********** 사이드 메뉴바 영역 **********/
-
-
         #container-content{
-            display: inline-block;
             width: 1536px; 
-            height: 1000px;
+            height: 1000px; /* 본인의 작업 사이즈에 맞게 변경 */
+        }
+        #main-area{
+            position: relative;
+            left:53px;
+            width:1236px;
+            height:859px;
+            margin:0 auto;
+        }
+        #complete_message_box{
+            width:835px;
+            height:260px;
+            padding-top: 50px;
             margin: 0 auto;
         }
-
-        #side-nav{
-        	position:relative;
-        	bottom:1px;
-            float: left;
-            width:300px;
-            height: 1000px; /* container-content height 크기와 동일하게 설정 */
-        }
-        #side-menu{
-            position: relative;
-            left:70px;
-            top:127px;
-            width: 220px;
-            height: 400px;
-            text-decoration: none;
+        #complete_message_box p{
+            width:769px;
+            margin-top:50px;
+            font: 50px solid;
             text-align: center;
+            color: rgba(0, 0, 0, 0.788);
+            font-family: 'Black Han Sans', sans-serif;
+            font-family: 'Gasoek One', sans-serif;
+            font-family: 'Gothic A1', sans-serif;
+            font-family: 'Jua', sans-serif;
         }
-        #side-menu h2{
-            font: 45px solid;
+        #order_number{
+            margin-right: 40px;;
+            font:30px solid;
+            text-align: center;
+            color: rgba(0, 0, 0, 0.788);
+            font-family: 'Black Han Sans', sans-serif;
+            font-family: 'Gasoek One', sans-serif;
+            font-family: 'Gothic A1', sans-serif;
+            font-family: 'Jua', sans-serif;
+        }
+        #complete_box1{
+            width:1236px;
+            height:100px;
+            margin: 0 auto;
+            margin-top:100px;
+            font:30px solid;
+            color: rgba(0, 0, 0, 0.788);
+            font-family: 'Black Han Sans', sans-serif;
+            font-family: 'Gasoek One', sans-serif;
+            font-family: 'Gothic A1', sans-serif;
+            font-family: 'Jua', sans-serif;
+        }
+        #complete_box2{
+            width:1236px;
+            height:130px;
+            margin: 0 auto;
+            margin-top:10px;
+            font:30px solid;
+            color: gray;
+            font-family: 'Black Han Sans', sans-serif;
+            font-family: 'Gasoek One', sans-serif;
+            font-family: 'Gothic A1', sans-serif;
+            font-family: 'Jua', sans-serif;
+        }
+        #complete_box3{
+            width:1236px;
+            height:150px;
+            margin: 0 auto;
+            margin-top:100px;
+            font:30px solid;
+            color: gray;
+            font-family: 'Black Han Sans', sans-serif;
+            font-family: 'Gasoek One', sans-serif;
+            font-family: 'Gothic A1', sans-serif;
+            font-family: 'Jua', sans-serif;
+        }
+        #border_box{
+            position: relative;
+            left:100px;
+            bottom:465px;
+            width:950px;
+            height:230px;
+            border: 1px solid gray;
+        }
+        #complete_box1 ul li{
+            position: relative;
+            float: left;
+            left:85px;
+            padding-top:50px;
+            padding-left:40px;
+            list-style: none;
+        }
+        #complete_box2 ul li{
+            position: relative;
+            float: left;
+            left:85px;
+            padding-top:50px;
+            padding-left:40px;
+            list-style: none; 
+        }
+        #order_bread{
+            width:100px;
+            height:100px;
+            border:1px solid lightgray;
+            border-radius: 100%;
+        }
+        #order_bread_category{
+            position: relative;
+            bottom:25px;
+        }
+        #complete_box3 p{
+            position: relative;
+            left:154px;
+            font:22px solid;
             color:rgba(0, 0, 0, 0.788);
             font-family: 'Black Han Sans', sans-serif;
             font-family: 'Gasoek One', sans-serif;
             font-family: 'Gothic A1', sans-serif;
             font-family: 'Jua', sans-serif;
         }
-        #side-menu ul{
-            list-style: none;
-        }
-        #side-menu ul li a{
-            text-decoration: none;
-            color:gray;
-        }
-        #side-menu ul li{
-            font: 35px solid;
-            font-family: 'Black Han Sans', sans-serif;
-            font-family: 'Gasoek One', sans-serif;
-            font-family: 'Gothic A1', sans-serif;
-            font-family: 'Jua', sans-serif;
-            margin-top: 30px;
-            padding-right:35px;
-        }
-
-        /********** 사이드 메뉴바 영역 끝 **********/
-        #all_box{
-            width: 100%;
-            max-width: 1200px;
-            height: 100%;
-            float: right;
-            text-align: center;
-            font-family: 'Jua', sans-serif;
-        }
-        #all_box h2{
-            font-size: 50px;
-            margin: 30px 0 30px 0;
-            color: rgba(0, 0, 0, 0.788);
-        }
-        #order_box{
-            width: 1137px;
-            height: 1000px;
-            margin: 0 auto;
-            margin-left: 63px;
-            text-align: center;
-            border: 1px solid lightgrey;
-            border-radius: 15px;
-            padding:10px 30px 30px 30px;
-        }
-        .order_table_box{
-            width: 100%;
-            max-width: 1000px;
-        }
-        .order_table{
-            position: relative;
-            right:12px;
-            width:1100px;
-            margin-top: 19px;
-        }
-        .order_table th{
-            position: relative;
-            right:25px;
-            padding-bottom: 20px;
-            font-weight:normal;
-            font-size:25px;
-            font-family:'Jua', sans-serif;
-            color:gray;
-        }
-        .order_table tr{
-            position: relative;
-            left:20px;
-            width:1536px;
-            height:50px;
-        }
-        .order_table tr td{
-            position: relative;
-            padding-top: 20px;
-            width: 166px;
-            height: 10%;
-            right:25px;
-            font-size: 20px;
-            color: rgba(0, 0, 0, 0.788);
-        } 
-        .order_table tr td img{
-            width: 80px;
-            height: 70px;
-            border-radius: 15px;
-        }
-        #product{
-            width:410px;
-        }
-        button[type=button]{
-        	padding-top: 3px;
-            border: 1px solid lightgray;
-            color: rgba(0, 0, 0, 0.788);
-        }
-        button[type=button]:hover{
-        	color:white;
-        	background-color:gray;
-        	transition:0.5s;
-        }
-
-        /********** 페이징 영역 **********/
-        .page_box{
-            clear: both;
-            margin: 0 auto;
-            width: 50%;
-            text-align: center;
-        }
-        .pageNav{
-            display: flex;
-            margin: 30px 0 0 0;
-            justify-content: center;
-            list-style: none;
-            padding: 0;
-            font: 25px solid bold;
-            font-family: 'Jua', sans-serif;
-        }
-        .page_box ul li{
-            padding: 10px;
-            text-decoration: none;
-        }
-        .page_box ul li a{
-            text-decoration: none;
-            color: gray;
-        }
-        .page_box ul li a:hover{
-            color:#F39C12;
-            border:none;
-            transition: 0.2s;
-        }
         button{
-            width:60px;
-            height:35px;
-            border:1px solid gray;
+            position: relative;
+            left:585px;
+            top:30px;
+            width:97px;
             background-color: white;
+            color: gray;
+            border: none;
         }
-
-        /********** 풋터 **********/
+        button:hover{
+            background-color: white;
+            color: #F39C12;
+            transition: 0.5s;
+            border: none;
+        }        
+        /********** 푸터 영역 **********/
         footer{
             position:absolute;
-            top: 1450px;
             width:1536px;
             height:300px;
-            margin-top:200px;
             margin-bottom:0px;
             background-color: rgb(245,246,247);
         }

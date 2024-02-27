@@ -247,6 +247,25 @@
         	width:1136px;
         	height:100px;
         }
+        #select_box p{
+        	position:relative;
+        	left:20px;
+        	font: 20px solid;
+            font-family: 'Black Han Sans', sans-serif;
+            font-family: 'Gasoek One', sans-serif;
+            font-family: 'Gothic A1', sans-serif;
+            font-family: 'Jua', sans-serif;
+            color:gray;
+        }
+        #select_box a{
+        	font: 20px solid;
+            font-family: 'Black Han Sans', sans-serif;
+            font-family: 'Gasoek One', sans-serif;
+            font-family: 'Gothic A1', sans-serif;
+            font-family: 'Jua', sans-serif;
+            color:rgba(0, 0, 0, 0.788);
+            text-decoration: none;
+        }
         #view_btn{
         	position:relative;
         	right:10px;
@@ -261,7 +280,7 @@
             background-color: white;
             border:none;
         }
-        #view_btn:hover, #update_btn:hover, #delete_btn:hover{
+        #view_btn:hover, #update_btn:hover, #delete_btn:hover, #select_box a:hover{
         	color:#F39C12;
             border:none;
             transition: 0.5s;
