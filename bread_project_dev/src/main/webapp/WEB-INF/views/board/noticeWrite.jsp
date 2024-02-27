@@ -17,7 +17,7 @@
 		// 변수를 global scope에 추가하여 JS 파일에서 사용할 수 있게 함
 		var contextPath = "${pageContext.request.contextPath}";
 	</script>
-	<title>공지사항 글작성</title>
+	<title>공지사항 글 등록</title>
 </head>
 <body>
 
@@ -26,7 +26,7 @@
 	<section id="container-content">
 		<h1>내용 영역</h1>
 		<div id="main-area">
-		<h2>공지사항 작성</h2>
+		<h2>공지사항 등록</h2>
 			<form action="${pageContext.request.contextPath}/board/noticeWriteProcess.do" id="frm_write" name="frm_write"
 				  method="post" enctype="multipart/form-data" onsubmit="return handleSubmit(event);">
 				<table id="table-main">

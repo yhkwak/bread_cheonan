@@ -136,12 +136,28 @@
 	font-family: "Gasoek One", sans-serif;
 	font-family: "Gothic A1", sans-serif;
 	font-family: "Jua", sans-serif;
-	margin-top: 30px;
+	margin-top: 29px;
 	padding-right: 35px;
 	}
-	#li_2, #li_4, #li_6{
+	.list{
 		position:relative;
-		bottom:1px;
+		top:1px;
+	}
+	#list2{
+		position:relative;
+		top:2px;
+	}
+	#list3{
+		position:relative;
+		top:3px;
+	}
+	#list4{
+		position:relative;
+		top:4px;
+	}
+	#list5{
+		position:relative;
+		top:5px;
 	}
 	
 	#main-area {

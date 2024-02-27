@@ -20,23 +20,15 @@
     
 
         <section id="container-content">
-            <div id="side-nav">
-                <div id="side-menu">
-                    <h2>빵집 찾기</h2>
-                    <ul>
-                        <a href="#"><li>빵집 검색</li></a>
-                    </ul>
-                </div>
-            </div>
-
+            
             <form name="frm-search">
-                
+                <h2><span>빵빵</span>한 가족들</h2>
                 <div id="search_box">
                     <table id="search_table">
                         <tr>
                             <td>
                                 <input id="search_text" type="text" name="searchWord">
-                                <input id="submit_button" type="submit" value="검색하기">
+                                <input id="submit_button" type="submit" value="찾아보기">
                             </td>
                         </tr>
                     </table>
@@ -57,18 +49,13 @@
 				                    <div id="shop_table">
 				                        <table id="shop_table_list">
 				                            <tr>
-				                                <td rowspan="4" class="shop_img"><img src="../resources/css/img/test_img01.png"></td>
+				                                <td rowspan="4" class="shop_img"><img src="../resources/css/img/test_img01.PNG"></td>
 				                            </tr>
 				                            <tr>
-				                                <td class="shop_table_text"><a href="${pageContext.request.contextPath}/search/viewBakery.do?bakery_idx=${bakeryList[vs.count-1].bakery_idx}">${bakeryList[vs.count-1].bakery_name}</a></td>
-				                            </tr>
-				                            <tr>
-				                                <td class="shop_table_text">${bakeryList[vs.count-1].bakery_address} ${bakeryList[vs.count-1].bakery_detail_address}</td>
-				                            </tr>
-				                            <tr>
-				                                <td class="shop_table_text">${bakeryList[vs.count-1].bakery_phone}</td>
+				                                <td class="shop_table_text1"><a href="${pageContext.request.contextPath}/search/viewBakery.do?bakery_idx=${bakeryList[vs.count-1].bakery_idx}">${bakeryList[vs.count-1].bakery_name}</a></td>
 				                            </tr>
 				                        </table>
+				                        <a href="${pageContext.request.contextPath}/search/viewBakery.do?bakery_idx=${bakeryList[vs.count-1].bakery_idx}">${bakeryList[vs.count-1].bakery_name}></a>
 				                    </div>
 			                    </c:if>
 		                    </c:forEach>

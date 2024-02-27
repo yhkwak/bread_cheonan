@@ -94,6 +94,8 @@
             height: 1500px; 
         }
         #side-nav{
+        	position:relative;
+        	bottom:1px;
             float: left;
             width:300px;
             height: 1350px; 
@@ -196,8 +198,7 @@
         }
         .product_table tr td #product_title {
             width: 250px;
-            margin: auto;
-            line-height: 80px;
+            line-height: 70px;
         }
         .product_table tr td {
             width: 148px;
@@ -210,7 +211,19 @@
             height: 80px;
             border-radius: 15px;
         }
-
+		#price,#bread_price{
+			position:relative;
+			right:40px;
+		}
+		#shop{
+			position:relative;
+			right:40px;
+		}
+		#bread_shop{
+			position:relative;
+			right:40px;
+			width:250px;
+		}
         #product_btn{
             background-color: #fff;
             border: none;

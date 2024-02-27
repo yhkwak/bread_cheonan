@@ -32,6 +32,12 @@ public class CartController {
 		return "cart/cart";
 	}
 	
+	@GetMapping("/cart/payment_complete.do")
+	public String payment_complete() {
+		
+		return "cart/payment_complete";
+	}
+	
 	@PostMapping("/search/cartProcess.do")
 	public String cartProcess(String member_idx, String bread_idx, String bread_count, Model model) {
 

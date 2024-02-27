@@ -39,24 +39,15 @@
 
         <div id="all_box">
             <h2>상품관리</h2>
-                                   <form name="frm-search">
-				<table id="search_table">
-                	<tr>
-                    	<td>
-                        	<input type="text" name="searchWord" id="search_text" placeholder="상품명으로 검색">
-                        	<input id="submit_button" type="submit" value="검색하기">
-                    	</td>
-                	</tr>
-                </table>
-            </form>
+                                  
             <div id="product_box">
 
                 <div class="product_table_box">
                     <table class="product_table">
                         <tr>
                             <th>상품명</th>
-                            <th>가격</th>
-                            <th>가게</th>
+                            <th id="price">가격</th>
+                            <th id="shop">가게</th>
                             <th class="category">재고 수량</th>
                             <th class="category">승인 상태</th>
                             <th></th>
@@ -77,9 +68,9 @@
                                             <c:otherwise>
                                                 ${pageContext.request.contextPath}/resources/css/img/test_img07.png
                                             </c:otherwise>
-                                        </c:choose>"></div>&nbsp;<div style="width: 250px; margin: auto;" id="product_title"><p>${breadList.bread_name}</p></div></td>
-                                        <td>${breadList.bread_price}</td>
-                                        <td>${breadList.bakery_name}</td>
+                                        </c:choose>"></div><div style="width: 250px;" id="product_title"><p>${breadList.bread_name}</p></div></td>
+                                        <td id="bread_price">${breadList.bread_price}</td>
+                                        <td id="bread_shop">${breadList.bakery_name}</td>
                                         <td>${breadList.bread_stock}</td>
                                             <td>
                                                 <c:choose>

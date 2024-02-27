@@ -56,7 +56,6 @@
                         </div>
                     </form>
                 </div>
-                <c:if test="${not empty notice.originfile_name}">첨부파일 : <a href="${pageContext.request.contextPath}/board/download.do?originfile_name=${notice.originfile_name}&savefile_name=${notice.savefile_name}">${notice.originfile_name}</a></c:if>
             </div>
         </section>
         
