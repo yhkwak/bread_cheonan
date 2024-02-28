@@ -1,4 +1,4 @@
-h1{font-size:0;}
+		h1{font-size:0;}
         * {margin:0;
           padding:0;
         }
@@ -21,6 +21,7 @@ h1{font-size:0;}
             left:-7px;
             height: 200px;
             width: 350px;
+            cursor: pointer;
         }
         #c1{
             position:relative;
@@ -104,6 +105,17 @@ h1{font-size:0;}
             height:260px;
             padding-top: 50px;
             margin: 0 auto;
+            font:30px solid;
+            color: rgba(0, 0, 0, 0.788);
+            font-family: 'Black Han Sans', sans-serif;
+            font-family: 'Gasoek One', sans-serif;
+            font-family: 'Gothic A1', sans-serif;
+            font-family: 'Jua', sans-serif;
+        }
+        #complete_sub{
+            width:770px;
+            position:relative;
+            text-align:center;
         }
         #complete_message_box p{
             width:769px;
@@ -140,11 +152,11 @@ h1{font-size:0;}
         }
         #complete_box2{
             width:1236px;
-            height:130px;
+            height:100px;
             margin: 0 auto;
             margin-top:10px;
             font:30px solid;
-            color: gray;
+            color: rgba(0, 0, 0, 0.788);
             font-family: 'Black Han Sans', sans-serif;
             font-family: 'Gasoek One', sans-serif;
             font-family: 'Gothic A1', sans-serif;
@@ -172,19 +184,64 @@ h1{font-size:0;}
         }
         #complete_box1 ul li{
             position: relative;
-            float: left;
-            left:85px;
-            padding-top:50px;
-            padding-left:40px;
+            left:340px;
+            padding-right:95px;
+            padding-top:60px;
             list-style: none;
+            text-align: left;
         }
         #complete_box2 ul li{
             position: relative;
+            left:340px;
             float: left;
-            left:85px;
-            padding-top:50px;
-            padding-left:40px;
+            padding-top:10px;
+            padding-right:95px;
             list-style: none; 
+        }
+        #complete_box1 ul li b{
+            font: 30px solid;
+            color:gray;
+            font-family: 'Black Han Sans', sans-serif;
+            font-family: 'Gasoek One', sans-serif;
+            font-family: 'Gothic A1', sans-serif;
+            font-family: 'Jua', sans-serif;
+        }
+        #complete_box2 ul li b{
+            font: 30px solid;
+            color:gray;
+            font-family: 'Black Han Sans', sans-serif;
+            font-family: 'Gasoek One', sans-serif;
+            font-family: 'Gothic A1', sans-serif;
+            font-family: 'Jua', sans-serif;
+        }
+        #complete_box1 ul li a{
+            font: 30px solid;
+            color:rgba(0, 0, 0, 0.788);
+            font-family: 'Black Han Sans', sans-serif;
+            font-family: 'Gasoek One', sans-serif;
+            font-family: 'Gothic A1', sans-serif;
+            font-family: 'Jua', sans-serif;
+        }
+        #complete_box2 ul li a{
+            position:relative;
+            font: 40px solid;
+            color:#F39C12;
+            font-family: 'Black Han Sans', sans-serif;
+            font-family: 'Gasoek One', sans-serif;
+            font-family: 'Gothic A1', sans-serif;
+            font-family: 'Jua', sans-serif;
+        }
+        #complete_message_box span{
+            font: bold 60px solid;
+            font-family: 'Grape Nuts', cursive;
+            font-family: 'Nanum Pen Script', cursive;
+            color:#F39C12;
+        }
+        #complete_message_box a{
+            font: 50px solid;
+            font-family: 'Grape Nuts', cursive;
+            font-family: 'Nanum Pen Script', cursive;
+            color:gray;
         }
         #order_bread{
             width:100px;
@@ -206,14 +263,27 @@ h1{font-size:0;}
             font-family: 'Gothic A1', sans-serif;
             font-family: 'Jua', sans-serif;
         }
-        button{
+        #button_1{
             position: relative;
-            left:585px;
+            left:155px;
             top:30px;
-            width:97px;
-            background-color: white;
-            color: gray;
-            border: none;
+            width:400px;
+            height:100px;
+            border:none;
+            border-radius: 10px;
+            background-color: #F39C12;
+            color: white;
+        }
+        #button_2{
+            position: relative;
+            left:185px;
+            top:30px;
+            width:400px;
+            height:100px;
+            border:none;
+            border-radius: 10px;
+            background-color: #F39C12;
+            color: white;
         }
         button:hover{
             background-color: white;
@@ -226,6 +296,7 @@ h1{font-size:0;}
             position:absolute;
             width:1536px;
             height:300px;
+            margin-top:100px;
             margin-bottom:0px;
             background-color: rgb(245,246,247);
         }

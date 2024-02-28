@@ -21,27 +21,23 @@
         <h1>내용 영역</h1>
         <div id="main-area">
             <div id="complete_message_box">
-                <p>상품 주문이 정상적으로 완료 되었습니다.<p>
-                <div id="order_number">주문번호 : 12341234123412341234123412</div>    
+                <p>상품 주문이 정상적으로 완료 되었습니다.</p>
+                <div id="complete_sub"><span>빵빵</span><a>한천안</a> 을 이용해주셔서 감사합니다</span></div>   
             </div>
                 <div id="complete_box1">
                     <ul>
-                        <li>경진이네 경지에 이른 빵집</li>
-                        <li>동남구 대흥로 215 1층</li>
-                        <li>044-866-1741&nbsp;</li>
+                        <li><b>주문번호</b> : <a>123412341234123412</a></li>
                     </ul>
                 </div>
                 <div id="complete_box2">
                     <ul>
-                        <li>주문 상품&nbsp;</li>
-                        <li id="order_bread_category"><img id="order_bread" src="${pageContext.request.contextPath}/resources/css/img/bread9.PNG">경진이네 완전달콤 슈크림빵&emsp;</li>
-                        <li>2개&nbsp;</li>
-                        <li style="margin-left:4px;">6000원&nbsp;</li>
+                        <li><b>결제금액</b> : <a>12,000</a> 원</li>
                     </ul>
                 </div>
                 <div id="complete_box3">
-                    <p>* 주문하신 빵에 대한 상세정보는 문자를 통해 안내 받으실 수 있습니다.</p>
-                    <button onclick="location.href='/myapp'">메인으로</button>
+                    <p>* 주문하신 상품에 대한 상세정보는 문자를 통해 안내 받으실 수 있습니다.</p>
+                    <button id="button_1" onclick="location.href='${pageContext.request.contextPath}/mypage/orderList.do'">구매내역</button>
+                    <button id="button_2" onclick="location.href='/myapp'">메인화면</button>
                 </div>
                 <div id="border_box"></div>
         </div>
