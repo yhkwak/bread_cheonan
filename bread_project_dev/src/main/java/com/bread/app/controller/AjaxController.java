@@ -61,10 +61,13 @@ public class AjaxController {
     //////////////////// 장바구니 페이지 ////////////////////
     
     @PostMapping("/search/cartAdd.do")
-    public BreadVO cartAdd(int bread_idx) throws SQLException{
+    public BreadVO cartAdd(int bread_idx, int member_idx) throws SQLException{
     	BreadVO breadVO = null;
-    	
-    	breadVO = searchDAO.getBread(bread_idx);
+    	if(searchDAO.checkCart(bread_idx, member_idx) != 0) {
+    		
+    	}else {
+    		breadVO = searchDAO.getBread(bread_idx);
+    	}
     	
     	return breadVO;
     }

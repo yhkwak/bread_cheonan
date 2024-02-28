@@ -69,6 +69,11 @@
 		select * from bc_bread where bread_idx = #{bread_idx}
 	</select>
 	
+	<!-- 장바구니 중복 검사를 위한 조회 -->
+	<select id="checkCart" parameterType="map" resultType="_int">
+		select count(*) from bc_cart where member_idx=#{member_idx} and bread_idx=#{bread_idx}
+	</select>
+	
 	<!-- Update -->
 	
 	<!-- Delete -->

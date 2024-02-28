@@ -1,6 +1,8 @@
 package com.bread.app.dao;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
@@ -40,8 +42,17 @@ public class SearchDAO {
 		return sqlSession.selectList(MAPPER+".getBreads", bakery_idx);
 	}
 	
+	// 빵 한 개 정보 조회하기
 	public BreadVO getBread(int bread_idx) {
 		return sqlSession.selectOne(MAPPER+".getBread", bread_idx);
+	}
+	
+	// 장바구니 유효성 검사
+	public int checkCart(int bread_idx, int member_idx) {
+		Map<String, Integer> map = new HashMap<String, Integer>();
+		map.put("member_idx", member_idx);
+		map.put("bread_idx", bread_idx);
+		return sqlSession.selectOne(MAPPER+".checkCart", map);
 	}
 	
 }

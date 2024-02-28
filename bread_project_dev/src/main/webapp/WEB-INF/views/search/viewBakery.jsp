@@ -17,6 +17,7 @@
         <script src="${pageContext.request.contextPath}/resources/js/jquery-3.7.1.min.js"></script>
 		<script>
 			var arry_chk = [];
+			var member_idx = ${member.member_idx};
 			
 			function cart_add(i){
 				let bread_idx;
@@ -43,10 +44,17 @@
 					$.ajax({
 						type: 'post',
 						url:"cartAdd.do",
-						data: {"bread_idx": bread_idx},
-						success: cartAdd,
+						data: {"bread_idx": bread_idx,
+							   "member_idx": member_idx},
 						error: function(error){
-							alert("ajax 에러")
+							alert("구매 리스트 추가 에러");
+						}
+					}).done(function(resData){
+						if(resData.bread_idx == undefined){
+							alert("이미 장바구니에 있는 상품입니다. 장바구니를 확인해주세요.");
+							arry_chk[i] = -1;
+						}else{
+							cartAdd(resData);
 						}
 					}); //end of ajax
 				}
@@ -54,7 +62,7 @@
 				function cartAdd(data){
 					let result = $("#result_box").html();
 					
-					result += "<div id='result_box2'>"
+					result += "<div id='result_box2' class='result_box"+i+"'>"
 							   + "<input type='hidden' name='bread_idx' value='"+data.bread_idx+"'>"
 							   + "<input type='hidden' name='member_idx' value='${member.member_idx}'>"
 							   + 	"<div class='tb_cart" + data.bread_idx + "'>"
@@ -73,13 +81,30 @@
 							   + 		"</table>"
 							   + 	"</div>"
 							   +	"<div id='re_del_box'>"
-							   +		"<button type='button' id='re_del_btn'>" + "✕" + "</button>" 
+							   +		"<button type='button' id='re_del_btn' onclick='deleteList("+i+")'>" + "✕" + "</button>" 
 							   + 	"</div>"
 							   + "</div>";
 							   
 					$("#result_box").html(result);
 				}
 			}
+			
+			function deleteList(i){
+				if(i==0){
+					$(".result_box0").remove();
+					arry_chk[i] = -1;
+				}else if(i==1){
+					$(".result_box1").remove();
+					arry_chk[i] = -1;
+				}else if(i==2){
+					$(".result_box2").remove();
+					arry_chk[i] = -1;
+				}else{
+					alert("장바구니 오류 새로고침 해주세요");
+				}
+			}
+			
+			
 		</script>
     <title>빵집 상세보기</title>
     
