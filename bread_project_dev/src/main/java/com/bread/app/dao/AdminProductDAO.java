@@ -34,7 +34,7 @@ public class AdminProductDAO {
 
     
 	// Read 모든 게시글 조회
-	public int getTotalCount(PageVO vo) {
+	public int getTotalCount(SearchVO vo) {
 		return sqlSession.selectOne(MAPPER+".getTotalCount",vo);
 	}
 
