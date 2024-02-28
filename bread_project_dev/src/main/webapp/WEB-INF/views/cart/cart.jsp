@@ -49,9 +49,9 @@
 					<div id="cart_list">
 						<c:choose>
 							<c:when test="${empty cartList}">
-								<div class="product_list">
-									장바구니가 비어있습니다.
-								</div>
+								<div class="product_nolist">
+                                    장바구니에 담긴 상품이 없습니다
+                                </div>
 							</c:when>
 							<c:otherwise>
 		                        <c:forEach var="i" begin="0" end="${fn:length(cartList)-1}">
