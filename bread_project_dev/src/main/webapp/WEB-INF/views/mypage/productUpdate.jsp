@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Grape+Nuts&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Gasoek+One&family=Gothic+A1:wght@700&family=Jua&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/update.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/productUpdate.js"></script>
     <link rel="stylesheet" href="../resources/css/productUpdate.css">
     <style>
 
@@ -38,7 +38,7 @@
             </div>
         </div>
             <div id="main-area">
-                <form name="frm_product" method="post" action="productUpdateProcess.do" enctype="multipart/form-data">
+                <form name="frm_product" method="post" action="productUpdateProcess.do" enctype="multipart/form-data" onsubmit="return validateForm()">
                     <input type="hidden" name="bread_idx" value="${bread.bread_idx}">
                     <input type="hidden" name="bread_bakery_idx" value="${breadVO.bakery_idx}">
                     <div id="register-box">
@@ -73,19 +73,19 @@
                                 <!-- 가격 -->
                                 <tr>
                                     <td>가격</td>
-                                    <td><input type="number" name="bread_price" value="${bread.bread_price}" required></td>
+                                    <td><input type="number" id="bread_price" name="bread_price" value="${bread.bread_price}" required></td>
                                 </tr>
                                 <!-- 빵 나오는 시간 -->
                                 <tr>
                                     <td>빵 나오는 시간</td>
-                                    <td><input type="text" id="bread_time1" name="bread_time1" value="${bread.bread_time1}" required></td>
-                                    <td><input type="text" id="bread_time2" name="bread_time2" value="${bread.bread_time2}"></td>
-                                    <td><input type="text" id="bread_time3" name="bread_time3" value="${bread.bread_time3}"></td>
+                                    <td><input type="text" id="bread_time1" name="bread_time1" value="${bread.bread_time1}" placeholder="예: 09:00" onKeyup="inputTimeColon(this);" maxlength ="5" required></td>
+                                    <td><input type="text" id="bread_time2" name="bread_time2" value="${bread.bread_time2}" onKeyup="inputTimeColon(this);" maxlength ="5"></td>
+                                    <td><input type="text" id="bread_time3" name="bread_time3" value="${bread.bread_time3}" onKeyup="inputTimeColon(this);" maxlength ="5"></td>
                                 </tr>
                                 <!-- 재고수량 -->
                                 <tr style="top:90px;">
                                     <td>재고수량</td>
-                                    <td><input type="number" name="bread_stock" value="${bread.bread_stock}" required></td>
+                                    <td><input type="number" id="bread_stock" name="bread_stock" value="${bread.bread_stock}" required></td>
                                 </tr>
                                 <!-- 빵 내용 -->
                                 <tr style="top:90px;">

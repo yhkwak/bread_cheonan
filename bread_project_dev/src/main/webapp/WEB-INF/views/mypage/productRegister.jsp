@@ -38,7 +38,7 @@
             </div>
         </div>
         <div id="main-area">
-            <form name="frm_product" method="post" action="productWriteProcess.do" enctype="multipart/form-data">
+            <form name="frm_product" method="post" action="productWriteProcess.do" enctype="multipart/form-data" onsubmit="return validateForm()">
                 <input type="hidden" name="bread_bakery_idx" value="${breadVO.bakery_idx}">
                 <input type="hidden" name="bakery_idx" value="${bakery.bakery_idx}">
                 <div id="register-box">
@@ -64,27 +64,27 @@
                             </tr>
                             <tr>
                                 <td>상품명</td>
-                                <td><input type="text" name="bread_name" oninput="validateStock(this)"  required></td>
+                                <td><input type="text" name="bread_name" required></td>
                             </tr>
                             <tr>
                                 <td>가격</td>
-                                <td><input type="text" name="bread_price" oninput="validatePrice(this)"  required></td>
+                                <td><input type="text" id="bread_price" name="bread_price" required></td>
                             </tr>
                             <tr>
                                 <td>빵 나오는 시간</td>
                                 <td>
-                                    <input type="text" id="bread_time1" name="bread_time1" onkeyup="inputTimeColon(this);"  required placeholder="예: 09:00"  maxlength ="5" >
+                                    <input type="text" id="bread_time1" name="bread_time1" required placeholder="예: 09:00" onKeyup="inputTimeColon(this);" maxlength ="5" >
                                 </td>
                                 <td>
-                                    <input type="text" id="bread_time2" name="bread_time2" onkeyup="inputTimeColon(this);"maxlength ="5" >
+                                    <input type="text" id="bread_time2" name="bread_time2" onKeyup="inputTimeColon(this);" maxlength ="5" >
                                 </td>
                                 <td>
-                                    <input type="text" id="bread_time3" name="bread_time3" onkeyup="inputTimeColon(this);"maxlength ="5" >
+                                    <input type="text" id="bread_time3" name="bread_time3" onKeyup="inputTimeColon(this);" maxlength ="5" >
                                 </td>
                             </tr>
                             <tr style="top:90px;">
                                 <td class="category">재고수량</td>
-                                <td><input type="number" name="bread_stock" required></td>
+                                <td><input type="number" id="bread_stock" name="bread_stock" required></td>
                             </tr>
                             <tr style="top:90px;">
                                 <td class="category">상품 설명</td>

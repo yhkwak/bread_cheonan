@@ -131,7 +131,16 @@
                         <tr>
                             <th><h2>${bakery.bakery_name}</h2></th>
                             <%-- <td rowspan="4" id="shop_img"><img src="../resources/css/img/${bakey.bakery_img_save}"></td> --%>
-                            <td rowspan="4" id="shop_img"><img src="../resources/css/img/test_img08.png"></td>
+                            <td rowspan="4" id="shop_img"><%-- <img src="../resources/css/img/test_img08.png"> --%>
+	                            <c:choose>
+									<c:when test="${not empty bakery.bakery_img_save and bakery.bakery_img_save ne 'test_img02.png'}">
+										<img src="${pageContext.request.contextPath}/resources/uploads/${bakery.bakery_img_save}">
+									</c:when>
+									<c:otherwise>
+										<img src="${pageContext.request.contextPath}/resources/css/img/test_img02.png">
+									</c:otherwise>
+								</c:choose>
+                            </td>
                         </tr>
                         <tr>
                             <td>${bakery.bakery_address} ${bakery.bakery_detail_address}</td>
