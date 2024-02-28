@@ -49,7 +49,16 @@
 				                    <div id="shop_table">
 				                        <table id="shop_table_list">
 				                            <tr>
-				                                <td rowspan="4" class="shop_img"><img src="../resources/css/img/test_img01.PNG"></td>
+				                                <td rowspan="4" class="shop_img">
+				                                <c:choose>
+												    <c:when test="${not empty bakeryList[vs.count-1].bakery_img_save and bakeryList[vs.count-1].bakery_img_save ne 'test_img02.png'}">
+												        <img src="${pageContext.request.contextPath}/resources/uploads/${bakeryList[vs.count-1].bakery_img_save}">
+												    </c:when>
+												    <c:otherwise>
+												        <img src="${pageContext.request.contextPath}/resources/css/img/test_img02.png">
+												    </c:otherwise>
+												</c:choose>
+				                                </td>
 				                            </tr>
 				                            <tr>
 				                                <td class="shop_table_text1"><a href="${pageContext.request.contextPath}/search/viewBakery.do?bakery_idx=${bakeryList[vs.count-1].bakery_idx}">${bakeryList[vs.count-1].bakery_name}</a></td>
