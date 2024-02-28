@@ -12,7 +12,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Gasoek+One&family=Gothic+A1:wght@700&family=Jua&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="../resources/css/adminProductManagement.css">
-    <title>삭제된 상품 관리</title>
+    <title>관리자 상품관리</title>
 </head>
 <body>
 
@@ -113,7 +113,7 @@
             <!-- <div id="product_btn_box">
                 <div><input type="button" id="product_btn" value="상품등록"  onclick="location.href='productWrite.do'"></div>
             </div> -->
-			            <c:if test="${not empty adminMem}">
+			            <c:if test="${not empty adminProductList}">
 			                 <tr>
 			                     <td colspan="8" id="td_paging">
 			                         <%@ include file="adminProductPaging.jsp" %>

@@ -119,18 +119,22 @@ h1{font-size:0;}
         #side-menu ul{
             list-style: none;
         }
-        #side-menu ul a{
+        #side-menu ul li a{
             text-decoration: none;
-        }
-        #side-menu ul li{
             font: 35px solid;
             color:gray;
             font-family: 'Black Han Sans', sans-serif;
             font-family: 'Gasoek One', sans-serif;
             font-family: 'Gothic A1', sans-serif;
             font-family: 'Jua', sans-serif;
+        }
+        #side-menu ul li{
             margin-top: 30px;
             padding-right:35px;
+        }
+        .list{
+        	position:relative;
+        	bottom:1px;
         }
         #main-area{
             float:left;
@@ -206,10 +210,12 @@ h1{font-size:0;}
             left:265px;
             width:100px;
             height:100px;
+            border-radius:100%;
         }
         #bakery_img1{
             width:150px;
             height:150px;
+            border-radius:100%;
         }
         #table-shopadd #bakery_address{
             font:15px solid, sans-serif;

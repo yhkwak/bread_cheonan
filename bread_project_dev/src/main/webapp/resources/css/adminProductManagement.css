@@ -150,7 +150,7 @@
         }
         #product_box{
             width: 1137px;
-            height: 1000px;
+            height: 1100px;
             margin: 0 auto;
             margin-left: 63px;
             margin-top:3px;
@@ -267,6 +267,20 @@
        		text-align:center;
         	border:1px solid gray;
         }
+        .paging_a{
+        	position:relative;
+        	top:50px;
+        	text-decoration:none;
+        }
+		.paging_a span{
+			color:gray;
+			font:bold 25px solid ;
+		}
+		.paging_a span:hover{
+			color:#F39C12;
+			transition: 0.5s;
+			font:bold 25px solid ;
+		}
         footer{
             position:absolute;
             top: 1500px;

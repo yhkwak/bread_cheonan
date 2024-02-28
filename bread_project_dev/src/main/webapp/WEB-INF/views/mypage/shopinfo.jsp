@@ -30,12 +30,12 @@
 			<div id="side-menu">
 				<h2>마이페이지</h2>
 				<ul>
-					<a href="${pageContext.request.contextPath}/member/update.do"><li>프로필 수정</li></a>
-					<a href="${pageContext.request.contextPath}/mypage/orderList.do"><li>구매내역</li></a>
-					<a href="#"><li>장바구니</li></a>
-					<a href="${pageContext.request.contextPath}/mypage/shopinfo.do?member_idx=${member.member_idx}"><li>가게관리</li></a>
-					<a href="${pageContext.request.contextPath}/mypage/productManagement.do"><li>상품관리</li></a>
-					<a href="${pageContext.request.contextPath}/mypage/orderManagement.do"><li>주문관리</li></a>
+					<li><a class="list" href="${pageContext.request.contextPath}/member/update.do">프로필 수정</a></li>
+					<li><a href="${pageContext.request.contextPath}/mypage/orderList.do">구매내역</a></li>
+					<li><a class="list" href="#">장바구니</a></li>
+					<li><a href="${pageContext.request.contextPath}/mypage/shopinfo.do?member_idx=${member.member_idx}">가게관리</a></li>
+					<li><a class="list" href="${pageContext.request.contextPath}/mypage/productManagement.do">상품관리</a></li>
+					<li><a href="${pageContext.request.contextPath}/mypage/orderManagement.do">주문관리</a></li>
 				</ul>
 			</div>
 		</div>
