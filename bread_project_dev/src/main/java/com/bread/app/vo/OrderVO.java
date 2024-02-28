@@ -1,6 +1,7 @@
 package com.bread.app.vo;
 
 import java.util.Date;
+import java.util.List;
 
 import lombok.Data;
 
@@ -11,4 +12,7 @@ public class OrderVO {
 	private int amount;
 	private Date payment_date;
 	private int member_idx;
+	
+	private List<ItemVO> itemList;
+	
 }

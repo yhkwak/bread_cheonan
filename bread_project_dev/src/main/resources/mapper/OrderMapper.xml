@@ -6,27 +6,37 @@
 	<!-- Create -->
 		
 	<!-- Read -->
-	<!-- 개인 주문 내역 조회 -->
-	<select id="orderList" parameterType="pageVO" resultType="orderListVO">
-		select o.payment_status, o.order_idx, o.payment_date, o.bread_count,
-				m.member_idx, bk.bakery_name, b.bread_name, b.bread_price,b.bread_idx
-			from bc_order o 
-				 left outer join bc_member m on o.member_idx = m.member_idx
-				 left outer join bc_bread b on o.bread_idx = b.bread_idx
-				 left outer join bc_bakery bk on o.bakery_idx = bk.bakery_idx
-			where m.member_idx = #{member_idx}
+	<!-- 오더 내용 -->
+	<select id="order" parameterType="pageVO" resultType="orderVO">
+		select payment_status, order_idx, payment_date, member_idx, amount
+			from bc_order
+			where member_idx = #{member_idx}
 			order by payment_date desc
-			limit #{startIdx}, 10	
+	</select>	
+	<!-- 아이템 내용 -->
+	<select id="item" parameterType="pageVO" resultType="itemVO">
+		select o.order_idx, o.member_idx, b.bread_idx,
+				b.bread_img_save, b.bread_name, b.bread_price, i.bread_count,
+				bk.bakery_name, i.review_status
+			from bc_order o 
+				 left outer join bc_item i on o.order_idx = i.order_idx 
+				 left outer join bc_bread b on i.bread_idx = b.bread_idx
+				 left outer join bc_bakery bk on i.bakery_idx = bk.bakery_idx
+			where o.member_idx = #{member_idx}
+			and o.order_idx = #{order_idx}
+			order by payment_date desc
+			limit #{startIdx}, 10
 	</select>
-	
+
 		<!-- 개인 주문 내역의 총 갯수 조회 -->
 	<select id="getTotalCount" parameterType="pageVO" resultType="_int">
 		select count(*)
 			from bc_order o 
-				 left outer join bc_member m on o.member_idx = m.member_idx
-				 left outer join bc_bread b on o.bread_idx = b.bread_idx
-				 left outer join bc_bakery bk on o.bakery_idx = bk.bakery_idx
-			where m.member_idx = #{member_idx}
+				 left outer join bc_item i on o.order_idx = i.order_idx 
+				 left outer join bc_bread b on i.bread_idx = b.bread_idx
+				 left outer join bc_bakery bk on i.bakery_idx = bk.bakery_idx
+			where o.member_idx = #{member_idx}
+			and o.order_idx = #{order_idx}
 			order by payment_date desc
 	</select>
 

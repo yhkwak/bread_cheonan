@@ -11,8 +11,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.bread.app.common.TenPageNav;
+import com.bread.app.vo.ItemVO;
 import com.bread.app.vo.MemberVO;
-import com.bread.app.vo.OrderListVO;
+import com.bread.app.vo.OrderVO;
 import com.bread.app.vo.PageVO;
 import com.bread.service.order.OrderService;
 
@@ -28,8 +29,8 @@ public class OrderController {
 	@Setter(onMethod_={ @Autowired } )
 	TenPageNav pageNav;
 
-	@RequestMapping(value = "/orderList", method = RequestMethod.GET)
-	public String orderList(PageVO vo, HttpSession session, Model model) {
+	@RequestMapping(value = "/orderList.do", method = RequestMethod.GET)
+	public String item(PageVO vo, HttpSession session, Model model) {
 		//pageNum이 0인 경우 1로 세팅함
 		if(vo.getPageNum()==0) {
 			vo.setPageNum(1);
@@ -37,9 +38,19 @@ public class OrderController {
 	    // 세션에서 회원 정보를 가져옴.
 	    MemberVO memberVO = (MemberVO) session.getAttribute("member");
 	    vo.setMember_idx(memberVO.getMember_idx());
-	    // 회원 번호를 사용하여 주문 목록을 조회.
-	    List<OrderListVO> orderList = oList.orderList(vo);
-	    model.addAttribute("orderList", orderList);
+	    
+	    // 회원 번호를 사용하여 주문 목록을 조회. - 전체
+	    List <OrderVO> order = oList.order(vo);
+	    
+	    // orderVO안에 필요한 List<ItemVO>를 불러옴
+	    for(int i=0; i < order.size(); i++) {
+	    	String order_idx = order.get(i).getOrder_idx();
+	    	vo.setOrder_idx(order_idx);
+		    List <ItemVO> item = oList.item(vo);
+		    order.get(i).setItemList(item);
+	    }
+		    
+	    model.addAttribute("orderList", order);
 
 	    //페이징
 	    pageNav.setTotalRows(oTotalCount.getTotalCount(vo));
