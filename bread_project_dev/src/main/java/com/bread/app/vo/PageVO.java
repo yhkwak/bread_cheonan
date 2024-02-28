@@ -11,4 +11,6 @@ public class PageVO {
 	private int startIdx;
 	
 	private int member_idx;
+	private String order_idx;
+
 }

@@ -10,7 +10,6 @@
  		<typeAlias alias="searchVO" type="com.bread.app.vo.SearchVO" />
  		<typeAlias alias="noticeVO" type="com.bread.app.vo.NoticeVO" />
 		<typeAlias alias="breadVO" type="com.bread.app.vo.BreadVO" />
-		<typeAlias alias="orderListVO" type="com.bread.app.vo.OrderListVO" />
 		<typeAlias alias="reviewVO" type="com.bread.app.vo.ReviewVO" />
 		<typeAlias alias="cartVO" type="com.bread.app.vo.CartVO" />
 		<typeAlias alias="pageVO" type="com.bread.app.vo.PageVO" />

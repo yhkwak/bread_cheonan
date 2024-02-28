@@ -17,8 +17,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.bread.app.common.FivePageNav;
+import com.bread.app.vo.ItemVO;
 import com.bread.app.vo.MemberVO;
-import com.bread.app.vo.OrderListVO;
 import com.bread.app.vo.PageVO;
 import com.bread.app.vo.ReviewVO;
 import com.bread.service.Review.ReviewService;
@@ -65,7 +65,7 @@ public class ReviewController {
 
 		if (member != null) {
 			vo.setMember_idx(member.getMember_idx());
-			List<OrderListVO> writeList = oList.orderList(vo);
+			List<ItemVO> writeList = oList.item(vo);
 			 model.addAttribute("writeList", writeList);
 		} else {
 			return "redirect:/member/login.do";
