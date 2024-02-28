@@ -148,7 +148,7 @@
         }
         #view_table tr th h2{
             height: 80px;
-            font: 60px solid;
+            font: 50px solid;
             font-family: 'Jua', sans-serif;
             margin: 0;
             padding: 10px;
@@ -213,10 +213,19 @@
             right:12px;
         	width: 150px;
         }
-        #select_box input{
+        #select_box input[type=number]{
         	width: 60px;
+        	border: 1px solid lightgrey;
+        	color: rgba(0, 0, 0, 0.788);
+        }
+        #select_box input[type=number]:focus{
+        	border: 1px solid lightgrey;
+        	outline: none;
+        	color: rgba(0, 0, 0, 0.788);
         }
         #select_box button{
+        	position: relative;
+        	top: 2px;
             font-size: 25px;
             font-family: 'Jua', sans-serif;
             cursor: pointer;
@@ -250,7 +259,7 @@
         #cart_btn{
             float: right;
             height: 40px;
-            margin: 20px 20px 0 0;
+            margin-top: 10px;
             background-color: white;
             border: none;
             color: gray;
@@ -264,19 +273,40 @@
         }
 
 
-
         /********** 픽업 테이블 끝 **********/
 		#r_text{
 			color:#F39C12;
+			font-size: 30px;
 		}
-        #re_del_box button{
+		#b_name{
+			width: 350px;
+		}
+		#num_box{
+			width: 180px;
+			text-align: right;
+		}
+		#b_price{
+			width: 200px;
+			text-align: right;
+		}
+		#all_price{
+			width: 230px;
+			text-align: right;
+		}
+		#p_text{
+			position: relative;
+			top: 2px;
+			font-size: 30px;
+			color: rgba(0, 0, 0, 0.788);
+		}
+        #re_del_btn{
         	background-color: #fff;
         	border: none;
         	width: 30px;
         	heigth: 30px;
         	position: relative;
         	left: 1000px;
-        	bottom: 35px;
+        	bottom: 45px;
         	font-size: 25px;
         }
         #result_box2{

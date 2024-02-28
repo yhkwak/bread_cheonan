@@ -1,5 +1,4 @@
 @charset "UTF-8";
-@charset "UTF-8";
 h1 {
 	font-size: 0;
 }
@@ -272,6 +271,12 @@ header {
 	width: 65px;
 	padding-left: 10px;
 	margin-left: 10px;
+	border: 1px solid lightgrey;
+    color: rgba(0, 0, 0, 0.788);
+}
+.bread_count input[type=number]:focus {
+	border: 1px solid lightgrey;
+    color: rgba(0, 0, 0, 0.788);
 }
 #f_btn_box{
 	position: relative;
@@ -283,6 +288,8 @@ header {
 	width: 60px;
 	border: none;
 	background-color: #fff;
+	font-family: 'Jua', sans-serif;
+	color: gray;
 }
 .bread_count{
 	width: 150px;
@@ -340,6 +347,20 @@ header {
 	background-color: #F39C12;
 	transition: 0.5s;
 }
+
+.product_nolist{
+    position:relative;
+    top:20px;
+    right:10px;
+    margin: 0 auto;
+    width: 720px;
+    height: 46px;
+    font: 25px solid;
+    color:gray;
+    font-family: 'Jua', sans-serif;
+    border-bottom: 1px solid lightgray;
+}
+
 
 /********** 푸터 영역 **********/
 footer {

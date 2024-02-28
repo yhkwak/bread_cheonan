@@ -31,7 +31,9 @@
 		                </table>
 		                <div id="search_menu">
 	    	                <div id="find_id_box">
-                                <button type="submit" id="find_id" onclick="fnSubmit(); return false;">로그인하러가기</button>
+                                <button type="submit" id="find_id" onclick="fnSubmit(); return false;">
+                                	<a href="${pageContext.request.contextPath}/member/login.do">로그인하러가기</a>
+                                </button>
                             </div>
                             <div id="search_box">
                                 <a href="${pageContext.request.contextPath}/member/findPw.do" id="find_pw">비밀번호 찾기</a>

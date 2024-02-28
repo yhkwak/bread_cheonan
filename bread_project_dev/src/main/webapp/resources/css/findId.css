@@ -183,13 +183,14 @@ span {
 }
 #find_id_box{
 	position: relative;
-    top:100px;
+    top:110px;
     left:150px;
     width:350px;
     height:70px;
 }
 #search_menu button{
 	width:400px;
+	height:60px;
     background-color: white;
     border:1px solid lightgray;
     border-radius: 15px;
@@ -240,7 +241,6 @@ footer {
 	position: absolute;
 	width: 1536px;
 	height: 300px;
-	margin-top: 300px;
 	margin-bottom: 0px;
 	background-color: rgb(245, 246, 247);
 }
