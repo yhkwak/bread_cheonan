@@ -1,12 +1,12 @@
         function readURL(input) {
-            if (input.files && input.files[0]) {
-                var reader = new FileReader();
-                reader.onload = function(e) {
-                    document.getElementById('product_img1').src = e.target.result;
-                };
-                reader.readAsDataURL(input.files[0]);
-            }
-        }
+    	if (input.files && input.files[0]) {
+        var reader = new FileReader();
+        reader.onload = function(e) {
+            document.getElementById('member_img1').src = e.target.result;
+        };
+        reader.readAsDataURL(input.files[0]);
+    }
+}
    function inputTimeColon(time) {        
 	// 먼저 기존에 들어가 있을 수 있는 콜론(:)기호를 제거한다.        
 	var replaceTime = time.value.replace(/\:/g, "");        

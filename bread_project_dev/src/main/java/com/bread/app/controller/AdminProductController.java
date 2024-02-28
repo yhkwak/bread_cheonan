@@ -40,6 +40,8 @@ public class AdminProductController {
 		List<AdminProductVO> adminProductList = APList.getBoards(searchVO);
 		model.addAttribute("adminProductList", adminProductList);
 		pageNav.setTotalRows(APTotalCount.getTotalCount(pageVO));
+		
+		System.out.println(APTotalCount.getTotalCount(pageVO));
 			
 		pageNav = APPage.setPageNav(pageNav, pageVO.getPageNum(), pageVO.getPageBlock());
 			
