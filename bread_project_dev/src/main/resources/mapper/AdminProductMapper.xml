@@ -29,9 +29,21 @@
 			</choose>
     </select>
  	
- 	<select id="getTotalCount" parameterType="pageVO" resultType="_int">
- 		select count(*) from bc_bread 
- 			WHERE bread_del = 0
+ 	<select id="getTotalCount" parameterType="searchVO" resultType="_int">
+ 	
+ 		<choose>
+ 			<when test="searchWord != null">
+	 			select count(*) 
+	 			FROM bc_bread b
+			    LEFT JOIN bc_bakery ba ON b.bakery_idx = ba.bakery_idx
+			    WHERE bakery_name like CONCAT('%',#{searchWord},'%') and b.bread_del = 0
+ 			</when>
+ 			<otherwise>
+		 		select count(*) from bc_bread 
+		 		WHERE bread_del = 0
+			</otherwise>
+	
+ 		</choose>
  	</select>
  	
  	<!-- 개별 상품 조회 -->
