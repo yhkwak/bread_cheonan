@@ -14,7 +14,7 @@ public class NoticePageService implements NoticeService {
 	public FivePageNav setPageNav(FivePageNav pageNav, int pageNum, int pageBlock) {
 		int totalRows = pageNav.getTotalRows(); //1. 총 게시물 수
 		int rows_page = 10; //2. 한 페이지에 보여줄 게시물 수
-		int pages_pageBlock = 5; //3. 한 페이지에 보여줄 페이지 수
+		int pages_pageBlock = 10; //3. 한 페이지에 보여줄 페이지 수
 		
 		pageNav.setRows_page(rows_page);
 		pageNav.setPages_pageBlock(pages_pageBlock);

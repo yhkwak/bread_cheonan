@@ -129,7 +129,6 @@ public class MemberController {
 
 		@PostMapping("/updateProcess.do")
 		public String updateProcess(MemberVO memberVO, HttpServletRequest request, Model model) {
-
 			String viewPage = "member/update"; // 변경 실패시 페이지
 			MemberVO newVO = mUpdate.update(memberVO, request);
 

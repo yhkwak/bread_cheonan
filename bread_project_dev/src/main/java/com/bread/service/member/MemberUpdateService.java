@@ -26,7 +26,8 @@ public class MemberUpdateService implements MemberService {
 
 		// 파일 업로드 처리
 		MultipartFile uploadFile = memberVO.getUploadFile();
-
+		
+		//새로운 회원 이미지를 선택한 경우
 		if(uploadFile != null && !uploadFile.isEmpty()) {
 			String originFileName = uploadFile.getOriginalFilename();
 
@@ -52,6 +53,7 @@ public class MemberUpdateService implements MemberService {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
+			
 		}
 
 		// 데이터베이스 업데이트
