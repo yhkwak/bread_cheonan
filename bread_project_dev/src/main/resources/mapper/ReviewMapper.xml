@@ -22,24 +22,34 @@
     <!-- 모든 리뷰 조회: select -->
     <select id="getBoards" parameterType="pageVO" resultType="reviewVO">
         select
-        o.order_idx,
-        b.bread_name, b.bread_img,
-        ba.bakery_idx, ba.bakery_name,
-        m.member_name, m.member_phone, m.member_nickname,
-        o.payment_date, o.bread_count,
-        r.review_title, r.review_content, r.review_post_date, r.review_idx
-        from
-        bc_order o
-        inner join bc_review r on o.order_idx = r.order_idx
-        inner join bc_member m on o.member_idx = m.member_idx
-        inner join bc_bread b on o.bread_idx = b.bread_idx
-        inner join bc_bakery ba on o.bakery_idx = ba.bakery_idx
-        where
-        o.payment_status = 0 and
-        m.member_del = 0 and
-        ba.bakery_del = 0 and
-        r.review_del_or_not=1 order by
-        r.review_idx desc limit 
+	        r.review_idx,
+	        b.bread_name,
+	        b.bread_img,
+	        ba.bakery_idx,
+	        ba.bakery_name,
+	        m.member_name,
+	        m.member_phone,
+	        m.member_nickname,
+	        o.payment_date,
+	        i.bread_count,
+	        r.review_title,
+	        r.review_content,
+	        r.review_post_date
+    	from
+        	bc_review r
+    		inner join bc_order o on r.order_idx = o.order_idx
+    		inner join bc_member m on r.member_idx = m.member_idx
+    		inner join bc_item i on o.order_idx = i.order_idx
+    		inner join bc_bread b on i.bread_idx = b.bread_idx
+    		inner join bc_bakery ba on i.bakery_idx = ba.bakery_idx
+    	where
+        	o.payment_status = 0
+        	and m.member_del = 0
+        	and ba.bakery_del = 0
+        	and r.review_del_or_not = 1
+    	order by
+        	r.review_idx desc
+    		limit
 		    <choose>
 		        <when test="startIdx >= 0">
 		            #{startIdx}, 12
@@ -50,48 +60,50 @@
 		    </choose>;
     </select>
 
-    <!-- 하나의 리뷰 조회: select -->
-    <select id="getBoard" parameterType="_int" resultType="reviewVO">
-        select
-        r.review_idx, b.bread_name, b.bread_img,
-        ba.bakery_idx, ba.bakery_name,
-        m.member_name, m.member_nickname,m.member_idx,
-        r.review_title, r.review_content, r.view_count,
-        r.review_post_date, r.savefile_name
-        from
-        bc_review r
-        inner join bc_order o on r.order_idx = o.order_idx
-        inner join bc_member m on o.member_idx = m.member_idx
-        inner join bc_bread b on o.bread_idx = b.bread_idx
-        inner join bc_bakery ba on o.bakery_idx = ba.bakery_idx
-        where
-        r.review_idx = #{reviewIdx} and
-        o.payment_status = 0 and
-        m.member_del = 0 and
-        ba.bakery_del = 0 and
-        r.review_del_or_not=1;
-    </select>
-    <!-- 추천수 순으로 5개만 게시글 나오게 -->
-    <select id="getTopReviews" resultType="reviewVO">
-        select
-        r.review_content,
-        m.member_nickname,
-        b.bread_name,
-        ba.bakery_name,
-        r.view_count,
-        b.bread_img_save,
-        r.review_idx
-        from
-        bc_review AS r
-        join bc_member as m on r.member_idx = m.member_idx
-        join bc_bread as b on r.bread_idx = b.bread_idx
-        join bc_bakery as ba on b.bakery_idx = ba.bakery_idx
-        where
-        r.review_del_or_not = 1
-        order by
-        r.view_count desc
-        limit 5;
-    </select>
+	<!-- 하나의 리뷰 조회: select -->
+	<select id="getBoard" parameterType="_int" resultType="reviewVO">
+	    select
+	    	r.review_idx, b.bread_name, b.bread_img,
+		    ba.bakery_idx, ba.bakery_name,
+		    m.member_name, m.member_nickname,m.member_idx,
+		    r.review_title, r.review_content, r.view_count,
+		    r.review_post_date, r.savefile_name
+	    from
+		    bc_review r
+		    inner join bc_order o on r.order_idx = o.order_idx
+		    inner join bc_member m on o.member_idx = m.member_idx
+		    inner join bc_item i on o.order_idx = i.order_idx
+		    inner join bc_bread b on i.bread_idx = b.bread_idx
+		    inner join bc_bakery ba on i.bakery_idx = ba.bakery_idx
+	    where
+		    r.review_idx = #{reviewIdx} and
+		    o.payment_status = 0 and
+		    m.member_del = 0 and
+		    ba.bakery_del = 0 and
+		    r.review_del_or_not=1;
+	</select>
+	<!-- 추천수 순으로 5개만 게시글 나오게 -->
+	<select id="getTopReviews" resultType="reviewVO">
+	    select
+		    r.review_content,
+		    m.member_nickname,
+		    b.bread_name,
+		    ba.bakery_name,
+		    r.view_count,
+		    b.bread_img_save,
+		    r.review_idx
+	    from
+		    bc_review AS r
+		    join bc_member as m on r.member_idx = m.member_idx
+		    join bc_item as i on r.order_idx = i.order_idx
+		    join bc_bread as b on i.bread_idx = b.bread_idx
+		    join bc_bakery as ba on i.bakery_idx = ba.bakery_idx
+	    where
+	    	r.review_del_or_not = 1
+	    order by
+		    r.view_count desc
+		    limit 5;
+	</select>
 
     <!-- Update -->
 
@@ -99,13 +111,13 @@
     <update id="update" parameterType="reviewVO">
         update bc_review
         set
-        review_title = #{review_title},
-        review_content = #{review_content},
-        originfile_name = #{originfile_name},
-        savefile_name = #{savefile_name},
-        review_update_date = NOW()
+	        review_title = #{review_title},
+	        review_content = #{review_content},
+	        originfile_name = #{originfile_name},
+	        savefile_name = #{savefile_name},
+	        review_update_date = NOW()
         where
-        review_idx = #{review_idx};
+        	review_idx = #{review_idx};
     </update>
     <!-- 조회수 증가 -->
     <update id="increaseViewCount" parameterType="int">

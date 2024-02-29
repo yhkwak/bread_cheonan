@@ -92,7 +92,7 @@
 														<!-- 리뷰 -->
 														<c:choose>
 															<c:when test="${orderList[vs.count-1].payment_status eq 0 }">
-																<button type="button" id="button-write" onclick="location.href='${pageContext.request.contextPath}/review/reviewWrite.do?breadId=${orderList[vs.count-1].itemList[j].bread_idx}&orderId=${orderList[vs.count-1].itemList[j].order_idx}'">작성</button>
+																<button type="button" id="button-write" onclick="location.href='${pageContext.request.contextPath}/review/reviewWrite.do?bread_idx=${orderList[vs.count-1].itemList[j].bread_idx}&order_idx=${orderList[vs.count-1].itemList[j].order_idx}&member_idx=${member.member_idx}'">작성</button>
 															</c:when>
 														</c:choose>
 													</td>
