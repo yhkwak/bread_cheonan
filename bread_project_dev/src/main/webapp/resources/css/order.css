@@ -80,7 +80,7 @@
 	color: gray;
 	text-decoration-line: none;
 	}
-	span {
+	header span {
 	font: bold 50px solid;
 	font-family: "Grape Nuts", cursive;
 	font-family: "Nanum Pen Script", cursive;
@@ -168,6 +168,8 @@
     text-align: center;
     font-family: 'Jua', sans-serif;
 	}
+
+
 	/*구매내역*/
 	#main-area h2 {
 	font-size: 50px;
@@ -177,70 +179,152 @@
 	
 	#payment_complete {
 	width: 1137px;
-    height: 1000px;
     margin: 0 auto;
     margin-left: 63px;
     text-align: center;
-    border: 1px solid lightgrey;
-    border-radius: 15px;
-    padding:10px 17px 30px 18px;
 	}	
 
+
 	.orderlist {
-	width: 100%;
-	font-family: "Jua", sans-serif;
+		width: 1137px;
+		margin-bottom: 15px;
+		font-family: "Jua", sans-serif;
+		border: 2px solid grey;
+    	border-radius: 15px;
 	}
-	.orderlist tr{
-    width:1536px;
-    height:50px;
-    position: relative;
-    left:20px;
-    }
-	.orderlist th {
-	position: relative;
-    right:25px;
-	width:50px;
-	padding-top: 19px;
-    padding-bottom: 19px;
-    font-weight:normal;
-    font-size:25px;
-    font-family:'Jua', sans-serif;
-    color:gray;
+	.orderlist_box{
+		width: 1118px;
+		margin-left: 8px;
+		text-align: left;
+		border-bottom: 1px solid gray;
+	}
+	.orderlist_box1{
+		display:flex;
+		height: 45px;
+	}
+	.order_status{
+		width: 50%;
+		padding: 5px 0 0 10px;
+		font-size: 25px;
+	}
+	.orderlist_count{
+		width: 50%;
+		text-align: right;
+		padding: 5px 30px 0 0;
+		font-size: 25px;
+	}
+
+
+
+	.orderlist_box2{
+		display: flex;
+		position: relative;
+		top: 1px;
+		width: 1110px;
+		margin-left: 12px;
+		border-bottom: 1px solid gray;
+	}
+	.orderlist_box2_img{
+		width: 160px;
+		height: 160px;
+		padding-top: 10px;
+	}
+	.orderlist_box2_img img{
+		width: 150px;
+		height: 150px;
+		border-radius: 15px;
+	}
+	.orderlist_box2-1{
+		display: block;
+		width: 650px;
+		padding: 10px 0 10px 10px;
+		font-size: 20px;
+		color: gray;
+		text-align: left;
+	}
+	.order_date{
+		height: 30px;
+		padding-top: 5px;
+	}
+	.bakery_name{
+		height: 52px;
+		font-size: 25px;
+		color: rgba(0, 0, 0, 0.788);
+	}
+	.bread_name{
+		height: 30px;
 	}
 	
-	.orderlist td {
-	position: relative;
-	right:25px;
-    padding-top: 20px;
-    width: 135px;
-    height: 10%;
-    font-size: 20px;
-    color: rgba(0, 0, 0, 0.788);
+	
+	
+	.orderlist_box2-2{
+		display: flex;
+		height: 40px;
 	}
-	#button-write:hover {
-	color: #f39c12;
-	border: none;
-	transition: 0.5s;
+	
+	.orderlist_all_p{
+		position:relative;
+		bottom: 5px;
+		font-size: 25px;
+		color: rgba(0, 0, 0, 0.788);
+		padding-left: 20px;
 	}
+	.orderlist_all_p_s{
+		font-size: 25px;
+		color: #F39C12;
+	}
+	.text_t{
+		width: 50px;
+		text-align: center;
+	}
+
+	.orderlist_box2-3{
+		display: flex;
+		width: 300px;
+	}
+	.btn_box{
+		width: 327px;
+		padding: 18px 20px;
+	}
+	/* #button-write:hover {
+		color: #fff;
+		background-color: #f39c12;
+		transition: 0.5s;
+	} */
 	#button-write {
-	border: none;
-	background-color: #fff;
-	color: rgba(0, 0, 0, 0.788);
-	font-size: 25px;
-	font-family: "Black Han Sans", sans-serif;
-	font-family: "Gasoek One", sans-serif;
-	font-family: "Gothic A1", sans-serif;
-	font-family: "Jua", sans-serif;
-	font-size: 20px;
+		width: 270px;
+		height: 60px;
+		margin-bottom: 15px;
+		border: 1px solid lightgray;
+		border-radius: 5px;
+		background-color: #F39C12;
+		color: #fff;
+		font-size: 25px;
+		font-family: "Jua", sans-serif;
+	}
+	/* #button-re:hover{
+		color: #fff;
+		background-color: #f39c12;
+		transition: 0.5s;
+	} */
+	#button-re{
+		width: 270px;
+		height: 60px;
+		border: 1px solid lightgray;
+		border-radius: 5px;
+		background-color: lightgrey;
+		color: #fff;
+		font-size: 25px;
+		font-family: "Jua", sans-serif;
 	}
 	
 	/********** 페이징 영역 **********/
-    .page_box{
+    #page_box{
     clear: both;
     margin: 0 auto;
     width: 50%;
     text-align: center;
-        }
+    }
     .pageNav{
     display: flex;
     margin: 30px 0 0 0;
