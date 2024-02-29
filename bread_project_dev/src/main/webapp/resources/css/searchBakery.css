@@ -118,12 +118,20 @@
             font-family: 'Nanum Pen Script', cursive;
         }
         .paging_a{
+        	position:relative;
+        	font:25px solid;
+        	top:80px;
             text-decoration: none;
+            color:gray;
+        }
+        .paging_a:hover{
+            text-decoration: none;
+            color:#F39C12;
+            transition:0.5s;
         }
         .paging_a span{
         	position:relative;
-        	top:80px;
-        	font: 25px solid;
+        	font: bold 40px solid;
             color:gray;
             font-family: 'Black Han Sans', sans-serif;
             font-family: 'Gasoek One', sans-serif;

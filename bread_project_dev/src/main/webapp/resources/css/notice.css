@@ -248,7 +248,7 @@ h1{font-size:0;}
             justify-content: center;
             list-style: none;
             padding: 0;
-            font: 25px solid bold;
+            font: bold 40px solid;
             font-family: 'Jua', sans-serif;
         }
         .page_box ul li{
@@ -256,6 +256,7 @@ h1{font-size:0;}
             text-decoration: none;
         }
         .page_box ul li a{
+        	font: 25px solid;
             text-decoration: none;
             color: gray;
         }
@@ -270,7 +271,7 @@ h1{font-size:0;}
             border:1px solid gray;
             background-color: white;
         }
-
+        
         /********** 풋터 **********/
         footer{
             position:absolute;

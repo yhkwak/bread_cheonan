@@ -67,11 +67,11 @@
                                         <form action="${pageContext.request.contextPath}/admin/adminProductUpdate.do">
                                         <td style="width: 350px; height: 90px; margin-top:10px; display: flex;"><div id="product_title_img">
                                         <img src="<c:choose>
-                                            <c:when test="${adminProductList.bread_img_save ne test_img07.png}">
+                                            <c:when test="${not empty adminProductList.bread_img_save}">
                                                 ${pageContext.request.contextPath}/resources/uploads/${adminProductList.bread_img_save}
                                             </c:when>
                                             <c:otherwise>
-                                                ${pageContext.request.contextPath}/resources/css/img/test_img07.png
+                                                ${pageContext.request.contextPath}/resources/css/img/BreadProfile_img2.PNG
                                             </c:otherwise>
                                         </c:choose>"></div>&nbsp;<div id="product_title"><p>${adminProductList.bread_name}</p></div></td>
                                         <td>${adminProductList.bread_price}</td>
