@@ -26,12 +26,12 @@
             </div>
                 <div id="complete_box1">
                     <ul>
-                        <li><b>주문번호</b> : <a>123412341234123412</a></li>
+                        <li><b>주문번호</b> : <a>${orderVO.order_idx}</a></li>
                     </ul>
                 </div>
                 <div id="complete_box2">
                     <ul>
-                        <li><b>결제금액</b> : <a>12,000</a> 원</li>
+                        <li><b>결제금액</b> : <a>${orderVO.amount}</a> 원</li>
                     </ul>
                 </div>
                 <div id="complete_box3">

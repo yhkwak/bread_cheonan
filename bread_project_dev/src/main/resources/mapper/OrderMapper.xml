@@ -17,7 +17,7 @@
 	<select id="item" parameterType="pageVO" resultType="itemVO">
 		select o.order_idx, o.member_idx, b.bread_idx,
 				b.bread_img_save, b.bread_name, b.bread_price, i.bread_count,
-				bk.bakery_name, i.review_status
+				bk.bakery_name, i.review_status, bk.bakery_idx
 			from bc_order o 
 				 left outer join bc_item i on o.order_idx = i.order_idx 
 				 left outer join bc_bread b on i.bread_idx = b.bread_idx

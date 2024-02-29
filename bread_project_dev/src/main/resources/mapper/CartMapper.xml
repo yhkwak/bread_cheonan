@@ -25,6 +25,10 @@
 			INNER JOIN bc_bakery bk ON b.bakery_idx = bk.bakery_idx
 			WHERE c.member_idx = #{member_idx};
 	</select>
+	
+	<select id="getOrder" parameterType="string" resultType="orderVO">
+		select * from bc_order where order_idx = #{order_idx}
+	</select>
 
   	<!-- Update -->
   	<update id="updateStock" parameterType="map">
