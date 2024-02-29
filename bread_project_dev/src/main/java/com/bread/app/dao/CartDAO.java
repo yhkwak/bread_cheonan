@@ -73,4 +73,8 @@ public class CartDAO {
 		map.put("bread_count", bread_count);
 		return sqlSession.update(MAPPER+".updateCount", map);
 	}
+	
+	public OrderVO getOrder(String order_idx) {
+		return sqlSession.selectOne(MAPPER+".getOrder", order_idx);
+	}
 }

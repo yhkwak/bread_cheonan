@@ -2,6 +2,9 @@ package com.bread.app.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,6 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.bread.app.vo.CartVO;
+import com.bread.app.vo.OrderVO;
 import com.bread.service.cart.CartService;
 
 import lombok.Setter;
@@ -20,7 +24,7 @@ public class CartController {
 	
 	//회원가입처리를 위한 Service클래스를 필드로 정의하기
 	@Setter(onMethod_={@Autowired})
-	CartService cAdd, cList;
+	CartService cAdd, cList, gOrder;
 
 	
 	///////// 페이지 매핑 ///////////
@@ -62,9 +66,12 @@ public class CartController {
 		return "cart/cart";
 	}
 	
-	@PostMapping("/cart/payment_complete.do")
-	public String paymentComplete() {
+	@GetMapping("/**/payment_complete.do")
+	public String paymentComplete(String order_idx, HttpServletRequest request) {
+		OrderVO orderVO = gOrder.getOrder(order_idx);
 		
+		HttpSession session = request.getSession();
+		session.setAttribute("orderVO", orderVO);
 		
 		return "cart/payment_complete";
 	}

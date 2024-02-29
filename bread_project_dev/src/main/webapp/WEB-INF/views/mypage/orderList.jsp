@@ -92,7 +92,7 @@
                                                         <c:choose>
                                                             <c:when test="${orderList[vs.count-1].payment_status eq 0 }">
                                                                 <div><button type="button" id="button-write" onclick="location.href='${pageContext.request.contextPath}/review/reviewWrite.do?bread_idx=${orderList[vs.count-1].itemList[j].bread_idx}&order_idx=${orderList[vs.count-1].itemList[j].order_idx}&member_idx=${member.member_idx}'">리뷰작성</button></div>
-                                                                <div><button type="button" id="button-re" onclick="location.href='#'">재구매</button></div>
+                                                                <div><button type="button" id="button-re" onclick="location.href='http://localhost:9090/myapp/search/viewBakery.do?bakery_idx=${orderList[vs.count-1].itemList[j].bakery_idx}'">재구매</button></div>
                                                             </c:when>
                                                         </c:choose>
                                                     </div>

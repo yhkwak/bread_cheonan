@@ -153,7 +153,7 @@
 	                            }).done(function(res){
 	                                if(res == "OK"){
 	                                    alert("결제 완료");
-	                                    location.href="payment_complete.do";
+	                                    location.href="payment_complete.do?order_idx="+order_idx;
 	                                }
 	                                else{
 	                                    alert("결제 실패");
