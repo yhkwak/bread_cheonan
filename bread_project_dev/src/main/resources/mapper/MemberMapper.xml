@@ -59,7 +59,10 @@
   	<update id="updateMember" parameterType="memberVO">
 		update bc_member
 		set member_pw=#{member_pw}, member_name=#{member_name}, member_phone=#{member_phone},
-		member_nickname=#{member_nickname}, member_img=#{member_img}, member_img_save=#{member_img_save},
+		member_nickname=#{member_nickname}, 
+		<if test="member_img != null"><!-- 새로운 회원 이미지를 선택한 경우 -->
+			member_img=#{member_img}, member_img_save=#{member_img_save},
+		</if>
 		last_mod_date=now()
 		where member_idx=#{member_idx}
  	</update>
