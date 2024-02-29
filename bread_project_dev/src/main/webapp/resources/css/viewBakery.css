@@ -102,6 +102,8 @@
             margin: 0 auto;
         }
         #all_box{
+        	position:relative;
+        	left:50px;
             width: 100%;
             max-width: 1200px;
             height: 1200px;
@@ -117,6 +119,7 @@
         #shop_img{
             width: 380px;
             height: 260px;
+            border: 1px solid lightgray;
         }
         #shop_img img{
             width: 380px;
@@ -132,7 +135,7 @@
         #view_table tr td{
             padding: 10px;
             height: 50px;
-            font: 35px solid;
+            font: 30px solid;
             font-family: 'Jua', sans-serif;
         }
         #view_table tr td a{
@@ -205,9 +208,6 @@
             font-family: 'Jua', sans-serif;
             color: rgba(0, 0, 0, 0.788);
         }
-        
-        
-        
         #select_box{
         	position: relative;
             right:12px;
@@ -215,6 +215,7 @@
         }
         #select_box input[type=number]{
         	width: 60px;
+        	padding-top:3px;
         	border: 1px solid lightgrey;
         	color: rgba(0, 0, 0, 0.788);
         }

@@ -62,11 +62,11 @@
                                         <form action="${pageContext.request.contextPath}/mypage/productUpdate.do">
                                         <td style="width: 350px; height: 90px; margin-top:10px; display: flex;"><div id="product_title_img">
                                         <img src="<c:choose>
-                                            <c:when test="${breadList.bread_img_save ne test_img07.png}">
+                                            <c:when test="${not empty breadList.bread_img_save}">
                                                 ${pageContext.request.contextPath}/resources/uploads/${breadList.bread_img_save}
                                             </c:when>
                                             <c:otherwise>
-                                                ${pageContext.request.contextPath}/resources/css/img/test_img07.png
+                                                ${pageContext.request.contextPath}/resources/css/img/BreadProfile_img2.PNG
                                             </c:otherwise>
                                         </c:choose>"></div><div style="width: 250px;" id="product_title"><p>${breadList.bread_name}</p></div></td>
                                         <td id="bread_price">${breadList.bread_price}</td>

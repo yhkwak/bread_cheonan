@@ -20,7 +20,6 @@ import lombok.AllArgsConstructor;
 public class BakeryJoinService implements BakeryService {
     
     private BakeryDAO dao;
-    private static final String DEFAULT_IMAGE_PATH = "test_img02.png"; // 디폴트 이미지 파일명 설정 원하면 다른걸로 바꿔도 상관없음
     
     @Override
     public int join(BakeryVO bakeryVO, HttpServletRequest request) {
@@ -49,11 +48,6 @@ public class BakeryJoinService implements BakeryService {
 
             bakeryVO.setBakery_img(originFileName);
             bakeryVO.setBakery_img_save(saveFileName);
-        } else {
-            // 사용자가 이미지를 업로드하지 않은 경우 기본 이미지 설정
-            String saveDirectory = request.getServletContext().getRealPath("resources/uploads/");
-            bakeryVO.setBakery_img(DEFAULT_IMAGE_PATH); // 원본 파일명으로 기본 이미지 파일명 설정
-            bakeryVO.setBakery_img_save(DEFAULT_IMAGE_PATH); // 저장된 파일명으로 기본 이미지 파일명 설정
         }
         
         try {

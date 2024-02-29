@@ -51,11 +51,11 @@
 								<div id="bakery_img">
 									<label for="file_input2" style="cursor: pointer;">
                     					<c:choose>
-					    					<c:when test="${bakery.bakery_img_save ne test_img02.png}">
+					    					<c:when test="${not empty bakery.bakery_img_save}">
 					        					<img id="bakery_img1" name="bakery_img" src="${pageContext.request.contextPath}/resources/uploads/${bakery.bakery_img_save}">
 					    					</c:when>
 					    					<c:otherwise>
-					        					<img id="bakery_img1" name="bakery_img" src="${pageContext.request.contextPath}/resources/css/img/test_img02.png">
+					        					<img id="bakery_img1" name="bakery_img" src="${pageContext.request.contextPath}/resources/css/img/bakery_title_img.PNG">
 					    					</c:otherwise>
 										</c:choose>
 									</label>
@@ -103,11 +103,11 @@
 								<div id="bakery_img">
 									<label for="file_input2" style="cursor: pointer;">
                     					<c:choose>
-					    					<c:when test="${bakery.bakery_img_save ne test_img02.png}">
+					    					<c:when test="${not empty bakery.bakery_img_save}">
 					        					<img id="bakery_img1" name="bakery_img" src="${pageContext.request.contextPath}/resources/uploads/${bakery.bakery_img_save}">
 					    					</c:when>
 					    					<c:otherwise>
-					        					<img id="bakery_img1" name="bakery_img" src="${pageContext.request.contextPath}/resources/css/img/test_img02.png">
+					        					<img id="bakery_img1" name="bakery_img" src="${pageContext.request.contextPath}/resources/css/img/bakery_title_img.PNG">
 					    					</c:otherwise>
 										</c:choose>
 									</label>

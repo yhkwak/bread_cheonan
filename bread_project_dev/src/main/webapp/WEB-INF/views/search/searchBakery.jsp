@@ -51,11 +51,11 @@
 				                            <tr>
 				                                <td rowspan="4" class="shop_img">
 				                                <c:choose>
-												    <c:when test="${not empty bakeryList[vs.count-1].bakery_img_save and bakeryList[vs.count-1].bakery_img_save ne 'test_img02.png'}">
+												    <c:when test="${not empty bakeryList[vs.count-1].bakery_img_save}">
 												        <img src="${pageContext.request.contextPath}/resources/uploads/${bakeryList[vs.count-1].bakery_img_save}">
 												    </c:when>
 												    <c:otherwise>
-												        <img src="${pageContext.request.contextPath}/resources/css/img/test_img02.png">
+												        <img src="${pageContext.request.contextPath}/resources/css/img/bakery_title_img2.PNG">
 												    </c:otherwise>
 												</c:choose>
 				                                </td>
