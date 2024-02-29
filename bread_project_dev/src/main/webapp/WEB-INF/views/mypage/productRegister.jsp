@@ -47,11 +47,11 @@
                         <div id="product_img">
                             <label for="file_input" style="cursor: pointer;">
                                 <c:choose>
-                                    <c:when test="${bread.bread_img_save ne test_img07.png}">
+                                    <c:when test="${not empty bread.bread_img_save}">
                                         <img id="product_img1" name="bread_img" src="${pageContext.request.contextPath}/resources/uploads/${bread.bread_img_save}">
                                     </c:when>
                                     <c:otherwise>
-                                        <img id="product_img1" src="${pageContext.request.contextPath}/resources/css/img/test_img07.png">
+                                        <img id="product_img1" src="${pageContext.request.contextPath}/resources/css/img/BreadProfile_img.PNG">
                                     </c:otherwise>
                                 </c:choose>
                                 <input type="file" id="file_input" name="uploadFile" style="display: none;" onchange="readURL(this);">

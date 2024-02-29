@@ -54,7 +54,7 @@
 			        <div id="login_box">
 				        <div id="login_box2">
 				            <c:choose>
-							    <c:when test="${member.member_img_save ne default_img.png}">
+							    <c:when test="${not empty member.member_img_save}">
 								    <!-- 업로드한 경우 업로드한 이미지 표시 -->
 								    <img id="login_logo" src="${pageContext.request.contextPath}/resources/uploads/${member.member_img_save}">
 								</c:when>
@@ -76,7 +76,7 @@
 			        <div id="login_box">
 				        <div id="login_box2">
 				            <c:choose>
-							    <c:when test="${member.member_img_save ne default_img.png}">
+							    <c:when test="${not empty member.member_img_save}">
 								    <!-- 업로드한 경우 업로드한 이미지 표시 -->
 								    <img id="login_logo" src="${pageContext.request.contextPath}/resources/uploads/${member.member_img_save}">
 								</c:when>
@@ -98,7 +98,7 @@
 			        <div id="login_box">
 				        <div id="login_box2">
 				        <c:choose>
-				        	<c:when test="${member.member_img_save ne default_img.png}">
+				        	<c:when test="${not empty member.member_img_save}">
 								<!-- 업로드한 경우 업로드한 이미지 표시 -->
 								<img id="login_logo" src="${pageContext.request.contextPath}/resources/uploads/${member.member_img_save}">
 							</c:when>
@@ -156,7 +156,7 @@
                     </li>
                     <li>
                         <div id="shop4" style="margin-left: 1500px; position: absolute;">
-                            <a>용환이네 국가가 <span>허용한</span> 빵집</a>
+                            <a>용환이네 먹느라 <span>조용한</span> 빵집</a>
                             <img id="boardimg4" src="resources/css/img/boardimg1.PNG">
                             <img id="bread7" src="resources/css/img/bread7.PNG">
                             <div id="no7">용환이네 걔랑 먹는 계란빵<br>3500원</div>

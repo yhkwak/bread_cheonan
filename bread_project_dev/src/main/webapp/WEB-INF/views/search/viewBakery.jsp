@@ -133,11 +133,11 @@
                             <%-- <td rowspan="4" id="shop_img"><img src="../resources/css/img/${bakey.bakery_img_save}"></td> --%>
                             <td rowspan="4" id="shop_img"><%-- <img src="../resources/css/img/test_img08.png"> --%>
 	                            <c:choose>
-									<c:when test="${not empty bakery.bakery_img_save and bakery.bakery_img_save ne 'test_img02.png'}">
+									<c:when test="${not empty bakery.bakery_img_save and bakery.bakery_img_save ne bakery_title_img.PNG}">
 										<img src="${pageContext.request.contextPath}/resources/uploads/${bakery.bakery_img_save}">
 									</c:when>
 									<c:otherwise>
-										<img src="${pageContext.request.contextPath}/resources/css/img/test_img02.png">
+										<img src="${pageContext.request.contextPath}/resources/css/img/bakery_title_img2.PNG">
 									</c:otherwise>
 								</c:choose>
                             </td>
@@ -163,7 +163,7 @@
                             <tr>
                                 <td rowspan="6" class="bakery_img">
                                 <%-- <img id="tel_img" src="${pageContext.request.contextPath}/resources/uploads/${bread.bread_img_save}"></td> --%>
-                                <img id="tel_img" src="../resources/css/img/test_img07.png"></td>
+                                <img id="tel_img" src="../resources/css/img/BreadProfile_img2.PNG"></td>
                             </tr>
                             <tr>
                                 <td><span id="bread_name">${breadList[i].bread_name}</span></td>
