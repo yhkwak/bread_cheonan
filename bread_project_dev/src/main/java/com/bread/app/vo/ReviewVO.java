@@ -13,7 +13,7 @@ public class ReviewVO {
     private int review_idx;
     private int member_idx;
     private int bread_idx;
-    private int order_idx; // 주문 인덱스
+    private String order_idx; // 주문 인덱스
     private String bread_name; // 빵 이름
     private String bread_img_save; // 빵 이미지
     private int bakery_idx; // 빵집 인덱스
