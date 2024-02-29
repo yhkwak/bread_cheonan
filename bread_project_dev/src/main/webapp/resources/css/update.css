@@ -89,10 +89,6 @@ h1{font-size:0;}
             width:1136px;
             border-top: 1px solid gray;
         }
-        .list{
-        	position:relative;
-        	bottom:1px;
-        }
         /********** 메인 영역 **********/
         #container-content{
             display: inline-block;

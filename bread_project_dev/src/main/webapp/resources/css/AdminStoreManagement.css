@@ -264,18 +264,29 @@
 		}
 		.paging_a{
         	position:relative;
-        	top:50px;
-        	text-decoration:none;
+        	font:25px solid;
+        	top:80px;
+            text-decoration: none;
+            color:gray;
         }
-		.paging_a span{
-			color:gray;
-			font:bold 25px solid ;
-		}
-		.paging_a span:hover{
-			color:#F39C12;
-			transition: 0.5s;
-			font:bold 25px solid ;
-		}
+        .paging_a:hover{
+            text-decoration: none;
+            color:#F39C12;
+            transition:0.5s;
+        }
+        .paging_a span{
+        	position:relative;
+        	font: bold 40px solid;
+            color:gray;
+            font-family: 'Black Han Sans', sans-serif;
+            font-family: 'Gasoek One', sans-serif;
+            font-family: 'Gothic A1', sans-serif;
+            font-family: 'Jua', sans-serif;
+        }
+        .paging_a span:hover{
+            color:#F39C12;
+            transition: 0.5s;
+        }
 
         /********** 풋터 **********/
         footer{

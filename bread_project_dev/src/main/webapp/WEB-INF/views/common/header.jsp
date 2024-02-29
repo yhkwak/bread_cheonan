@@ -1,5 +1,4 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"	pageEncoding="UTF-8"%>
-
 <header>
 	<img id="main_logo" src="${pageContext.request.contextPath}/resources/css/img/mainlogo.PNG" onclick="location.href='/myapp'">
             <img id="c1" src="${pageContext.request.contextPath}/resources/css/img/c1.png">

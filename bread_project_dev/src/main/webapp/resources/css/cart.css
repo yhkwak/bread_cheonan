@@ -124,7 +124,7 @@ header {
 #side-menu {
 	position: relative;
 	left: 70px;
-	top: 101px;
+	top: 100px;
 	width: 220px;
 	height: 400px;
 	text-decoration: none;
@@ -197,7 +197,7 @@ header {
 	position: absolute;
 	width: 600px;
 	height: 240px;
-	border: 4px solid #F39C12;
+	border: 2px solid gray;
 	border-radius: 15px;
 }
 
@@ -246,7 +246,7 @@ header {
 	margin: 15px 0 0 12px;
 	padding-left: 10px;
 	text-align: left;
-	border-bottom: 1px solid gray;
+	border-bottom: 1px solid lightgray;
 	font-size: 30px;
 	font-family: 'Jua', sans-serif;
 	color: rgba(0, 0, 0, 0.788);
@@ -270,6 +270,7 @@ header {
 .bread_count input[type=number] {
 	width: 65px;
 	padding-left: 10px;
+	padding-top:3px;
 	margin-left: 10px;
 	border: 1px solid lightgrey;
     color: rgba(0, 0, 0, 0.788);
@@ -287,9 +288,17 @@ header {
 #f_btn{
 	width: 60px;
 	border: none;
+	padding-top:3px;
 	background-color: #fff;
 	font-family: 'Jua', sans-serif;
 	color: gray;
+	transition: 0.5s;
+}
+#f_btn:hover{
+	border: none;
+	background-color: #fff;
+	font-family: 'Jua', sans-serif;
+	color: #F39C12;
 }
 .bread_count{
 	width: 150px;
@@ -320,7 +329,7 @@ header {
 	height: 240px;
 	text-align: center;
 	font-size: 30px;
-	border: 4px solid #F39C12;
+	border: 2px solid gray;
 	border-radius: 15px;
 }
 
@@ -329,25 +338,19 @@ header {
 	height: 110px;
 	margin-left: 12px;
 	padding-top: 40px;
-	border-bottom: 1px solid gray;
+	border-bottom: 1px solid lightgray;
 }
 
 #product_buy_btn {
 	width: 450px;
 	height: 60px;
 	border-radius: 10px;
-	border: 1px solid gray;
-	background-color: #fff;
+	border: 1px solid lightgray;
+	background-color: #F39C12;
+	color:white;
 	margin-top: 35px;
 	padding-top: 5px;
 }
-
-#product_buy_btn:hover {
-	color: white;
-	background-color: #F39C12;
-	transition: 0.5s;
-}
-
 .product_nolist{
     position:relative;
     top:20px;
