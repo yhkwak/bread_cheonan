@@ -96,7 +96,7 @@
 	#container-content {
 	display: inline-block;
 	width: 1536px;
-	height: 1000px; /* 본인의 작업 사이즈에 맞게 변경 */
+	
 	margin: 0 auto;
 	}
 	#side-nav {
@@ -127,8 +127,13 @@
 	list-style: none;
 	}
 	#side-menu ul li a {
+	display: block;
+	transition: all 0.5s ease-out;
 	text-decoration: none;
 	color: gray;
+	}
+	#side-menu ul li a:hover {
+	transform: translateX(10px);
 	}
 	#side-menu ul li {
 	font: 35px solid;
@@ -187,7 +192,7 @@
 
 	.orderlist {
 		width: 1137px;
-		margin-bottom: 15px;
+		margin-bottom: 50px;
 		font-family: "Jua", sans-serif;
 		border: 2px solid grey;
     	border-radius: 15px;
@@ -196,7 +201,7 @@
 		width: 1118px;
 		margin-left: 8px;
 		text-align: left;
-		border-bottom: 1px solid gray;
+		border-bottom: 1px solid lightgray;
 	}
 	.orderlist_box1{
 		display:flex;
@@ -204,7 +209,7 @@
 	}
 	.order_status{
 		width: 50%;
-		padding: 5px 0 0 10px;
+		padding: 6px 0 0 10px;
 		font-size: 25px;
 	}
 	.orderlist_count{
@@ -222,7 +227,7 @@
 		top: 1px;
 		width: 1110px;
 		margin-left: 12px;
-		border-bottom: 1px solid gray;
+		border-bottom: 1px solid lightgray;
 	}
 	.orderlist_box2_img{
 		width: 160px;
@@ -262,17 +267,6 @@
 		height: 40px;
 	}
 	
-	.orderlist_all_p{
-		position:relative;
-		bottom: 5px;
-		font-size: 25px;
-		color: rgba(0, 0, 0, 0.788);
-		padding-left: 20px;
-	}
-	.orderlist_all_p_s{
-		font-size: 25px;
-		color: #F39C12;
-	}
 	.text_t{
 		width: 50px;
 		text-align: center;
@@ -301,12 +295,38 @@
 		color: #fff;
 		font-size: 25px;
 		font-family: "Jua", sans-serif;
+		transition: all 0.6s;
+		cursor: pointer;
 	}
-	/* #button-re:hover{
-		color: #fff;
-		background-color: #f39c12;
-		transition: 0.5s;
-	} */
+	
+	#button-write span{
+		cursor: poiner;
+		display: inline-block;
+		position: relative;
+		transition: 0.6s;
+	}
+	#button-write span:after{
+		content: '→';
+		position: absolute;
+		opacity: 0;
+		top: 0;
+		right: -18px;
+		transition: 0.6s;
+	}
+	#button-write:hover span{
+		padding-right: 30px;
+		transition: 0.6s;
+	}
+	#button-write:hover span:after{
+		opacity: 1;
+		right: 0;
+	}
+	
+	
+	
+	
+
+	
 	#button-re{
 		width: 270px;
 		height: 60px;
@@ -318,35 +338,71 @@
 		font-family: "Jua", sans-serif;
 	}
 	
+	#button-re span{
+		cursor: poiner;
+		display: inline-block;
+		position: relative;
+		transition: 0.6s;
+	}
+	#button-re span:after{
+		content: '→';
+		position: absolute;
+		opacity: 0;
+		top: 0;
+		right: -18px;
+		transition: 0.6s;
+	}
+	#button-re:hover span{
+		padding-right: 30px;
+		transition: 0.6s;
+	}
+	#button-re:hover span:after{
+		opacity: 1;
+		right: 0;
+	}
+	
+	
+	
+	.orderlist_all_p{
+		height: 60px;
+		padding-top: 10px;
+		font-size: 30px;
+		color: rgba(0, 0, 0, 0.788);
+	}
+	.orderlist_all_p_s{
+		font-size: 30px;
+		color: #F39C12;
+	}
+	
+	
+	
 	/********** 페이징 영역 **********/
-    #page_box{
-    clear: both;
-    margin: 0 auto;
-    width: 50%;
-    text-align: center;
+	.paging_a{
+        position:relative;
+        font:25px solid;
+        top:80px;
+        text-decoration: none;
+        color:gray;
     }
-    .pageNav{
-    display: flex;
-    margin: 30px 0 0 0;
-    justify-content: center;
-    list-style: none;
-    padding: 0;
-    font: 25px solid bold;
-    font-family: 'Jua', sans-serif;
+    .paging_a:hover{
+        text-decoration: none;
+        color:#F39C12;
+        transition:0.5s;
     }
-    .page_box ul li{
-    padding: 10px;
-    text-decoration: none;
+    .paging_a span{
+        position:relative;
+        font: bold 40px solid;
+        color:gray;
+        font-family: 'Black Han Sans', sans-serif;
+        font-family: 'Gasoek One', sans-serif;
+        font-family: 'Gothic A1', sans-serif;
+        font-family: 'Jua', sans-serif;
     }
-    .page_box ul li a{
-    text-decoration: none;
-    color: gray;
+    .paging_a span:hover{
+        color:#F39C12;
+        transition: 0.5s;
     }
-    .page_box ul li a:hover{
-    color:#F39C12;
-    border:none;
-    transition: 0.2s;
-    }
+
     button{
     width:130px;
     height:35px;
@@ -354,11 +410,16 @@
     background-color: white;
     }
     #noOrder{
-    position: relative;
-    top: 405px;
+	position: relative;
+    top: 20px;
+    right: 30px;
+    margin: 0 auto;
+    width: 720px;
+    height: 46px;
     font: 25px solid;
     color: gray;
     font-family: 'Jua', sans-serif;
+    border-bottom: 1px solid lightgray;
     }
 	/********** 푸터 영역 **********/
 	footer {
