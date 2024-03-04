@@ -12,6 +12,7 @@ public class OrderVO {
 	private int amount;
 	private Date payment_date;
 	private int member_idx;
+	private String member_name;
 	
 	private List<ItemVO> itemList;
 	

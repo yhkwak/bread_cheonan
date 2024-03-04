@@ -52,7 +52,16 @@
 					}).done(function(resData){
 						if(resData.bread_idx == undefined){
 							alert("이미 장바구니에 있는 상품입니다. 장바구니를 확인해주세요.");
-							arry_chk[i] = -1;
+						 	if (!confirm("장바구니를 확인하시겠습니까?")) {
+						        // 취소(아니오) 버튼 클릭 시 이벤트
+						 		arry_chk[i] = -1;
+						    } else {
+						        // 확인(예) 버튼 클릭 시 이벤트
+						    	arry_chk[i] = -1;
+						        location.href="http://localhost:9090/myapp/cart/cart.do?member_idx="+member_idx
+						    }
+							
+							
 						}else{
 							cartAdd(resData);
 						}
@@ -178,7 +187,7 @@
                                 <td></td>
                             </tr>
                             <tr>
-                                <td id="bread_time">빵 나오는 시간: ${breadList[i].bread_time1}  ${breadList[i].bread_time2}  ${breadList[i].bread_time3}</td>
+                                <td id="bread_time">빵 나오는 시간 : ${breadList[i].bread_time1}  ${breadList[i].bread_time2}  ${breadList[i].bread_time3}</td>
                                 <td>
                                     <div id="select_box">
                                     	<input type="number" class="bread_count" min="1" max="10" value="1">
