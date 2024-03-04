@@ -43,8 +43,8 @@
 					<!-- 데이터가 없는 경우 -->
 					<c:choose>
 						<c:when test="${empty orderList}">
-							<div class="orderlist">
-								<div id="noOder">구매내역이 없습니다</div>
+							<div class="order_nolist">
+								<div id="noOrder">구매내역이 없습니다</div>
 							</div>
 						</c:when>
 						<c:otherwise>
@@ -70,8 +70,8 @@
 											<c:forEach var="j" begin="0" end="${orderList[vs.count-1].itemList.size()-1}">
 												<input type="hidden" name="bread_idx" value="${orderList[vs.count-1].itemList[j].bread_idx}">
                                                 <div class="orderlist_box2">
-                                                    <%-- <div class="orderlist_box2_img">${orderList[vs.count-1].itemList[j].bread_img_save}</div> --%>
-                                                    <div class="orderlist_box2_img"><img src=../resources/css/img/test_img07.png></div>
+                                                    <div class="orderlist_box2_img">${orderList[vs.count-1].itemList[j].bread_img_save}</div>
+                                                    <!-- <div class="orderlist_box2_img"><img src=../resources/css/img/test_img07.png></div> -->
                                                     <div class="orderlist_box2-1">
                                                         <div class="order_date">주문 날짜 : <fmt:formatDate value="${orderList[vs.count-1].payment_date}" pattern="yyyy-MM-dd HH:mm:ss" /></div>
                                                         <div class="bakery_name">${orderList[vs.count-1].itemList[j].bakery_name}</div>
@@ -84,23 +84,23 @@
                                                             	<div class="text_t">=</div>
 													        	<div class="br_a_price">${orderList[vs.count-1].itemList[j].bread_count*orderList[vs.count-1].itemList[j].bread_price} 원</div>
 													        </div>
-													        <div class="orderlist_all_p" >주문 총 금액 : <span class="orderlist_all_p_s" >${orderList[vs.count-1].amount}</span> 원</div>
                                                         </div>
                                                     </div>
                                                     <div class="btn_box">
                                                         <!-- 리뷰 -->
                                                         <c:choose>
                                                             <c:when test="${orderList[vs.count-1].payment_status eq 0 }">
-                                                                <div><button type="button" id="button-write" onclick="location.href='${pageContext.request.contextPath}/review/reviewWrite.do?bread_idx=${orderList[vs.count-1].itemList[j].bread_idx}&order_idx=${orderList[vs.count-1].itemList[j].order_idx}&member_idx=${member.member_idx}'">리뷰작성</button></div>
-                                                                <div><button type="button" id="button-re" onclick="location.href='http://localhost:9090/myapp/search/viewBakery.do?bakery_idx=${orderList[vs.count-1].itemList[j].bakery_idx}'">재구매</button></div>
+                                                                <div><button type="button" id="button-write" onclick="location.href='${pageContext.request.contextPath}/review/reviewWrite.do?bread_idx=${orderList[vs.count-1].itemList[j].bread_idx}&order_idx=${orderList[vs.count-1].itemList[j].order_idx}&member_idx=${member.member_idx}'"><span>리뷰작성</span></button></div>
+                                                                <div><button type="button" id="button-re" onclick="location.href='http://localhost:9090/myapp/search/viewBakery.do?bakery_idx=${orderList[vs.count-1].itemList[j].bakery_idx}'"><span>재구매</span></button></div>
                                                             </c:when>
                                                         </c:choose>
                                                     </div>
                                                 </div>
 											</c:forEach>
 										</c:if>
-
+										<div class="orderlist_all_p" >주문 총 금액 : <span class="orderlist_all_p_s" >${orderList[vs.count-1].amount}</span> 원</div>
 									</div>
+									
 								</c:if>
 							</c:forEach>
 						</c:otherwise>
