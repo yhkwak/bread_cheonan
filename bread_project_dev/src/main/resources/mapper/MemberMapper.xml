@@ -34,6 +34,11 @@
         select count(*) from bc_member where member_nickname=#{member_nickname}
     </select>
     
+    <!-- 전화번호 중복검사 -->
+    <select id="checkPhoneNumber" parameterType="string" resultType="_int">
+        select count(*) from bc_member where member_phone=#{member_phone}
+    </select>
+    
     <!-- 모든 회원 가져오기 -->
 	<select id="getMembers" resultType="memberVO">
 		select * from bc_member;

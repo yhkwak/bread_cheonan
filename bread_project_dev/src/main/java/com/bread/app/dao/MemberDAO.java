@@ -42,6 +42,10 @@ public class MemberDAO {
 	        return sqlSession.selectOne(MAPPER+".checkNickname",member_nickname);
 	    }
 	    
+	    //전화번호 중복검사
+	    public int checkPhoneNumber(String member_phone) throws SQLException {
+	        return sqlSession.selectOne(MAPPER+".checkPhoneNumber",member_phone);
+	    }
 		// 회원정보 findAll
 		public List<MemberVO> getMembers() throws SQLException {
 			return sqlSession.selectList(MAPPER+".getMembers");

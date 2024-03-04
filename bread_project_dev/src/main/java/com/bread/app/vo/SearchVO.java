@@ -14,4 +14,5 @@ public class SearchVO {
 	private int bakery_idx;// bakery_idx 속성 추가 BreadMapper의 SQL 쿼리에서 사용하기 위함
 	private int member_idx;
 	private int bread_idx;
+	private int totalCount;
 }

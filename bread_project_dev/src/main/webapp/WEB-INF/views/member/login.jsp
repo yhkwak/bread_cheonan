@@ -56,5 +56,12 @@
 	        <%@ include file ="../common/footer.jsp" %>
 	         
 	    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            <% if (request.getAttribute("msg") != null) { %>
+                alert("<%= request.getAttribute("msg").toString() %>");
+            <% } %>
+        });
+    </script>
 	</body>
 </html>
