@@ -24,25 +24,57 @@
 		<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/map.css">
 		<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/map.js"></script>
 
-		<title>천안 빵 지도</title>
+		<title>빵집 위치</title>
 	</head>
 
 	<body>
 		<div id="wrap">
 			<%@include file="../common/header.jsp" %>
 				<section id="container-content">
-
-					<div id="side-nav">
-						<div id="side-menu">
-							<h2>빵 지도</h2>
+					<div id="shop_list">
+						<h2><span>빵빵</span>한 가족들</h2>
+						<div class="shop_info">
+							<img class="shop_img" src="../resources/css/img/logo1.PNG">
+						<ul>
+							<li><a>경진이네 경지에 이른 빵집</a></li>
+							<li><a>성성호수공원 경진상가 1층</a><br></li>
+							<li><a>041-123-1230</a><br></li>
+						</ul>
+						</div>
+						<div class="shop_info">
+							<img class="shop_img" src="../resources/css/img/logo2.png">
+						<ul>
+							<li><a>나래네 날래 오라우 빵집</a></li>
+							<li><a>선사유적지공원 나래상가 1층</a><br></li>
+							<li><a>041-123-1231</a><br></li>
+						</ul>
+						</div>
+						<div class="shop_info">
+							<img class="shop_img" src="../resources/css/img/logo3.PNG">
+						<ul>
+							<li><a>재송이네 맛있어서 죄송한 빵집</a></li>
+							<li><a>청수호수공원 재송상가 2층</a><br></li>
+							<li><a>041-123-1232</a><br></li>
+						</ul>
+						</div>
+						<div class="shop_info">
+							<img class="shop_img" src="../resources/css/img/logo4.PNG">
+						<ul>
+							<li><a>용환이네 먹느라 조용한 빵집</a></li>
+							<li><a>이마트 쌍용점 1층</a><br></li>
+							<li><a>041-123-1233</a><br></li>
+						</ul>
+						</div>
+						<div class="shop_info">
+							<img class="shop_img" src="../resources/css/img/logo5.PNG">
+						<ul>
+							<li><a>수희네 스윗함이 가득한 빵집</a></li>
+							<li><a>성정 신라스테이 1층</a><br></li>
+							<li><a>041-123-1234</a><br></li>
+						</ul>
 						</div>
 					</div>
-					<div id="main-area">
-						<div class="content-wrap">
-							<div id="map"></div>
-						</div>
-
-					</div>
+					<div id="map"></div>
 				</section>
 				<%@include file="../common/footer.jsp" %>
 		</div>

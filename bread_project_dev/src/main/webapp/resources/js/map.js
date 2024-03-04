@@ -9,11 +9,11 @@ function initMap() {
   var shopArr = new Array(); // 매장 담을 배열 (매장명/위도경도)
   shopArr.push(
     /*매장이름*/ /*위도*/ /*경도*/
-    { shop: "수희네", lat: "36.826294", lag: "127.144336" }, //신라스테이 천안
-    { shop: "재송이네", lat: "36.788051", lag: "127.147978" }, //청수호수공원
-    { shop: "용환이네", lat: "36.796322", lag: "127.126894" }, //이마트 천안점
-    { shop: "나래네", lat: "36.805636", lag: "127.112629" }, //선사유적지공원
-    { shop: "경진이네", lat: "36.847659", lag: "127.135256" } //성성호수공원
+    { shop: "수희네 스윗함이 가득한 빵집", lat: "36.826294", lag: "127.144336" }, //신라스테이 천안
+    { shop: "재송이네 맛있어서 죄송한 빵집", lat: "36.788051", lag: "127.147978" }, //청수호수공원
+    { shop: "용환이네 먹느라 조용한 빵집", lat: "36.796322", lag: "127.126894" }, //이마트 천안점
+    { shop: "나래네 날래 오라우 빵집", lat: "36.805636", lag: "127.112629" }, //선사유적지공원
+    { shop: "경진이네 경지에 이른 빵집", lat: "36.84644", lag: "127.1381" } //성성호수공원
   );
 
   const markers = new Array(); // 마커정보 담을 배열
@@ -35,7 +35,7 @@ function initMap() {
     /*정보창*/
     var infoWindow = new naver.maps.InfoWindow({
       content:
-        '<div style="width:200px; text-align : center; padding : 10px"><br>' +
+        '<div style="width:300px; text-align : center; padding : 10px"><br>' +
         shopArr[i].shop +
         "</br><br> 빵빵한천안 </br></div>",
     }); //클릭했을 때 띄워줄 HTML 작성

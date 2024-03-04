@@ -1,4 +1,5 @@
 <!-- 3. 현재 페이지번호가 블록당 페이지수보다 큰 경우 '이전'과 맨 처음페이지 기호(<<) 출력 -->
+<div id="paging_box">
 		<c:if test="${pageNav.pageNum > 10}">
 			<a href="notice.do?pageNum=1&pageBlock=1">&lt;&lt;</a>&nbsp;
     		<a href="notice.do?pageNum=${(pageNav.pageBlock-2)*pageNav.pages_pageBlock+1}&pageBlock=${pageNav.pageBlock-1}">이전</a>
@@ -22,3 +23,4 @@
 			<a href="notice.do?pageNum=${(pageNav.pageBlock*pageNav.pages_pageBlock)+1}&pageBlock=${pageNav.pageBlock+1}">다음</a>&nbsp;
     <a href="notice.do?pageNum=${pageNav.total_pageNum}&pageBlock=${pageNav.last_pageBlock}">&gt;&gt;</a>
 		</c:if>
+</div>
