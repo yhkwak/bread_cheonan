@@ -120,6 +120,8 @@ h1{font-size:0;}
             list-style: none;
         }
         #side-menu ul li a{
+        	display:block;
+        	transition: all 0.5s ease-out;
             text-decoration: none;
             font: 35px solid;
             color:gray;
@@ -127,6 +129,9 @@ h1{font-size:0;}
             font-family: 'Gasoek One', sans-serif;
             font-family: 'Gothic A1', sans-serif;
             font-family: 'Jua', sans-serif;
+        }
+        #side-menu ul li a:hover{
+            transform: translateX(10px);
         }
         #side-menu ul li{
             margin-top: 30px;

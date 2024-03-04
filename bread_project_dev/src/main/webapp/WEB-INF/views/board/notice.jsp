@@ -59,10 +59,11 @@
                             </table>
                         </div>
                     </form>
-                </div>
-                <c:if test="${member.grade eq 2}">
+                    <c:if test="${member.grade eq 2}">
                             <button type="button" id="button-write" onclick="location.href='noticeWrite.do'">글 작성</button>
-                </c:if>
+                	</c:if>
+                </div>
+                
                  <%@ include file="paging.jsp" %> 
 <!--                 <div class="page_box">
                     <ul class="pageNav">

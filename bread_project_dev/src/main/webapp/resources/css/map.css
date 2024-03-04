@@ -137,21 +137,64 @@ span {
   margin-top: 30px;
   padding-left: 35px;
 }
-#main-area {
-  float: left;
-  width: 1236px;
-  height: 1000px;
+#container-content{
+	position:relative;
+	display: flex;
+	top:80px;
+	left:200px;
+	width:1536px;
+	height:1000px;
 }
-.content-wrap {
-  position: relative;
-  left: 200px;
-  top: 40px;
-  width: 1600px;
-  height: 1000px;
+#shop_list{
+	width:400px;
+	height:800px;
+	border:1px solid lightgray;
+}
+#shop_list h2{
+	 font: 40px solid;
+	 font-family: "Grape Nuts", cursive;
+	 font-family: "Nanum Pen Script", cursive;
+	 color: gray;
+	 text-align:center;
+	 padding-top:10px;
+	 padding-right:10px;
+}
+#shop_list ul{
+	list-style:none;
+}
+#shop_list ul li{
+	position:relative;
+	left:100px;
+	bottom:95px;
+	line-height:80%;
+}
+.shop_info{
+	width:380px;
+	height:130px;
+	border: 1px solid lightgray;
+	border-radius: 15px;
+	margin:0 auto;
+	margin-top:13px;
 }
 #map {
   width: 800px;
   height: 800px;
+  border: 1px solid lightgray;
+}
+.shop_img{
+	padding-top:5px;
+	padding-left:15px;
+	width:120px;
+	height:120px;
+}
+#shop_list ul li a{
+	padding-left:10px;
+	font: 20px solid;
+	font-family: "Black Han Sans", sans-serif;
+	font-family: "Gasoek One", sans-serif;
+	font-family: "Gothic A1", sans-serif;
+	font-family: "Jua", sans-serif;
+	color: rgba(0, 0, 0, 0.788);
 }
 /********** 푸터 영역 **********/
 footer {

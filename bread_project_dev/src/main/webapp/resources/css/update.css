@@ -121,8 +121,13 @@ h1{font-size:0;}
             list-style: none;
         }
         #side-menu ul li a{
+        	display:block;
+        	transition: all 0.5s ease-out;
             text-decoration: none;
             color:gray;
+        }
+        #side-menu ul li a:hover{
+            transform: translateX(10px);
         }
         #side-menu ul li{
             font: 35px solid;

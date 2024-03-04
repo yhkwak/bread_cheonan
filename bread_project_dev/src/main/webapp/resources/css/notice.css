@@ -215,15 +215,17 @@ h1{font-size:0;}
         }
         button[type=button]{
         	position:relative;
-        	width:150px;
-        	left:534px;
-        	top:20px;
+        	width:70px;
+        	height:35px;
+        	left:535px;
+        	top:80px;
         	font: 25px solid;
             font-family: 'Black Han Sans', sans-serif;
             font-family: 'Gasoek One', sans-serif;
             font-family: 'Gothic A1', sans-serif;
             font-family: 'Jua', sans-serif;
             color:gray;
+            text-align:right;
             background-color: white;
             border:none;
         }
@@ -236,10 +238,14 @@ h1{font-size:0;}
         	margin-bottom:10px;
         }
         /********** 페이징 영역 **********/
-                        .paging_a{
+        #paging_box{
         	position:relative;
+        	text-align:center;
+        	margin-top:80px;
+        	padding-left:50px;
+        }
+        .paging_a{
         	font:25px solid;
-        	top:80px;
             text-decoration: none;
             color:gray;
         }
@@ -249,7 +255,6 @@ h1{font-size:0;}
             transition:0.5s;
         }
         .paging_a span{
-        	position:relative;
         	font: bold 40px solid;
             color:gray;
             font-family: 'Black Han Sans', sans-serif;
