@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.bread.app.common.FivePageNav;
 import com.bread.app.vo.NoticeVO;
-import com.bread.app.vo.PageVO;
 import com.bread.app.vo.SearchVO;
 import com.bread.service.notice.NoticeService;
 
@@ -33,13 +32,13 @@ public class BoardController {
 	FivePageNav pageNav;
 	
 	@GetMapping("/notice.do")
-	public String notice(SearchVO searchVO ,PageVO pageVO, Model model, HttpServletRequest request) {
+	public String notice(SearchVO searchVO , Model model, HttpServletRequest request) {
 		
 		// pageNum이 0이면 1로 세팅, 처음 호출시 0이라서 오류 발생
 		if(searchVO.getPageNum() == 0) {
 			searchVO.setPageNum(1);
 		}
-		int totalItems = nTotalCount.getTotalCount(pageVO);
+		int totalItems = nTotalCount.getTotalCount(searchVO);
 		List<NoticeVO> noticeList = nList.getBoards(searchVO);
 		for (NoticeVO notice : noticeList) {
 		    if (notice.getPost_date() != null) {
@@ -51,13 +50,13 @@ public class BoardController {
 		    }
 		}
 		model.addAttribute("noticeList", noticeList);
-		pageNav.setTotalRows(nTotalCount.getTotalCount(pageVO));
+		pageNav.setTotalRows(nTotalCount.getTotalCount(searchVO));
 		int itemsPerPage = 10; // 페이지당 게시물 수
-	    int currentPage = pageVO.getPageNum(); // 현재 페이지 번호
+	    int currentPage = searchVO.getPageNum(); // 현재 페이지 번호
 	    int startNumber = totalItems - (currentPage - 1) * itemsPerPage; // 현재 페이지의 첫 게시물 번호 계산
 	    model.addAttribute("startNumber", startNumber); // 모델에 추가
 	    pageNav.setTotalRows(totalItems);
-		pageNav = nPage.setPageNav(pageNav, pageVO.getPageNum(), pageVO.getPageBlock());
+		pageNav = nPage.setPageNav(pageNav, searchVO.getPageNum(), searchVO.getPageBlock());
 		model.addAttribute("pageNav", pageNav);
 		return "board/notice";
 	}

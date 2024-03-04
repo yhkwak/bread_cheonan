@@ -18,5 +18,5 @@ public interface NoticeService {
 	default NoticeVO getBoard(int notice_idx) {return null;}
 	default List<NoticeVO> getBoards(SearchVO vo) {return null;}
 	default FivePageNav setPageNav(FivePageNav pageNav, int pageNum, int pageBlock){return null;}
-	default int getTotalCount(PageVO vo) {return 0;}
+	default int getTotalCount(SearchVO searchVO) {return 0;}
 }

@@ -11,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.bread.app.vo.MemberVO;
 import com.bread.service.member.MemberService;
@@ -70,28 +71,20 @@ public class MemberController {
 		return "member/update";
 	}
 	/////////////////////////////// 요청처리 메소드 /////////////////////////////////
-	//회원가입 처리 요청
-		@PostMapping("/joinProcess.do")
-		public String joinProcess(MemberVO memberVO) {
-		//회원가입 양식에서 전달된 입력값을 받을 수 있도록 커맨드 객체를 정의함
-	    //커맨드 객체: 폼의 name과 같은 필드를 가지고 set메소드를 정의하고 있어야 함 - VO클래스
-			String viewPage = "member/join";//회원가입 실패 시 JSP페이지
-
-			//회원가입 요청 처리를 Service클래스에 위임
-			//Service인터페이스를 상속한 클래스로 정의함
-			//(예) MemberService인터페이스 - MemberJoinService클래스
-
-			if(mJoin.join(memberVO)==1) { //회원가입 성공 시
-				viewPage = "redirect:/main.do";//메인 페이지를 재요청함
-			}
-
-			return viewPage;
-		}
-
+	/*
+	 * //회원가입 처리 요청
+	 * 
+	 * @PostMapping("/joinProcess.do") public String joinProcess(MemberVO memberVO,
+	 * HttpServletRequest request) {
+	 * 
+	 * if(mJoin.join(memberVO) == 1) { // 회원가입 성공 시
+	 * request.getSession().setAttribute("signupSuccess", true); return
+	 * "redirect:/main.do"; } else { return "member/join"; // 회원가입 페이지로 다시 리다이렉트 } }
+	 */
 		//로그인 처리 요청
 		@PostMapping("/loginProcess.do")
 		public String loginProcess(String member_id, String member_pw,
-								   HttpServletRequest request, HttpServletResponse response, Model model) {
+								   HttpServletRequest request, HttpServletResponse response, Model model, RedirectAttributes redirectAttributes) {
 		//view단에서 post방식으로 전달된 값은 요청처리 메소드의 매개변수로 받을 수 있음
 		//전달 값의 name과 매개변수의 변수명을 동일하게 정의함
 		//로그인 처리 요청에 필요한 request객체와 model객체를 매개변수로 정의해 줌
@@ -121,7 +114,9 @@ public class MemberController {
 					response.addCookie(idCookie);
 				}
 			} else {//로그인 실패 시
-				model.addAttribute("msg", "아이디나 비밀번호가 일치하지 않습니다");
+				 redirectAttributes.addFlashAttribute("msg", "아이디나 비밀번호가 일치하지 않습니다.");
+			     redirectAttributes.addFlashAttribute("remember_id", request.getParameter("remember_id"));
+			     return "redirect:/member/login.do";
 			}
 
 			return viewPage;

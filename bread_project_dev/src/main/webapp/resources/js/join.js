@@ -3,7 +3,7 @@ $(document).ready(function() {
     var isValidPw = false;
     var isPw2 = false;
     var isValidName = false;
-    var isValidPhone = false;
+    var isValidPhoneNumber = false;
     var isValidNickname = false;
 
     // 에러 표시 함수
@@ -99,10 +99,31 @@ $(document).ready(function() {
 
         if (this.value.replace(/-/g, '').length !== 11) {
             showError('member_phone', '11자리의 숫자만 정확히 입력해주세요.');
-            isValidPhone = false;
+            isValidPhoneNumber = false;
+        } else if($("#member_phone").val() != null) {
+            var member_phone =  $("#member_phone").val(); 
+        	
+	        $.ajax({
+	            type : 'POST',
+	            data : {"member_phone": member_phone},
+	            url : "checkPhoneNumberProcess.do",
+	            success : function(resData) {
+	                if (resData == "1") {
+	                  showError('member_phone', '이미 사용중인 전화번호입니다.');
+	                  isValidPhoneNumber = false;
+	                }else {
+				        showError('member_phone', '');
+				        isValidPhoneNumber = true;
+				    }
+	            },
+	            error : function(error) {
+	                
+	                console.log("닉네임 확인시 에러 발생");
+	            }
+	        });
         } else {
             showError('member_phone', ''); // 에러 메시지 제거
-            isValidPhone = true;
+            isValidPhoneNumber = true;
         }
     });
 
@@ -158,7 +179,7 @@ $(document).ready(function() {
         else if (!isValidName) {
             errorMessage += '이름이 유효하지 않습니다.\n';
         }
-        else if (!isValidPhone) {
+        else if (!isValidPhoneNumber) {
             errorMessage += '전화번호가 유효하지 않습니다.\n';
         }
         else if (!isValidNickname) {
@@ -174,6 +195,31 @@ $(document).ready(function() {
         if (errorMessage !== '') {
             e.preventDefault(); // 폼 제출 중단
             alert(errorMessage); // 에러 메시지 표시
+            return;
         }
+        // 유효성 검사 통과 후 AJAX 요청 실행
+        var formData = {
+            member_id: $('#member_id').val(),
+            member_pw: $('#member_pw').val(),
+            member_name: $('#member_name').val(),
+            member_phone: $('#member_phone').val(),
+            member_nickname: $('#member_nickname').val(),
+            option_agree: $('#checkbox3').is(':checked') ? 1 : 0
+        };
+
+		$.ajax({
+		    type: 'POST',
+		    url: 'joinProcess.do',
+		    data: formData,
+		    success: function(response) {
+		        alert(response.message); // 성공 메시지 표시
+		        window.location.href = '/myapp/main.do';
+		    },
+		    error: function(xhr, status, error) {
+		        alert("회원가입 처리 중 에러가 발생했습니다.");
+		    }
+        });
+
+        e.preventDefault(); // 폼 기본 제출 방지
     });
 });

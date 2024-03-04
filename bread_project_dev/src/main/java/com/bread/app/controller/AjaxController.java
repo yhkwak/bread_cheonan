@@ -2,8 +2,12 @@ package com.bread.app.controller;
 
 
 import java.sql.SQLException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -18,10 +22,11 @@ import com.bread.app.vo.MemberVO;
 import com.bread.service.sms.SmsService;
 
 import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 
-//Ajax 요청을 처리하는 전용 Controller
 @RestController
 @AllArgsConstructor
+@Slf4j
 public class AjaxController {
 	private SmsService smsService;
     private MemberDAO memberDAO;
@@ -45,18 +50,60 @@ public class AjaxController {
         return result;
     }
     
-    //닉네임 중복검사 처리 요청
+    //닉네임 중복검사
     @PostMapping("/member/checkNicknameProcess.do")
     public String checkNicknameProcess(String member_nickname) throws SQLException {
-        String result="0";//중복 닉네임이 없는 경우 결과값
+        String result="0";//중복 닉네임이 없는 경우
         
         int checkNickname = memberDAO.checkNickname(member_nickname);
         if(checkNickname != 0) { //중복일경우
-            result = "1";//중복 닉네임이 있는 경우 결과값
+            result = "1";
         }
 
         return result;
     }
+    
+    //전화번호 중복검사
+    @PostMapping("/member/checkPhoneNumberProcess.do")
+    public String checkPhoneNumbrtProcess(String member_phone) throws SQLException {
+        String result="0";//중복이 없는 경우
+        
+        int checkPhoneNumber = memberDAO.checkPhoneNumber(member_phone);
+        if(checkPhoneNumber != 0) { //중복일경우
+            result = "1";
+        }
+
+        return result;
+    }
+    
+    //회원가입 alert
+    @PostMapping("/member/joinProcess.do")
+    public ResponseEntity<?> joinProcessAjax(@ModelAttribute MemberVO memberVO) { //ResponseEntity<?> ajax성공이나 오류 즉, 상태를 response출력해주기위해 사용됨
+        Map<String, Object> response = new HashMap<>();
+        try {
+
+            int result = memberDAO.join(memberVO);
+            if (result == 1) {
+                // 회원가입 성공
+                response.put("status", "success");
+                response.put("message", "회원가입이 성공적으로 완료되었습니다.\n로그인하여 서비스를 이용해주세요.");
+                return ResponseEntity.ok(response);
+            } else {
+                // 회원가입 실패
+                response.put("status", "fail");
+                response.put("message", "회원가입에 실패했습니다. 입력 정보를 다시 확인해 주세요."); 
+                return ResponseEntity.badRequest().body(response);
+            }
+        } catch (Exception e) {
+            // 예외 발생시 상세한 에러 로그 출력
+            log.error("회원가입 도중 예외 발생", e);
+
+            response.put("status", "error");
+            response.put("message", "서버 오류로 인해 처리할 수 없습니다. 관리자에게 문의해 주세요."); 
+            return ResponseEntity.badRequest().body(response);
+        }
+    }
+
     
     //////////////////// 장바구니 페이지 ////////////////////
     
