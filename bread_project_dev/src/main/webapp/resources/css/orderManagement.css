@@ -92,171 +92,273 @@ h1{font-size:0;}
         }
         /********** 메인 영역 **********/
 
-        /********** 사이드 메뉴바 영역 **********/
+	#container-content {
+	display: inline-block;
+	width: 1536px;
+	height: 1000px; /* 본인의 작업 사이즈에 맞게 변경 */
+	margin: 0 auto;
+	}
+	#side-nav {
+	float: left;
+	width: 300px;
+	height: 1000px; /* container-content height 크기와 동일하게 설정 */
+	}
+	#side-menu {
+	position: relative;
+	left: 70px;
+	top: 101px;
+	width: 220px;
+	height: 400px;
+	text-decoration: none;
+	text-align: center;
+	}
+	#side-menu h2 {
+	position:relative;
+	bottom:1px;
+	font: 45px solid;
+	color: rgba(0, 0, 0, 0.788);
+	font-family: "Black Han Sans", sans-serif;
+	font-family: "Gasoek One", sans-serif;
+	font-family: "Gothic A1", sans-serif;
+	font-family: "Jua", sans-serif;
+	}
+	#side-menu ul {
+	list-style: none;
+	}
+	#side-menu ul li a {
+	text-decoration: none;
+	color: gray;
+	}
+	#side-menu ul li {
+	font: 35px solid;
+	font-family: "Black Han Sans", sans-serif;
+	font-family: "Gasoek One", sans-serif;
+	font-family: "Gothic A1", sans-serif;
+	font-family: "Jua", sans-serif;
+	margin-top: 29px;
+	padding-right: 35px;
+	}
+	.list{
+		position:relative;
+		top:1px;
+	}
+	#list2{
+		position:relative;
+		top:2px;
+	}
+	#list3{
+		position:relative;
+		top:3px;
+	}
+	#list4{
+		position:relative;
+		top:4px;
+	}
+	#list5{
+		position:relative;
+		top:5px;
+	}
+	
+	#main-area {
+    width: 100%;
+    max-width: 1200px;
+    height: 100%;
+    float: right;
+    text-align: center;
+    font-family: 'Jua', sans-serif;
+	}
 
 
-        #container-content{
-            display: inline-block;
-            width: 1536px; 
-            height: 1000px;
-            margin: 0 auto;
-        }
+	/*구매내역*/
+	#main-area h2 {
+	font-size: 50px;
+    margin: 5px 0 30px 0;
+    color: rgba(0, 0, 0, 0.788);
+	}
+	
+	#payment_complete {
+	width: 1137px;
+    margin: 0 auto;
+    margin-left: 63px;
+    text-align: center;
+	}	
 
-        #side-nav{
-        	position:relative;
-        	bottom:1px;
-            float: left;
-            width:300px;
-            height: 1000px; /* container-content height 크기와 동일하게 설정 */
-        }
-        #side-menu{
-            position: relative;
-            left:70px;
-            top:127px;
-            width: 220px;
-            height: 400px;
-            text-decoration: none;
-            text-align: center;
-        }
-        #side-menu h2{
-            font: 45px solid;
-            color:rgba(0, 0, 0, 0.788);
-            font-family: 'Black Han Sans', sans-serif;
-            font-family: 'Gasoek One', sans-serif;
-            font-family: 'Gothic A1', sans-serif;
-            font-family: 'Jua', sans-serif;
-        }
-        #side-menu ul{
-            list-style: none;
-        }
-        #side-menu ul li a{
-            text-decoration: none;
-            color:gray;
-        }
-        #side-menu ul li{
-            font: 35px solid;
-            font-family: 'Black Han Sans', sans-serif;
-            font-family: 'Gasoek One', sans-serif;
-            font-family: 'Gothic A1', sans-serif;
-            font-family: 'Jua', sans-serif;
-            margin-top: 30px;
-            padding-right:35px;
-        }
 
-        /********** 사이드 메뉴바 영역 끝 **********/
-        #all_box{
-            width: 100%;
-            max-width: 1200px;
-            height: 100%;
-            float: right;
-            text-align: center;
-            font-family: 'Jua', sans-serif;
-        }
-        #all_box h2{
-            font-size: 50px;
-            margin: 30px 0 30px 0;
-            color: rgba(0, 0, 0, 0.788);
-        }
-        #order_box{
-            width: 1137px;
-            height: 1000px;
-            margin: 0 auto;
-            margin-left: 63px;
-            text-align: center;
-            border: 1px solid lightgrey;
-            border-radius: 15px;
-            padding:10px 30px 30px 30px;
-        }
-        .order_table_box{
-            width: 100%;
-            max-width: 1000px;
-        }
-        .order_table{
-            position: relative;
-            right:12px;
-            width:1100px;
-            margin-top: 19px;
-        }
-        .order_table th{
-            position: relative;
-            right:25px;
-            padding-bottom: 20px;
-            font-weight:normal;
-            font-size:25px;
-            font-family:'Jua', sans-serif;
-            color:gray;
-        }
-        .order_table tr{
-            position: relative;
-            left:20px;
-            width:1536px;
-            height:50px;
-        }
-        .order_table tr td{
-            position: relative;
-            padding-top: 20px;
-            width: 166px;
-            height: 10%;
-            right:25px;
-            font-size: 20px;
-            color: rgba(0, 0, 0, 0.788);
-        } 
-        .order_table tr td img{
-            width: 80px;
-            height: 70px;
-            border-radius: 15px;
-        }
-        #product{
-            width:410px;
-        }
-        button[type=button]{
-        	padding-top: 3px;
-            border: 1px solid lightgray;
-            color: rgba(0, 0, 0, 0.788);
-        }
-        button[type=button]:hover{
-        	color:white;
-        	background-color:gray;
-        	transition:0.5s;
-        }
+	.orderlist {
+		width: 1137px;
+		margin-bottom: 15px;
+		font-family: "Jua", sans-serif;
+		border: 2px solid grey;
+    	border-radius: 15px;
+	}
+	.orderlist_box{
+		width: 1118px;
+		margin-left: 8px;
+		text-align: left;
+		border-bottom: 1px solid gray;
+	}
+	.orderlist_box1{
+		display:flex;
+		height: 45px;
+	}
+	.order_status{
+		width: 50%;
+		padding: 5px 0 0 10px;
+		font-size: 25px;
+	}
+	.orderlist_count{
+		width: 50%;
+		text-align: right;
+		padding: 5px 30px 0 0;
+		font-size: 25px;
+	}
 
-        /********** 페이징 영역 **********/
-        .page_box{
-            clear: both;
-            margin: 0 auto;
-            width: 50%;
-            text-align: center;
-        }
-        .pageNav{
-            display: flex;
-            margin: 30px 0 0 0;
-            justify-content: center;
-            list-style: none;
-            padding: 0;
-            font: 25px solid bold;
-            font-family: 'Jua', sans-serif;
-        }
-        .page_box ul li{
-            padding: 10px;
-            text-decoration: none;
-        }
-        .page_box ul li a{
-            text-decoration: none;
-            color: gray;
-        }
-        .page_box ul li a:hover{
-            color:#F39C12;
-            border:none;
-            transition: 0.2s;
-        }
-        button{
-            width:60px;
-            height:35px;
-            border:1px solid gray;
-            background-color: white;
-        }
 
-        /********** 풋터 **********/
+
+	.orderlist_box2{
+		display: flex;
+		position: relative;
+		top: 1px;
+		width: 1110px;
+		margin-left: 12px;
+		border-bottom: 1px solid gray;
+	}
+	.orderlist_box2_img{
+		width: 160px;
+		height: 160px;
+		padding-top: 10px;
+	}
+	.orderlist_box2_img img{
+		width: 150px;
+		height: 150px;
+		border-radius: 15px;
+	}
+	.orderlist_box2-1{
+		display: block;
+		width: 650px;
+		padding: 10px 0 10px 10px;
+		font-size: 20px;
+		color: gray;
+		text-align: left;
+	}
+	.order_date{
+		height: 30px;
+		padding-top: 5px;
+	}
+	.bakery_name{
+		height: 52px;
+		font-size: 25px;
+		color: rgba(0, 0, 0, 0.788);
+	}
+	.bread_name{
+		height: 30px;
+	}
+	
+	
+	
+	.orderlist_box2-2{
+		display: flex;
+		height: 40px;
+	}
+	
+	.orderlist_all_p{
+		position:relative;
+		bottom: 5px;
+		font-size: 25px;
+		color: rgba(0, 0, 0, 0.788);
+		padding-left: 20px;
+	}
+	.orderlist_all_p_s{
+		font-size: 25px;
+		color: #F39C12;
+	}
+	.text_t{
+		width: 50px;
+		text-align: center;
+	}
+
+	.orderlist_box2-3{
+		display: flex;
+		width: 300px;
+	}
+	.btn_box{
+		width: 327px;
+		padding: 18px 20px;
+	}
+	/* #button-write:hover {
+		color: #fff;
+		background-color: #f39c12;
+		transition: 0.5s;
+	} */
+	#button-write {
+		width: 270px;
+		height: 60px;
+		margin-bottom: 15px;
+		border: 1px solid lightgray;
+		border-radius: 5px;
+		background-color: #F39C12;
+		color: #fff;
+		font-size: 25px;
+		font-family: "Jua", sans-serif;
+	}
+	/* #button-re:hover{
+		color: #fff;
+		background-color: #f39c12;
+		transition: 0.5s;
+	} */
+	#button-re{
+		width: 270px;
+		height: 60px;
+		border: 1px solid lightgray;
+		border-radius: 5px;
+		background-color: lightgrey;
+		color: #fff;
+		font-size: 25px;
+		font-family: "Jua", sans-serif;
+	}
+	
+	/********** 페이징 영역 **********/
+    #page_box{
+    clear: both;
+    margin: 0 auto;
+    width: 50%;
+    text-align: center;
+    }
+    .pageNav{
+    display: flex;
+    margin: 30px 0 0 0;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+    font: 25px solid bold;
+    font-family: 'Jua', sans-serif;
+    }
+    .page_box ul li{
+    padding: 10px;
+    text-decoration: none;
+    }
+    .page_box ul li a{
+    text-decoration: none;
+    color: gray;
+    }
+    .page_box ul li a:hover{
+    color:#F39C12;
+    border:none;
+    transition: 0.2s;
+    }
+    button{
+    width:130px;
+    height:35px;
+    border:1px solid gray;
+    background-color: white;
+    }
+    #noOrder{
+    position: relative;
+    top: 405px;
+    font: 25px solid;
+    color: gray;
+    font-family: 'Jua', sans-serif;
+    }        /********** 풋터 **********/
         footer{
             position:absolute;
             top: 1450px;

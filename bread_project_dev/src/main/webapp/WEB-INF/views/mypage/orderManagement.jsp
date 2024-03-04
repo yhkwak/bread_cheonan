@@ -1,4 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -38,42 +41,66 @@
             <div id="all_box">
             	<h2>주문관리</h2>
                 <div id="order_box">
-                    <form>
-                        <div class="order_table_box">
-                            <table class="order_table">
-                                <tr style="border-bottom: 1px solid lightgray">
-                                    <th>NO</th>
-                                    <th>상품명</th>
-                                    <th>주문자</th>
-                                    <th>주문 시간</th>
-                                    <th>수량</th>
-                                    <th>결제 금액</th>
-                                    <th>주문 승인</th>  
-                                </tr>                            
-                                <tr>
-                                    <td rowspan="2">1</td>
-                                    <td id="product" rowspan="2"><img src="${pageContext.request.contextPath}/resources/css/img/bread10.PNG">&emsp;경진이네 기본에 충실한 식빵</td>
-                                    <td rowspan="2">조경진</td>
-                                    <td rowspan="2">02/07<br>19:21</td>
-                                    <td rowspan="2">3</td>
-                                    <td rowspan="2">9000</td>
-                                    <td rowspan="2"><button type="button">취소</button></td>
-                                </tr>
-                            </table>
-                        </div>
-                    </form>
-                </div>
-                <div class="page_box">
-                    <ul class="pageNav">
-                        <li><a href="#" class="arrow_left"><</a></li>
-                        <li><a href="#" class="1">1</a></li>
-                        <li><a href="#" class="2">2</a></li>
-                        <li><a href="#" class="3">3</a></li>
-                        <li><a href="#" class="4">4</a></li>
-                        <li><a href="#" class="5">5</a></li>
-                        <li><a href="#" class="arrow_last">></a></li>
-                    </ul>
-                </div>
+                    <c:choose>
+						<c:when test="${empty orderList}">
+							<div class="orderlist">
+								<div id="noOder">주문내역이 없습니다</div>
+							</div>
+						</c:when>
+						<c:otherwise>
+							<!-- 데이터가 있는 경우 -->
+							<c:forEach var="i" begin="${pageNav.startNum}" end="${pageNav.endNum}" varStatus="vs">
+								<c:if test="${not empty orderList[vs.count-1]}">
+									<div class="orderlist">
+										<!-- 결제 상태 출력 -->
+										<div class="orderlist_box">
+											주문자 이름: ${orderList[vs.count-1].member_name}
+										</div>
+                                        <c:if test="${not empty orderList[vs.count-1]}">
+											<c:forEach var="j" begin="0" end="${orderList[vs.count-1].itemList.size()-1}">
+												<input type="hidden" name="bread_idx" value="${orderList[vs.count-1].itemList[j].bread_idx}">
+                                                <div class="orderlist_box2">
+                                                    <%-- <div class="orderlist_box2_img">${orderList[vs.count-1].itemList[j].bread_img_save}</div> --%>
+                                                    <div class="orderlist_box2_img"><img src=../resources/css/img/test_img07.png></div>
+                                                    <div class="orderlist_box2-1">
+                                                        <div class="order_date">주문 날짜 : <fmt:formatDate value="${orderList[vs.count-1].payment_date}" pattern="yyyy-MM-dd HH:mm:ss" /></div>
+                                                        <div class="bakery_name">${orderList[vs.count-1].itemList[j].bakery_name}</div>
+                                                        <div class="bread_name">${orderList[vs.count-1].itemList[j].bread_name}</div>
+                                                        <div class="orderlist_box2-2">
+                                                        	<div class="orderlist_box2-3">								
+                                                            	<div class="bread_price">${orderList[vs.count-1].itemList[j].bread_price} 원</div>
+                                                            	<div class="text_t">✕</div>
+													        	<div class="bread_count">${orderList[vs.count-1].itemList[j].bread_count}</div>
+                                                            	<div class="text_t">=</div>
+													        	<div class="br_a_price">${orderList[vs.count-1].itemList[j].bread_count*orderList[vs.count-1].itemList[j].bread_price} 원</div>
+													        </div>
+													        <div class="orderlist_all_p" >주문 총 금액 : <span class="orderlist_all_p_s" >${orderList[vs.count-1].amount}</span> 원</div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="btn_box">
+                                                        <!-- 리뷰 -->
+                                                        <c:choose>
+                                                            <c:when test="${orderList[vs.count-1].payment_status eq 0 }">
+                                                                <div><button type="button" id="button-write" onclick="location.href='${pageContext.request.contextPath}/review/reviewWrite.do?bread_idx=${orderList[vs.count-1].itemList[j].bread_idx}&order_idx=${orderList[vs.count-1].itemList[j].order_idx}&member_idx=${member.member_idx}'">리뷰작성</button></div>
+                                                                <div><button type="button" id="button-re" onclick="location.href='http://localhost:9090/myapp/search/viewBakery.do?bakery_idx=${orderList[vs.count-1].itemList[j].bakery_idx}'">재구매</button></div>
+                                                            </c:when>
+                                                        </c:choose>
+                                                    </div>
+                                                </div>
+											</c:forEach>
+										</c:if>
+
+									</div>
+								</c:if>
+							</c:forEach>
+						</c:otherwise>
+					</c:choose>
+				</div>
+				<div>
+					<c:if test="${not empty orderList}">
+						<div id="td_paging"><%@ include file="paging2.jsp"%></div>
+					</c:if>
+				</div>
             </div>
         </section>
         

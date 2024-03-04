@@ -12,5 +12,6 @@ public class PageVO {
 	
 	private int member_idx;
 	private String order_idx;
+	private int bakery_idx;
 
 }

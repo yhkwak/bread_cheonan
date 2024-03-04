@@ -1,10 +1,11 @@
 package com.bread.app.vo;
 
 
-import lombok.Data;
+import java.util.List;
+
 import org.springframework.web.multipart.MultipartFile;
 
-import java.util.List;
+import lombok.Data;
 
 @Data
 public class BreadVO {

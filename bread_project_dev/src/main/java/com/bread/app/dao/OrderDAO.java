@@ -20,16 +20,30 @@ public class OrderDAO {
 	// db연결작업
 	private	final SqlSession sqlSession;
 	
-	// 주문내역 조회 - 오더
+	// 구매내역 조회 - 오더
 	public List<OrderVO> order(PageVO vo) {
 		return sqlSession.selectList(MAPPER+".order",vo);
 	}
-	// 주문내역 조회 - 아이템
+	// 구매내역 조회 - 아이템
 	public List<ItemVO> item(PageVO vo){
 		return sqlSession.selectList(MAPPER+".item", vo);
 	}
 	//개인 주문내역의 총 갯수-페이징...
 	public int getTotalCount(PageVO vo) {
 		return sqlSession.selectOne(MAPPER+".getTotalCount",vo);
+	}
+	
+	// 주문내역 조회 - 오더
+	public List<OrderVO> order2(PageVO vo) {
+		return sqlSession.selectList(MAPPER+".order2",vo);
+	}
+	
+	// 주문내역 조회 - 아이템
+	public List<ItemVO> item2(PageVO vo){
+		return sqlSession.selectList(MAPPER+".item2", vo);
+	}
+	
+	public int getBakeryIdx(int member_idx) {
+		return sqlSession.selectOne(MAPPER+".getBakeryIdx", member_idx);
 	}
 }

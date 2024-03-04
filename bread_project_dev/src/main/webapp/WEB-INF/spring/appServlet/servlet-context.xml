@@ -25,6 +25,88 @@
 	<beans:bean id="multipartResolver" class="org.springframework.web.multipart.support.StandardServletMultipartResolver">
 	</beans:bean>
 	
+	<!-- Interceptor 관련 설정 추가 -->
+	<interceptors>
+		<interceptor>
+			<mapping path="/**/*.do" />
+			<!-- 경로 패턴을 가리키는 특수문자(*: 0개 또는 그 이상의 문자, ?: 1개 글자, **: 0개 또는 그 이상의 폴더 경로 -->
+			
+			<!-- 홈 화면에서 제외되는 요청들 -->
+			<exclude-mapping path="/"/>
+			<exclude-mapping path="/index.do"/>
+			<exclude-mapping path="/info/info.do"/>
+			<exclude-mapping path="/info/accessterms.do"/>
+			<exclude-mapping path="/info/advertisement.do"/>
+			<exclude-mapping path="/info/faq.do"/>
+			
+			
+			<!-- 회원관리에서 제외되는 요청들 -->
+			<exclude-mapping path="/member/join.do"/>
+			<exclude-mapping path="/member/checkId.do"/>
+			<exclude-mapping path="/member/joinProcess.do"/>
+			<exclude-mapping path="/member/login.do"/>
+			<exclude-mapping path="/member/loginProcess.do"/>
+			<exclude-mapping path="/member/findId.do"/>
+			<exclude-mapping path="/member/findIdProcess.do"/>
+			<exclude-mapping path="/member/findPw.do"/>
+			<!-- <exclude-mapping path="/member/findPwProcess.do"/> -->
+			
+			<!-- 지도 페이지에서 제외되는 요청들 -->
+			<exclude-mapping path="/map/map.do"/>
+			
+			<!-- 빵집 찾기 페이지에서 제외되는 요청들 -->
+			<exclude-mapping path="/search/searchBakery.do"/>
+			<exclude-mapping path="/search/viewBakery.do"/>
+			
+			<!-- 공지사항 페이지에서 제외되는 요청들 -->
+			<exclude-mapping path="/board/notice.do"/>
+			<exclude-mapping path="/board/view.do"/>
+			<exclude-mapping path="/board/download.do"/>
+			
+			<!-- 후기 게시판 페이지에서 제외되는 요청들 -->
+			<exclude-mapping path="/review/review.do"/>
+			<exclude-mapping path="/review/view.do"/>
+			<exclude-mapping path="/reivew/download.do"/>
+			
+			<!-- 로그인 인터셉터의 기능을 수행하는 자바클래스 빈 등록 -->
+			<beans:bean id="loginInterceptor" class="com.bread.app.interceptor.LoginInterceptor" />
+			
+		</interceptor>
+		<interceptor>
+			<!-- 판매자 회원 관련 인터셉터 추가 -->
+			
+			<mapping path="/mypage/shopinfo.do"/>
+			<mapping path="/mypage/joinProcess.do"/>
+			<mapping path="/mypage/updateProcess.do"/>
+			<mapping path="/mypage/productManagement.do"/>
+			<mapping path="/mypage/productWrite.do"/>
+			<mapping path="/mypage/productWriteProcess.do"/>
+			<mapping path="/mypage/productUpdate.do"/>
+			<mapping path="/mypage/productUpdateProcess.do"/>
+			<mapping path="/mypage/productDelete.do"/>
+			<mapping path="/mypage/orderManagement.do"/>
+			
+			<!-- 판매자 인터셉터의 기능을 수행하는 자바클래스 빈 등록 -->
+			<beans:bean id="sellerInterceptor" class="com.bread.app.interceptor.SellerInterceptor" />
+		</interceptor>
+		<interceptor>
+			<!-- 관리자 회원 관련 인터셉터 추가 -->
+			<mapping path="/admin/AdminMemManagement.do"/>
+			<mapping path="/admin/updateProcess.do"/>
+			<mapping path="/admin/productManagement.do"/>
+			<mapping path="/admin/adminProductUpdate.do"/>
+			<mapping path="/admin/adminProductUpdateProcess.do"/>
+			<mapping path="/admin/AdminStoreManagement.do"/>
+			<mapping path="/admin/updateStoreProcess.do"/>
+			
+			<!-- 공지사항 페이지 관리자 회원 인터셉터 추가 -->
+			<mapping path="/board/noticeWrite.do"/>
+			
+			<!-- 관리자 인터셉터의 기능을 수행하는 자바클래스 빈 등록 -->
+			<beans:bean id="adminInterceptor" class="com.bread.app.interceptor.AdminInterceptor" />
+		</interceptor>
+	</interceptors>
+	
 	<context:component-scan base-package="com.bread.app" />
 	<context:component-scan base-package="com.bread.service" />
 	

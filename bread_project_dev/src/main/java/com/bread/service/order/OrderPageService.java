@@ -10,7 +10,7 @@ public class OrderPageService implements OrderService {
 	@Override
 	public TenPageNav setPageNav(TenPageNav pageNav, int pageNum, int pageBlock) {
 		int totalRows = pageNav.getTotalRows();//1. 총게시물수 : totalRows
-		int rows_page = 10;//2. 한 페이지에 보여줄 게시물수 : rows_page
+		int rows_page = 5;//2. 한 페이지에 보여줄 게시물수 : rows_page
 		int pages_pageBlock = 5;//3. 한 페이지블록에 보여줄 페이지수 : pages_pageBlock
 		
 		pageNav.setRows_page(rows_page);
