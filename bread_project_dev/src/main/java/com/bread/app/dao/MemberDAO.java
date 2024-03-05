@@ -50,7 +50,7 @@ public class MemberDAO {
 	    public int checkUpdateNickname(String member_nickname) throws SQLException {
 	        return sqlSession.selectOne(MAPPER+".checkUpdateNickname",member_nickname);
 	    }
-	    //회우너정보수정 전화번호 중복검사
+	    //회원정보수정 전화번호 중복검사
 	    public int checkUpdatePhoneNumber(String member_phone) throws SQLException {
 	        return sqlSession.selectOne(MAPPER+".checkUpdatePhoneNumber",member_phone);
 	    }
