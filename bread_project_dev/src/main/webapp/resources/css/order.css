@@ -144,27 +144,26 @@
 	margin-top: 29px;
 	padding-right: 35px;
 	}
-	.list{
+	#li_2{
 		position:relative;
 		top:1px;
 	}
-	#list2{
+	#li_3{
 		position:relative;
 		top:2px;
 	}
-	#list3{
+	#li_4{
 		position:relative;
 		top:3px;
 	}
-	#list4{
+	#li_5{
 		position:relative;
 		top:4px;
-	}
-	#list5{
+	}	
+	#li_6{
 		position:relative;
 		top:5px;
-	}
-	
+	}			
 	#main-area {
     width: 100%;
     max-width: 1200px;
@@ -211,11 +210,12 @@
 		width: 50%;
 		padding: 6px 0 0 10px;
 		font-size: 25px;
+		color: rgba(0, 0, 0, 0.788);
 	}
 	.orderlist_count{
 		width: 50%;
 		text-align: right;
-		padding: 5px 30px 0 0;
+		padding: 7px 15px 0 0;
 		font-size: 25px;
 	}
 
@@ -288,6 +288,7 @@
 	#button-write {
 		width: 270px;
 		height: 60px;
+		padding-top:3px;
 		margin-bottom: 15px;
 		border: 1px solid lightgray;
 		border-radius: 5px;
@@ -295,41 +296,36 @@
 		color: #fff;
 		font-size: 25px;
 		font-family: "Jua", sans-serif;
-		transition: all 0.6s;
+		transition: all 0.5s;
 		cursor: pointer;
 	}
 	
 	#button-write span{
-		cursor: poiner;
+		cursor: pointer;
 		display: inline-block;
 		position: relative;
-		transition: 0.6s;
+		transition: 0.5s;
 	}
 	#button-write span:after{
 		content: '→';
 		position: absolute;
 		opacity: 0;
 		top: 0;
-		right: -18px;
-		transition: 0.6s;
+		right: -40px;
+		transition: 0.5s;
 	}
 	#button-write:hover span{
-		padding-right: 30px;
-		transition: 0.6s;
+		padding-right: 40px;
+		transition: 0.5s;
 	}
 	#button-write:hover span:after{
 		opacity: 1;
 		right: 0;
-	}
-	
-	
-	
-	
-
-	
+	}	
 	#button-re{
 		width: 270px;
 		height: 60px;
+		padding-top:5px;
 		border: 1px solid lightgray;
 		border-radius: 5px;
 		background-color: lightgrey;
@@ -342,19 +338,19 @@
 		cursor: poiner;
 		display: inline-block;
 		position: relative;
-		transition: 0.6s;
+		transition: 0.5s;
 	}
 	#button-re span:after{
 		content: '→';
 		position: absolute;
 		opacity: 0;
 		top: 0;
-		right: -18px;
-		transition: 0.6s;
+		right: -40px;
+		transition: 0.5s;
 	}
 	#button-re:hover span{
-		padding-right: 30px;
-		transition: 0.6s;
+		padding-right: 40px;
+		transition: 0.5s;
 	}
 	#button-re:hover span:after{
 		opacity: 1;

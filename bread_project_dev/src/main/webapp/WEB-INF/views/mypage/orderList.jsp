@@ -24,19 +24,7 @@
 		<%@ include file="../common/header.jsp"%>
 		<section id="container-content">
 			<h1>내용 영역</h1>
-			<div id="side-nav">
-				<div id="side-menu">
-					<h2>마이페이지</h2>
-					<ul>
-						<li><a href="${pageContext.request.contextPath}/member/update.do">프로필 수정</a></li>
-						<li id="li_2"><a href="${pageContext.request.contextPath}/mypage/orderList.do">구매내역</a></li>
-						<li><a href="${pageContext.request.contextPath}/cart/cart.do?member_idx=${member.member_idx}">장바구니</a></li>
-						<li id="li_4"><a href="${pageContext.request.contextPath}/mypage/shopinfo.do?member_idx=${member.member_idx}">가게관리</a></li>
-						<li><a href="${pageContext.request.contextPath}/mypage/productManagement.do">상품관리</a></li>
-						<li id="li_6"><a href="${pageContext.request.contextPath}/mypage/orderManagement.do">주문관리</a></li>
-					</ul>
-				</div>
-			</div>
+			<%@ include file = "../common/navigation.jsp" %>
 			<div id="main-area">
 				<h2>구매내역</h2>
 				<div id="payment_complete">
@@ -70,7 +58,7 @@
 											<c:forEach var="j" begin="0" end="${orderList[vs.count-1].itemList.size()-1}">
 												<input type="hidden" name="bread_idx" value="${orderList[vs.count-1].itemList[j].bread_idx}">
                                                 <div class="orderlist_box2">
-                                                    <div class="orderlist_box2_img">${orderList[vs.count-1].itemList[j].bread_img_save}</div>
+                                                    <div class="orderlist_box2_img"><img src="${pageContext.request.contextPath}/resources/uploads/${orderList[vs.count-1].itemList[j].bread_img_save}"></div>
                                                     <!-- <div class="orderlist_box2_img"><img src=../resources/css/img/test_img07.png></div> -->
                                                     <div class="orderlist_box2-1">
                                                         <div class="order_date">주문 날짜 : <fmt:formatDate value="${orderList[vs.count-1].payment_date}" pattern="yyyy-MM-dd HH:mm:ss" /></div>
