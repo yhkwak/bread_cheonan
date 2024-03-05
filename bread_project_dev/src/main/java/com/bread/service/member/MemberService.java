@@ -30,4 +30,16 @@ public interface MemberService {
 		return null;
 	}
 
+	default MemberVO findPw(String member_id, String member_phone) {
+		return null;
+	}
+
+	default MemberVO changePw(MemberVO memberVO, HttpServletRequest request) {
+		return null;
+	}
+
+	default MemberVO getPassword(MemberVO memberVO) {
+		return null;
+	}
+
 }

@@ -72,5 +72,22 @@ public class MemberDAO {
 			map.put("member_phone", member_phone);
 			return sqlSession.selectOne(MAPPER+".getFindId", map);
 		}
+		
+		//비밀번호 찾기
+		public MemberVO getFindPw(String member_id, String member_phone) throws SQLException{
+			Map<String, String> map = new HashMap<String, String>();
+			map.put("member_id", member_id);
+			map.put("member_phone", member_phone);
+			return sqlSession.selectOne(MAPPER+".getFindPw", map);
+		}
+		
+		// 회원정보 update
+		public MemberVO changePw(MemberVO vo) throws SQLException{
+			MemberVO newVO = null;		
+			if(sqlSession.update(MAPPER+".changePw", vo) == 1) {//회원정보 업데이트 성공
+				newVO = getFindPw(vo.getMember_id(), vo.getMember_phone());
+			}
+			return newVO;
+		}
 
 }
