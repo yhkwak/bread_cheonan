@@ -7,10 +7,10 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.bread.app.common.TenPageNav;
+import com.bread.app.common.FivePageNav;
 import com.bread.app.vo.ItemVO;
 import com.bread.app.vo.MemberVO;
 import com.bread.app.vo.OrderVO;
@@ -27,9 +27,9 @@ public class OrderController {
 	OrderService oList, oPage, oTotalCount, oManage, gBakery;
 	
 	@Setter(onMethod_={ @Autowired } )
-	TenPageNav pageNav;
+	FivePageNav pageNav;
 
-	@RequestMapping(value = "/orderList.do", method = RequestMethod.GET)
+	@GetMapping("/orderList.do")
 	public String item(PageVO vo, HttpSession session, Model model) {
 		//pageNum이 0인 경우 1로 세팅함
 		if(vo.getPageNum()==0) {
@@ -38,7 +38,7 @@ public class OrderController {
 	    // 세션에서 회원 정보를 가져옴.
 	    MemberVO memberVO = (MemberVO) session.getAttribute("member");
 	    vo.setMember_idx(memberVO.getMember_idx());
-	    
+
 	    // 회원 번호를 사용하여 주문 목록을 조회. - 전체
 	    List <OrderVO> order = oList.order(vo);
 	    
@@ -63,7 +63,7 @@ public class OrderController {
 	    return "mypage/orderList";
 	}
 	
-	@RequestMapping(value = "/orderManagement.do", method = RequestMethod.GET)
+	@GetMapping("/orderManagement.do")
 	public String orderManagement(PageVO vo, HttpSession session, Model model) {
 		//pageNum이 0인 경우 1로 세팅함
 		if(vo.getPageNum()==0) {
@@ -90,8 +90,6 @@ public class OrderController {
 	    //페이징
 	    pageNav.setTotalRows(oTotalCount.getTotalCount2(vo));
 	    pageNav=oPage.setPageNav(pageNav,vo.getPageNum(),vo.getPageBlock());
-	    System.out.println(vo);
-	    
 	    model.addAttribute("pageNav", pageNav);
 
 	    

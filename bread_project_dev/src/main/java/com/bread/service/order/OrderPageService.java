@@ -2,13 +2,13 @@ package com.bread.service.order;
 
 import org.springframework.stereotype.Service;
 
-import com.bread.app.common.TenPageNav;
+import com.bread.app.common.FivePageNav;
 
 @Service("oPage")
 public class OrderPageService implements OrderService {
 	//페이지 네비게이션을 위한 9개의 변수에 대한 설정
 	@Override
-	public TenPageNav setPageNav(TenPageNav pageNav, int pageNum, int pageBlock) {
+	public FivePageNav setPageNav(FivePageNav pageNav, int pageNum, int pageBlock) {
 		int totalRows = pageNav.getTotalRows();//1. 총게시물수 : totalRows
 		int rows_page = 5;//2. 한 페이지에 보여줄 게시물수 : rows_page
 		int pages_pageBlock = 5;//3. 한 페이지블록에 보여줄 페이지수 : pages_pageBlock

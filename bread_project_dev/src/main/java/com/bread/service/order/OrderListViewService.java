@@ -20,11 +20,11 @@ public class OrderListViewService implements OrderService {
     
     @Override
     public List<ItemVO> item(PageVO vo){
-    	vo.setStartIdx((vo.getPageNum()-1)*5);
         return dao.item(vo);
     }
     @Override
     public List<OrderVO> order(PageVO vo) {
+    	vo.setStartIdx((vo.getPageNum()-1)*5);
     	return dao.order(vo);
     }
 }
