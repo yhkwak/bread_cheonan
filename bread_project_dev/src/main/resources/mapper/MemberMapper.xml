@@ -53,8 +53,17 @@
 	<select id="getFindId" resultType="memberVO">
 		select * from bc_member where member_name=#{member_name} and member_phone=#{member_phone}
 	</select>
+	
+	<!-- 비밀번호 찾기 -->
+	<select id="getFindPw" resultType="memberVO">
+		select * from bc_member where member_id=#{member_id} and member_phone=#{member_phone}
+	</select>
 
-
+	<update id="changePw">
+		update bc_member
+		set member_pw=#{member_pw}
+		where member_id=#{member_id} and member_phone=#{member_phone}
+	</update>
 
 
 

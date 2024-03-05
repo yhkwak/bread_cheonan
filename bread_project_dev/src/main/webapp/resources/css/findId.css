@@ -114,7 +114,7 @@ span {
 /********** 메인 영역 **********/
 #container-content {
 	width: 1536px; 
-	height: 1000px;
+	height: 850px;
 	margin: 0 auto;
 	font-family: 'Jua', sans-serif;
 	text-align: center;
@@ -241,6 +241,7 @@ footer {
 	position: absolute;
 	width: 1536px;
 	height: 300px;
+	margin-top: 200px;
 	margin-bottom: 0px;
 	background-color: rgb(245, 246, 247);
 }
