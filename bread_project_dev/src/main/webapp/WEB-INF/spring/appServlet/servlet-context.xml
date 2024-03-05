@@ -55,7 +55,7 @@
 			<exclude-mapping path="/member/findId.do"/>
 			<exclude-mapping path="/member/findIdProcess.do"/>
 			<exclude-mapping path="/member/findPw.do"/>
-			<!-- <exclude-mapping path="/member/findPwProcess.do"/> -->
+			<exclude-mapping path="/member/findPwProcess.do"/>
 			
 			<!-- 지도 페이지에서 제외되는 요청들 -->
 			<exclude-mapping path="/map/map.do"/>
