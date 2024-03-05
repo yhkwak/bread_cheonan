@@ -38,8 +38,4 @@ public interface MemberService {
 		return null;
 	}
 
-	default MemberVO getPassword(MemberVO memberVO) {
-		return null;
-	}
-
 }
