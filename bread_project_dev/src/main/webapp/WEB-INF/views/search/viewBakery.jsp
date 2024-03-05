@@ -170,9 +170,20 @@
                 		<input type="hidden" class="bread_idx" name="bread_idx" value="${breadList[i].bread_idx}">
                     	<table id="pickup_box_table">                          
                             <tr>
+<%--                                 <td rowspan="6" class="bakery_img">
+                                	<img id="tel_img" src="${pageContext.request.contextPath}/resources/uploads/${bread.bread_img_save}"></td>
+                                <img id="tel_img" src="../resources/css/img/BreadProfile_img2.PNG"></td> --%>
                                 <td rowspan="6" class="bakery_img">
-                                <%-- <img id="tel_img" src="${pageContext.request.contextPath}/resources/uploads/${bread.bread_img_save}"></td> --%>
-                                <img id="tel_img" src="../resources/css/img/BreadProfile_img2.PNG"></td>
+	                                <c:choose>
+										<c:when test="${not empty breadList[i].bread_img_save}">
+											<img src="${pageContext.request.contextPath}/resources/uploads/${breadList[i].bread_img_save}">
+										</c:when>
+										<c:otherwise>
+											<img src="${pageContext.request.contextPath}/resources/css/img/BreadProfile_img2.PNG">
+										</c:otherwise>
+									</c:choose>
+                                
+                                </td>
                             </tr>
                             <tr>
                                 <td><span id="bread_name">${breadList[i].bread_name}</span></td>

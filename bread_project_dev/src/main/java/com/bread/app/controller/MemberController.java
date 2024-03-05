@@ -127,23 +127,20 @@ public class MemberController {
 			return viewPage;
 		}
 
-		@PostMapping("/updateProcess.do")
-		public String updateProcess(MemberVO memberVO, HttpServletRequest request, Model model) {
-			String viewPage = "member/update"; // 변경 실패시 페이지
-			MemberVO newVO = mUpdate.update(memberVO, request);
-
-			if (newVO != null) { // 로그인 성공시 세션으로 객체저장
-				HttpSession session = request.getSession();
-				session.removeAttribute("member");
-				session.setAttribute("member", newVO);
-				viewPage = "redirect:/main.do"; // 메인페이지 재요청
-			} else { // 로그인 실패 시
-				model.addAttribute("msg", "아이디나 비밀번호가 일치하지 않습니다");
-			}
-
-			return viewPage;
-		}
-
+		/*
+		 * @PostMapping("/updateProcess.do") public String updateProcess(MemberVO
+		 * memberVO, HttpServletRequest request, Model model) { String viewPage =
+		 * "member/update"; // 변경 실패시 페이지 MemberVO newVO = mUpdate.update(memberVO,
+		 * request);
+		 * 
+		 * if (newVO != null) { // 로그인 성공시 세션으로 객체저장 HttpSession session =
+		 * request.getSession(); session.removeAttribute("member");
+		 * session.setAttribute("member", newVO); viewPage = "redirect:/main.do"; //
+		 * 메인페이지 재요청 } else { // 로그인 실패 시 model.addAttribute("msg",
+		 * "아이디나 비밀번호가 일치하지 않습니다"); }
+		 * 
+		 * return viewPage; }
+		 */
 		//로그아웃 처리 요청
 		@GetMapping("/logout.do")
 		public String logout(HttpServletRequest request) {

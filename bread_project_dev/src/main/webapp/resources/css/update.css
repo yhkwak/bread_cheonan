@@ -263,6 +263,17 @@ h1{font-size:0;}
             border:none;
             transition: 0.5s;
         }        
+        .error-message {
+		    display: block;
+		    color: red;
+		    text-align: left;
+		    margin-left: 86px;
+		    font:18px solid;
+            font-family: 'Black Han Sans', sans-serif;
+            font-family: 'Gasoek One', sans-serif;
+            font-family: 'Gothic A1', sans-serif;
+            font-family: 'Jua', sans-serif;
+        }
         /********** 푸터 영역 **********/
         footer{
             position:absolute;

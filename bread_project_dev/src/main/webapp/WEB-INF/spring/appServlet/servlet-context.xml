@@ -39,7 +39,13 @@
 			<exclude-mapping path="/info/advertisement.do"/>
 			<exclude-mapping path="/info/faq.do"/>
 			
-			
+			<!-- 회원가입 시 유효성 검사 관련 제외되는 요청들 -->
+			<exclude-mapping path="/member/checkIdProcess.do" />
+			<exclude-mapping path="/member/checkNicknameProcess.do" />
+			<exclude-mapping path="/member/checkPhoneNumberProcess.do" />
+			<!-- 회원정보수정 시 유효성 검사 관련 제외되는 요청들 -->
+			<exclude-mapping path="/member/checkUpdateNicknameProcess.do" />
+			<exclude-mapping path="/member/checkUpdatePhoneNumberProcess.do" />
 			<!-- 회원관리에서 제외되는 요청들 -->
 			<exclude-mapping path="/member/join.do"/>
 			<exclude-mapping path="/member/checkId.do"/>

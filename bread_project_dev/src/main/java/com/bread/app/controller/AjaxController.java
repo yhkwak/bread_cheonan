@@ -6,6 +6,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -19,21 +23,25 @@ import com.bread.app.dao.SearchDAO;
 import com.bread.app.vo.BreadVO;
 import com.bread.app.vo.CartVO;
 import com.bread.app.vo.MemberVO;
+import com.bread.service.member.MemberService;
 import com.bread.service.sms.SmsService;
 
 import lombok.AllArgsConstructor;
+import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 
 @RestController
 @AllArgsConstructor
 @Slf4j
 public class AjaxController {
-	private SmsService smsService;
+	//private SmsService smsService;
     private MemberDAO memberDAO;
     private SearchDAO searchDAO;
     private AdminMemDAO adminMemDAO;
     private AdminStoreDAO adminStoreDAO;
     private CartDAO cartDAO;
+    private MemberService mUpdate;
+
     
     //////////////////// 중복 검사 ////////////////////
     
@@ -42,6 +50,8 @@ public class AjaxController {
     public String checkIdProcess(String member_id) throws SQLException {
         String result="0";//중복 아이디가 없는 경우 결과값
         
+        System.out.println("member_id:"+member_id);
+        
         int checkId = memberDAO.checkId(member_id);
         if(checkId != 0) { //중복일경우
             result = "1";//중복 아이디가 있는 경우 결과값
@@ -49,8 +59,7 @@ public class AjaxController {
 
         return result;
     }
-    
-    //닉네임 중복검사
+  //닉네임 중복검사
     @PostMapping("/member/checkNicknameProcess.do")
     public String checkNicknameProcess(String member_nickname) throws SQLException {
         String result="0";//중복 닉네임이 없는 경우
@@ -71,6 +80,32 @@ public class AjaxController {
         int checkPhoneNumber = memberDAO.checkPhoneNumber(member_phone);
         if(checkPhoneNumber != 0) { //중복일경우
             result = "1";
+        }
+
+        return result;
+    }
+    
+    //닉네임 중복검사
+    @PostMapping("/member/checkUpdateNicknameProcess.do")
+    public int checkNicknameProcess(String member_nickname, int member_idx) throws SQLException {
+    	int result=0;//중복이 없는 경우, 확인한 전화번호가 현재 사용중인 전화번호인 경우
+        
+        int idx = memberDAO.checkUpdateNickname(member_nickname);
+        if(idx != member_idx) { //확인한 닉네임의 member_idx가 회원정보를 변경하는 회원의 member_idx가 아닌 경우
+            result = 1;
+        }
+
+        return result;
+    }
+    
+    //전화번호 중복검사
+    @PostMapping("/member/checkUpdatePhoneNumberProcess.do")
+    public int checkPhoneNumbrtProcess(String member_phone, int member_idx) throws SQLException {
+        int result=0;//중복이 없는 경우, 확인한 전화번호가 현재 사용중인 전화번호인 경우
+        
+        int idx = memberDAO.checkUpdatePhoneNumber(member_phone);
+        if(idx != member_idx) { //확인한 전화번호의 member_idx가 회원정보를 변경하는 회원의 member_idx가 아닌 경우
+            result = 1;
         }
 
         return result;
@@ -104,7 +139,34 @@ public class AjaxController {
         }
     }
 
-    
+    @PostMapping("/member/updateProcess.do")
+    public ResponseEntity<?> updateProcessAjax(@ModelAttribute MemberVO memberVO, HttpServletRequest request) {
+        Map<String, Object> response = new HashMap<>();
+        try {
+            MemberVO updatedMember = mUpdate.update(memberVO, request);
+            if (updatedMember != null) {
+                // 회원 정보 업데이트 성공
+                HttpSession session = request.getSession();
+                session.removeAttribute("member");
+                session.setAttribute("member", updatedMember);
+
+                response.put("status", "success");
+                response.put("message", "회원 정보가 성공적으로 업데이트되었습니다.");
+                return ResponseEntity.ok(response);
+            } else {
+                // 회원 정보 업데이트 실패
+                response.put("status", "fail");
+                response.put("message", "업데이트에 실패했습니다. 입력 정보를 다시 확인해 주세요.");
+                return ResponseEntity.badRequest().body(response);
+            }
+        } catch (Exception e) {
+            // 예외 발생 시
+            log.error("회원 정보 업데이트 도중 예외 발생", e);
+            response.put("status", "error");
+            response.put("message", "서버 오류로 인해 처리할 수 없습니다. 관리자에게 문의해 주세요.");
+            return ResponseEntity.badRequest().body(response);
+        }
+    }
     //////////////////// 장바구니 페이지 ////////////////////
     
     @PostMapping("/search/cartAdd.do")
