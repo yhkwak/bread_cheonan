@@ -11,6 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Grape+Nuts&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Gasoek+One&family=Gothic+A1:wght@700&family=Jua&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 	<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/update.js"></script>
 <link rel="stylesheet" href="../resources/css/update.css">
 <title>회원 정보 수정</title>
@@ -25,7 +26,7 @@
         <%@ include file = "../common/navigation.jsp" %>
         <div id="main-area">
             <form name="frm_update" method="post" action="updateProcess.do" enctype="multipart/form-data">
-            <input type="hidden" name="member_idx" value="${member.member_idx}">
+            <input type="hidden" name="member_idx" id="member_idx" value="${member.member_idx}">
                 <div id="update-box">
                 <h2>프로필 수정</h2>
                 <div id="update-table">

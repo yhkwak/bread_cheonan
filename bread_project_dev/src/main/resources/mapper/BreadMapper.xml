@@ -68,6 +68,7 @@
         bread_name = #{bread_name},
         bread_price = #{bread_price},
         bread_content = #{bread_content},
+        bread_stock = #{bread_stock},
         bread_time1 = #{bread_time1},
         bread_time2 = #{bread_time2},
         bread_time3 = #{bread_time3}
