@@ -13,11 +13,11 @@
 				<div id="side-menu">
 					<h2>마이페이지</h2>
 					<ul>
-						<li><a href="${pageContext.request.contextPath}/member/update.do">프로필 수정</a></li>
+						<li id="li_1"><a href="${pageContext.request.contextPath}/member/update.do">프로필 수정</a></li>
 						<li id="li_2"><a href="${pageContext.request.contextPath}/mypage/orderList.do">구매내역</a></li>
-						<li><a href="${pageContext.request.contextPath}/cart/cart.do?member_idx=${member.member_idx}">장바구니</a></li>
+						<li id="li_3"><a href="${pageContext.request.contextPath}/cart/cart.do?member_idx=${member.member_idx}">장바구니</a></li>
 						<li id="li_4"><a href="${pageContext.request.contextPath}/mypage/shopinfo.do?member_idx=${member.member_idx}">가게관리</a></li>
-						<li><a href="${pageContext.request.contextPath}/mypage/productManagement.do">상품관리</a></li>
+						<li id="li_5"><a href="${pageContext.request.contextPath}/mypage/productManagement.do">상품관리</a></li>
 						<li id="li_6"><a href="${pageContext.request.contextPath}/mypage/orderManagement.do">주문관리</a></li>
 					</ul>
 				</div>
@@ -28,9 +28,9 @@
 				<div id="side-menu">
 					<h2>마이페이지</h2>
 					<ul>
-						<li><a href="${pageContext.request.contextPath}/member/update.do">프로필 수정</a></li>
+						<li id="li_1"><a href="${pageContext.request.contextPath}/member/update.do">프로필 수정</a></li>
 						<li id="li_2"><a href="${pageContext.request.contextPath}/mypage/orderList.do">구매내역</a></li>
-						<li><a href="${pageContext.request.contextPath}/cart/cart.do?member_idx=${member.member_idx}">장바구니</a></li>
+						<li id="li_3"><a href="${pageContext.request.contextPath}/cart/cart.do?member_idx=${member.member_idx}">장바구니</a></li>
 					</ul>
 				</div>
 			</div>

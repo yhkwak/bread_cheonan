@@ -13,7 +13,7 @@
 			<c:if test="${p le pageNav.total_pageNum}">
 				<a href="orderManagement.do?pageNum=${p}&pageBlock=${pageNav.pageBlock}"> <!-- 현재 페이지를 빨간색으로 출력 -->
 					<c:if test="${p eq pageNav.pageNum}" var="flag">
-						<span style="color: red">${p}&nbsp;</span>
+						<span>${p}&nbsp;</span>
 					</c:if> <c:if test="${not flag}">
                 ${p}&nbsp;
             </c:if>

@@ -1,101 +1,102 @@
 @charset "UTF-8";
-
-h1{font-size:0;}
-        * {margin:0;
-          padding:0;
-        }
-        body{
-            overflow-x: hidden;
-        }
-        #wrap{
-            width: 1536px;
-            height: 1500px;
-            margin: 0 auto;
-        }   
-        /********** 헤더 영역 **********/
-        header{
-            width:1536px;
-            height: 245px;
-        }
-        #main_logo{
-            position:relative;
-            top: 50px;
-            left:-7px;
-            height: 200px;
-            width: 350px;
-            cursor: pointer;
-        }
-        #c1{
-            position:relative;
-            left: 1160px;
-            bottom:786px;
-            width:36px;
-            height:36px;
-        }
-        #c2{
-            position: relative;
-            left: 37px;
-            top:63px;
-            height:45px;
-            width:45px;
-        }
-        #c3{
-            position: relative;
-            left:262px;
-            top:63px;
-            height:45px;
-            width:45px;
-        }
-        #c4{
-            position: relative;
-            left: 462px;
-            top:66px;
-            height:45px;
-            width:45px;
-        }
-        #c5{
-            position: relative;
-            left: 663px;
-            top:63px;
-            height:45px;
-            width:45px;
-        }
-        #header_list{
-            position: relative;
-            left:457px;
-            bottom:80px;
-        }
-        #header_list ul li{
-            display:inline;
-            width:260px;
-            float: left;
-            list-style: none;
-        }
-        #header_list ul li a{
-            font: 40px solid;
-            font-family: 'Grape Nuts', cursive;
-            font-family: 'Nanum Pen Script', cursive;
-            color:gray;
-            text-decoration-line: none;
-        }
-        span{
-            font: bold 50px solid;
-            font-family: 'Grape Nuts', cursive;
-            font-family: 'Nanum Pen Script', cursive;
-            color: #F39C12;
-        }
-        #line1{
-            position: relative;
-            left:400px;
-            width:1136px;
-            border-top: 1px solid gray;
-        }
-        /********** 메인 영역 **********/
-
+	h1 {
+	font-size: 0;
+	}
+	* {
+	margin: 0;
+	padding: 0;
+	}
+	body {
+	overflow-x: hidden;
+	}
+	#wrap {
+	width: 1536px;
+	height: 1500px;
+	margin: 0 auto;
+	}
+	/********** 헤더 영역 **********/
+	header {
+	width: 1536px;
+	height: 245px;
+	}
+	#main_logo {
+	position: relative;
+	top: 50px;
+	left: -7px;
+	height: 200px;
+	width: 350px;
+	cursor: pointer;
+	}
+	#c1 {
+	position: relative;
+	left: 1160px;
+	bottom: 786px;
+	width: 36px;
+	height: 36px;
+	}
+	#c2 {
+	position: relative;
+	left: 37px;
+	top: 63px;
+	height: 45px;
+	width: 45px;
+	}
+	#c3 {
+	position: relative;
+	left: 262px;
+	top: 63px;
+	height: 45px;
+	width: 45px;
+	}
+	#c4 {
+	position: relative;
+	left: 462px;
+	top: 66px;
+	height: 45px;
+	width: 45px;
+	}
+	#c5 {
+	position: relative;
+	left: 663px;
+	top: 63px;
+	height: 45px;
+	width: 45px;
+	}
+	#header_list {
+	position: relative;
+	left: 457px;
+	bottom: 80px;
+	}
+	#header_list ul li {
+	display: inline;
+	width: 260px;
+	float: left;
+	list-style: none;
+	}
+	#header_list ul li a {
+	font: 40px solid;
+	font-family: "Grape Nuts", cursive;
+	font-family: "Nanum Pen Script", cursive;
+	color: gray;
+	text-decoration-line: none;
+	}
+	header span {
+	font: bold 50px solid;
+	font-family: "Grape Nuts", cursive;
+	font-family: "Nanum Pen Script", cursive;
+	color: #f39c12;
+	}
+	#line1 {
+	position: relative;
+	left: 400px;
+	width: 1136px;
+	border-top: 1px solid gray;
+	}
+	/********** 메인 영역 **********/
 	#container-content {
 	display: inline-block;
 	width: 1536px;
-	height: 1000px; /* 본인의 작업 사이즈에 맞게 변경 */
+	
 	margin: 0 auto;
 	}
 	#side-nav {
@@ -126,8 +127,13 @@ h1{font-size:0;}
 	list-style: none;
 	}
 	#side-menu ul li a {
+	display: block;
+	transition: all 0.5s ease-out;
 	text-decoration: none;
 	color: gray;
+	}
+	#side-menu ul li a:hover {
+	transform: translateX(10px);
 	}
 	#side-menu ul li {
 	font: 35px solid;
@@ -138,27 +144,26 @@ h1{font-size:0;}
 	margin-top: 29px;
 	padding-right: 35px;
 	}
-	.list{
+	#li_2{
 		position:relative;
 		top:1px;
 	}
-	#list2{
+	#li_3{
 		position:relative;
 		top:2px;
 	}
-	#list3{
+	#li_4{
 		position:relative;
 		top:3px;
 	}
-	#list4{
+	#li_5{
 		position:relative;
 		top:4px;
-	}
-	#list5{
+	}	
+	#li_6{
 		position:relative;
 		top:5px;
-	}
-	
+	}			
 	#main-area {
     width: 100%;
     max-width: 1200px;
@@ -186,7 +191,7 @@ h1{font-size:0;}
 
 	.orderlist {
 		width: 1137px;
-		margin-bottom: 15px;
+		margin-bottom: 50px;
 		font-family: "Jua", sans-serif;
 		border: 2px solid grey;
     	border-radius: 15px;
@@ -195,7 +200,7 @@ h1{font-size:0;}
 		width: 1118px;
 		margin-left: 8px;
 		text-align: left;
-		border-bottom: 1px solid gray;
+		border-bottom: 1px solid lightgray;
 	}
 	.orderlist_box1{
 		display:flex;
@@ -203,13 +208,14 @@ h1{font-size:0;}
 	}
 	.order_status{
 		width: 50%;
-		padding: 5px 0 0 10px;
+		padding: 6px 0 0 10px;
 		font-size: 25px;
+		color: rgba(0, 0, 0, 0.788);
 	}
 	.orderlist_count{
 		width: 50%;
 		text-align: right;
-		padding: 5px 30px 0 0;
+		padding: 7px 15px 0 0;
 		font-size: 25px;
 	}
 
@@ -221,7 +227,7 @@ h1{font-size:0;}
 		top: 1px;
 		width: 1110px;
 		margin-left: 12px;
-		border-bottom: 1px solid gray;
+		border-bottom: 1px solid lightgray;
 	}
 	.orderlist_box2_img{
 		width: 160px;
@@ -261,17 +267,6 @@ h1{font-size:0;}
 		height: 40px;
 	}
 	
-	.orderlist_all_p{
-		position:relative;
-		bottom: 5px;
-		font-size: 25px;
-		color: rgba(0, 0, 0, 0.788);
-		padding-left: 20px;
-	}
-	.orderlist_all_p_s{
-		font-size: 25px;
-		color: #F39C12;
-	}
 	.text_t{
 		width: 50px;
 		text-align: center;
@@ -291,24 +286,49 @@ h1{font-size:0;}
 		transition: 0.5s;
 	} */
 	#button-write {
+		position:relative;
+		top:15px;
+		left:400px;
 		width: 270px;
 		height: 60px;
-		margin-bottom: 15px;
+		padding-top:3px;
+		margin-bottom: 10px;
 		border: 1px solid lightgray;
 		border-radius: 5px;
 		background-color: #F39C12;
 		color: #fff;
 		font-size: 25px;
 		font-family: "Jua", sans-serif;
+		transition: all 0.5s;
+		cursor: pointer;
 	}
-	/* #button-re:hover{
-		color: #fff;
-		background-color: #f39c12;
+	
+	#button-write span{
+		cursor: pointer;
+		display: inline-block;
+		position: relative;
 		transition: 0.5s;
-	} */
+	}
+	#button-write span:after{
+		content: '→';
+		position: absolute;
+		opacity: 0;
+		top: 0;
+		right: -40px;
+		transition: 0.5s;
+	}
+	#button-write:hover span{
+		padding-right: 40px;
+		transition: 0.5s;
+	}
+	#button-write:hover span:after{
+		opacity: 1;
+		right: 0;
+	}	
 	#button-re{
 		width: 270px;
 		height: 60px;
+		padding-top:5px;
 		border: 1px solid lightgray;
 		border-radius: 5px;
 		background-color: lightgrey;
@@ -317,35 +337,73 @@ h1{font-size:0;}
 		font-family: "Jua", sans-serif;
 	}
 	
+	#button-re span{
+		cursor: poiner;
+		display: inline-block;
+		position: relative;
+		transition: 0.5s;
+	}
+	#button-re span:after{
+		content: '→';
+		position: absolute;
+		opacity: 0;
+		top: 0;
+		right: -40px;
+		transition: 0.5s;
+	}
+	#button-re:hover span{
+		padding-right: 40px;
+		transition: 0.5s;
+	}
+	#button-re:hover span:after{
+		opacity: 1;
+		right: 0;
+	}
+	
+	
+	
+	.orderlist_all_p{
+		height: 60px;
+		padding-top: 10px;
+		padding-right:30px;
+		font-size: 30px;
+		color: rgba(0, 0, 0, 0.788);
+		text-align:right;
+	}
+	.orderlist_all_p_s{
+		font-size: 30px;
+		color: #F39C12;
+	}
+	
+	
+	
 	/********** 페이징 영역 **********/
-    #page_box{
-    clear: both;
-    margin: 0 auto;
-    width: 50%;
-    text-align: center;
+	.paging_a{
+        position:relative;
+        font:25px solid;
+        top:80px;
+        text-decoration: none;
+        color:gray;
     }
-    .pageNav{
-    display: flex;
-    margin: 30px 0 0 0;
-    justify-content: center;
-    list-style: none;
-    padding: 0;
-    font: 25px solid bold;
-    font-family: 'Jua', sans-serif;
+    .paging_a:hover{
+        text-decoration: none;
+        color:#F39C12;
+        transition:0.5s;
     }
-    .page_box ul li{
-    padding: 10px;
-    text-decoration: none;
+    .paging_a span{
+        position:relative;
+        font: bold 40px solid;
+        color:gray;
+        font-family: 'Black Han Sans', sans-serif;
+        font-family: 'Gasoek One', sans-serif;
+        font-family: 'Gothic A1', sans-serif;
+        font-family: 'Jua', sans-serif;
     }
-    .page_box ul li a{
-    text-decoration: none;
-    color: gray;
+    .paging_a span:hover{
+        color:#F39C12;
+        transition: 0.5s;
     }
-    .page_box ul li a:hover{
-    color:#F39C12;
-    border:none;
-    transition: 0.2s;
-    }
+
     button{
     width:130px;
     height:35px;
@@ -353,56 +411,61 @@ h1{font-size:0;}
     background-color: white;
     }
     #noOrder{
-    position: relative;
-    top: 405px;
+	position: relative;
+    top: 20px;
+    right: 30px;
+    margin: 0 auto;
+    width: 720px;
+    height: 46px;
     font: 25px solid;
     color: gray;
     font-family: 'Jua', sans-serif;
-    }        /********** 풋터 **********/
-        footer{
-            position:absolute;
-            top: 1450px;
-            width:1536px;
-            height:300px;
-            margin-top:200px;
-            margin-bottom:0px;
-            background-color: rgb(245,246,247);
-        }
-        #infobox{
-            position: relative;
-            top:20px;
-            width:1536px;
-            height:300px;
-        }
-        #infobox ul{
-            width:400px;
-            height:400px;
-        }
-        #infobox ul li{
-            list-style: none;
-            width:400px;
-        }
-        #infobox span{
-            font: 40px solid;
-            color:gray;
-            font-family: 'Black Han Sans', sans-serif;
-            font-family: 'Gasoek One', sans-serif;
-            font-family: 'Gothic A1', sans-serif;
-            font-family: 'Jua', sans-serif;
-        }
-        #infobox a{
-            font: 30px solid;
-            color:gray;
-            font-family: 'Black Han Sans', sans-serif;
-            font-family: 'Gasoek One', sans-serif;
-            font-family: 'Gothic A1', sans-serif;
-            font-family: 'Jua', sans-serif;
-        }
-        #infobox p{
-            font: 20px solid;
-            color:gray;
-            font-family: 'Black Han Sans', sans-serif;
-            font-family: 'Gasoek One', sans-serif;
-            font-family: 'Gothic A1', sans-serif;
-            font-family: 'Jua', sans-serif;
-        }
+    border-bottom: 1px solid lightgray;
+    }
+	/********** 푸터 영역 **********/
+	footer {
+	  position: absolute;
+	  width: 1536px;
+	  height: 300px;
+	  margin-top: 300px;
+	  margin-bottom: 0px;
+	  background-color: rgb(245, 246, 247);
+	}
+	#infobox {
+	  position: relative;
+	  top: 20px;
+	  width: 1536px;
+	  height: 300px;
+	}
+	#infobox ul {
+	  width: 400px;
+	  height: 400px;
+	}
+	#infobox ul li {
+	  list-style: none;
+	  width: 400px;
+	}
+	#infobox span {
+	  font: 40px solid;
+	  color: gray;
+	  font-family: "Black Han Sans", sans-serif;
+	  font-family: "Gasoek One", sans-serif;
+	  font-family: "Gothic A1", sans-serif;
+	  font-family: "Jua", sans-serif;
+	}
+	#infobox a {
+	  font: 30px solid;
+	  color: gray;
+	  font-family: "Black Han Sans", sans-serif;
+	  font-family: "Gasoek One", sans-serif;
+	  font-family: "Gothic A1", sans-serif;
+	  font-family: "Jua", sans-serif;
+	}
+	#infobox p {
+	  font: 20px solid;
+	  color: gray;
+	  font-family: "Black Han Sans", sans-serif;
+	  font-family: "Gasoek One", sans-serif;
+	  font-family: "Gothic A1", sans-serif;
+	  font-family: "Jua", sans-serif;
+	}
