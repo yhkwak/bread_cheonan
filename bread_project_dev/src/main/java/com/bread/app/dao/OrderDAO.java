@@ -43,7 +43,13 @@ public class OrderDAO {
 		return sqlSession.selectList(MAPPER+".item2", vo);
 	}
 	
+	// 가게번호 조회
 	public int getBakeryIdx(int member_idx) {
 		return sqlSession.selectOne(MAPPER+".getBakeryIdx", member_idx);
+	}
+	
+	// 주문내역 조회용 갯수 조회
+	public int getTotalCount2(PageVO vo) {
+		return sqlSession.selectOne(MAPPER+".getTotalCount2",vo);
 	}
 }

@@ -16,4 +16,5 @@ public interface OrderService {
 	default List<ItemVO> item2(PageVO vo){return null;}
 	default List<OrderVO> order2(PageVO vo){return null;}
 	default int getBakeryIdx(int member_idx) {return 0;}
+	default int getTotalCount2(PageVO vo) {return 0;}
 }

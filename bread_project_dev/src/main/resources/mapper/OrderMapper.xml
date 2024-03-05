@@ -12,7 +12,8 @@
 			from bc_order o
             inner join bc_member m on o.member_idx = m.member_idx
 			where o.member_idx = #{member_idx}
-			order by payment_date desc;
+			order by payment_date desc
+			limit #{startIdx}, 5;
 	</select>	
 	<!-- 아이템 내용 -->
 	<select id="item" parameterType="pageVO" resultType="itemVO">
@@ -26,14 +27,18 @@
 			where o.member_idx = #{member_idx}
 			and o.order_idx = #{order_idx}
 			order by payment_date desc
-			limit #{startIdx}, 10
 	</select>
 	<!-- 오더 내용 -->
 	<select id="order2" parameterType="pageVO" resultType="orderVO">
 		select o.payment_status, o.order_idx, o.payment_date, o.member_idx, o.amount, m.member_name
 			from bc_order o
-            inner join bc_member m on o.member_idx = m.member_idx
-			order by payment_date desc;
+			left outer join bc_member m on o.member_idx = m.member_idx
+			left outer join bc_item i on o.order_idx = i.order_idx 
+			left outer join bc_bread b on i.bread_idx = b.bread_idx
+			left outer join bc_bakery bk on i.bakery_idx = bk.bakery_idx
+			where i.bakery_idx = #{bakery_idx}
+			order by payment_date desc
+			limit #{startIdx}, 5
 	</select>	
 	<!-- 아이템 내용 -->
 	<select id="item2" parameterType="pageVO" resultType="itemVO">
@@ -47,7 +52,6 @@
 			where i.bakery_idx = #{bakery_idx}
 			and o.order_idx = #{order_idx}
 			order by payment_date desc
-			limit #{startIdx}, 10
 	</select>
 	
 	<!-- Bakery_idx 찾기 -->
@@ -65,7 +69,15 @@
 				 left outer join bc_bread b on i.bread_idx = b.bread_idx
 				 left outer join bc_bakery bk on i.bakery_idx = bk.bakery_idx
 			where o.member_idx = #{member_idx}
-			and o.order_idx = #{order_idx}
+			order by payment_date desc
+	</select>
+	<select id="getTotalCount2" parameterType="pageVO" resultType="_int">
+		select count(*)
+			from bc_order o 
+				 left outer join bc_item i on o.order_idx = i.order_idx 
+				 left outer join bc_bread b on i.bread_idx = b.bread_idx
+				 left outer join bc_bakery bk on i.bakery_idx = bk.bakery_idx
+			where i.bakery_idx=#{bakery_idx}
 			order by payment_date desc
 	</select>
 

@@ -55,7 +55,6 @@ public class OrderController {
 	    //페이징
 	    pageNav.setTotalRows(oTotalCount.getTotalCount(vo));
 	    pageNav=oPage.setPageNav(pageNav,vo.getPageNum(),vo.getPageBlock());
-	    System.out.println(vo);
 	    
 	    model.addAttribute("pageNav", pageNav);
 
@@ -89,7 +88,7 @@ public class OrderController {
 	    model.addAttribute("orderList", order);
 
 	    //페이징
-	    pageNav.setTotalRows(oTotalCount.getTotalCount(vo));
+	    pageNav.setTotalRows(oTotalCount.getTotalCount2(vo));
 	    pageNav=oPage.setPageNav(pageNav,vo.getPageNum(),vo.getPageBlock());
 	    System.out.println(vo);
 	    

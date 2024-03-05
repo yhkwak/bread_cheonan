@@ -16,4 +16,9 @@ public class OrderTotalCountService implements OrderService {
 	public int getTotalCount(PageVO vo) {
 		return dao.getTotalCount(vo);
 	}
+	
+	@Override
+	public int getTotalCount2(PageVO vo) {
+		return dao.getTotalCount2(vo);
+	}
 }
