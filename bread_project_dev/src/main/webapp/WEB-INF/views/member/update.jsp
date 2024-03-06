@@ -50,7 +50,7 @@
                             </tr>
                             <tr>
                                 <td>비밀번호</td>
-                                <td><input type="password" name="member_pw" id="member_pw" placeholder="미입력 시 기존 비밀번호 유지" value="${member.member_pw}"></td>
+                                <td><input type="password" name="member_pw" id="member_pw" value="${member.member_pw}"></td>
                             </tr>
                             <tr>
                                 <td>이름</td>

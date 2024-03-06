@@ -74,7 +74,7 @@ public class AjaxController {
     
     //전화번호 중복검사
     @PostMapping("/member/checkPhoneNumberProcess.do")
-    public String checkPhoneNumbrtProcess(String member_phone) throws SQLException {
+    public String checkPhoneNumberProcess(String member_phone) throws SQLException {
         String result="0";//중복이 없는 경우
         
         int checkPhoneNumber = memberDAO.checkPhoneNumber(member_phone);
@@ -85,32 +85,17 @@ public class AjaxController {
         return result;
     }
     
-    //닉네임 중복검사
     @PostMapping("/member/checkUpdateNicknameProcess.do")
-    public int checkNicknameProcess(String member_nickname, int member_idx) throws SQLException {
-    	int result=0;//중복이 없는 경우, 확인한 전화번호가 현재 사용중인 전화번호인 경우
-        
-        int idx = memberDAO.checkUpdateNickname(member_nickname);
-        if(idx != member_idx) { //확인한 닉네임의 member_idx가 회원정보를 변경하는 회원의 member_idx가 아닌 경우
-            result = 1;
-        }
-
-        return result;
+    public int checkUpdateNicknameProcess(String member_nickname, int member_idx) throws SQLException {
+        Integer idx = memberDAO.checkUpdateNickname(member_nickname);
+        return (idx == null || idx.equals(member_idx)) ? 0 : 1;
     }
-    
-    //전화번호 중복검사
+
     @PostMapping("/member/checkUpdatePhoneNumberProcess.do")
-    public int checkPhoneNumbrtProcess(String member_phone, int member_idx) throws SQLException {
-        int result=0;//중복이 없는 경우, 확인한 전화번호가 현재 사용중인 전화번호인 경우
-        
-        int idx = memberDAO.checkUpdatePhoneNumber(member_phone);
-        if(idx != member_idx) { //확인한 전화번호의 member_idx가 회원정보를 변경하는 회원의 member_idx가 아닌 경우
-            result = 1;
-        }
-
-        return result;
+    public int checkUpdatePhoneNumberProcess(String member_phone, int member_idx) throws SQLException {
+        Integer idx = memberDAO.checkUpdatePhoneNumber(member_phone);
+        return (idx == null || idx.equals(member_idx)) ? 0 : 1;
     }
-    
     //회원가입 alert
     @PostMapping("/member/joinProcess.do")
     public ResponseEntity<?> joinProcessAjax(@ModelAttribute MemberVO memberVO) { //ResponseEntity<?> ajax성공이나 오류 즉, 상태를 response출력해주기위해 사용됨

@@ -123,13 +123,20 @@ $(document).ready(function() {
         }
         
         if(!isValidPhoneNumber){
-        	isValidPhoneNumber = true;
+        	const phoneNumber = $('#member_phone').val();
+        	if((phoneNumber.length != 0) && (phoneNumber.replace(/-/g, '').length == 11)){//핸드폰번호에 값이 입력된 경우,
+        	//핸드폰번호가 11자리인 경우
+        		isValidPhoneNumber = true;
+        	}
         }
         
         if(!isValidNickname){
-        	isValidNickname = true;
+        	const nickname = $('#member_nickname').val();
+		    if((nickname.length != 0) && (nickname.length >= 3 && nickname.length <= 10)){// 닉네임에 값이 입력된 경우,
+		    //3글자 이상, 10글자 이하인 경우
+		        isValidNickname = true;
+		    }
         }
-        
 
         if (isValidPw && isValidName && isValidPhoneNumber && isValidNickname) {
             $.ajax({
