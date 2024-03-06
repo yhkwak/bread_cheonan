@@ -362,7 +362,9 @@
 	.orderlist_all_p{
 		height: 60px;
 		padding-top: 10px;
+		padding-right:33px;
 		font-size: 30px;
+		text-align:right;
 		color: rgba(0, 0, 0, 0.788);
 	}
 	.orderlist_all_p_s{
@@ -377,6 +379,7 @@
         position:relative;
         font:25px solid;
         top:80px;
+        left:10px;
         text-decoration: none;
         color:gray;
     }

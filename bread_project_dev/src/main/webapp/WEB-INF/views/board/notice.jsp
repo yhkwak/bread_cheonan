@@ -63,19 +63,9 @@
                             <button type="button" id="button-write" onclick="location.href='noticeWrite.do'">글 작성</button>
                 	</c:if>
                 </div>
-                
+                <c:if test="${not empty noticeList}">
                  <%@ include file="paging.jsp" %> 
-<!--                 <div class="page_box">
-                    <ul class="pageNav">
-                        <li><a href="#" class="arrow_left"><</a></li>
-                        <li><a href="#" class="1">1</a></li>
-                        <li><a href="#" class="2">2</a></li>
-                        <li><a href="#" class="3">3</a></li>
-                        <li><a href="#" class="4">4</a></li>
-                        <li><a href="#" class="5">5</a></li>
-                        <li><a href="#" class="arrow_last">></a></li>
-                    </ul>
-                </div> -->
+                </c:if>
             </div>
         </section>
         

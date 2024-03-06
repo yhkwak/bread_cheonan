@@ -56,7 +56,7 @@
                                         </c:choose>"></div><div style="width: 250px;" id="product_title"><p>${breadList.bread_name}</p></div></td>
                                         <td id="bread_price">${breadList.bread_price}</td>
                                         <td id="bread_shop">${breadList.bakery_name}</td>
-                                        <td>${breadList.bread_stock}</td>
+                                        <td id="bread_stock">${breadList.bread_stock}</td>
                                             <td>
                                                 <c:choose>
                                                     <c:when test="${breadList.bread_status == 0}">

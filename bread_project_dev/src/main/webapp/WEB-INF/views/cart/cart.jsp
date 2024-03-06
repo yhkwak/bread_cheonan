@@ -90,7 +90,7 @@
 		                            <div class="all_price">총 결제 금액 : <span id="price_text2"><input type="hidden" id="amount" name="amount" value="${sum}">
 		                                <fmt:formatNumber pattern="###,###,###" value="${sum}"/></span> 원</div>
 		                            <div>
-		                                <button id="product_buy_btn" onclick="requestPay()">구매하기</button>
+		                                <button id="product_buy_btn" onclick="requestPay()"><span>구매하기</span></button>
 		                            </div>
 		                        </div>
                         	</c:otherwise>
