@@ -116,29 +116,67 @@
 				}
 			}
 			
+			var member_idx = ${likes.member_idx};
+			var likes_check = ${likes.likes_check};
+			var bakery_idx = ${likes.bakery_idx};
 			
+			$(".like").on("click", function(){
+				
+				$.ajax({
+					url : "/search/like",
+					type : 'GET',
+					data : {'bakery_idx' : bakery_idx, 'memeber_idx' : member_idx},
+					success : function(data){
+						if(data == 1){
+							like=true;
+							alert("이 빵집 쨩");
+							$('#like').attr("src","${pageContext.request.contextPath}/resources/css/img/check12.png");
+							var result = confirm("찜목록 보싈?");
+								if(result){ //확인시 찜리스트 페이지 이동 예정. 일단 메인페이지로 이동함
+									location.href ='/main';
+								}
+						}else if(data == -1){
+							alert("로그인부터 합시다")
+						}else{
+							like=false;
+							alert("이 빵집 이제 노관심");
+							$('#like').attr("src","${pageContext.request.contextPath}/resources/css/img/check11.png");
+						}
+					}, error:function(error){
+						console.log(error);
+					}
+				});
+			});
 		</script>
     <title>빵집 상세보기</title>
     
 </head>
 <body>
     <div id="wrap">
-    
-    
     	<%@ include file = "../common/header.jsp" %>
-    	
         <section id="container-content">
-        
 		<input type="hidden" value="${bakery_idx}">
-
-
             <div id="all_box">
-
-
                 <div id="view_box">
                     <table id="view_table">                            
                         <tr>
                             <th><h2>${bakery.bakery_name}</h2></th>
+                            <td>
+                            	<c:choose>
+								    <c:when test="${result != null}">
+								        <a class="like">
+								            <c:choose>
+								                <c:when test="${result.like_check == 0}">
+								                    <img id="like" src="${pageContext.request.contextPath}/resources/css/img/check11.PNG">
+								                </c:when>
+								                <c:otherwise>
+								                    <img id="like" src="${pageContext.request.contextPath}/resources/css/img/check12.PNG">
+								                </c:otherwise>
+								            </c:choose>
+								        </a>
+								    </c:when>
+								</c:choose>
+                            </td>
                             <%-- <td rowspan="4" id="shop_img"><img src="../resources/css/img/${bakey.bakery_img_save}"></td> --%>
                             <td rowspan="4" id="shop_img"><%-- <img src="../resources/css/img/test_img08.png"> --%>
 	                            <c:choose>

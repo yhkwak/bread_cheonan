@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+ <mapper namespace="com.bread.app.LikesMapper">
+ 
+ <!-- 매장 찜하기 -->
+ 	<!-- 매장 찜 여부 확인 - 0 : 찜해제, 1 : 찜설정 -->
+	<select id="checkBL" parameterType="LikesVO" resultType="_int">
+		select likes_check
+			from bc_Likes 
+			where bakery_idx = #{bakery_idx} and member_idx=#{member_idx}
+	</select>
+	
+	<!-- 매장 찜하기 --> 	
+	<insert id="addBL" parameterType="LikesVO">
+		insert into bc_Likes values (0,#{likes_check}, #{bakery_idx}, #{member_idx})
+	</insert>
+	
+	<!-- 매장 찜 상태 업데이트 -->
+	<update id="updateBL" parameterType="LikesVO">
+		update bc_Likes set likes_check = #{likes_check} where bakery_idx = #{bakery_idx} and member_idx = #{member_idx}
+	</update>
+	
+	<!-- 매장 찜 해제-->
+	<delete id="delBL" parameterType="LikesVO">
+		delete from bc_Likes where likes_idx=#{likes_idx}
+	</delete>
+	
+	
+<!-- 리뷰 좋아요 할까말까..... -->	
+ </mapper>

@@ -16,6 +16,7 @@
 		<typeAlias alias="adminProductVO" type="com.bread.app.vo.AdminProductVO" />
 		<typeAlias alias="orderVO" type="com.bread.app.vo.OrderVO" />
 		<typeAlias alias="itemVO" type="com.bread.app.vo.ItemVO" />
+		<typeAlias alias="likesVO" type="com.bread.app.vo.LikesVO" />
  	</typeAliases>
  
 </configuration>
