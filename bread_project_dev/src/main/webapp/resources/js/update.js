@@ -158,3 +158,22 @@ $(document).ready(function() {
         }
     });
 });
+	    function deleteMember() {
+	        const confirmAns = confirm("정말 회원 탈퇴하시겠습니까?");
+	        
+	        if (confirmAns) {
+	            $.ajax({
+	                type: "POST",
+	                url: "/myapp/member/deleteProcess.do",
+	                // 필요한 데이터가 있다면 data 객체를 통해 전달
+	                success: function(response) {
+	                    // 서버로부터의 응답 처리
+	                    alert("회원 탈퇴가 완료되었습니다.");
+	                    window.location.href = "/myapp/main.do";
+	                },
+	                error: function() {
+	                    alert("회원 탈퇴 처리 중 오류가 발생했습니다.");
+	                }
+	            });
+	        }
+	    }
