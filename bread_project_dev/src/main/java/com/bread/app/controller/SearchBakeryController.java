@@ -2,6 +2,7 @@ package com.bread.app.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,7 +32,7 @@ public class SearchBakeryController {
 		@Setter(onMethod_= {@Autowired})
 		FivePageNav pageNav;
 		@Setter(onMethod_= {@Autowired})
-		LikesService blCheck, blAdd;
+		LikesService blCheck,blAdd;
 	
 		@GetMapping("/searchBakery.do")
 		public String searchBakery(@ModelAttribute("sVO") SearchVO searchVO, Model model) {
@@ -55,46 +56,35 @@ public class SearchBakeryController {
 			return "search/searchBakery";
 		}
 		
-//		@GetMapping("/viewBakery.do")
-//		public String viewBakery(int bakery_idx, HttpServletRequest request, Model model) {
-//			String viewPage = "search/viewBakery";
-//			
-//			BakeryVO bakeryVO = vBakery.getBakery(bakery_idx);
-//			HttpSession session = request.getSession();
-//			session.setAttribute("bakery", bakeryVO);
-//			
-//			List<BreadVO> breadList = getBreads.getBreads(bakery_idx);
-//			model.addAttribute("breadList", breadList);
-//			
-//			return viewPage;
-//		}
-
-		
 		@GetMapping("/viewBakery.do")
-		public String viewBakery(int bakery_idx, int member_idx, HttpSession session, Model model) {
+		public String viewBakery(int bakery_idx, HttpSession session, Model model) {
 		    String viewPage = "search/viewBakery";
 
-		    // 세션에서 회원 정보를 가져옴.
+		    // 세션에서 회원 정보를 가져옴.		    
 		    MemberVO memberVO = (MemberVO) session.getAttribute("member");
+		    System.out.println("member : "+memberVO);
 		    
-		    // 좋아요 객체 생성
-		    LikesVO like = new LikesVO();
-		    like.setBakery_idx(bakery_idx);
+		    //매장 찜 객체 생성
+		    LikesVO like = null;
 		    
-		    // 세션에서 가져온 회원 정보가 null이 아닌 경우만 회원 번호 설정
+		    //로그인 됐을때만 객체 가져옴
 		    if(memberVO != null) {
-		        like.setMember_idx(memberVO.getMember_idx());
+		    	like = new LikesVO();
+			    like.setBakery_idx(bakery_idx);
+			    like.setMember_idx(memberVO.getMember_idx());
+			    System.out.println("likesVO : "+like);
 		    }
 
 		    // 해당 회원이 설정한 좋아요 상태 가져오기
-		    like = blCheck.checkBL(like);
-		    
-		    // 좋아요 객체가 null일 경우 초기화
-		    if(like == null) {
-		        like = new LikesVO();
-		        like.setLikes_check(0); // 디폴트 상태로 설정
+		    int result = 0;
+		    if(like != null) {
+		    	if(blCheck.checkBL2(like)==0) {
+		    	}else {
+		    	result = blCheck.checkBL(like);	
+		    	}
 		    }
-
+		    
+		    
 		    // 베이커리 정보 세션에 추가
 		    BakeryVO bakeryVO = vBakery.getBakery(bakery_idx);
 		    session.setAttribute("bakery", bakeryVO);
@@ -104,11 +94,10 @@ public class SearchBakeryController {
 		    model.addAttribute("breadList", breadList);
 
 		    // 좋아요 결과 모델에 추가
-		    model.addAttribute("result", like);
-		    
+		    model.addAttribute("result", result);
+		    System.out.println("result : "+ result);
 		    
 		    return viewPage;
 		}
 
-		
 }

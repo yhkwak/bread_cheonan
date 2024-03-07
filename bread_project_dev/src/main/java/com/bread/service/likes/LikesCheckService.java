@@ -14,7 +14,12 @@ public class LikesCheckService implements LikesService {
 	private LikesDAO dao;
 	
 	@Override
-	public LikesVO checkBL(LikesVO lvo) {
+	public int checkBL(LikesVO lvo) {
 		return dao.checkBL(lvo);
+	}
+	
+	@Override
+	public int checkBL2(LikesVO lvo) {
+		return dao.checkBL2(lvo);
 	}
 }

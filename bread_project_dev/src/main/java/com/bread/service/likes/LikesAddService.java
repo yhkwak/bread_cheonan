@@ -16,9 +16,9 @@ public class LikesAddService implements LikesService {
 	@Override
 	public int addBL(LikesVO lvo) {
 		int result = 0;
-		LikesVO checkBL = dao.checkBL(lvo);
+		int checkBL = dao.checkBL(lvo);
 		
-		if(checkBL == null) { 
+		if(checkBL == 0) { 
 			result = dao.addBL(lvo);
 		} else {
 			dao.delBL(lvo);

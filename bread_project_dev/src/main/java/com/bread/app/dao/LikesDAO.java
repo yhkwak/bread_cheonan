@@ -17,8 +17,12 @@ public class LikesDAO {
 	private	final SqlSession sqlSession;
 		
 	//매장 찜여부 확인
-	public LikesVO checkBL(LikesVO lvo) {
+	public int checkBL(LikesVO lvo) {
 		return sqlSession.selectOne(MAPPER+".checkBL", lvo);
+	}
+	
+	public int checkBL2(LikesVO lvo) {
+		return sqlSession.selectOne(MAPPER+".checkBL2", lvo);
 	}
 	
 	//매장 찜 하기
@@ -28,7 +32,7 @@ public class LikesDAO {
 	
 	//매장 찜 해제
 	public int delBL(LikesVO lvo) {
-		return sqlSession.delete(MAPPER+".delBL", lvo);
+		return sqlSession.update(MAPPER+".delBL", lvo);
 	}
 	
 	// 매장 찜 상태 업데이트
