@@ -24,7 +24,7 @@ public class MemberController {
 
 	//회원가입처리를 위한 Service클래스를 필드로 정의하기
 	@Setter(onMethod_={@Autowired})
-	MemberService mJoin, mLogin, mUpdate, mFindId, mFindPw, mChangePw;
+	MemberService mJoin, mLogin, mUpdate, mFindId, mFindPw, mChangePw, mDelete;
 
 	///////// 페이지 매핑 ///////////
 
@@ -208,4 +208,17 @@ public class MemberController {
 			return viewPage;
 		}
 
-}
+		@PostMapping("/deleteProcess.do")
+		public String deleteProcess(HttpServletRequest request) {
+			HttpSession session = request.getSession();
+			MemberVO vo = (MemberVO)session.getAttribute("member");
+			int member_idx = vo.getMember_idx();
+			String viewPage = "member/update";
+			
+			if(mDelete.delete(member_idx) == 1) {
+				session.invalidate();
+				viewPage = "redirect:/main.do";
+			}
+			return viewPage;
+		}
+}       

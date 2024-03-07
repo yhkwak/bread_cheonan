@@ -267,6 +267,24 @@ h1{font-size:0;}
             border:none;
             transition: 0.5s;
         }
+        
+            button[type=button]{
+            position: relative;
+            font: 25px solid;
+            font-family: 'Black Han Sans', sans-serif;
+            font-family: 'Gasoek One', sans-serif;
+            font-family: 'Gothic A1', sans-serif;
+            font-family: 'Jua', sans-serif;
+            color:gray;
+            background-color: white;
+            border:none;
+        }
+        
+        button[type=button]:hover{
+            color:#F39C12;
+            border:none;
+            transition: 0.5s;
+        }
         #create{
         	position:relative;
         	left:400px;

@@ -66,7 +66,7 @@
                             </tr>
                     </table>
                     <div id="update-submenu" colspan="2">
-                    	<button type="submit" id="remove" value="">회원 탈퇴</button>
+                    	<button type="button" id="remove" value="" onclick="deleteMember();">회원 탈퇴</button>
                         <button type="reset" id="cancel" value="" onclick="location.href='/myapp'">수정 취소</button>
                         <button type="submit" id="create" value="">프로필 수정</button>
                     </div>
@@ -79,5 +79,6 @@
         <%@ include file = "../common/footer.jsp" %>
         
     </div>
+
 </body>
 </html>

@@ -99,5 +99,9 @@ public class MemberDAO {
 			}
 			return newVO;
 		}
+		
+		public int delete(int member_idx) throws SQLException {
+			return sqlSession.update(MAPPER+".delete",member_idx);
+		}
 
 }

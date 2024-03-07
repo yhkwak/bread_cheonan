@@ -38,4 +38,7 @@ public interface MemberService {
 		return null;
 	}
 
+	default int delete(int member_idx) {
+		return 0;
+	}
 }

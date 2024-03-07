@@ -40,7 +40,7 @@ public class AjaxController {
     private AdminMemDAO adminMemDAO;
     private AdminStoreDAO adminStoreDAO;
     private CartDAO cartDAO;
-    private MemberService mUpdate;
+    private MemberService mUpdate, mDelete;
 
     
     //////////////////// 중복 검사 ////////////////////
@@ -151,6 +151,31 @@ public class AjaxController {
             response.put("message", "서버 오류로 인해 처리할 수 없습니다. 관리자에게 문의해 주세요.");
             return ResponseEntity.badRequest().body(response);
         }
+    }
+    
+    //회원탈퇴
+    @PostMapping("/deleteProcess.do")
+    public Map<String, Object> deleteProcess(HttpServletRequest request) {
+        Map<String, Object> response = new HashMap<>();
+        HttpSession session = request.getSession();
+        MemberVO vo = (MemberVO) session.getAttribute("member");
+        int member_idx = vo.getMember_idx();
+
+        try {
+            if (mDelete.delete(member_idx) == 1) {
+                session.invalidate();
+                response.put("status", "success");
+                response.put("message", "회원 탈퇴가 완료되었습니다.");
+            } else {
+                response.put("status", "fail");
+                response.put("message", "회원 탈퇴에 실패하였습니다.");
+            }
+        } catch (Exception e) {
+            log.error("회원 탈퇴 도중 예외 발생", e);
+            response.put("status", "error");
+            response.put("message", "서버 오류로 인해 처리할 수 없습니다. 관리자에게 문의해 주세요.");
+        }
+        return response;
     }
     //////////////////// 장바구니 페이지 ////////////////////
     
