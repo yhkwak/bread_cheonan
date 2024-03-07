@@ -11,7 +11,7 @@
 		<!-- 1. 총 페이지번호와 페이지블록을 연계하여 페이지번호 출력 -->
 		<c:forEach var="p" begin="${(pageNav.pageBlock-1)*pageNav.pages_pageBlock+1}" end="${pageNav.pageBlock*pageNav.pages_pageBlock}">
 			<c:if test="${p le pageNav.total_pageNum}">
-				<a href="orderManagement.do?pageNum=${p}&pageBlock=${pageNav.pageBlock}"> <!-- 현재 페이지를 빨간색으로 출력 -->
+				<a class="paging_a" href="orderManagement.do?pageNum=${p}&pageBlock=${pageNav.pageBlock}"><!-- 현재 페이지를 빨간색으로 출력 -->
 					<c:if test="${p eq pageNav.pageNum}" var="flag">
 						<span>${p}&nbsp;</span>
 					</c:if> <c:if test="${not flag}">

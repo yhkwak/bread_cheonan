@@ -46,7 +46,7 @@
                     <table id="table-update">
                             <tr>
                                 <td>아이디</td>
-                                <td><input type="text" name="member_id" id="member_id" value="${member.member_id}" disabled></td>
+                                <td><input type="text" name="member_id" id="member_id" value="${member.member_id}"disabled></td>
                             </tr>
                             <tr>
                                 <td>비밀번호</td>
@@ -66,6 +66,7 @@
                             </tr>
                     </table>
                     <div id="update-submenu" colspan="2">
+                    	<button type="submit" id="remove" value="">회원 탈퇴</button>
                         <button type="reset" id="cancel" value="" onclick="location.href='/myapp'">수정 취소</button>
                         <button type="submit" id="create" value="">프로필 수정</button>
                     </div>

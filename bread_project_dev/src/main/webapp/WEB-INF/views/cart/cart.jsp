@@ -8,7 +8,7 @@
 <head>
 
 	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Grape+Nuts&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
@@ -90,7 +90,7 @@
 		                            <div class="all_price">총 결제 금액 : <span id="price_text2"><input type="hidden" id="amount" name="amount" value="${sum}">
 		                                <fmt:formatNumber pattern="###,###,###" value="${sum}"/></span> 원</div>
 		                            <div>
-		                                <button id="product_buy_btn" onclick="requestPay()">구매하기</button>
+		                                <button id="product_buy_btn" onclick="requestPay()"><span>구매하기</span></button>
 		                            </div>
 		                        </div>
                         	</c:otherwise>

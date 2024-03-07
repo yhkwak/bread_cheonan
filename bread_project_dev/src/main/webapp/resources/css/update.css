@@ -4,7 +4,7 @@ h1{font-size:0;}
           padding:0;
         }
         body{
-            overflow-x: hidden;
+            overflow-x:hidden;
         }
         #wrap{
             width: 1536px;
@@ -219,8 +219,12 @@ h1{font-size:0;}
         }
         #update-submenu{
             margin-top:42px;
-            width:205px;
+            width:700px;
             height:50px;
+        }
+        #remove{
+        	position:realtive;
+        	text-align:left;
         }
         input[type=password]{
             padding-bottom: 5px;
@@ -231,13 +235,14 @@ h1{font-size:0;}
         }
         button[type=reset]{
             position: relative;
-            left:478px;
+            left:380px;
             font: 25px solid;
             font-family: 'Black Han Sans', sans-serif;
             font-family: 'Gasoek One', sans-serif;
             font-family: 'Gothic A1', sans-serif;
             font-family: 'Jua', sans-serif;
             color:gray;
+            text-align:right;
             background-color: white;
             border:none;
         }
@@ -248,7 +253,6 @@ h1{font-size:0;}
         }
         button[type=submit]{
             position: relative;
-            left:498px;
             font: 25px solid;
             font-family: 'Black Han Sans', sans-serif;
             font-family: 'Gasoek One', sans-serif;
@@ -262,6 +266,10 @@ h1{font-size:0;}
             color:#F39C12;
             border:none;
             transition: 0.5s;
+        }
+        #create{
+        	position:relative;
+        	left:400px;
         }        
         .error-message {
 		    display: block;
