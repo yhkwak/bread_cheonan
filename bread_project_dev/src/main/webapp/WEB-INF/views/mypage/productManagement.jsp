@@ -24,7 +24,7 @@
         <%@ include file = "../common/navigation.jsp" %>
         <div id="all_box">
             <h2>상품관리</h2>
-                                  
+           
             <div id="product_box">
 
                 <div class="product_table_box">
@@ -42,7 +42,7 @@
                                 <tr><td id="noproduct" colspan="6">등록된 상품이 없습니다</td></tr>
                             </c:when>
                             <c:otherwise>
-                                <c:forEach items="${breadList}" var="breadList">
+                                <c:forEach items="${breadList}" var="breadList"> 
                                     <tr>
                                         <form action="${pageContext.request.contextPath}/mypage/productUpdate.do">
                                         <td style="width: 350px; height: 90px; margin-top:10px; display: flex;"><div id="product_title_img">
@@ -56,7 +56,7 @@
                                         </c:choose>"></div><div style="width: 250px;" id="product_title"><p>${breadList.bread_name}</p></div></td>
                                         <td id="bread_price">${breadList.bread_price}</td>
                                         <td id="bread_shop">${breadList.bakery_name}</td>
-                                        <td>${breadList.bread_stock}</td>
+                                        <td id="bread_stock">${breadList.bread_stock}</td>
                                             <td>
                                                 <c:choose>
                                                     <c:when test="${breadList.bread_status == 0}">
@@ -224,3 +224,4 @@
 </div>
 </body>
 </html>--%>
+
