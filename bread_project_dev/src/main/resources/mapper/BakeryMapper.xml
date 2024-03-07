@@ -11,8 +11,11 @@
     	insert into bc_bakery (bakery_name, bakery_address, bakery_postcode, bakery_detail_address, bakery_homepage, bakery_phone, member_idx, bakery_img, bakery_img_save) values (#{bakery_name}, #{bakery_address}, #{bakery_postcode}, #{bakery_detail_address}, #{bakery_homepage}, #{bakery_phone}, #{member_idx}, #{bakery_img}, #{bakery_img_save})
 	</insert>
   	
+  	<!-- Read -->
+  	
+  	<!-- 가게정보 가져오기 -->
   	<select id="getBakery" parameterType="_int" resultType="bakeryVO">
-  	 	select * from bc_bakery where member_idx=#{member_idx}
+  	 	select * from bc_bakery where member_idx=#{member_idx} and bakery_del=0
   	</select>
 
   	<!-- 가게 업데이트 처리 -->

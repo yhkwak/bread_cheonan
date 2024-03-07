@@ -37,10 +37,9 @@
 		    where del_or_not = 1
 		    order by notice_idx DESC
 		    limit #{startIdx}, 10
-		       
 	</select>
 	
-		<!-- 하나의 게시글 조회: select -->
+	<!-- 하나의 게시글 조회: select -->
 	<select id="getBoard" parameterType="_int" resultType="noticeVO">
 		select * from bc_notice where notice_idx = #{notice_idx} AND del_or_not != -1
 	</select>
