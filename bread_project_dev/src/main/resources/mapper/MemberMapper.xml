@@ -88,8 +88,8 @@
  
   	<!-- 회원 탈퇴처리하기 -->
   	<update id="delete" parameterType="_int">
-  		update bc_member, last_mod_date=now()
-  			set member_del=-1
+  		update bc_member
+  			set member_del=-1, last_mod_date=now()
   			where member_idx=#{member_idx}
   	</update>
   
