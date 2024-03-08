@@ -13,6 +13,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Gasoek+One&family=Gothic+A1:wght@700&family=Jua&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="../resources/css/orderManagement.css">
+    <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/orderManagement.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     
 <title>주문관리</title>
 </head>
@@ -36,6 +38,7 @@
 							<!-- 데이터가 있는 경우 -->
 							<c:forEach var="i" begin="${pageNav.startNum}" end="${pageNav.endNum}" varStatus="vs">
 								<c:if test="${not empty orderList[vs.count-1]}">
+									
 									<div class="orderlist">
 										<!-- 결제 상태 출력 -->
 										<div class="orderlist_box">
@@ -70,7 +73,19 @@
                                                 </div>
 											</c:forEach>
 										</c:if>
-										<div><button type="button" id="button-write" onclick="location.href='${pageContext.request.contextPath}/review/reviewWrite.do?bread_idx=${orderList[vs.count-1].itemList[j].bread_idx}&order_idx=${orderList[vs.count-1].itemList[j].order_idx}&member_idx=${member.member_idx}'"><span>주문취소</span></button></div>
+										
+										<div>
+										<div>
+									    	<c:choose>
+									        <c:when test="${orderList[vs.count-1].payment_status == 0}">
+										<button type="button" id="button-write" onclick="orderCancel();" data-value="${orderList[vs.count-1].order_idx}"><span>주문취소</span></button>
+											</c:when>
+										        <c:otherwise>
+										            구매를 취소한 상품입니다
+										        </c:otherwise>
+										    </c:choose>
+										</div>
+										</div>
 										<div class="orderlist_all_p" >주문 총 금액 : <span class="orderlist_all_p_s" >${orderList[vs.count-1].amount}</span> 원</div>
 									</div>
 								</c:if>

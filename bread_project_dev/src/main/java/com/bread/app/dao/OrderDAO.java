@@ -52,4 +52,9 @@ public class OrderDAO {
 	public int getTotalCount2(PageVO vo) {
 		return sqlSession.selectOne(MAPPER+".getTotalCount2",vo);
 	}
+	
+	// 주문 취소
+	public int orderCancel(String order_idx) {
+	    return sqlSession.update(MAPPER+".orderCancel", order_idx);
+	}
 }

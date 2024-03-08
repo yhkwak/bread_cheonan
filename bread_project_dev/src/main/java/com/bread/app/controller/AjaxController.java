@@ -7,12 +7,9 @@ import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -28,10 +25,9 @@ import com.bread.app.vo.CartVO;
 import com.bread.app.vo.LikesVO;
 import com.bread.app.vo.MemberVO;
 import com.bread.service.member.MemberService;
-import com.bread.service.sms.SmsService;
+import com.bread.service.order.OrderService;
 
 import lombok.AllArgsConstructor;
-import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 
 @RestController
@@ -46,7 +42,7 @@ public class AjaxController {
     private CartDAO cartDAO;
     private LikesDAO likesDAO;
     private MemberService mUpdate, mFindId, mDelete, mFindPw;
-
+    private OrderService oCancel;
     
     //////////////////// 중복 검사 ////////////////////
     
@@ -282,7 +278,27 @@ public class AjaxController {
     	cartDAO.updateCount(cart_idx, bread_count);
     }
     
-    
+    // 주문취소
+    @PostMapping("/mypage/orderCancelProcess.do")
+    public Map<String, Object> orderCancelProcess(HttpServletRequest request, String order_idx) {
+    	log.info("컨트롤러 order_idx: {}", order_idx);
+    	Map<String, Object> response = new HashMap<>();
+
+        try {
+            if (oCancel.cancel(order_idx) == 1) {
+                response.put("status", "success");
+                response.put("message", "주문 취소가 완료되었습니다.");
+            } else {
+                response.put("status", "fail");
+                response.put("message", "주문 취소를 실패하였습니다.");
+            }
+        } catch (Exception e) {
+            log.error("주문 취소 도중 예외 발생", e);
+            response.put("status", "error");
+            response.put("message", "서버 오류로 인해 처리할 수 없습니다. 관리자에게 문의해 주세요.");
+        }
+        return response;
+    }
     //////////////////// 관리자 페이지 ////////////////////
 
     @PostMapping("/admin/updateMem.do")
