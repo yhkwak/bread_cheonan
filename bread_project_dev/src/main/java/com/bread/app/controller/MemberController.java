@@ -57,7 +57,8 @@ public class MemberController {
 	}
 	
 	@GetMapping("/findIdResult.do")
-	public String findIdResult() {
+	public String findIdResult(String member_id, Model model) {
+		model.addAttribute("member_id", member_id);
 		return "member/findIdResult";
 	}
 	
@@ -66,8 +67,14 @@ public class MemberController {
 		return "member/findPw";
 	}
 	
-	@GetMapping("/findPwResult.do")
-	public String findPwResult() {
+	@PostMapping("/findPwResult.do")
+	public String findPwResult(String member_id, String member_pw,
+								String member_phone, Model model) {
+		System.out.println("member_pw:"+member_pw); 
+		
+		model.addAttribute("member_id", member_id);
+		model.addAttribute("member_pw", member_pw);
+		model.addAttribute("member_phone", member_phone);
 		return "member/findPwResult";
 	}
 	
@@ -149,57 +156,14 @@ public class MemberController {
 			session.invalidate();
 			return "redirect:/main.do";//메인 페이지 재요청
 		}
-		
-		//아이디 찾기
-		@PostMapping("/findIdProcess.do")
-		public String findIdProcess(String member_name, String member_phone,
-								   HttpServletRequest request, HttpServletResponse response, Model model) {
-
-			String viewPage = "member/findId"; //로그인 실패 시 JSP페이지
-
-			MemberVO memberVO = mFindId.findId(member_name, member_phone);
-			model.addAttribute("member_id", memberVO.getMember_id());
-
-			if(memberVO != null) { //로그인 성공 시
-				//세션 객체에 회원정보 객체 저장
-				//HttpSession session = request.getSession();
-				//session.setAttribute("member", memberVO);
-				//session.invalidate();
-				viewPage = "/member/findIdResult";//
 				
-			}
-			return viewPage;
-		}
-		
-		//아이디 찾기
-		@PostMapping("/findPwProcess.do")
-		public String findPwProcess(String member_id, String member_phone,
-								   HttpServletRequest request, HttpServletResponse response, Model model) {
-
-			String viewPage = "member/findPw"; //로그인 실패 시 JSP페이지
-
-			MemberVO memberVO = mFindPw.findPw(member_id, member_phone);
-			model.addAttribute("member_id", memberVO.getMember_id());
-			model.addAttribute("member_pw", memberVO.getMember_pw());
-			model.addAttribute("member_phone", memberVO.getMember_phone());
-			
-
-			if(memberVO != null) { //로그인 성공 시
-				viewPage = "/member/findPwResult";//
-				
-			}
-			return viewPage;
-		}
-		
+		//비밀번호 찾기 후 변경
 		@PostMapping("/changePwProcess.do")
 		public String changePw(MemberVO memberVO, HttpServletRequest request, Model model) {
 			String viewPage = "member/findPwResult"; // 변경 실패시 페이지
 			MemberVO newVO = mChangePw.changePw(memberVO, request);
 
 			if (newVO != null) { // 로그인 성공시 세션으로 객체저장
-				HttpSession session = request.getSession();
-				session.removeAttribute("member");
-				session.setAttribute("member", newVO);
 				viewPage = "redirect:/member/login.do"; // 메인페이지 재요청
 			} else { // 로그인 실패 시
 				model.addAttribute("msg", "아이디나 비밀번호가 일치하지 않습니다");

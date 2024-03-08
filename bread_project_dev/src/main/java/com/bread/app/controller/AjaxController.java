@@ -7,9 +7,12 @@ import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -25,8 +28,10 @@ import com.bread.app.vo.CartVO;
 import com.bread.app.vo.LikesVO;
 import com.bread.app.vo.MemberVO;
 import com.bread.service.member.MemberService;
+import com.bread.service.sms.SmsService;
 
 import lombok.AllArgsConstructor;
+import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 
 @RestController
@@ -40,7 +45,7 @@ public class AjaxController {
     private AdminStoreDAO adminStoreDAO;
     private CartDAO cartDAO;
     private LikesDAO likesDAO;
-    private MemberService mUpdate, mDelete;
+    private MemberService mUpdate, mFindId, mDelete, mFindPw;
 
     
     //////////////////// 중복 검사 ////////////////////
@@ -153,10 +158,53 @@ public class AjaxController {
         }
     }
     
+    @PostMapping("/member/findIdProcess.do")
+    public Map<String, String> findIdProcess(String member_name, String member_phone) {
+        Map<String, String> resultMap = new HashMap<String, String>();
+        MemberVO memberVO = mFindId.findId(member_name, member_phone);
+
+        
+        // 데이터베이스에서 가져온 정보와 사용자가 입력한 이름과 전화번호가 일치하는지를 확인
+        if (memberVO != null) {
+            resultMap.put("status", "success");
+            resultMap.put("member_id", memberVO.getMember_id());
+            resultMap.put("message", "아이디를 성공적으로 찾았습니다.");
+        } else {
+            resultMap.put("status", "failure");
+            resultMap.put("message", "아이디를 찾는데 실패했습니다. 올바른 정보를 입력해주세요.");
+        }
+
+        return resultMap;
+    
+    }
+    
+    @PostMapping("/member/findPwProcess.do")
+    public Map<String, String> findPwProcess(String member_id, String member_phone) {
+    	
+        Map<String, String> resultMap = new HashMap<String, String>();
+        MemberVO memberVO = mFindPw.findPw(member_id, member_phone);
+
+        // 데이터베이스에서 가져온 정보와 사용자가 입력한 이름과 전화번호가 일치하는지를 확인
+        if (memberVO != null) {
+            resultMap.put("status", "success");
+            resultMap.put("member_id", memberVO.getMember_id());
+            resultMap.put("member_pw", memberVO.getMember_pw());
+            resultMap.put("member_phone", memberVO.getMember_phone());
+            resultMap.put("message", "비밀번호를 성공적으로 찾았습니다.");
+        } else {
+            resultMap.put("status", "failure");
+            resultMap.put("message", "비밀번호를 찾는데 실패했습니다. 올바른 정보를 입력해주세요.");
+        }
+
+        return resultMap;
+    
+    }
+    
+    
     //회원탈퇴
     @PostMapping("/deleteProcess.do")
     public Map<String, Object> deleteProcess(HttpServletRequest request) {
-        Map<String, Object> response = new HashMap<>();
+        Map<String, Object> response = new HashMap<String, Object>();
         HttpSession session = request.getSession();
         MemberVO vo = (MemberVO) session.getAttribute("member");
         int member_idx = vo.getMember_idx();
@@ -251,14 +299,14 @@ public class AjaxController {
     public int deleteStore(int bakery_idx) throws SQLException {
         return adminStoreDAO.deleteStore(bakery_idx);
     }
-    
+
     //////////////////// 매장찜하기 ////////////////////
     @PostMapping("/search/addBL.do")
     public int addBL(LikesVO lvo) {
 
     	int result=0;
     	int check = likesDAO.checkBL2(lvo);
-    	
+
     	if(check == 0) { // 매장 찜 등록
     		result=likesDAO.addBL(lvo);
     		System.out.println("서버 좋아요값 0:해제 1:설정 : " + result);
@@ -268,4 +316,3 @@ public class AjaxController {
 		return result;
     }
 }
-

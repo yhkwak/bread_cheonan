@@ -57,12 +57,12 @@
 	
 	<!-- 아이디 찾기 -->
 	<select id="getFindId" resultType="memberVO">
-		select * from bc_member where member_name=#{member_name} and member_phone=#{member_phone} where member_del=0
+		select * from bc_member where member_name=#{member_name} and member_phone=#{member_phone} and member_del=0
 	</select>
 	
 	<!-- 비밀번호 찾기 -->
 	<select id="getFindPw" resultType="memberVO">
-		select * from bc_member where member_id=#{member_id} and member_phone=#{member_phone} where member_del=0
+		select * from bc_member where member_id=#{member_id} and member_phone=#{member_phone} and member_del=0
 	</select>
 
 
