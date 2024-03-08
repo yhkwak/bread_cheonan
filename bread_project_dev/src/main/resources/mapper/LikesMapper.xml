@@ -21,21 +21,16 @@
 	<!-- 최초 찜 설정 -->
 	<!-- 매장 찜하기 --> 	
 	<insert id="addBL" parameterType="likesVO">
-		insert into bc_likes values (0,#{likes_check}, #{bakery_idx}, #{member_idx})
+		insert into bc_likes (bakery_idx, member_idx) values (#{bakery_idx}, #{member_idx})
 	</insert>
 	
 	
 	<!-- 기존에 찜한 적이 있을 경우 -->
-	<!-- 매장 찜 상태 업데이트 -->
-	<update id="updateBL" parameterType="likesVO">
-		update bc_likes set likes_check = 1 where bakery_idx = #{bakery_idx} and member_idx = #{member_idx}
-	</update>
-	
 	<!-- 매장 찜 해제-->
-	<update id="delBL" parameterType="likesVO">
-		update bc_likes set likes_check = 0 where bakery_idx = #{bakery_idx} and member_idx = #{member_idx}
-	</update>
-	
+	<delete id="delBL" parameterType="likesVO">
+		delete from bc_likes where bakery_idx = #{bakery_idx} and member_idx = #{member_idx}
+	</delete>
+
 	
 <!-- 리뷰 좋아요 할까말까..... -->	
  </mapper>

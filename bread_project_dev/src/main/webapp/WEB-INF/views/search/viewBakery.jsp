@@ -16,6 +16,7 @@
         <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/viewBakery.css">
         <script src="${pageContext.request.contextPath}/resources/js/jquery-3.7.1.min.js"></script>
 		<script>
+//////////////////////////장바구니 담기 관련///////////////////////
 			var arry_chk = [];
 			var member_idx = ${member.member_idx};
 			
@@ -116,37 +117,50 @@
 				}
 			}
 			
-			var member_idx = ${likes.member_idx};
-			var likes_check = ${likes.likes_check};
-			var bakery_idx = ${likes.bakery_idx};
-			
-			$(".like").on("click", function(){
+			//매장 찜하기		
+			function addBL(){
+			    var member_idx = ${member.member_idx};
+				var bakery_idx = ${bakery.bakery_idx};
+				console.log(member_idx);
+				console.log(bakery_idx);
 				
 				$.ajax({
-					url : "/search/like",
-					type : 'GET',
-					data : {'bakery_idx' : bakery_idx, 'memeber_idx' : member_idx},
-					success : function(data){
-						if(data == 1){
-							like=true;
+					url : "addBL.do",
+					type : 'POST',
+					data : {'bakery_idx' : bakery_idx, 'member_idx' : member_idx},
+					success : function(result){
+						if(result == 1){
 							alert("이 빵집 쨩");
-							$('#like').attr("src","${pageContext.request.contextPath}/resources/css/img/check12.png");
+							$('#like_img').attr("src","${pageContext.request.contextPath}/resources/css/img/check12.png");
 							var result = confirm("찜목록 보싈?");
-								if(result){ //확인시 찜리스트 페이지 이동 예정. 일단 메인페이지로 이동함
-									location.href ='/main';
+								if(result){ //확인시 찜리스트 페이지 이동 예정. 일단 구매내역페이지로 이동함
+									location.href ='${pageContext.request.contextPath}/mypage/orderList.do'; 
+								}else{
+									location.reload();
 								}
-						}else if(data == -1){
-							alert("로그인부터 합시다")
-						}else{
-							like=false;
+						}else if(result == 0){
 							alert("이 빵집 이제 노관심");
-							$('#like').attr("src","${pageContext.request.contextPath}/resources/css/img/check11.png");
+							$('#like_img').attr("src","${pageContext.request.contextPath}/resources/css/img/check11.png");
+							location.reload();
+						}else{
+							console.log("어딘가 잘못되었다");
+							console.log(result);
 						}
 					}, error:function(error){
 						console.log(error);
 					}
 				});
-			});
+			}
+		/* 	인터셉터 확인후 진행예정
+			//로그인 안내
+			 function confirmAddBL() {
+				// 로그인이 안되어있을 경우
+		         var confirmLogin = confirm("로그인부터 하싈?");
+		         if (confirmLogin) {
+		         	 location.href = '${pageContext.request.contextPath}/member/login.do'; // 확인시 로그인 페이지로 이동
+		         }
+	        }
+			 */
 		</script>
     <title>빵집 상세보기</title>
     
@@ -162,21 +176,32 @@
                         <tr>
                             <th><h2>${bakery.bakery_name}</h2></th>
                             <td>
-                            	<c:choose>
-								    <c:when test="${result != null}">
-								        <a class="like">
-								            <c:choose>
-								                <c:when test="${result.like_check == 0}">
-								                    <img id="like" src="${pageContext.request.contextPath}/resources/css/img/check11.PNG">
-								                </c:when>
-								                <c:otherwise>
-								                    <img id="like" src="${pageContext.request.contextPath}/resources/css/img/check12.PNG">
-								                </c:otherwise>
-								            </c:choose>
-								        </a>
-								    </c:when>
-								</c:choose>
-                            </td>
+							    <c:choose>
+							        <c:when test="${not empty member}">
+							            <button type="button" id="like" onclick="addBL()">
+							                <c:choose>
+							                    <c:when test="${result eq 0}">
+							                        <img id="like_img" src="${pageContext.request.contextPath}/resources/css/img/check11.png">
+							                    </c:when>
+							                    <c:otherwise>
+							                        <img id="like_img" src="${pageContext.request.contextPath}/resources/css/img/check12.png">
+							                    </c:otherwise>
+							                </c:choose>
+							                추가
+							            </button>
+							        </c:when>
+							        <c:otherwise>
+							            <button type="button" id="like" onclick="location.href='${pageContext.request.contextPath}/member/login.do';">
+							                <c:choose>
+							                    <c:when test="${result eq 0}">
+							                        <img id="like_img" src="${pageContext.request.contextPath}/resources/css/img/check11.png">
+							                    </c:when>
+							                </c:choose>
+							            </button>
+							        </c:otherwise>
+							    </c:choose>
+							</td>
+
                             <%-- <td rowspan="4" id="shop_img"><img src="../resources/css/img/${bakey.bakery_img_save}"></td> --%>
                             <td rowspan="4" id="shop_img"><%-- <img src="../resources/css/img/test_img08.png"> --%>
 	                            <c:choose>

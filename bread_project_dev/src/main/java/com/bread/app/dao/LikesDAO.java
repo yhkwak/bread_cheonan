@@ -20,25 +20,19 @@ public class LikesDAO {
 	public int checkBL(LikesVO lvo) {
 		return sqlSession.selectOne(MAPPER+".checkBL", lvo);
 	}
-	
+	// 매장 중복 찜 방지
 	public int checkBL2(LikesVO lvo) {
 		return sqlSession.selectOne(MAPPER+".checkBL2", lvo);
 	}
 	
-	//매장 찜 하기
+	//최초 매장 찜 하기
 	public int addBL(LikesVO lvo) {
 		return sqlSession.insert(MAPPER+".addBL", lvo);
 	}
 	
 	//매장 찜 해제
 	public int delBL(LikesVO lvo) {
-		return sqlSession.update(MAPPER+".delBL", lvo);
+		return sqlSession.delete(MAPPER+".delBL", lvo);
 	}
-	
-	// 매장 찜 상태 업데이트
-	public int updateBL(LikesVO lvo) {
-		return sqlSession.update(MAPPER + ".updateBL", lvo);
-	}
-	
-	//리뷰 좋아요
+
 }

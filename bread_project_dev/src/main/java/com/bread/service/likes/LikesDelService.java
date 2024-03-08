@@ -8,15 +8,14 @@ import com.bread.app.vo.LikesVO;
 import lombok.AllArgsConstructor;
 
 @AllArgsConstructor
-@Service("blAdd")
-public class LikesAddService implements LikesService {
+@Service("blDel")
+public class LikesDelService implements LikesService {
 	
 	private LikesDAO dao;
 	
 	@Override
-	public int addBL(LikesVO lvo) {
-		int result = 0;
-			result = dao.addBL(lvo);
-		return result;
+	public int delBL(LikesVO lvo) {
+		return dao.delBL(lvo);
+		
 	}
 }
