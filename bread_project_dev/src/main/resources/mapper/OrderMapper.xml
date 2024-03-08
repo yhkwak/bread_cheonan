@@ -80,4 +80,12 @@
 
 	<!-- Update -->	
 	<!-- Delete -->
+	<update id="orderCancel" parameterType="string">
+
+	    	update bc_order 
+			set payment_status = 1
+			where order_idx = #{order_idx}
+				
+	    
+	</update>
 </mapper>
