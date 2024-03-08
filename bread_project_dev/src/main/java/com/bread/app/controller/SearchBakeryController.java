@@ -2,7 +2,6 @@ package com.bread.app.controller;
 
 import java.util.List;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -62,7 +61,7 @@ public class SearchBakeryController {
 
 		    // 세션에서 회원 정보를 가져옴.		    
 		    MemberVO memberVO = (MemberVO) session.getAttribute("member");
-		    System.out.println("member : "+memberVO);
+		    System.out.println("member : "+memberVO);    	
 		    
 		    //매장 찜 객체 생성
 		    LikesVO like = null;
@@ -78,9 +77,9 @@ public class SearchBakeryController {
 		    // 해당 회원이 설정한 좋아요 상태 가져오기
 		    int result = 0;
 		    if(like != null) {
-		    	if(blCheck.checkBL2(like)==0) {
+		    	if(blCheck.checkBL2(like)==0) { //중복확인후
 		    	}else {
-		    	result = blCheck.checkBL(like);	
+		    	result = blCheck.checkBL(like); //설정 상태를 불러옴	
 		    	}
 		    }
 		    
@@ -95,7 +94,7 @@ public class SearchBakeryController {
 
 		    // 좋아요 결과 모델에 추가
 		    model.addAttribute("result", result);
-		    System.out.println("result : "+ result);
+		    System.out.println("찜 상태 0:해제, 1:설정 : "+ result);
 		    
 		    return viewPage;
 		}
