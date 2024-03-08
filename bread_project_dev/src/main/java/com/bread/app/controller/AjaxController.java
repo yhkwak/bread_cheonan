@@ -20,10 +20,12 @@ import org.springframework.web.bind.annotation.RestController;
 import com.bread.app.dao.AdminMemDAO;
 import com.bread.app.dao.AdminStoreDAO;
 import com.bread.app.dao.CartDAO;
+import com.bread.app.dao.LikesDAO;
 import com.bread.app.dao.MemberDAO;
 import com.bread.app.dao.SearchDAO;
 import com.bread.app.vo.BreadVO;
 import com.bread.app.vo.CartVO;
+import com.bread.app.vo.LikesVO;
 import com.bread.app.vo.MemberVO;
 import com.bread.service.member.MemberService;
 import com.bread.service.sms.SmsService;
@@ -42,6 +44,7 @@ public class AjaxController {
     private AdminMemDAO adminMemDAO;
     private AdminStoreDAO adminStoreDAO;
     private CartDAO cartDAO;
+    private LikesDAO likesDAO;
     private MemberService mUpdate, mFindId, mDelete, mFindPw;
 
     
@@ -295,5 +298,21 @@ public class AjaxController {
     @PostMapping("/admin/deleteStore.do")
     public int deleteStore(int bakery_idx) throws SQLException {
         return adminStoreDAO.deleteStore(bakery_idx);
+    }
+
+    //////////////////// 매장찜하기 ////////////////////
+    @PostMapping("/search/addBL.do")
+    public int addBL(LikesVO lvo) {
+
+    	int result=0;
+    	int check = likesDAO.checkBL2(lvo);
+
+    	if(check == 0) { // 매장 찜 등록
+    		result=likesDAO.addBL(lvo);
+    		System.out.println("서버 좋아요값 0:해제 1:설정 : " + result);
+    	}else  { // 찜 해제
+    		likesDAO.delBL(lvo);
+       	}
+		return result;
     }
 }
