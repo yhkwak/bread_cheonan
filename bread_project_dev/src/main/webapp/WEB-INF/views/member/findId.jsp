@@ -39,7 +39,7 @@
     		                </table>
                             <div id="search_menu">
 	    	                    <div id="find_id_box">
-                                    <button type="submit" id="find_id" onclick="fnSubmit(); return false;">아이디 찾기</button>
+                                    <button type="submit" id="find_id">아이디 찾기</button>
                                 </div>
                                 <div id="search_box">
                                     <a href="${pageContext.request.contextPath}/member/findPw.do" id="find_pw">비밀번호 찾기</a>
