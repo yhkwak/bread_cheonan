@@ -1,32 +1,33 @@
 package com.bread.app.controller;
 
+import java.util.Enumeration;
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.bread.app.common.TenPageNav;
-import com.bread.app.dao.BreadDAO;
-import com.bread.app.vo.BreadVO;
-import com.bread.app.vo.MemberVO;
-import com.bread.app.vo.PageVO;
-import com.bread.app.vo.SearchVO;
-import com.bread.service.bread.BreadService;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-
-import com.bread.app.vo.BakeryVO;
-import com.bread.service.bakery.BakeryService;
-
-import lombok.Setter;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import java.util.Enumeration;
-import java.util.List;
+import com.bread.app.common.TenPageNav;
+import com.bread.app.dao.BreadDAO;
+import com.bread.app.vo.BakeryVO;
+import com.bread.app.vo.BreadVO;
+import com.bread.app.vo.LikesVO;
+import com.bread.app.vo.MemberVO;
+import com.bread.app.vo.PageVO;
+import com.bread.app.vo.SearchVO;
+import com.bread.service.bakery.BakeryService;
+import com.bread.service.bread.BreadService;
+import com.bread.service.likes.LikesService;
+
+import lombok.Setter;
+import lombok.extern.slf4j.Slf4j;
 @Slf4j
 @Controller
 @RequestMapping("/mypage")
@@ -40,6 +41,8 @@ public class MypageController {
 	TenPageNav pageNav;
 	@Setter(onMethod_ = {@Autowired})
 	private BreadDAO breadDAO;
+	@Setter(onMethod_ = {@Autowired})
+	LikesService lList, lTotalCount, lPage;
 
 	@GetMapping("/shopinfo.do")
 	public String shopinfo(int member_idx, HttpServletRequest request) {
@@ -175,5 +178,28 @@ public class MypageController {
 		return viewPage;
 	}
 	
+	//찜목록
+	@GetMapping("/likeList.do")
+	public String likeList(LikesVO lvo, HttpSession session, Model model) {
+		//pageNum이 0인 경우 1로 세팅함
+		if(lvo.getPageNum()==0) {
+			lvo.setPageNum(1);
+		}
+	    // 세션에서 회원 정보를 가져옴.
+	    MemberVO memberVO = (MemberVO) session.getAttribute("member");
+	    lvo.setMember_idx(memberVO.getMember_idx());
+
+	    // 회원 번호를 사용하여 찜 목록을 조회
+	    List <LikesVO> likeList = lList.likeList(lvo);
+	    model.addAttribute("likeList", likeList);
+
+	    //페이징
+	    pageNav.setTotalRows(lTotalCount.getLikeListTotalCount(lvo));
+	    pageNav=lPage.setPageNav(pageNav,lvo.getPageNum(),lvo.getPageBlock());
+	    
+	    model.addAttribute("pageNav", pageNav);
+	    // 찜목록으로 이동
+	    return "mypage/likeList";
+	}
 	
 }

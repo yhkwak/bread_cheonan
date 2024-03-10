@@ -1,8 +1,11 @@
 package com.bread.app.dao;
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
+import com.bread.app.vo.ItemVO;
 import com.bread.app.vo.LikesVO;
 
 import lombok.RequiredArgsConstructor;
@@ -33,6 +36,15 @@ public class LikesDAO {
 	//매장 찜 해제
 	public int delBL(LikesVO lvo) {
 		return sqlSession.delete(MAPPER+".delBL", lvo);
+	}
+	
+	//찜목록 
+	public List<LikesVO> likeList(LikesVO lvo){
+		return sqlSession.selectList(MAPPER+".likeList", lvo);
+	}
+	//페이징용 찜갯수
+	public int getLikeListTotalCount(LikesVO lvo) {
+		return sqlSession.selectOne(MAPPER+".getLikeListTotalCount",lvo);
 	}
 
 }

@@ -52,7 +52,7 @@
 	
 	<!-- 한명의 회원 가져오기 -->
 	<select id="getMember" parameterType="_int" resultType="memberVO">
-		select * from bc_member where member_idx = #{member_idx} where member_del=0
+		select * from bc_member where member_idx = #{member_idx} and member_del=0
 	</select>
 	
 	<!-- 아이디 찾기 -->

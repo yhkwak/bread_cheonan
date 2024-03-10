@@ -133,8 +133,8 @@
 							alert("이 빵집 쨩");
 							$('#like_img').attr("src","${pageContext.request.contextPath}/resources/css/img/check12.png");
 							var result = confirm("찜목록 보싈?");
-								if(result){ //확인시 찜리스트 페이지 이동 예정. 일단 구매내역페이지로 이동함
-									location.href ='${pageContext.request.contextPath}/mypage/orderList.do'; 
+								if(result){ //확인시 찜리스트 페이지 이동
+									location.href ='${pageContext.request.contextPath}/mypage/likeList.do'; 
 								}else{
 									location.reload();
 								}
