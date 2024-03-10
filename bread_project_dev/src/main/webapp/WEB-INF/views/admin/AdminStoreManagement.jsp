@@ -17,29 +17,34 @@
         <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/AdminStoreManagement.css">
         <script src="${pageContext.request.contextPath}/resources/js/jquery-3.7.1.min.js"></script>
 
-    
-    <script>
-$(document).ready(function(){
-	$('.deleteStore_btn').click(function(){
-		var bakeryIdx = $(this).data("bakery_idx");
-	    console.log(bakeryIdx); // bakeryIdx값 확인
-	    
-	    $.ajax({
-	        type : 'post',
-	        url : "${pageContext.request.contextPath}/admin/deleteStore.do",
-	        data : {"bakery_idx" : bakeryIdx},
-	        success : function(data){
-	        	alert("매장 삭제 처리 성공. 복구안됨 ㅋ")
-	        	location.reload();
-	        }, error : function(status, error){
-	        	alert("매장 삭제 처리 실패. 원만한 합의를 보세요")
-	            console.log('에러발생');
-	            console.log(status, error);
-	        }
-	    });//ajax종료
+<script>
+	$(document).ready(function(){
+		$('.deleteStore_btn').click(function(){
+			var bakeryIdx = $(this).data("bakery_idx");
+			var bakeryDel = $(this).closest('tr').find('td:eq(5)').text(); //매장 삭제여부 확인
+			console.log(bakeryIdx); // bakeryIdx값 확인
+			console.log(bakeryDel); // bakeryDel값 확인
+			
+			if(bakeryDel == "NO"){ //정상매장일 경우 정상실행
+				$.ajax({
+					type : 'post',
+					url : "${pageContext.request.contextPath}/admin/deleteStore.do",
+					data : {"bakery_idx" : bakeryIdx},
+					success : function(data){
+						alert("매장 삭제 처리 성공. 복구안됨 ㅋ")
+						location.reload();
+					}, error : function(status, error){
+						alert("매장 삭제 처리 실패. 원만한 합의를 보세요")
+						console.log('에러발생');
+						console.log(status, error);
+					}
+				});//ajax종료
+			}else{
+				alert("삭제된 매장입니다")
+			}
+		});
 	});
-});
-    </script>
+</script>
     <title>관리자-매장관리</title>    
 </head>
 <body>

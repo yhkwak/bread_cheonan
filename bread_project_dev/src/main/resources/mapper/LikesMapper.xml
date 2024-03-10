@@ -31,6 +31,22 @@
 		delete from bc_likes where bakery_idx = #{bakery_idx} and member_idx = #{member_idx}
 	</delete>
 
-	
+	<!-- 찜목록 -->
+	<select id="likeList" parameterType="likesVO" resultType="likesVO">
+	    select *
+	    from bc_likes l inner join bc_bakery bk
+	    on l.bakery_idx = bk.bakery_idx 
+	    where l.member_idx = #{member_idx}
+	    order by l.likes_idx
+	    limit #{startIdx}, 10
+	</select>
+
+	<!-- 페이징용 찜갯수 -->
+	<select id="getLikeListTotalCount" parameterType="likesVO" resultType="_int">
+		select count(*)
+			from bc_likes 
+			where member_idx=#{member_idx}
+			order by likes_idx desc
+	</select>
 <!-- 리뷰 좋아요 할까말까..... -->	
  </mapper>
