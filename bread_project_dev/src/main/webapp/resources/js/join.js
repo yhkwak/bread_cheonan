@@ -25,9 +25,9 @@ $(document).ready(function() {
     }
 
 	$('#member_id').focusout(function() {
-	    var idRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,20}$/;
+	    var idRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,15}$/;
 	    if (!idRegex.test(this.value)) {
-	        showError('member_id', '6~20자의 영문, 숫자만 입력해주세요.');
+	        showError('member_id', '6~15자의 영문과 숫자로 구성해주세요.');
 	        isIdValid = false;
 	    } else if($("#member_id").val() != null) {
 	        var member_id =  $("#member_id").val(); 
@@ -56,7 +56,7 @@ $(document).ready(function() {
     $('#member_pw').focusout(function() {
     	var pwRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,15}$/;
         if (!pwRegex.test(this.value)) {
-            showError('member_pw', '8~15자의 영문, 숫자를 입력해주세요.');
+            showError('member_pw', '8~15자의 영문과 숫자로 구성해주세요.');
             isValidPw = false;
         } else {
             showError('member_pw', ''); // 에러 메시지 제거
@@ -82,7 +82,7 @@ $(document).ready(function() {
     $('#member_name').focusout(function() {
         var nameRegex = /^[가-힣]{2,10}$/;
         if (!nameRegex.test(this.value)) {
-            showError('member_name', '2글자 이상의 한글을 입력해주세요.');
+            showError('member_name', '본인의 이름을 정확히 입력해주세요.');
             isValidName = false;
         } else {
             showError('member_name', ''); // 에러 메시지 제거
@@ -98,7 +98,7 @@ $(document).ready(function() {
         this.value = phoneValue.replace(/(\d{3})(\d{4})(\d{4})/, '$1-$2-$3');
 
         if (this.value.replace(/-/g, '').length !== 11) {
-            showError('member_phone', '11자리의 숫자만 정확히 입력해주세요.');
+            showError('member_phone', '11자리의 숫자를 정확히 입력해주세요.');
             isValidPhoneNumber = false;
         } else if($("#member_phone").val() != null) {
             var member_phone =  $("#member_phone").val(); 
@@ -109,7 +109,7 @@ $(document).ready(function() {
 	            url : "checkPhoneNumberProcess.do",
 	            success : function(resData) {
 	                if (resData == "1") {
-	                  showError('member_phone', '이미 사용중인 전화번호입니다.');
+	                  showError('member_phone', '이미 등록된 전화번호입니다.');
 	                  isValidPhoneNumber = false;
 	                }else {
 				        showError('member_phone', '');
@@ -129,7 +129,7 @@ $(document).ready(function() {
 
     $('#member_nickname').focusout(function() {
         if (this.value.length < 3 || this.value.length > 10) {
-            showError('member_nickname', '3~10글자 이하로 입력해주세요.');
+            showError('member_nickname', '3~10글자 사이로 입력해주세요.');
             isValidNickname = false;
         } else if($("#member_nickname").val() != null) {
             var member_nickname =  $("#member_nickname").val(); 

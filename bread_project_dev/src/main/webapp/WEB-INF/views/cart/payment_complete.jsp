@@ -22,7 +22,7 @@
         <div id="main-area">
             <div id="complete_message_box">
                 <p>상품 주문이 정상적으로 완료 되었습니다.</p>
-                <div id="complete_sub"><span>빵빵</span><a>한천안</a> 을 이용해주셔서 감사합니다</span></div>   
+                <div id="complete_sub"><span>빵빵</span><a>한천안</a> 을 이용해주셔서 감사합니다</div>   
             </div>
                 <div id="complete_box1">
                     <ul>

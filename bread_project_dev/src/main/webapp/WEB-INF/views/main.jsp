@@ -180,7 +180,7 @@
             </div>
         <div id="review_box">
             <div id="reviewboardimage">
-            <div id="reviewboard_subject"><a><span>빵빵</span>한 후기 마당</a></div>
+            <div id="reviewboard_subject"><a><span>빵빵</span>한 리뷰 마당</a></div>
                 <div id="reviewbox">
                     <ul>
 					    <li>
@@ -225,7 +225,7 @@
 					    </li>
 					</ul>
                 </div>
-                <div id="goreview"><a href="${pageContext.request.contextPath}/review/review.do">후기보러가기</a></div>
+                <div id="goreview"><a href="${pageContext.request.contextPath}/review/review.do">리뷰보러가기</a></div>
             </div>
         </div>
         <div id="subbox">

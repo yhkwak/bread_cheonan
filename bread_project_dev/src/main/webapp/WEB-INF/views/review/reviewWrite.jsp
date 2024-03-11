@@ -17,7 +17,7 @@
 			var contextPath = "${pageContext.request.contextPath}";
 		</script>
 		<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/reviewWrite.js"></script>
-		<title>리뷰 글쓰기</title>
+		<title>리뷰 작성</title>
 	</head>
 	<body>
 		<div id="wrap">
@@ -26,38 +26,33 @@
 
 			<section id="container-content">
 				<h1>내용 영역</h1>
-				<div id="side-nav">
-					<div id="side-menu">
-						<h2>후기게시판</h2>
-					</div>
-				</div>
 				<div id="main-area">
+				<h2>리뷰작성</h2>
 					<form action="${pageContext.request.contextPath}/review/reviewWriteProcess.do" id="frm_write" name="frm_write" method="post" enctype="multipart/form-data">
 						<table id="table-main">
 							<c:forEach items="${writeList}" var="write">
 								<tr>
-									<td>빵이름: <p>${write.bread_name}</p></td>
 									<td><input type="hidden" name="bread_idx" value="${write.bread_idx}"></td>
-									<input type="hidden" name="order_idx" value="${write.order_idx}">
-									<input type="hidden" name="member_idx" value="${write.member_idx}">
+									<td><input type="hidden" name="order_idx" value="${write.order_idx}"></td>
+									<td><input type="hidden" name="member_idx" value="${write.member_idx}"></td>
 								</tr>
-							</c:forEach>
 							<tr id="tr-title">
-								<th class="td-main">제목</th>
-								<td class="td-input"><input type="text" name="review_title" id="input-title"></td>
+								<th class="td-main" id="td-subject"></th>
+								<td class="td-input" id="td-breadname"><a>${write.bread_name}</a><font> 에 대한 솔직한 리뷰를 남겨주세요</font></td>
 							</tr>
+							</c:forEach>
 							<tr>
-								<th class="td-main">내용</th>
+								<th class="td-main"></th>
 								<td class="td-input"><textarea name="review_content" id="content" rows="15" cols="40"></textarea></td>
 							</tr>
-							<tr>
-								<th class="td-main" style="vertical-align: top;">첨부파일</th>
+							<tr id="tr-file">
+								<th class="td-main" id="td-file">첨부파일</th>
 								<td class="td-input">
 									<!-- 파일 입력 -->
 									<input type="file" id="uploadFile" name="uploadFile" accept="image/*" onchange="previewImage(this);">
 									<!-- 이미지 미리보기 -->
-									<div style="width: 400px; height: 250px;">
-										<img id="imagePreview" style="display: none; max-width: 200px; height: auto;" />
+									<div style="width: 250px; height: 250px;">
+										<img id="imagePreview" style="display: flex; max-width: 250px; height: 250px;" />
 									</div>
 								</td>
 							</tr>
@@ -68,6 +63,7 @@
 						</div>
 					</form>
 				</div>
+				<div id=border></div>
 			</section>
 
 			<%@ include file = "../common/footer.jsp" %>
