@@ -10,16 +10,20 @@
     <link href="https://fonts.googleapis.com/css2?family=Grape+Nuts&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Gasoek+One&family=Gothic+A1:wght@700&family=Jua&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">           
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/searchBakery.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/likeList.css">
     <title>매장 찜 목록</title>
 </head>
 <body>
 	<div id="wrap">
-    	<%@ include file = "../common/header.jsp" %>    
+	
+    	<%@ include file = "../common/header.jsp" %>
+    	    
 		<section id="container-content">
+		<h1>내용 영역</h1>
             <%@ include file = "../common/navigation.jsp" %>
+            <div id="main-area">
             <form name="frm-search">
-                <h2>내가<span>찜</span>한 가족들</h2>
+                <h2>내가 <span>찜</span>한 가족들</h2>
                 <div id="search_box">
                 	<!-- 데이터가 없는 경우 -->
                     <c:choose>
@@ -27,7 +31,7 @@
                     		<div id="shop_table">
 		                        <table id="shop_table_list">
 		                            <tr>
-		                                <td>찜한 가족 명단에서 찾을 수 없습니다</td>
+		                                <td>찜한 가족이 없습니다</td>
 		                            </tr>
 		                        </table>
 		                    </div>
@@ -71,6 +75,7 @@
 				    </c:if>
                 </div>
             </form>
+            </div>
         </section>
             <%@ include file = "../common/footer.jsp" %>
 	</div>

@@ -1,4 +1,4 @@
-        h1{font-size:0;}
+h1{font-size:0;}
         * {margin:0;
           padding:0;
         }
@@ -10,6 +10,7 @@
             height: 1500px;
             margin: 0 auto;
         }   
+        /********** 헤더 영역 **********/
         header{
             width:1536px;
             height: 245px;
@@ -31,7 +32,7 @@
         }
         #c2{
             position: relative;
-            left:37px;
+            left: 37px;
             top:63px;
             height:45px;
             width:45px;
@@ -73,7 +74,7 @@
             font-family: 'Grape Nuts', cursive;
             font-family: 'Nanum Pen Script', cursive;
             color:gray;
-            text-decoration-line: none;
+            text-decoration: none;
         }
         span{
             font: bold 50px solid;
@@ -87,23 +88,21 @@
             width:1136px;
             border-top: 1px solid gray;
         }
-
+        /********** 메인 영역 **********/
         #container-content{
-            display: inline-block;
+        	display: inline-block;
             width: 1536px; 
-            height: 1500px; 
+            height: 1000px;
         }
         #side-nav{
-        	position:relative;
-        	bottom:1px;
             float: left;
             width:300px;
-            height: 1350px; 
+            height: 1000px; /* container-content height 크기와 동일하게 설정 */
         }
         #side-menu{
             position: relative;
             left:70px;
-            top:127px;
+            top:100px;
             width: 220px;
             height: 400px;
             text-decoration: none;
@@ -120,7 +119,7 @@
         #side-menu ul{
             list-style: none;
         }
-         #side-menu ul li a{
+        #side-menu ul li a{
         	display:block;
         	transition: all 0.5s ease-out;
             text-decoration: none;
@@ -138,143 +137,41 @@
             margin-top: 30px;
             padding-right:35px;
         }
-		.category{
-			padding-bottom:4px;
+        #main-area{
+            float:left;
+            width:1236px;
+            height:1000px;
+        }
+        #main-area h2 {
+		margin: 35px 0 20px 0;
 		}
-        #all_box{
+        form{
             width: 100%;
             max-width: 1200px;
+            height: 100%;
             float: right;
-            color:rgba(0, 0, 0, 0.788);
-            font-family: 'Jua', sans-serif;
-            text-align: center;
+            margin-top:25px;
         }
-        #all_box h2{
-            font-size: 50px;
-            margin: 30px 0 30px 0;
-            color:rgba(0, 0, 0, 0.788);
+        form span{
+            font: bold 60px solid;
+            font-family: 'Grape Nuts', cursive;
+            font-family: 'Nanum Pen Script', cursive;
+            color: #F39C12;
+            text-decoration:none;
         }
-        #product_box{
-            width: 1137px;
-            height: 1100px;
-            margin: 0 auto;
-            margin-left: 63px;
-            text-align: center;
-            border: 1px solid lightgrey;
-            border-radius: 15px;
-            padding: 0 17px 10px 18px;
-        }
-        .product_table{
-            width: 100%;
-        }
-        #noproduct{
+        form h2{
         	position:relative;
-        	left:420px;
-        	top:415px;
-        	font: 25px solid;
-            color:gray;
-            font-family: 'Jua', sans-serif;
-        }
-        .product_table tr:first-child{
-			width:100%;
-			height:86px;
-			vertical-align: middle;
-		    border-bottom: 1px solid lightgray;
-        }
-        .product_table tr th:first-child{
-            width: 385px;
-        }
-        .product_table tr th{
-        	position:relative;
-        	top:3px;
-            font: 25px solid;
-            color:gray;
-            font-family: 'Jua', sans-serif;
-            width: 148px;
-            height: 87px;
-        }
-        .product_table_box{
-            width: 100%;
-        }
-        .product_table tr td:first-child{
-            width: 385px;
-            height: 90px;
-            display: flex;
-        }
-        .product_table tr td #product_title {
-            width: 250px;
-            line-height: 70px;
-        }
-        .product_table tr td {
-            width: 148px;
-            height: 90px;
-            font-size: 20px;
-            padding-top: 10px;
-        }
-        .product_table tr td img {
-            width: 80px;
-            height: 80px;
-            border-radius: 15px;
-        }
-		#price,#bread_price{
-			position:relative;
-			right:55px;
-		}
-		#shop{
-			position:relative;
-			right:40px;
-		}
-		#bread_shop{
-			position:relative;
-			right:40px;
-			width:300px;
-		}
-        #product_btn{
-            background-color: #fff;
-            border: none;
-        }
-         #product_btn:hover{
-            color:#F39C12;
-            border:none;
-            transition: 0.5s;
-        }
-        #product_btn_box{
-            width: 100px;
-            float: right;
-        }
-        #product_btn_box input[type="button"]{
-            position:relative;
-            left:11px;
-            top:20px;
-            border: none;
-            color:gray;
-            font-size: 25px;
-        }
-        #product_btn_box input[type="button"]:hover{
-            color:#F39C12;
-            border:none;
-            transition: 0.5s;
-        }
-        
-        .product_table input[type="submit"]{
-            border: 1px solid lightgray;
-            color: rgba(0, 0, 0, 0.788);
-            font-size: 20px;
-            width:60px;
-            height:35px;
-            background-color: white;
-            padding-top: 3px;
-        }
-        .product_table input[type="submit"]:hover{
-            color:white;
-        	background-color:gray;
-        	transition:0.5s;
+        	font:50px solid;
+        	text-align:center;
+        	right:10px;
+        	color:gray;
+            font-family: 'Grape Nuts', cursive;
+            font-family: 'Nanum Pen Script', cursive;
         }
         .paging_a{
         	position:relative;
         	font:25px solid;
         	top:80px;
-        	left:62px;
             text-decoration: none;
             color:gray;
         }
@@ -296,13 +193,176 @@
             color:#F39C12;
             transition: 0.5s;
         }
-
+        #search_box{
+        	position:relative;
+            width: 100%;
+            max-width: 1200px;
+            height: 100%;
+            text-align: center;
+            margin: 0 auto;
+        }
+        #search_table{
+            width: 100%;
+            height: 50px;
+            margin-bottom: 30px;
+        }
+        #select_box{
+            width: 140px;
+            height: 40px;
+            display: inline-block;
+        }
+        #search_table select{
+            width: 100%;
+            height: 100%;
+            padding: 0 28px 0 10px;
+            border: 4px solid lightgray;
+            box-sizing: border-box;
+            -webkit-appearance:none; /* for chrome */
+            -moz-appearance:none; /*for firefox*/
+            appearance:none;
+            background: transparent;
+            font: 25px solid bold;
+            font-family: 'Jua', sans-serif;
+            color: gray;
+            background-image: url('img/select_icon.png');
+            background-repeat: no-repeat; /* 이미지를 반복하지 않음 */
+            background-position: right center;
+        }
+        #search_table select:active{
+            outline: none;
+            border: 4px solid lightgray;
+        }
+        #submit_button{
+            font: 25px solid bold;
+            font-family: 'Jua', sans-serif;
+            color:gray;
+            background-color: white;
+            border: none;
+            width: 100px;
+            height: 40px;
+            margin-top:50px;
+            margin-left: 10px;
+        }
+        #submit_button:hover{
+            color:#F39C12;
+            border:none;
+            transition: 0.5s;
+        }
+        #search_text{
+            width:500px;
+            height:40px;
+            margin-left: 25px;
+            padding-left: 10px;
+            border: 4px solid #F39C12;
+            border-radius: 10px;
+            font: 20px solid bold, sans-serif;
+        }
+        input:focus{
+            outline:#F39C12;
+        }
+        caption{
+            display: none;
+        }
+        #shop_table{
+        	position:relative;
+        	top:30px;
+            margin: 0 auto;
+            width: 60%;
+            border-bottom: 1px solid lightgray;
+            margin-bottom:10px;
+        }
+        #shop_table_list{
+            width: 100%;
+            height: 100%;
+            font: 25px solid;
+            color:gray;
+            font-family: 'Jua', sans-serif;
+        }
+        table tr td a{
+            color: inherit;
+        }
+        #shop_table_list td a{
+            text-decoration: none;
+        }
+        #shop_table_list td{
+            height: 46px;
+            padding: 0;
+        }
+        .shop_img{
+        	position:relative;
+            width: 180px;
+            height: 140px;
+            barkground-color:none;
+        }
+        .shop_img img{
+            width: 180px;
+            height: 140px;
+            padding: 10px;
+            border: 1px solid lightgray;
+            border-radius:18px;
+            margin-bottom:10px;
+        }
+        .shop_table_text1{
+       		position:relative;
+        	left:15px;
+        	padding-bottom:50px;
+        	font-size:45px;
+        	font-family: 'Grape Nuts', cursive;
+            font-family: 'Nanum Pen Script', cursive;
+        	color: gray;
+            text-align: left;
+        }
+        #go_button{
+        	text-align:right;
+		}
+		#go_button a{
+			font: 25px solid;
+            color:gray;
+            font-family: 'Black Han Sans', sans-serif;
+            font-family: 'Gasoek One', sans-serif;
+            font-family: 'Gothic A1', sans-serif;
+            font-family: 'Jua', sans-serif;
+            text-decoration:none;
+		}
+		#go_button a:hover{
+            color:#F39C12;
+            transition:0.5s;
+            
+		}
+        .page_box{
+            clear: both;
+            margin: 0 auto;
+            width: 50%;
+            text-align: center;
+        }
+        .pageNav{
+            display: flex;
+            margin: 30px 0 0 0;
+            justify-content: center;
+            list-style: none;
+            padding: 0;
+            font: 25px solid bold;
+            font-family: 'Jua', sans-serif;
+        }
+        .page_box ul li{
+            padding: 10px;
+            text-decoration: none;
+        }
+        .page_box ul li a{
+            text-decoration: none;
+            color: gray;
+        }
+        .page_box ul li a:hover{
+            color:#F39C12;
+            border:none;
+            transition: 0.5s;
+        }
+        /********** 푸터 영역 **********/
         footer{
             position:absolute;
-            top: 1500px;
             width:1536px;
             height:300px;
-            margin-top: 300px;
+            margin-top:300px;
             margin-bottom:0px;
             background-color: rgb(245,246,247);
         }
