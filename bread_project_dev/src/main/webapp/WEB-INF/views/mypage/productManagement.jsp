@@ -53,7 +53,7 @@
                                             <c:otherwise>
                                                 ${pageContext.request.contextPath}/resources/css/img/BreadProfile_img2.PNG
                                             </c:otherwise>
-                                        </c:choose>"></div><div style="width: 250px;" id="product_title"><p>${breadList.bread_name}</p></div></td>
+                                        </c:choose>"></div><div style="width: 250px; text-align:left; margin-left:20px;" id="product_title"><p>${breadList.bread_name}</p></div></td>
                                         <td id="bread_price">${breadList.bread_price}</td>
                                         <td id="bread_shop">${breadList.bakery_name}</td>
                                         <td id="bread_stock">${breadList.bread_stock}</td>

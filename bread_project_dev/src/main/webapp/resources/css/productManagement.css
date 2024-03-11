@@ -141,6 +141,10 @@
 		.category{
 			padding-bottom:4px;
 		}
+		#li_1, #li_3, #li_5{
+			position:relative;
+			top:1px;
+		}
         #all_box{
             width: 100%;
             max-width: 1200px;

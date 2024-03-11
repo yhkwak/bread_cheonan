@@ -37,7 +37,7 @@ $(document).ready(function() {
     $('#member_pw').focusout(function() {
         var pwRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,15}$/;
         isValidPw = pwRegex.test(this.value);
-        showError('member_pw', isValidPw ? '' : '8~15자의 영문, 숫자를 입력해주세요.');
+        showError('member_pw', isValidPw ? '' : '8~15자의 영문과 숫자로 구성해주세요.');
     });
 
     $('#member_name').focusout(function() {
@@ -54,7 +54,7 @@ $(document).ready(function() {
         this.value = phoneValue.replace(/(\d{3})(\d{4})(\d{4})/, '$1-$2-$3');
 
         if (this.value.replace(/-/g, '').length !== 11) {
-            showError('member_phone', '11자리의 숫자만 정확히 입력해주세요.');
+            showError('member_phone', '11자리의 숫자를 정확히 입력해주세요.');
             isValidPhoneNumber = false;
         } else {
             var member_phone = this.value;
@@ -66,7 +66,7 @@ $(document).ready(function() {
                 url: "checkUpdatePhoneNumberProcess.do",
                 success: function(resData) {
                     if (resData == 1) {
-                        showError('member_phone', '이미 사용중인 전화번호입니다.');
+                        showError('member_phone', '이미 등록된 전화번호입니다.');
                         isValidPhoneNumber = false;
                     } else {//현재 사용하고 있는 전화번호, 새롭게 사용할 수 있는 전화번호인 경우
                         showError('member_phone', '');
@@ -74,7 +74,7 @@ $(document).ready(function() {
                     }
                 },
                 error: function() {
-                    console.log("전화번호 확인시 에러 발생");
+                    console.log("전화번호 확인 시 에러 발생");
                 }
             });
         }
@@ -82,7 +82,7 @@ $(document).ready(function() {
 
     $('#member_nickname').focusout(function() {
         if (this.value.length < 3 || this.value.length > 10) {
-            showError('member_nickname', '3~10글자 이하로 입력해주세요.');
+            showError('member_nickname', '3~10글자 사이로 입력해주세요.');
             isValidNickname = false;
         } else {
             var member_nickname = this.value;
@@ -146,11 +146,11 @@ $(document).ready(function() {
                 contentType: false,
                 processData: false,
                 success: function(response) {
-                    alert('회원 정보가 성공적으로 업데이트되었습니다.');
+                    alert('프로필 수정이 정상적으로 이루어졌습니다.');
                     window.location.href = '/myapp/main.do';
                 },
                 error: function() {
-                    alert('회원 정보 업데이트 중 오류가 발생했습니다.');
+                    alert('프로필 수정 중 오류가 발생했습니다.');
                 }
             });
         } else {
@@ -159,7 +159,7 @@ $(document).ready(function() {
     });
 });
 	    function deleteMember() {
-	        const confirmAns = confirm("정말 회원 탈퇴하시겠습니까?");
+	        const confirmAns = confirm("정말 탈퇴하시겠습니까?");
 	        
 	        if (confirmAns) {
 	            $.ajax({
