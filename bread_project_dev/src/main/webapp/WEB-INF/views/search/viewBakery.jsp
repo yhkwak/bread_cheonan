@@ -130,20 +130,20 @@
 					data : {'bakery_idx' : bakery_idx, 'member_idx' : member_idx},
 					success : function(result){
 						if(result == 1){
-							alert("이 빵집 쨩");
-							$('#like_img').attr("src","${pageContext.request.contextPath}/resources/css/img/check12.png");
-							var result = confirm("찜목록 보싈?");
+							alert("해당 가게를 찜하였습니다.");
+							$('#like_img').attr("src","${pageContext.request.contextPath}/resources/css/img/check12.PNG");
+							var result = confirm("찜목록에서 확인해보시겠습니까?");
 								if(result){ //확인시 찜리스트 페이지 이동
 									location.href ='${pageContext.request.contextPath}/mypage/likeList.do'; 
 								}else{
 									location.reload();
 								}
 						}else if(result == 0){
-							alert("이 빵집 이제 노관심");
-							$('#like_img').attr("src","${pageContext.request.contextPath}/resources/css/img/check11.png");
+							alert("해당 가게의 찜이 해제되었습니다.");
+							$('#like_img').attr("src","${pageContext.request.contextPath}/resources/css/img/check11.PNG");
 							location.reload();
 						}else{
-							console.log("어딘가 잘못되었다");
+							console.log("오류가 발생하였습니다.");
 							console.log(result);
 						}
 					}, error:function(error){
@@ -175,33 +175,7 @@
                     <table id="view_table">                            
                         <tr>
                             <th><h2>${bakery.bakery_name}</h2></th>
-                            <td>
-							    <c:choose>
-							        <c:when test="${not empty member}">
-							            <button type="button" id="like" onclick="addBL()">
-							                <c:choose>
-							                    <c:when test="${result eq 0}">
-							                        <img id="like_img" src="${pageContext.request.contextPath}/resources/css/img/check11.png">
-							                    </c:when>
-							                    <c:otherwise>
-							                        <img id="like_img" src="${pageContext.request.contextPath}/resources/css/img/check12.png">
-							                    </c:otherwise>
-							                </c:choose>
-							                추가
-							            </button>
-							        </c:when>
-							        <c:otherwise>
-							            <button type="button" id="like" onclick="location.href='${pageContext.request.contextPath}/member/login.do';">
-							                <c:choose>
-							                    <c:when test="${result eq 0}">
-							                        <img id="like_img" src="${pageContext.request.contextPath}/resources/css/img/check11.png">
-							                    </c:when>
-							                </c:choose>
-							            </button>
-							        </c:otherwise>
-							    </c:choose>
-							</td>
-
+                           
                             <%-- <td rowspan="4" id="shop_img"><img src="../resources/css/img/${bakey.bakery_img_save}"></td> --%>
                             <td rowspan="4" id="shop_img"><%-- <img src="../resources/css/img/test_img08.png"> --%>
 	                            <c:choose>
@@ -222,12 +196,35 @@
                         </tr>
                         <tr>
                             <td><a href="https://${bakery.bakery_homepage}" target="_blank">홈페이지</a></td>
+                            <td>
+							    <c:choose>
+							        <c:when test="${not empty member}">
+							            <button type="button" id="like" onclick="addBL()">
+							                <c:choose>
+							                    <c:when test="${result eq 0}">
+							                        <img id="like_img" src="${pageContext.request.contextPath}/resources/css/img/check11.PNG">
+							                    </c:when>
+							                    <c:otherwise>
+							                        <img id="like_img" src="${pageContext.request.contextPath}/resources/css/img/check12.PNG">
+							                    </c:otherwise>
+							                </c:choose>
+							            </button>
+							        </c:when>
+							        <c:otherwise>
+							            <button type="button" id="like" onclick="location.href='${pageContext.request.contextPath}/member/login.do';">
+							                <c:choose>
+							                    <c:when test="${result eq 0}">
+							                        <img id="like_img" src="${pageContext.request.contextPath}/resources/css/img/check11.PNG">
+							                    </c:when>
+							                </c:choose>
+							            </button>
+							        </c:otherwise>
+							    </c:choose>
+							</td>
                         </tr>
                     </table>
                 </div>
 
-
-				
                 <div id="pickup_box">
                 	<c:forEach var="i" begin="0" end="2">
                 		<input type="hidden" class="bread_idx" name="bread_idx" value="${breadList[i].bread_idx}">
