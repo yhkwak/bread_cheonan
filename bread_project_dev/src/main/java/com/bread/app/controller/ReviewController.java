@@ -1,8 +1,5 @@
 package com.bread.app.controller;
 
-import java.time.LocalDateTime;
-import java.time.ZoneId;
-import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -58,9 +55,7 @@ public class ReviewController {
 	public String reviewWrite(PageVO vo, HttpServletRequest request, Model model) {
 		
 		HttpSession session = request.getSession();
-		if (vo.getPageNum() == 0) {
-			vo.setPageNum(1);
-		}
+
 		MemberVO member = (MemberVO) session.getAttribute("member");
 
 		if (member != null) {

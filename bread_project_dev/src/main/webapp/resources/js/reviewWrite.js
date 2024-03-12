@@ -39,15 +39,10 @@ document.addEventListener('DOMContentLoaded', function() {
         oEditors[0].exec("UPDATE_CONTENTS_FIELD", []);
 
         // 입력된 제목과 내용 가져오기
-        var title = document.getElementById('input-title').value.trim();
         var content = oEditors[0].getContents();
 
         // 제목과 내용이 비어있는지 확인
-        if (!title && isContentEmpty(content)) {
-            alert('제목과 내용을 모두 입력해주세요.');
-        } else if (!title) {
-            alert('제목을 입력해주세요.');
-        } else if (isContentEmpty(content)) {
+        if (isContentEmpty(content)) {
             alert('내용을 입력해주세요.');
         } else {
             // 모든 검증을 통과했을 때 폼 데이터 제출
