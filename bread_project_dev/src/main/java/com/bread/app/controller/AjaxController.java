@@ -2,6 +2,9 @@ package com.bread.app.controller;
 
 
 import java.sql.SQLException;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -13,6 +16,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -22,11 +26,13 @@ import com.bread.app.dao.AdminStoreDAO;
 import com.bread.app.dao.CartDAO;
 import com.bread.app.dao.LikesDAO;
 import com.bread.app.dao.MemberDAO;
+import com.bread.app.dao.ReviewDAO;
 import com.bread.app.dao.SearchDAO;
 import com.bread.app.vo.BreadVO;
 import com.bread.app.vo.CartVO;
 import com.bread.app.vo.LikesVO;
 import com.bread.app.vo.MemberVO;
+import com.bread.app.vo.ReviewVO;
 import com.bread.service.member.MemberService;
 import com.bread.service.sms.SmsService;
 import com.bread.service.order.OrderService;
@@ -46,6 +52,7 @@ public class AjaxController {
     private AdminStoreDAO adminStoreDAO;
     private CartDAO cartDAO;
     private LikesDAO likesDAO;
+    private ReviewDAO reviewDAO;
     private MemberService mUpdate, mFindId, mDelete, mFindPw;
     private OrderService oCancel;
     
@@ -65,7 +72,7 @@ public class AjaxController {
 
         return result;
     }
-  //닉네임 중복검사
+    //닉네임 중복검사
     @PostMapping("/member/checkNicknameProcess.do")
     public String checkNicknameProcess(String member_nickname) throws SQLException {
         String result="0";//중복 닉네임이 없는 경우
@@ -336,4 +343,23 @@ public class AjaxController {
        	}
 		return result;
     }
+    
+    ///////////////// 리뷰 게시판 ////////////////////
+    @PostMapping("/review/getReview.do")
+	public ReviewVO getReview(int review_idx) {
+		
+		reviewDAO.increaseViewCount(review_idx);
+		ReviewVO review = reviewDAO.getBoard(review_idx);
+	    if (review.getReview_post_date() != null) {
+	        LocalDateTime localDateTime = review.getReview_post_date().toInstant()
+	            .atZone(ZoneId.systemDefault())
+	            .toLocalDateTime();
+	        LocalDateTime updatedLocalDateTime = localDateTime.minusHours(8); // 8시간 감소
+	        review.setReview_post_date(Date.from(updatedLocalDateTime.atZone(ZoneId.systemDefault()).toInstant()));
+	    }
+	    
+		return review;
+	}
+    
+    
 }
