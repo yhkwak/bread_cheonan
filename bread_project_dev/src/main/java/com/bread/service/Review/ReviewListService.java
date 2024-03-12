@@ -22,8 +22,4 @@ public class ReviewListService implements ReviewService {
         return dao.getBoards(vo);
     }
 
-    @Override
-    public List<ReviewVO> getTopReviews() {
-        return dao.getTopReviews();
-    }
 }
