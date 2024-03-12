@@ -20,10 +20,6 @@ public class ReviewVO {
     private int view_count; // 조회수 추가
     private String bakery_name; // 빵집 이름
     private String member_nickname; // 회원 닉네임
-//    private Date order_date; // 주문 날짜
-    private int count; // 수량
-/*    private int totalAmount; // 총 금액 (수량 * 빵 가격)*/
-    private String review_title; // 리뷰 제목
     private String review_content; // 리뷰 내용
     private Date review_post_date; // 리뷰 게시 날짜
     private MultipartFile uploadFile; // 파일 처리 리스트

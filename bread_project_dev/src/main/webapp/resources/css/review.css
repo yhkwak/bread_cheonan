@@ -167,18 +167,6 @@ span {
   line-height: 120px;
 }
 
-/*.reviewBoard li a .thumb em {
-  display: none;
-  left: 0;
-  top: 0;
-  width: 100%;
-
-  color: #eee;
-  font-weight: bold;
-  text-align: center;
-  line-height: 120px;
-
-}*/
 .reviewBoard li a .thumb em {
   position: absolute; /* 절대 위치로 설정 */
   top: 0;/*absolute 이미지 위치 고정설정 설정 지우면 이미지 밑으로 내려감*/
@@ -232,6 +220,16 @@ span {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+#modal_close_btn{
+	background-color: #fff;
+   	border: none;
+   	width: 30px;
+   	heigth: 30px;
+   	position: relative;
+   	left: 680px;
+   	font-size: 25px;
 }
 /********** 푸터 영역 **********/
 footer {

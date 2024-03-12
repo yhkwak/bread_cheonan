@@ -8,44 +8,38 @@
 
     <!-- 리뷰 등록 -->
     <insert id="insert" parameterType="reviewVO">
-        insert into bc_review (order_idx, member_idx, bread_idx, review_title, review_content, originfile_name, savefile_name)
-        values (#{order_idx}, #{member_idx}, #{bread_idx}, #{review_title}, #{review_content}, #{originfile_name}, #{savefile_name});
+        insert into bc_review (order_idx, member_idx, bread_idx, review_content, originfile_name, savefile_name)
+        values (#{order_idx}, #{member_idx}, #{bread_idx}, #{review_content}, #{originfile_name}, #{savefile_name});
     </insert>
 
 
     <!-- Read -->
-<!-- 전체 게시물 수 조회 -->
+	<!-- 전체 게시물 수 조회 -->
  	<select id="getTotalCount" parameterType="pageVO" resultType="_int">
  		select count(*) from bc_review
  	</select>
  
     <!-- 모든 리뷰 조회: select -->
     <select id="getBoards" parameterType="pageVO" resultType="reviewVO">
-        select
+		select
 	        r.review_idx,
 	        b.bread_name,
-	        b.bread_img,
-	        ba.bakery_idx,
-	        ba.bakery_name,
-	        m.member_name,
-	        m.member_phone,
+	        b.bread_img_save,
+	        bk.bakery_idx,
+	        bk.bakery_name,
 	        m.member_nickname,
-	        o.payment_date,
-	        i.bread_count,
-	        r.review_title,
 	        r.review_content,
 	        r.review_post_date
     	from
         	bc_review r
     		inner join bc_order o on r.order_idx = o.order_idx
-    		inner join bc_member m on r.member_idx = m.member_idx
-    		inner join bc_item i on o.order_idx = i.order_idx
-    		inner join bc_bread b on i.bread_idx = b.bread_idx
-    		inner join bc_bakery ba on i.bakery_idx = ba.bakery_idx
+            inner join bc_bread b on r.bread_idx = b.bread_idx
+            inner join bc_bakery bk on b.bakery_idx = bk.bakery_idx
+            inner join bc_member m on m.member_idx = r.member_idx
     	where
         	o.payment_status = 0
         	and m.member_del = 0
-        	and ba.bakery_del = 0
+        	and bk.bakery_del = 0
         	and r.review_del_or_not = 1
     	order by
         	r.review_idx desc
@@ -63,23 +57,21 @@
 	<!-- 하나의 리뷰 조회: select -->
 	<select id="getBoard" parameterType="_int" resultType="reviewVO">
 	    select
-	    	r.review_idx, b.bread_name, b.bread_img,
-		    ba.bakery_idx, ba.bakery_name,
-		    m.member_name, m.member_nickname,m.member_idx,
-		    r.review_title, r.review_content, r.view_count,
-		    r.review_post_date, r.savefile_name
+	    	r.review_idx, b.bread_name, b.bread_img_save,
+		    bk.bakery_idx, bk.bakery_name,
+		    m.member_nickname,m.member_idx,
+		    r.review_content, r.view_count,
+		    r.review_post_date, r.savefile_name, b.bread_idx
 	    from
 		    bc_review r
-		    inner join bc_order o on r.order_idx = o.order_idx
-		    inner join bc_member m on o.member_idx = m.member_idx
-		    inner join bc_item i on o.order_idx = i.order_idx
-		    inner join bc_bread b on i.bread_idx = b.bread_idx
-		    inner join bc_bakery ba on i.bakery_idx = ba.bakery_idx
+    		inner join bc_order o on r.order_idx = o.order_idx
+            inner join bc_bread b on r.bread_idx = b.bread_idx
+            inner join bc_bakery bk on b.bakery_idx = bk.bakery_idx
+            inner join bc_member m on m.member_idx = r.member_idx
 	    where
-		    r.review_idx = #{reviewIdx} and
-		    o.payment_status = 0 and
+		    r.review_idx = #{review_idx} and
 		    m.member_del = 0 and
-		    ba.bakery_del = 0 and
+		    bk.bakery_del = 0 and
 		    r.review_del_or_not=1;
 	</select>
 	<!-- 추천수 순으로 5개만 게시글 나오게 -->
@@ -111,7 +103,6 @@
     <update id="update" parameterType="reviewVO">
         update bc_review
         set
-	        review_title = #{review_title},
 	        review_content = #{review_content},
 	        originfile_name = #{originfile_name},
 	        savefile_name = #{savefile_name},

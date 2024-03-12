@@ -85,22 +85,6 @@ public class ReviewController {
 		return viewPage;
 	}
 
-	@GetMapping("/view.do")
-	public String view(int review_idx, Model model) {
-		
-		rViewCount.increaseViewCount(review_idx);
-		ReviewVO review = rView.getBoard(review_idx);
-	    if (review.getReview_post_date() != null) {
-	        LocalDateTime localDateTime = review.getReview_post_date().toInstant()
-	            .atZone(ZoneId.systemDefault())
-	            .toLocalDateTime();
-	        LocalDateTime updatedLocalDateTime = localDateTime.minusHours(8); // 8시간 감소
-	        review.setReview_post_date(Date.from(updatedLocalDateTime.atZone(ZoneId.systemDefault()).toInstant()));
-	    }
-		model.addAttribute("review", review);
-		return "review/reviewView";
-	}
-
 	@GetMapping("/reviewUpdate")
 	public String update(int review_idx, Model model) {
 		
