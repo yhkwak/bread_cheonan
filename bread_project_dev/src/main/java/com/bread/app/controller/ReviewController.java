@@ -40,6 +40,7 @@ public class ReviewController {
 		if (pageVO.getPageNum() == 0) {
 			pageVO.setPageNum(1);
 		}
+		
 		List<ReviewVO> reviewList = rList.getBoards(pageVO);
 		model.addAttribute("reviewList", reviewList);
 		pageNav.setTotalRows(rTotalCount.getTotalCount(pageVO));
@@ -74,17 +75,6 @@ public class ReviewController {
 		int result = rInsert.insert(vo, request);
 		if (result == 1) {
 			viewPage = "redirect:review.do";
-		}
-		return viewPage;
-	}
-
-	@GetMapping("/delete.do")
-	public String delete(int review_idx) {
-		
-		int result = rDelete.delete(review_idx);
-		String viewPage = "review/view";
-		if (result == 1) {
-			viewPage = "redirect:/review/review.do";
 		}
 		return viewPage;
 	}
