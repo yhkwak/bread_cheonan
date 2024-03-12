@@ -105,6 +105,7 @@
 							</c:forEach>
 						</ul>
 	                </div>
+	                	<div id="td_paging"><%@ include file="paging.jsp"%></div>
 	            </div>
 	        </section>
 	        

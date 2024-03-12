@@ -3,7 +3,6 @@ package com.bread.service.Review;
 import org.springframework.stereotype.Service;
 
 import com.bread.app.common.FivePageNav;
-import com.bread.app.dao.ReviewDAO;
 
 import lombok.AllArgsConstructor;
 
@@ -14,7 +13,7 @@ public class ReviewPageService implements ReviewService {
 	@Override
 	public FivePageNav setPageNav(FivePageNav pageNav, int pageNum, int pageBlock) {
 		int totalRows = pageNav.getTotalRows(); //1. 총 게시물 수
-		int rows_page = 12; //2. 한 페이지에 보여줄 게시물 수
+		int rows_page = 8; //2. 한 페이지에 보여줄 게시물 수
 		int pages_pageBlock = 5; //3. 한 페이지에 보여줄 페이지 수
 		
 		pageNav.setRows_page(rows_page);

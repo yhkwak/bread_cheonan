@@ -4,12 +4,7 @@
 
 <mapper namespace="com.bread.app.SearchMapper">
 	<!-- Create -->
-	
-	
-	
-	
 	<!-- Read -->
-	
 	<!-- 전체 빵집 수 조회 -->
 	<select id="getTotalCount" parameterType="searchVO"	resultType="_int">
 		<!-- 검색어가 있는 경우와 없는 경우 -->
@@ -61,7 +56,7 @@
 		select bread_idx, bread_name, bread_price, bread_content, bread_time1, bread_time2, bread_time3, bread_img_save, bread_stock
 			from bc_bakery bc inner join bc_bread b
 			on bc.bakery_idx = b.bakery_idx
-			where bc.bakery_idx = #{bakery_idx} and bread_del=0 and bread_status=1
+			where bc.bakery_idx = #{bakery_idx} and bread_del=0 and bread_status=0
 	</select>
 	
 	<!-- Ajax를 위한 조회 -->

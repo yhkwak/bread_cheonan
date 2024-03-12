@@ -12,7 +12,6 @@
         values (#{order_idx}, #{member_idx}, #{bread_idx}, #{review_content}, #{originfile_name}, #{savefile_name});
     </insert>
 
-
     <!-- Read -->
 	<!-- 전체 게시물 수 조회 -->
  	<select id="getTotalCount" parameterType="pageVO" resultType="_int">
@@ -43,15 +42,7 @@
         	and r.review_del_or_not = 1
     	order by
         	r.review_idx desc
-    		limit
-		    <choose>
-		        <when test="startIdx >= 0">
-		            #{startIdx}, 12
-		        </when>
-		        <otherwise>
-		            0, 12
-		        </otherwise>
-		    </choose>;
+    		limit #{startIdx}, 8
     </select>
 
 	<!-- 하나의 리뷰 조회: select -->
@@ -74,49 +65,14 @@
 		    bk.bakery_del = 0 and
 		    r.review_del_or_not=1;
 	</select>
-	<!-- 추천수 순으로 5개만 게시글 나오게 -->
-	<select id="getTopReviews" resultType="reviewVO">
-	    select
-		    r.review_content,
-		    m.member_nickname,
-		    b.bread_name,
-		    ba.bakery_name,
-		    r.view_count,
-		    b.bread_img_save,
-		    r.review_idx
-	    from
-		    bc_review AS r
-		    join bc_member as m on r.member_idx = m.member_idx
-		    join bc_item as i on r.order_idx = i.order_idx
-		    join bc_bread as b on i.bread_idx = b.bread_idx
-		    join bc_bakery as ba on i.bakery_idx = ba.bakery_idx
-	    where
-	    	r.review_del_or_not = 1
-	    order by
-		    r.view_count desc
-		    limit 5;
-	</select>
 
     <!-- Update -->
-
-    <!-- 리뷰 수정 -->
-    <update id="update" parameterType="reviewVO">
-        update bc_review
-        set
-	        review_content = #{review_content},
-	        originfile_name = #{originfile_name},
-	        savefile_name = #{savefile_name},
-	        review_update_date = NOW()
-        where
-        	review_idx = #{review_idx};
-    </update>
     <!-- 조회수 증가 -->
     <update id="increaseViewCount" parameterType="int">
         update bc_review set view_count = view_count + 1 where review_idx = #{review_idx}
     </update>
 
     <!-- Delete -->
-
     <!-- 리뷰 삭제 -->
     <update id="delete" parameterType="_int">
         update bc_review set review_del_or_not=0, review_update_date=now()

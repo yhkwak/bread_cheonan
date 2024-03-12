@@ -3,7 +3,6 @@ package com.bread.app.controller;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,19 +21,18 @@ import com.bread.service.Review.ReviewService;
 import com.bread.service.order.OrderService;
 
 import lombok.Setter;
-import lombok.extern.slf4j.Slf4j;
 
-@Slf4j
 @Controller
 @RequestMapping("/review")
 public class ReviewController {
 
 	@Setter(onMethod_ = {@Autowired})
-	ReviewService rList, rInsert, rView, rUpdate, rDelete, rDownload, rViewCount, rPage, rTotalCount;
+	ReviewService rList, rInsert, rView, rDelete, rViewCount, rPage, rTotalCount;
 	@Setter(onMethod_= {@Autowired})
 	FivePageNav pageNav;
 	@Setter(onMethod_ = {@Autowired})
 	OrderService oList;
+	
 	@GetMapping("/review.do")
 	public String review(PageVO pageVO, Model model) {
 
@@ -47,10 +45,10 @@ public class ReviewController {
 		pageNav.setTotalRows(rTotalCount.getTotalCount(pageVO));
 		pageNav = rPage.setPageNav(pageNav, pageVO.getPageNum(), pageVO.getPageBlock());
 		model.addAttribute("pageNav", pageNav);
-		 log.debug("Page number received={}", pageVO.getPageNum());
 		
 		return "review/review";
 	}
+	
 	@GetMapping("/reviewWrite.do")
 	public String reviewWrite(PageVO vo, HttpServletRequest request, Model model) {
 		
@@ -80,25 +78,6 @@ public class ReviewController {
 		return viewPage;
 	}
 
-	@GetMapping("/reviewUpdate")
-	public String update(int review_idx, Model model) {
-		
-		ReviewVO review = rView.getBoard(review_idx);
-		model.addAttribute("review", review);
-		return "review/reviewUpdate";
-	}
-
-	@PostMapping("/reviewUpdateProcess.do")
-	public String updateProcess(ReviewVO vo, HttpServletRequest request) {
-
-		String viewPage = "review/reviewUpdate";
-		int result = rUpdate.update(vo, request);
-		if (result == 1) {
-			viewPage = "redirect:review.do";
-		}
-		return viewPage;
-	}
-
 	@GetMapping("/delete.do")
 	public String delete(int review_idx) {
 		
@@ -110,9 +89,4 @@ public class ReviewController {
 		return viewPage;
 	}
 
-	@GetMapping("/download.do")
-	public void download(String originfile_name, String savefile_name,HttpServletRequest request, HttpServletResponse response) {
-		
-		rDownload.download(originfile_name, savefile_name, request, response);
-	}
 }

@@ -1,6 +1,5 @@
 package com.bread.app.dao;
 
-
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
@@ -8,7 +7,6 @@ import org.springframework.stereotype.Repository;
 
 import com.bread.app.vo.PageVO;
 import com.bread.app.vo.ReviewVO;
-import com.bread.app.vo.SearchVO;
 
 import lombok.RequiredArgsConstructor;
 
@@ -35,11 +33,6 @@ public class ReviewDAO {
         return sqlSession.selectList(MAPPER + ".getBoards", vo);
     }
 
-    // Update 수정하기
-    public int update(ReviewVO vo) {
-        return sqlSession.update(MAPPER + ".update", vo);
-    }
-
     // Delete 삭제 처리
     public int delete(int review_idx) {
         return sqlSession.update(MAPPER + ".delete", review_idx);
@@ -50,11 +43,7 @@ public class ReviewDAO {
         return sqlSession.update(MAPPER + ".increaseViewCount", review_idx);
     }
 
-    // 상위 게시글만을 조회
-    public List<ReviewVO> getTopReviews() {
-        return sqlSession.selectList(MAPPER + ".getTopReviews");
-    }
-	// Read 모든 게시글 조회
+	// 페이징
 	public int getTotalCount(PageVO vo) {
 		return sqlSession.selectOne(MAPPER+".getTotalCount",vo);
 	}
