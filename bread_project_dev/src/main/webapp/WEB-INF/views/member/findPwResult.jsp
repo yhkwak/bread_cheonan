@@ -10,8 +10,8 @@
         <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Gasoek+One&family=Gothic+A1:wght@700&family=Jua&display=swap" rel="stylesheet">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">           
         <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/findPwResult.css">
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-        <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/findPwResult.js"></script>
+<%--         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/findPwResult.js"></script> --%>
         <title>비밀번호 찾기</title>  
 	</head>
 	<body>
@@ -27,7 +27,7 @@
 		        <input type="hidden" name="member_phone" value="${member_phone}">
 		        
                     <div id="container_box">
-                        <h2>비밀번호 찾기</h2>
+                        <h2>비밀번호 변경</h2>
     		            <div id="find_pw_table">
 
 		                    <table id="table_find_pw">
