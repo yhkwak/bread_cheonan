@@ -53,10 +53,10 @@
 	
 	<!-- 빵 정보 조회 -->
 	<select id="getBreads" parameterType="_int" resultType="breadVO">
-		select bread_idx, bread_name, bread_price, bread_content, bread_time1, bread_time2, bread_time3, bread_img_save, bread_stock
-			from bc_bakery bc inner join bc_bread b
-			on bc.bakery_idx = b.bakery_idx
-			where bc.bakery_idx = #{bakery_idx} and bread_del=0 and bread_status=0
+		 select bread_idx, bread_name, bread_price, bread_content, bread_time1, bread_time2, bread_time3, bread_img_save, bread_stock, bread_status
+		 from bc_bakery bc inner join bc_bread b
+		 on bc.bakery_idx = b.bakery_idx
+		 where bc.bakery_idx = #{bakery_idx} and bread_del=0 and bread_status=1
 	</select>
 	
 	<!-- Ajax를 위한 조회 -->

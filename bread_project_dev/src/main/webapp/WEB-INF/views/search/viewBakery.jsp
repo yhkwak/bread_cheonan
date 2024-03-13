@@ -214,7 +214,63 @@
                     </table>
                 </div>
 
-                <div id="pickup_box">
+				<div id="pickup_box">
+    <c:set var="hasProduct" value="false"/>
+    <c:forEach var="i" begin="0" end="2">
+        <c:if test="${breadList[i].bread_status == 1}">
+            <c:set var="hasProduct" value="true"/>
+            <input type="hidden" class="bread_idx" name="bread_idx" value="${breadList[i].bread_idx}">
+            <table id="pickup_box_table">                          
+                <tr>
+                    <td rowspan="6" class="bakery_img">
+                        <c:choose>
+                            <c:when test="${not empty breadList[i].bread_img_save}">
+                                <img src="${pageContext.request.contextPath}/resources/uploads/${breadList[i].bread_img_save}">
+                            </c:when>
+                            <c:otherwise>
+                                <img src="${pageContext.request.contextPath}/resources/css/img/BreadProfile_img2.PNG">
+                            </c:otherwise>
+                        </c:choose>
+                    </td>
+                </tr>
+                <tr>
+                    <td><span id="bread_name">${breadList[i].bread_name}</span></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>${breadList[i].bread_price}원</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>${breadList[i].bread_content}</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td id="bread_time">빵 나오는 시간 : ${breadList[i].bread_time1} ${breadList[i].bread_time2} ${breadList[i].bread_time3}</td>
+                    <td>
+                        <div id="select_box">
+                            <input type="number" class="bread_count" min="1" max="10" value="1">
+                            <button type="button" id="product_add" onclick="cart_add(${i})">추가</button>
+                        </div>
+                    </td>
+                </tr>
+                <tr style="height: 10px;">
+                    <td></td>
+                </tr>
+            </table>
+        </c:if>
+    </c:forEach>
+    <c:if test="${!hasProduct}">
+        <div>상품이 없습니다.</div>
+    </c:if>
+    <form id="f_r_box" method="post" action="cartProcess.do">
+        <div id="result_box"></div>
+        <div id="cart_box">
+            <div><input type="submit" id="cart_btn" value="+ 장바구니 담기"></div>
+        </div>
+    </form>
+</div>
+<%--                 <div id="pickup_box">
                 	<c:forEach var="i" begin="0" end="2">
                 		<input type="hidden" class="bread_idx" name="bread_idx" value="${breadList[i].bread_idx}">
                     	<table id="pickup_box_table">                          
@@ -262,7 +318,7 @@
 	                        <div><input type="submit" id="cart_btn" value="+ 장바구니 담기"></div>
 	                    </div>
                     </form>
-                </div>
+                </div> --%>
 
             </div>
 
