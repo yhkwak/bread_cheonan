@@ -76,6 +76,8 @@
 			<exclude-mapping path="/review/review.do"/>
 			<exclude-mapping path="/review/view.do"/>
 			<exclude-mapping path="/reivew/download.do"/>
+			<exclude-mapping path="/review/getReview.do"/>
+			<exclude-mapping path="/review/reviewDelete.do"/>
 			
 			<!-- 로그인 인터셉터의 기능을 수행하는 자바클래스 빈 등록 -->
 			<beans:bean id="loginInterceptor" class="com.bread.app.interceptor.LoginInterceptor" />

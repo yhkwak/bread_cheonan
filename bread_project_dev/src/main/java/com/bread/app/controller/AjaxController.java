@@ -341,14 +341,14 @@ public class AjaxController {
     ///////////////// 리뷰 게시판 ////////////////////
     @PostMapping("/review/getReview.do")
 	public ReviewVO getReview(int review_idx) {
-		
+    	
 		reviewDAO.increaseViewCount(review_idx);
 		ReviewVO review = reviewDAO.getBoard(review_idx);
 	    if (review.getReview_post_date() != null) {
 	        LocalDateTime localDateTime = review.getReview_post_date().toInstant()
 	            .atZone(ZoneId.systemDefault())
 	            .toLocalDateTime();
-	        LocalDateTime updatedLocalDateTime = localDateTime.minusHours(8); // 8시간 감소
+	        LocalDateTime updatedLocalDateTime = localDateTime.minusHours(9); // 9시간 감소
 	        review.setReview_post_date(Date.from(updatedLocalDateTime.atZone(ZoneId.systemDefault()).toInstant()));
 	    }
 	    
