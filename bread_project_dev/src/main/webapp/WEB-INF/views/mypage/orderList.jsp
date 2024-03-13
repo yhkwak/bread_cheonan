@@ -45,12 +45,12 @@
 											<c:choose>
 												<c:when test="${orderList[vs.count-1].payment_status eq 0}">
                                                     <div class="orderlist_box1">
-													    <div class="order_status">결제 완료</div>
+													    <div class="order_status1">결제 완료</div>
                                                         <div class="orderlist_count">주문 번호 : ${orderList[vs.count-1].order_idx}</div>
                                                     </div>
 												</c:when>
 												<c:otherwise>
-													<div class="order_status">결제 취소</div>
+													<div class="order_status2">주문 취소</div>
                                                 </c:otherwise>
 											</c:choose>
 										</div>
@@ -76,12 +76,18 @@
                                                     </div>
                                                     <div class="btn_box">
 													    <!-- 결제 완료 상태 확인 -->
-													    <c:if test="${orderList[vs.count-1].payment_status eq 0}">
 													        <!-- 리뷰가 작성되지 않았을 경우에만 리뷰작성 버튼 표시 -->
-													        <c:if test="${empty review.review_idx}">
+													        <c:if test="${orderList[vs.count-1].itemList[j].review_status eq 0}">
 													            <div>
 													                <button type="button" id="button-write" onclick="location.href='${pageContext.request.contextPath}/review/reviewWrite.do?bread_idx=${orderList[vs.count-1].itemList[j].bread_idx}&order_idx=${orderList[vs.count-1].itemList[j].order_idx}&member_idx=${member.member_idx}'">
 													                    <span>리뷰작성</span>
+													                </button>
+													            </div>
+													        </c:if>
+													        <c:if test="${orderList[vs.count-1].itemList[j].review_status eq 1}">
+													        	<div>
+													                <button type="button" id="button-write">
+													                    <span>작성완료</span>
 													                </button>
 													            </div>
 													        </c:if>
@@ -91,8 +97,6 @@
 													                <span>재구매</span>
 													            </button>
 													        </div>
-													    <!-- 결제 취소일 경우 (또는 결제 완료되지 않은 경우), 재구매 버튼만 표시 -->
-													    </c:if>
 													</div>
                                                 </div>
 											</c:forEach>
