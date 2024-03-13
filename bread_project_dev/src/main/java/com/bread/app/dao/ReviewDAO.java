@@ -47,5 +47,10 @@ public class ReviewDAO {
 	public int getTotalCount(PageVO vo) {
 		return sqlSession.selectOne(MAPPER+".getTotalCount",vo);
 	}
+	
+	// 리뷰 작성 상태 변경
+	public int updateStatus(ReviewVO vo) {
+		return sqlSession.update(MAPPER+".statusUpdate", vo);
+	}
 
 }

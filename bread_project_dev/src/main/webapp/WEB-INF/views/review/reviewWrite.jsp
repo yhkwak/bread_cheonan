@@ -30,17 +30,15 @@
 				<h2>리뷰작성</h2>
 					<form action="${pageContext.request.contextPath}/review/reviewWriteProcess.do" id="frm_write" name="frm_write" method="post" enctype="multipart/form-data">
 						<table id="table-main">
-							<c:forEach items="${writeList}" var="write">
-								<tr>
+							<tr>
 									<td><input type="hidden" name="bread_idx" value="${write.bread_idx}"></td>
 									<td><input type="hidden" name="order_idx" value="${write.order_idx}"></td>
 									<td><input type="hidden" name="member_idx" value="${write.member_idx}"></td>
-								</tr>
+							</tr>
 							<tr id="tr-title">
 								<th class="td-main" id="td-subject"></th>
 								<td class="td-input" id="td-breadname"><a>${write.bread_name}</a><font> 에 대한 솔직한 리뷰를 남겨주세요</font></td>
 							</tr>
-							</c:forEach>
 							<tr>
 								<th class="td-main"></th>
 								<td class="td-input"><textarea name="review_content" id="content" rows="15" cols="40"></textarea></td>

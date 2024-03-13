@@ -22,4 +22,6 @@ public interface ReviewService {
 	default FivePageNav setPageNav(FivePageNav pageNav, int pageNum, int pageBlock){return null;}
 	
 	default int getTotalCount(PageVO vo) {return 0;}
+
+	default int Updatestatus(ReviewVO vo) {return 0;}
 }
