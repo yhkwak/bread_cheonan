@@ -13,32 +13,7 @@
 	    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/review.css">
 	    <script src="${pageContext.request.contextPath}/resources/js/jquery-3.7.1.min.js"></script>
 	    <title>리뷰 게시판</title>
-	    <style>
-	    	#modalContainer {
-			  width: 100%;
-			  height: 100%;
-			  position: fixed;
-			  top: 0;
-			  left: 0;
-			  display: flex;
-			  justify-content: center;
-			  align-items: center;
-			  background: rgba(0, 0, 0, 0.5);
-			  z-index: 10;
-			}
-			
-			#modalContent {
-			  position: absolute;
-			  background-color: #ffffff;
-			  width: 750px;
-			  height: 900px;
-			  padding: 15px;
-			}
-			
-			#modalContainer.hidden {
-			  display: none;
-			}
-	    </style>
+	    
 	    <script>
 		    function modalOpen(review_idx){
 		    	$.ajax({
@@ -125,7 +100,6 @@
 													${pageContext.request.contextPath}/resources/css/img/BreadProfile_img.PNG
 												</c:otherwise>
 											</c:choose>" class="resize-image">
-											<em>후기바로가기</em>
 										</span>
 									</a>
 									<p>${review.review_content}</p>

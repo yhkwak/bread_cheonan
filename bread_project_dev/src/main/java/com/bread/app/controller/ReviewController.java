@@ -3,7 +3,6 @@ package com.bread.app.controller;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,12 +12,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.bread.app.common.FivePageNav;
-import com.bread.app.vo.ItemVO;
-import com.bread.app.vo.MemberVO;
 import com.bread.app.vo.PageVO;
 import com.bread.app.vo.ReviewVO;
 import com.bread.service.Review.ReviewService;
-import com.bread.service.order.OrderService;
+import com.bread.service.bread.BreadService;
 
 import lombok.Setter;
 
@@ -27,11 +24,11 @@ import lombok.Setter;
 public class ReviewController {
 
 	@Setter(onMethod_ = {@Autowired})
-	ReviewService rList, rInsert, rView, rDelete, rViewCount, rPage, rTotalCount;
+	ReviewService rList, rInsert, rDelete, rViewCount, rPage, rTotalCount, sUpdate;
 	@Setter(onMethod_= {@Autowired})
 	FivePageNav pageNav;
-	@Setter(onMethod_ = {@Autowired})
-	OrderService oList;
+	@Setter(onMethod_= {@Autowired})
+	BreadService bView;
 	
 	@GetMapping("/review.do")
 	public String review(PageVO pageVO, Model model) {
@@ -51,19 +48,11 @@ public class ReviewController {
 	}
 	
 	@GetMapping("/reviewWrite.do")
-	public String reviewWrite(PageVO vo, HttpServletRequest request, Model model) {
+	public String reviewWrite(ReviewVO vo, Model model) {
 		
-		HttpSession session = request.getSession();
-
-		MemberVO member = (MemberVO) session.getAttribute("member");
-
-		if (member != null) {
-			vo.setMember_idx(member.getMember_idx());
-			List<ItemVO> writeList = oList.item(vo);
-			 model.addAttribute("writeList", writeList);
-		} else {
-			return "redirect:/member/login.do";
-		}
+		vo.setBread_name(bView.getBoard(vo.getBread_idx()).getBread_name());
+		
+		model.addAttribute("write", vo);
 
 		return "review/reviewWrite";
 	}
@@ -73,6 +62,7 @@ public class ReviewController {
 		
 		String viewPage = "review/reviewWrite";
 		int result = rInsert.insert(vo, request);
+		sUpdate.Updatestatus(vo);
 		if (result == 1) {
 			viewPage = "redirect:review.do";
 		}
