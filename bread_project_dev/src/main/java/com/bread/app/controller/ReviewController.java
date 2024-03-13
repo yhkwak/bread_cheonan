@@ -37,6 +37,7 @@ public class ReviewController {
 		if (pageVO.getPageNum() == 0) {
 			pageVO.setPageNum(1);
 		}
+		
 		List<ReviewVO> reviewList = rList.getBoards(pageVO);
 		model.addAttribute("reviewList", reviewList);
 		pageNav.setTotalRows(rTotalCount.getTotalCount(pageVO));
@@ -67,16 +68,19 @@ public class ReviewController {
 		}
 		return viewPage;
 	}
+	
 
-	@GetMapping("/delete.do")
-	public String delete(int review_idx) {
+	@GetMapping("/reviewDelete.do")
+	public String reviewDelete(int review_idx) {
 		
-		int result = rDelete.delete(review_idx);
-		String viewPage = "review/view";
-		if (result == 1) {
-			viewPage = "redirect:/review/review.do";
+		int result = rDelete.reviewDelete(review_idx);
+		
+		if(result == 1) {
+			return "리뷰 삭제 성공";
+		}else {
+			return "리뷰 삭제 실패";
 		}
-		return viewPage;
 	}
+
 
 }

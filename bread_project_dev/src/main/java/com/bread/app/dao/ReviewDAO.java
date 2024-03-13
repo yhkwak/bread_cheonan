@@ -34,15 +34,20 @@ public class ReviewDAO {
     }
 
     // Delete 삭제 처리
-    public int delete(int review_idx) {
-        return sqlSession.update(MAPPER + ".delete", review_idx);
+    public int reviewDelete(int review_idx) {
+        return sqlSession.update(MAPPER + ".reviewDelete", review_idx);
     }
 
     // 조회수 증가
     public int increaseViewCount(int review_idx) {
         return sqlSession.update(MAPPER + ".increaseViewCount", review_idx);
     }
-
+    
+    // 리뷰 상태 변경 -0 : 등록전, 1 : 등록완료
+    public int updateReviewStatus(int review_idx) {
+        return sqlSession.update(MAPPER + ".updateReviewStatus", review_idx);
+    }
+    
 	// 페이징
 	public int getTotalCount(PageVO vo) {
 		return sqlSession.selectOne(MAPPER+".getTotalCount",vo);

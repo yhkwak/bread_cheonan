@@ -151,16 +151,7 @@
 					}
 				});
 			}
-		/* 	인터셉터 확인후 진행예정
-			//로그인 안내
-			 function confirmAddBL() {
-				// 로그인이 안되어있을 경우
-		         var confirmLogin = confirm("로그인부터 하싈?");
-		         if (confirmLogin) {
-		         	 location.href = '${pageContext.request.contextPath}/member/login.do'; // 확인시 로그인 페이지로 이동
-		         }
-	        }
-			 */
+	
 		</script>
     <title>빵집 상세보기</title>
     
@@ -175,9 +166,7 @@
                     <table id="view_table">                            
                         <tr>
                             <th><h2>${bakery.bakery_name}</h2></th>
-                           
-                            <%-- <td rowspan="4" id="shop_img"><img src="../resources/css/img/${bakey.bakery_img_save}"></td> --%>
-                            <td rowspan="4" id="shop_img"><%-- <img src="../resources/css/img/test_img08.png"> --%>
+                        	<td rowspan="4" id="shop_img">
 	                            <c:choose>
 									<c:when test="${not empty bakery.bakery_img_save and bakery.bakery_img_save ne bakery_title_img.PNG}">
 										<img src="${pageContext.request.contextPath}/resources/uploads/${bakery.bakery_img_save}">
@@ -230,9 +219,6 @@
                 		<input type="hidden" class="bread_idx" name="bread_idx" value="${breadList[i].bread_idx}">
                     	<table id="pickup_box_table">                          
                             <tr>
-<%--                                 <td rowspan="6" class="bakery_img">
-                                	<img id="tel_img" src="${pageContext.request.contextPath}/resources/uploads/${bread.bread_img_save}"></td>
-                                <img id="tel_img" src="../resources/css/img/BreadProfile_img2.PNG"></td> --%>
                                 <td rowspan="6" class="bakery_img">
 	                                <c:choose>
 										<c:when test="${not empty breadList[i].bread_img_save}">
@@ -242,7 +228,6 @@
 											<img src="${pageContext.request.contextPath}/resources/css/img/BreadProfile_img2.PNG">
 										</c:otherwise>
 									</c:choose>
-                                
                                 </td>
                             </tr>
                             <tr>

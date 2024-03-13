@@ -20,16 +20,51 @@
 		    		type: 'post',
 					url:"getReview.do",
 					data: {"review_idx": review_idx},
-					error: function(error){
-						alert("ajax 에러");
-					}
-		    	})
-		    	$(".hidden").css('display', 'flex');
-		    };
-	
-		    function modalClose(){
-		    	$(".hidden").css('display','none');
-		    };
+					success: function(data){
+	                    console.log("리뷰 번호 :"+review_idx);
+	                    
+	                    // 리뷰 내용을 HTML로 표시
+	                    let reviewContent =+"<div>"
+	                        				+   "<h4>"+data.bread_name+"</h4>"
+	                        				+	"<p>글쓴이: "+data.member_nickname+"</p>"
+	                            			+	"<img src="+data.originfile_name+" alt='빵 이미지'>"
+	                            			+	"<p>"+data.review_content+"</p>"
+	                            			+	"<p>조회수: " +data.view_count+ "&nbsp&nbsp&nbsp&nbsp&nbsp작성일: "+data.review_post_date
+	                        				+"</div>";
+	                    $('#bread_info').html(reviewContent);
+
+	                    // 동적으로 삭제 버튼 이벤트 리스너 추가
+	                    $('#reviewDelete_btn').off('click').on('click', function(){
+	                        reviewDelete(data.review_idx);
+	                    });
+	                
+	                    $("#modalContainer").css('display', 'flex');
+	                },
+	                error: function(error){
+	                    alert("리뷰 정보를 가져오는 데 실패했습니다.");
+	                }
+	            });
+	        }
+
+	        function modalClose(){
+	            $("#modalContainer").css('display', 'none');
+	        }
+
+	        function reviewDelete(reviewIdx){
+	            $.ajax({
+	                type: 'post',
+	                url: 'reviewDelete.do',
+	                data: {"review_idx": reviewIdx},
+	                success: function(data){
+	                    alert("삭제 처리 성공.");
+	                    location.reload(); // 현재 페이지 새로고침
+	                },
+	                error: function(xhr, status, error){
+	                    alert("삭제 처리 실패.");
+	                    console.error('삭제 에러 발생', status, error);
+	                }
+	            });
+	        }
 	    </script>
 	</head>
 	<body>
@@ -38,45 +73,14 @@
 	        <%@ include file = "../common/header.jsp" %>
 	        
 	        <div id="modalContainer" class="hidden">
-	        
-			  <div id="modalContent">
-			  
-			    <button id="modal_close_btn" onclick="modalClose()">✕</button>
-			    
-			    <div id="top_info">
-			    
-			    	<div id="bread_info">
-			    		<div id="bread_info01">
-			    			<img id="member_img" src="${pageContext.request.contextPath}/resources/css/img/test_img09.png">
-			    			<div id="member_nickname">글쓴이</div>
-			    		</div>
-			    		<img id="bread_img" src="${pageContext.request.contextPath}/resources/css/img/test_img09.png">
-			    		<div id="bread_name">빵이름</div>
-			    	</div>
-			    	
-			    	<div id="review_content">
-			    		<div>여기는 리뷰의 내용이 작성되는 부분입니다.</div>
-			    	</div>
-
-			    	
-			    </div>
-			    
-			    <div id="bottom_info">
-			    
-			    	<div id="review_info">
-			    		<div id="content_date">작성일: 2024-03-12</div>
-			    		<div id="content_count">조회수: 1</div>
-			    		<c:if test = "${member.member_idx eq review.member_idx}">
-                 			<button id="reviewDelete_btn" onclick="reviewDelete()"><span>리뷰 삭제</span></button>
-                  		</c:if>
-			    	</div>
-			    	
-			    </div>
-			    
-			  </div>
-			  
-			</div>
-
+            <div id="modalContent">
+                <button id="modal_close_btn" onclick="modalClose()">X</button>
+                <div id="bread_info">
+                    <!-- 모달창에 리뷰의 내용이 작성되는 부분입니다. -->
+                </div>
+                <button id="reviewDelete_btn">삭제</button>
+            </div>
+        </div>
 	        
 	        <section id="container-content">
 	            <h1>내용 영역</h1>

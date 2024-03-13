@@ -71,14 +71,19 @@
     <update id="increaseViewCount" parameterType="int">
         update bc_review set view_count = view_count + 1 where review_idx = #{review_idx}
     </update>
-    
+
+    <!-- 리뷰 상태 변경 -0 : 등록전, 1 : 등록완료 -->
+    <update id="updateReviewStatus" parameterType="int">
+        update bc_review set review_status = 1 where review_idx = #{review_idx}
+    </update>
+
     <update id="statusUpdate" parameterType="reviewVO">
     	update bc_item set review_status = 1 where order_idx=#{order_idx} and bread_idx=#{bread_idx}
     </update>
 
     <!-- Delete -->
     <!-- 리뷰 삭제 -->
-    <update id="delete" parameterType="_int">
+    <update id="reviewDelete" parameterType="_int">
         update bc_review set review_del_or_not=0, review_update_date=now()
         where review_idx=#{review_idx}
     </update>
