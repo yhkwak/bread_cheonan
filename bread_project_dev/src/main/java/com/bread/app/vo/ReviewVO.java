@@ -26,5 +26,7 @@ public class ReviewVO {
     private List<MultipartFile> uploadFiles; // 여러파일 처리 리스트
     private String originfile_name;
     private String savefile_name;
+    
+    private int review_status;
 
 }

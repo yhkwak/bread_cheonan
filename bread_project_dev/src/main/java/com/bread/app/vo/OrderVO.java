@@ -15,5 +15,5 @@ public class OrderVO {
 	private String member_name;
 	
 	private List<ItemVO> itemList;
-	
+	private int review_status;
 }

@@ -11,7 +11,7 @@ public class ReviewDeleteService implements ReviewService {
     private ReviewDAO dao;
 
     @Override
-    public int delete(int review_idx) {
-        return dao.delete(review_idx);
+    public int reviewDelete(int review_idx) {
+        return dao.reviewDelete(review_idx);
     }
 }

@@ -18,7 +18,7 @@ public class ReviewListService implements ReviewService {
 
     @Override
     public List<ReviewVO> getBoards(PageVO vo) {
-        vo.setStartIdx((vo.getPageNum()-1)*12);
+        vo.setStartIdx((vo.getPageNum()-1)*8);
         return dao.getBoards(vo);
     }
 
