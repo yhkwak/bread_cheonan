@@ -78,7 +78,7 @@
     
     <!-- Delete -->
     <!-- 리뷰 삭제 -->
-    <update id="delete" parameterType="_int">
+    <update id="reviewDelete" parameterType="_int">
         update bc_review set review_del_or_not=0, review_update_date=now()
         where review_idx=#{review_idx}
     </update>
