@@ -13,32 +13,7 @@
 	    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/review.css">
 	    <script src="${pageContext.request.contextPath}/resources/js/jquery-3.7.1.min.js"></script>
 	    <title>리뷰 게시판</title>
-	    <style>
-	    	#modalContainer {
-			  width: 100%;
-			  height: 100%;
-			  position: fixed;
-			  top: 0;
-			  left: 0;
-			  display: flex;
-			  justify-content: center;
-			  align-items: center;
-			  background: rgba(0, 0, 0, 0.5);
-			  z-index: 10;
-			}
-			
-			#modalContent {
-			  position: absolute;
-			  background-color: #ffffff;
-			  width: 750px;
-			  height: 900px;
-			  padding: 15px;
-			}
-			
-			#modalContainer.hidden {
-			  display: none;
-			}
-	    </style>
+	    
 	    <script>
 		    function modalOpen(review_idx){
 		    	$.ajax({
@@ -63,20 +38,45 @@
 	        <%@ include file = "../common/header.jsp" %>
 	        
 	        <div id="modalContainer" class="hidden">
+	        
 			  <div id="modalContent">
-			    <button id="modal_close_btn" onclick="modalClose()">X</button>
-			    <div id="bread_info">
-			    	빵 이름
-			    	<img src="${pageContext.request.contextPath}/resources/css/img/bread1.PNG">
+			  
+			    <button id="modal_close_btn" onclick="modalClose()">✕</button>
+			    
+			    <div id="top_info">
+			    
+			    	<div id="bread_info">
+			    		<div id="bread_info01">
+			    			<img id="member_img" src="${pageContext.request.contextPath}/resources/css/img/test_img09.png">
+			    			<div id="member_nickname">글쓴이</div>
+			    		</div>
+			    		<img id="bread_img" src="${pageContext.request.contextPath}/resources/css/img/test_img09.png">
+			    		<div id="bread_name">빵이름</div>
+			    	</div>
+			    	
+			    	<div id="review_content">
+			    		<div>여기는 리뷰의 내용이 작성되는 부분입니다.</div>
+			    	</div>
+
+			    	
 			    </div>
-			    <div id="review_info">
-			    	<p>조회수: 1</p><p>작성일: 2024-03-12</p><p>글쓴이: 테스트</p>
+			    
+			    <div id="bottom_info">
+			    
+			    	<div id="review_info">
+			    		<div id="content_date">작성일: 2024-03-12</div>
+			    		<div id="content_count">조회수: 1</div>
+			    		<c:if test = "${member.member_idx eq review.member_idx}">
+                 			<button id="reviewDelete_btn" onclick="reviewDelete()"><span>리뷰 삭제</span></button>
+                  		</c:if>
+			    	</div>
+			    	
 			    </div>
-			    <div id="review_content">
-			    	여기는 리뷰의 내용이 작성되는 부분입니다.
-			    </div>
+			    
 			  </div>
+			  
 			</div>
+
 	        
 	        <section id="container-content">
 	            <h1>내용 영역</h1>
@@ -96,7 +96,6 @@
 													${pageContext.request.contextPath}/resources/css/img/BreadProfile_img.PNG
 												</c:otherwise>
 											</c:choose>" class="resize-image">
-											<em>후기바로가기</em>
 										</span>
 									</a>
 									<p>${review.review_content}</p>

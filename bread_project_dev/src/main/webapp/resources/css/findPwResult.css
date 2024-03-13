@@ -141,7 +141,7 @@ span {
 	position: relative;
     width:700px;
     height:480px;
-    top:100px;
+    top:80px;
     left:50px;
 }
 #table_find_pw{
@@ -178,7 +178,7 @@ span {
 }
 #search_menu{
 	width:700px;
-    height:330px;
+    height:290px;
     border-bottom: 1px solid lightgray;
 }
 #find_pw_box{
@@ -214,19 +214,19 @@ span {
 	color:#F39C12;
 	transition: 0.5s;
 }
-#find_id{ 
+#change_pw{ 
 	position: relative;
-	top: 55px;
+	top: 15px;
 	right: 241px;
 }
 #login_btn{
 	position: relative;
-	top: 55px;
+	top: 15px;
 	left: 218px
 }
 #cencel_btn{
 	position: relative;
-	top: 55px;
+	top: 15px;
     left: 240px;
 }
 
@@ -240,7 +240,7 @@ footer {
 	position: absolute;
 	width: 1536px;
 	height: 300px;
-	margin-top: 300px;
+	margin-top: 50px;
 	margin-bottom: 0px;
 	background-color: rgb(245, 246, 247);
 }
