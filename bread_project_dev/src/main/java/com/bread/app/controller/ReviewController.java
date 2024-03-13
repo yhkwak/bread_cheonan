@@ -70,17 +70,5 @@ public class ReviewController {
 	}
 	
 
-	@GetMapping("/reviewDelete.do")
-	public String reviewDelete(int review_idx) {
-		
-		int result = rDelete.reviewDelete(review_idx);
-		
-		if(result == 1) {
-			return "리뷰 삭제 성공";
-		}else {
-			return "리뷰 삭제 실패";
-		}
-	}
-
 
 }

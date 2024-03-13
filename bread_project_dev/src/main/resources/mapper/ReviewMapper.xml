@@ -52,7 +52,7 @@
 		    bk.bakery_idx, bk.bakery_name,
 		    m.member_nickname,m.member_idx,
 		    r.review_content, r.view_count,
-		    r.review_post_date, r.savefile_name, b.bread_idx
+		    r.review_post_date, r.savefile_name, b.bread_idx, m.member_img_save
 	    from
 		    bc_review r
     		inner join bc_order o on r.order_idx = o.order_idx

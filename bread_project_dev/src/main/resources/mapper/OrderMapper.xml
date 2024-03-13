@@ -8,10 +8,9 @@
 	<!-- Read -->
 	<!-- 오더 내용 -->
 	<select id="order" parameterType="pageVO" resultType="orderVO">
-		select o.payment_status, o.order_idx, o.payment_date, o.member_idx, o.amount, m.member_name, COALESCE(r.review_status, 0) AS review_status
+		select o.payment_status, o.order_idx, o.payment_date, o.member_idx, o.amount, m.member_name
 			from bc_order o
             inner join bc_member m on o.member_idx = m.member_idx
-  			left join bc_review r on o.review_idx = r.review_idx
 			where o.member_idx = #{member_idx}
 			order by payment_date desc
 			limit #{startIdx}, 5

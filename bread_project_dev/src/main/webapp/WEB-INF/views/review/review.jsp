@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -22,21 +23,65 @@
 					data: {"review_idx": review_idx},
 					success: function(data){
 	                    console.log("리뷰 번호 :"+review_idx);
-	                    
+	                    let date = new Date(data.review_post_date);
+	                    const member_idx = data.member_idx;
+	                    const chk_member_idx = $("#member_idx").val();
+	                    let reviewContent = null;
 	                    // 리뷰 내용을 HTML로 표시
-	                    let reviewContent =+"<div>"
-	                        				+   "<h4>"+data.bread_name+"</h4>"
-	                        				+	"<p>글쓴이: "+data.member_nickname+"</p>"
-	                            			+	"<img src="+data.originfile_name+" alt='빵 이미지'>"
-	                            			+	"<p>"+data.review_content+"</p>"
-	                            			+	"<p>조회수: " +data.view_count+ "&nbsp&nbsp&nbsp&nbsp&nbsp작성일: "+data.review_post_date
-	                        				+"</div>";
-	                    $('#bread_info').html(reviewContent);
+	                    if(member_idx == chk_member_idx){
+		                    reviewContent =
+			          			"<div id='modalContent'>"
+			          			+	 "<c:set var="member_idx" value='"+member_idx+"' />"
+				    			+    "<button id='modal_close_btn' onclick='modalClose()'>✕</button>"
+				    			+    "<div id='top_info'>"
+					    		+	   	"<div id='bread_info'>"
+						    	+		    "<div id='bread_info01'>"
+							    +			    "<img id='member_img' src='${pageContext.request.contextPath}/resources/css/img/test_img09.png'>"
+							    +			    "<div id='member_nickname'>"+data.member_nickname+"</div>"
+						    	+		    "</div>"
+						    	+		    "<img id='bread_img' src='${pageContext.request.contextPath}/resources/css/img/test_img09.png'>"
+						    	+		    "<div id='bread_name'>"+data.bread_name+"</div>"
+						    	+		"</div>"
+						    	+		"<div id='review_content'>"
+						    	+		    "<div>"+data.review_content+"</div>"
+						    	+		"</div>"
+						    	+	"</div>"
+				    			+    "<div id='bottom_info'>"
+					    		+	    "<div id='review_info'>"
+						    	+		    "<div id='content_date'>작성일: "+date+"</div>"
+						    	+		    "<div id='content_count'>조회수: "+data.view_count+"</div>"
+		                 		+			"<button id='reviewDelete_btn' onclick='reviewDelete("+data.review_idx+")'><span>리뷰 삭제</span></button>"
+						    	+		"</div>"
+					    		+	"</div>"
+				    			+"</div>";
+	                    }else{
+	                    	reviewContent =
+			          			"<div id='modalContent'>"
+			          			+	 "<c:set var="member_idx" value='"+member_idx+"' />"
+				    			+    "<button id='modal_close_btn' onclick='modalClose()'>✕</button>"
+				    			+    "<div id='top_info'>"
+					    		+	   	"<div id='bread_info'>"
+						    	+		    "<div id='bread_info01'>"
+							    +			    "<img id='member_img' src='${pageContext.request.contextPath}/resources/css/img/test_img09.png'>"
+							    +			    "<div id='member_nickname'>"+data.member_nickname+"</div>"
+						    	+		    "</div>"
+						    	+		    "<img id='bread_img' src='${pageContext.request.contextPath}/resources/css/img/test_img09.png'>"
+						    	+		    "<div id='bread_name'>"+data.bread_name+"</div>"
+						    	+		"</div>"
+						    	+		"<div id='review_content'>"
+						    	+		    "<div>"+data.review_content+"</div>"
+						    	+		"</div>"
+						    	+	"</div>"
+				    			+    "<div id='bottom_info'>"
+					    		+	    "<div id='review_info'>"
+						    	+		    "<div id='content_date'>작성일: "+date+"</div>"
+						    	+		    "<div id='content_count'>조회수: "+data.view_count+"</div>"
+						    	+		"</div>"
+					    		+	"</div>"
+				    			+"</div>";
+	                    }
+	                    $('#modalContainer').html(reviewContent);
 
-	                    // 동적으로 삭제 버튼 이벤트 리스너 추가
-	                    $('#reviewDelete_btn').off('click').on('click', function(){
-	                        reviewDelete(data.review_idx);
-	                    });
 	                
 	                    $("#modalContainer").css('display', 'flex');
 	                },
@@ -73,14 +118,8 @@
 	        <%@ include file = "../common/header.jsp" %>
 	        
 	        <div id="modalContainer" class="hidden">
-            <div id="modalContent">
-                <button id="modal_close_btn" onclick="modalClose()">X</button>
-                <div id="bread_info">
-                    <!-- 모달창에 리뷰의 내용이 작성되는 부분입니다. -->
-                </div>
-                <button id="reviewDelete_btn">삭제</button>
-            </div>
-        </div>
+	        	<input type="hidden" id="member_idx" name="member_idx" value="${member.member_idx}" />
+        	</div>
 	        
 	        <section id="container-content">
 	            <h1>내용 영역</h1>
