@@ -59,10 +59,10 @@
                             </table>
                         </div>
                     </form>
-                    <c:if test="${member.grade eq 2}">
-                            <button type="button" id="button-write" onclick="location.href='noticeWrite.do'">글 작성</button>
-                	</c:if>
                 </div>
+                <c:if test="${member.grade eq 2}">
+                            <button type="button" id="button-write" onclick="location.href='noticeWrite.do'">글 등록</button>
+                </c:if>
                 <c:if test="${not empty noticeList}">
                  <%@ include file="paging.jsp" %> 
                 </c:if>

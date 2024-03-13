@@ -173,7 +173,7 @@ span {
 #submitBtn{
 	position:relative;
 	left:780px;
-	top:60px;
+	top:70px;
 	border: none;
 	font: 25px solid;
 	font-family: 'Black Han Sans', sans-serif;
@@ -190,7 +190,7 @@ span {
 }
 #button-write{
 	position:relative;
-	top:60px;
+	top:70px;
 	left:760px;
 	border: none;
 	font: 25px solid;

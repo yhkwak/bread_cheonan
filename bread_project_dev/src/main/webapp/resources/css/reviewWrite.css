@@ -141,12 +141,14 @@ span {
 	font-family: 'Gothic A1', sans-serif;
 	font-family: 'Jua', sans-serif;
 }
-#td-subject{
+#td-breadname{
 	position:relative;
-	left:30px;
+	text-align:center;
+	left:20px;
+	top:15px;
 }
 #td-breadname font{
-	font:20px solid;
+	font:25px solid;
 	color:rgba(0, 0, 0, 0.788);
 	font-family: 'Black Han Sans', sans-serif;
 	font-family: 'Gasoek One', sans-serif;
@@ -154,7 +156,7 @@ span {
 	font-family: 'Jua', sans-serif;
 }
 #td-breadname a{
-	font:35px solid;
+	font:40px solid;
 	font-family: 'Grape Nuts', cursive;
 	font-family: 'Nanum Pen Script', cursive;
 	color: gray;
@@ -162,7 +164,7 @@ span {
 #td-file{
 	position:relative;
 	left:60px;
-	bottom:120px;
+	bottom:20px;
 }
 #frm_write{
 	position:relative;
@@ -178,7 +180,7 @@ span {
 }
 #border{
 	position:relative;
-	bottom:858px;
+	bottom:908px;
 	width:950px;
 	height:900px;
 	border: 1px solid lightgray;
@@ -188,8 +190,8 @@ span {
 }
 #submitBtn{
 	position:relative;
-	left:780px;
-	top:80px;
+	bottom:20px;
+	right:58px;
 	border: none;
 	font: 25px solid;
 	font-family: 'Black Han Sans', sans-serif;
@@ -206,8 +208,8 @@ span {
 }
 #button-write{
 	position:relative;
-	top:80px;
-	left:760px;
+	bottom:20px;
+	right:78px;
 	border: none;
 	font: 25px solid;
 	font-family: 'Black Han Sans', sans-serif;
@@ -248,20 +250,35 @@ span {
 	left:125px;
 	width:800px;
 	height: 120px;
-	text-align:left;
+}
+#tr-main{
+	position:relative;
+	left:155px;
 }
 #uploadFile{
 	position:relative;
 	top:2px;
+	right:662px;
 }
 
 #content{
+	position:relative;
 	width: 800px;
 	height: 650px;
 	font-size:40px;
+
 }
-
-
+#preview_image{
+	position:relative;
+	top:3px;
+	left:95px;
+}
+#imagePreview{
+	position:relative;
+	top:3px;
+	left:7px;
+	border-radius:15%;
+}
 /********** 푸터 영역 **********/
 footer {
 	position: absolute;

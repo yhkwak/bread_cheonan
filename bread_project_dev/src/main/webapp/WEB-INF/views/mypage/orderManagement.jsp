@@ -81,7 +81,7 @@
 										<button type="button" id="button-write" onclick="orderCancel();" data-value="${orderList[vs.count-1].order_idx}"><span>주문취소</span></button>
 											</c:when>
 										        <c:otherwise>
-										            구매를 취소한 상품입니다
+										            <a id="c_message">판매자의 요청으로 주문이 취소되었습니다.</a>
 										        </c:otherwise>
 										    </c:choose>
 										</div>

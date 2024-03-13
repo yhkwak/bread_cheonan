@@ -378,6 +378,12 @@
 		font-size: 30px;
 		color: #F39C12;
 	}
+	#c_message{
+		position:relative;
+		top:10px;
+		font-size:25px;
+		color: rgba(0, 0, 0, 0.788);
+	}
 	
 	
 	

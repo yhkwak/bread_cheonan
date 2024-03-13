@@ -269,7 +269,7 @@
         #view_btn{
         	position:relative;
         	right:10px;
-   			top:50px;
+   			top:45px;
         	width:83px;
         	font: 25px solid;
             font-family: 'Black Han Sans', sans-serif;
@@ -288,8 +288,8 @@
         #update_btn{
         	position:relative;
         	width:83px;
-        	left:862px;
-        	top:50px;
+        	left:872px;
+        	top:45px;
         	font: 25px solid;
             font-family: 'Black Han Sans', sans-serif;
             font-family: 'Gasoek One', sans-serif;
@@ -302,7 +302,7 @@
 		#delete_btn{
 			position:relative;
         	width:83px;
-        	top:50px;
+        	top:45px;
         	left:882px;
         	font: 25px solid;
             font-family: 'Black Han Sans', sans-serif;
