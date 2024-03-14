@@ -165,7 +165,7 @@
                 <div id="view_box">
                     <table id="view_table">                            
                         <tr>
-                            <th><h2>${bakery.bakery_name}</h2></th>
+                            <th colspan="2"><h2>${bakery.bakery_name}</h2></th>
                         	<td rowspan="4" id="shop_img">
 	                            <c:choose>
 									<c:when test="${not empty bakery.bakery_img_save and bakery.bakery_img_save ne bakery_title_img.PNG}">
@@ -178,14 +178,14 @@
                             </td>
                         </tr>
                         <tr>
-                            <td>${bakery.bakery_address} ${bakery.bakery_detail_address}</td>
+                            <td colspan="2">${bakery.bakery_address} ${bakery.bakery_detail_address}</td>
                         </tr>
                         <tr>
-                            <td><img id="tel_img" src="../resources/css/img/tel_icon.png">${bakery.bakery_phone}</td>
+                            <td colspan="2"><img id="tel_img" src="../resources/css/img/tel_icon.png">${bakery.bakery_phone}</td>
                         </tr>
                         <tr>
-                            <td><a href="https://${bakery.bakery_homepage}" target="_blank">홈페이지</a></td>
-                            <td>
+                            <td id="h_link"><a href="https://${bakery.bakery_homepage}" target="_blank">홈페이지</a></td>
+                            <td id="td_like_img">
 							    <c:choose>
 							        <c:when test="${not empty member}">
 							            <button type="button" id="like" onclick="addBL()">
@@ -258,7 +258,7 @@
 				        </c:if>
 				    </c:forEach>
 				    <c:if test="${!hasProduct}">
-				        <div>등록상품이 없습니다.</div>
+				        <div id="noProduct">등록된 상품이 없습니다.</div>
 				    </c:if> 
 				    <c:if test="${hasProduct}">
 			    		<form id="f_r_box" method="post" action="cartProcess.do">
