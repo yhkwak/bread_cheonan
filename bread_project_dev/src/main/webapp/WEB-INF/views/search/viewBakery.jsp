@@ -257,18 +257,17 @@
 
 				        </c:if>
 				    </c:forEach>
-				    
-				    
 				    <c:if test="${!hasProduct}">
 				        <div>등록상품이 없습니다.</div>
 				    </c:if> 
-				    
-				    				            <form id="f_r_box" method="post" action="cartProcess.do">
-								<div id="result_box"></div>
-								<div id="cart_box">
-					            	<div><input type="submit" id="cart_btn" value="+ 장바구니 담기"></div>
-					        	</div>
-				    		</form>
+				    <c:if test="${hasProduct}">
+			    		<form id="f_r_box" method="post" action="cartProcess.do">
+							<div id="result_box"></div>
+							<div id="cart_box">
+				            	<div><input type="submit" id="cart_btn" value="+ 장바구니 담기"></div>
+				        	</div>
+			    		</form>
+			    	</c:if>
 				</div>
             </div>
         </section>
