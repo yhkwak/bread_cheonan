@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-
+<div id="paging_box">
 		<!-- 3. 현재 페이지번호가 블록당 페이지수보다 큰 경우 '이전'과 맨 처음페이지 기호(<<) 출력 -->
 		<c:if test="${pageNav.pageNum > 8}">
 			<a href="review.do?pageNum=1&pageBlock=1">&lt;&lt;</a>&nbsp;
@@ -26,3 +26,4 @@
 			<a href="review.do?pageNum=${(pageNav.pageBlock*pageNav.pages_pageBlock)+1}&pageBlock=${pageNav.pageBlock+1}">다음</a>&nbsp;
     <a href="review.do?pageNum=${pageNav.total_pageNum}&pageBlock=${pageNav.last_pageBlock}">&gt;&gt;</a>
 		</c:if>
+</div>

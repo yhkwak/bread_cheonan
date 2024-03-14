@@ -333,6 +333,24 @@
         	padding-left: 10px;
         	color: rgba(0, 0, 0, 0.788);
         }
+        
+        
+        
+        /********************/
+		#noBread{
+			position:relative;
+    		top: 200px;
+			width: 300px;
+			margin: 0 auto;
+			text-align: center;
+			font: 25px solid;
+    		color:gray;
+    		font-family: 'Jua', sans-serif;
+    		border-bottom: 1px solid lightgray;
+		}
+
+
+
 
         /********** 풋터 **********/
         footer{

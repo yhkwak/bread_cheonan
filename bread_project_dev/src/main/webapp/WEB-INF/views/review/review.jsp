@@ -127,6 +127,7 @@
 	        <section id="container-content">
 	            <h1>내용 영역</h1>
 	            <div id="main-area">
+	            	<h3><span>빵빵한</span> 후기 마당</h3>
 	                <div class="reviewBoard">
 						<ul>
 							<c:forEach items="${reviewList}" var="review">
