@@ -201,11 +201,7 @@
 							        </c:when>
 							        <c:otherwise>
 							            <button type="button" id="like" onclick="location.href='${pageContext.request.contextPath}/member/login.do';">
-							                <c:choose>
-							                    <c:when test="${result eq 0}">
-							                        <img id="like_img" src="${pageContext.request.contextPath}/resources/css/img/check11.PNG">
-							                    </c:when>
-							                </c:choose>
+							            	<img id="like_img" src="${pageContext.request.contextPath}/resources/css/img/check11.PNG">
 							            </button>
 							        </c:otherwise>
 							    </c:choose>
@@ -258,17 +254,21 @@
 						        	<td></td>
 						        </tr>
 				           	</table>
-				            <form id="f_r_box" method="post" action="cartProcess.do">
+
+				        </c:if>
+				    </c:forEach>
+				    
+				    
+				    <c:if test="${!hasProduct}">
+				        <div>등록상품이 없습니다.</div>
+				    </c:if> 
+				    
+				    				            <form id="f_r_box" method="post" action="cartProcess.do">
 								<div id="result_box"></div>
 								<div id="cart_box">
 					            	<div><input type="submit" id="cart_btn" value="+ 장바구니 담기"></div>
 					        	</div>
 				    		</form>
-				        </c:if>
-				    </c:forEach>
-				    <c:if test="${!hasProduct}">
-				        <div>등록상품이 없습니다.</div>
-				    </c:if> 
 				</div>
             </div>
         </section>

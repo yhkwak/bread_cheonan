@@ -27,6 +27,6 @@ public class ReviewVO {
     private String originfile_name;
     private String savefile_name;
     
-    private int review_status;
+    private String member_img_save;
 
 }

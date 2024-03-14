@@ -11,10 +11,13 @@
 		<choose>
 			<when test="searchWord != null">
 				select count(*) from bc_bakery
-					where bakery_name like CONCAT('%',#{searchWord},'%')
+					where bakery_name
+					and bakery_del = 0
+					like CONCAT('%',#{searchWord},'%')
+					
 			</when>
 			<otherwise>
-				select count(*) from bc_bakery
+				select count(*) from bc_bakery where bakery_del = 0
 			</otherwise>
 		</choose>
 	</select>
@@ -27,7 +30,9 @@
 				select /*+ INDEX(bc_bakery bc_bakery_pk) */
 				*
 				from bc_bakery
-				where bakery_name like CONCAT('%',#{searchWord},'%')
+				where bakery_name
+				and bakery_del = 0
+				like CONCAT('%',#{searchWord},'%')
 				order by bakery_idx
 				limit #{startIdx}, 5
 				<!-- limit (#{pageNum}-1)*10, 10 ~ MySQL 구문오류 발생 (#{pageNum}-1)*10 => 
@@ -38,6 +43,7 @@
 				select /*+ INDEX(bc_bakery bc_bakery_pk) */
 				*
 				from bc_bakery
+				where bakery_del = 0
 				order by bakery_idx
 				limit #{startIdx}, 5
 				<!-- limit (#{pageNum}-1)*10, 10 ~ MySQL 구문오류 발생 (#{pageNum}-1)*10 => 

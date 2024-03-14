@@ -4,28 +4,25 @@
   
  <mapper namespace="com.bread.app.LikesMapper">
  
- <!-- 매장 찜하기 -->
- 	<!-- 매장 찜 여부 확인 - 0 : 찜해제, 1 : 찜설정 -->
+ <!-- 매장 찜하기 : 매장 찜 여부 확인 - 0 : 찜해제, 1 : 찜설정 -->
 	<select id="checkBL" parameterType="likesVO" resultType="_int">
 		select likes_check
 			from bc_likes 
 			where bakery_idx = #{bakery_idx} and member_idx=#{member_idx}
 	</select>
+	
 	<!-- 찜 중복 방지 -->
 	<select id="checkBL2" parameterType="likesVO" resultType="_int">
 		select count(*)
 			from bc_likes 
 			where bakery_idx = #{bakery_idx} and member_idx=#{member_idx}
 	</select>
-	
-	<!-- 최초 찜 설정 -->
+
 	<!-- 매장 찜하기 --> 	
 	<insert id="addBL" parameterType="likesVO">
 		insert into bc_likes (bakery_idx, member_idx) values (#{bakery_idx}, #{member_idx})
 	</insert>
-	
-	
-	<!-- 기존에 찜한 적이 있을 경우 -->
+
 	<!-- 매장 찜 해제-->
 	<delete id="delBL" parameterType="likesVO">
 		delete from bc_likes where bakery_idx = #{bakery_idx} and member_idx = #{member_idx}
