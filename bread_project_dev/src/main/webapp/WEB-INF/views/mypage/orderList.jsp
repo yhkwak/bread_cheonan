@@ -76,21 +76,23 @@
                                                     </div>
                                                     <div class="btn_box">
 													    <!-- 결제 완료 상태 확인 -->
-													        <!-- 리뷰가 작성되지 않았을 경우에만 리뷰작성 버튼 표시 -->
-													        <c:if test="${orderList[vs.count-1].itemList[j].review_status eq 0}">
-													            <div>
-													                <button type="button" id="button-write" onclick="location.href='${pageContext.request.contextPath}/review/reviewWrite.do?bread_idx=${orderList[vs.count-1].itemList[j].bread_idx}&order_idx=${orderList[vs.count-1].itemList[j].order_idx}&member_idx=${member.member_idx}'">
-													                    <span>리뷰작성</span>
-													                </button>
-													            </div>
-													        </c:if>
-													        <c:if test="${orderList[vs.count-1].itemList[j].review_status eq 1}">
-													        	<div>
-													                <button type="button" id="button-write">
-													                    <span>작성완료</span>
-													                </button>
-													            </div>
-													        </c:if>
+													    <!-- 결제 완료 상태이고 리뷰가 작성되지 않았을 경우에만 리뷰작성 버튼 표시 -->
+												            <c:if test="${orderList[vs.count-1].payment_status eq 0 and orderList[vs.count-1].itemList[j].review_status eq 0}">
+												                <div>
+												                    <button type="button" id="button-write" onclick="location.href='${pageContext.request.contextPath}/review/reviewWrite.do?bread_idx=${orderList[vs.count-1].itemList[j].bread_idx}&order_idx=${orderList[vs.count-1].itemList[j].order_idx}&member_idx=${member.member_idx}'">
+												                        <span>리뷰작성</span>
+												                    </button>
+												                </div>
+												            </c:if>
+												            <!-- 리뷰 작성 완료 상태 -->
+												            <c:if test="${orderList[vs.count-1].itemList[j].review_status eq 1}">
+												                <div>
+												                    <div id="Completed">
+                                                                        <span>작성완료</span>
+                                                                    </div>
+												                </div>
+												            </c:if>
+
 													        <!-- 재구매 버튼은 항상 표시 -->
 													        <div>
 													            <button type="button" id="button-re" onclick="location.href='http://localhost:9090/myapp/search/viewBakery.do?bakery_idx=${orderList[vs.count-1].itemList[j].bakery_idx}'">
