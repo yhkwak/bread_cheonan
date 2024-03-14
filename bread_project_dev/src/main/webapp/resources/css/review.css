@@ -150,7 +150,7 @@ header span {
 }
 #main-area h3{
 	position: relative;
-    right: 70px;
+    right: 80px;
 	font: 50px solid;
     text-align: center;
     color: gray;
@@ -168,6 +168,14 @@ header span {
 	width: 1136px;
 	hieght: 462px;
 	padding: 0 20px;
+	font-family: "Jua", sans-serif;
+}
+.re_content{
+	height: 110px;
+}
+.m_nickname{
+	height: 30px;
+	color: gray;
 }
 .reviewBoard ul{
 	padding: 0;
@@ -228,8 +236,7 @@ header span {
   /*-webkit-box-orient: vertical;*/
   /*-webkit-line-clamp: 2;*/
   line-height: 30px;
-
-  height: 60px;
+  margin: 0;
   /* line-height x line */
 }
 .resize-image {
@@ -353,12 +360,17 @@ header span {
 }
 
 #paging_box{
+	width: 1136px;
     position:relative;
     text-align:center;
     margin-top:80px;
-    padding-left:50px;
+    padding-right: 35px;
 }
-
+#paging_box a{
+	font:25px solid;
+    text-decoration: none;
+    color:gray;
+}
 #td_paging{
     font-family: 'Jua', sans-serif;	
 }

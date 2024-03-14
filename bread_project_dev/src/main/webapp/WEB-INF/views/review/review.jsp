@@ -149,8 +149,8 @@
 											</c:choose>" class="resize-image">
 										</span>
 									</a>
-									<p>${review.review_content}</p>
-									<p>${review.member_nickname}</p> <!-- 리뷰 작성자 닉네임 표시 -->
+									<p class="re_content">${review.review_content}</p>
+									<p class="m_nickname">${review.member_nickname}</p> <!-- 리뷰 작성자 닉네임 표시 -->
 								</li>
 							</c:forEach>
 						</ul>
