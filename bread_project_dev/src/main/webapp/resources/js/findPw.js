@@ -16,8 +16,6 @@ $(document).ready(function() {
                 url: "/myapp/member/findPwProcess.do",
                 data: { member_id: member_id, member_phone: member_phone },
                 success: function(response) {
-                
-                	alert(response.message);
                 	
                     if (response.status === "success") {
                         alert(response.message);

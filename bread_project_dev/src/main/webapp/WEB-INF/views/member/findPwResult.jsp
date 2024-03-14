@@ -37,11 +37,11 @@
 	                            </tr>
 		                        <tr>
 		                            <td>새 비밀번호</td>
-	                                <td><input type="text" name="member_pw" id="member_pw1"></td>
+	                                <td><input type="password" name="member_pw" id="member_pw1"></td>
 	                            </tr>
 		                        <tr>
 		                            <td>새 비밀번호 확인</td>
-		                            <td><input type="text" name="member_pw2" id="member_pw2"></td>
+		                            <td><input type="password" name="member_pw2" id="member_pw2"></td>
 		                        </tr>                          
     		                </table>
                             <div id="search_menu">

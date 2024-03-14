@@ -143,13 +143,35 @@ header span {
 }
 
 #main-area {
-  float: left;
   width: 1236px;
   height: 1000px;
+  float: right;
+  margin-right: 60px;
+}
+#main-area h3{
+	position: relative;
+    right: 70px;
+	font: 50px solid;
+    text-align: center;
+    color: gray;
+    font-family: 'Nanum Pen Script', cursive;
+}
+#main-area h3 span{
+	font: bold 60px solid;
+    font-family: 'Nanum Pen Script', cursive;
+    color: #F39C12;
 }
 
 /* 후기게시판 바디 */
 
+.reviewBoard{
+	width: 1136px;
+	hieght: 462px;
+	padding: 0 20px;
+}
+.reviewBoard ul{
+	padding: 0;
+}
 .reviewBoard li {
   display: inline-table;
   width: 200px;
@@ -327,7 +349,38 @@ header span {
 	transition: 0.5s;
 }
 
+#paging_box{
+    position:relative;
+    text-align:center;
+    margin-top:80px;
+    padding-left:50px;
+}
 
+#td_paging{
+    font-family: 'Jua', sans-serif;	
+}
+.paging_a{
+    font:25px solid;
+    text-decoration: none;
+    color:gray;
+}
+.paging_a:hover{
+    text-decoration: none;
+    color:#F39C12;
+    transition:0.5s;
+}
+.paging_a span{
+    font: bold 40px solid;
+    color:gray;
+    font-family: 'Black Han Sans', sans-serif;
+    font-family: 'Gasoek One', sans-serif;
+    font-family: 'Gothic A1', sans-serif;
+    font-family: 'Jua', sans-serif;
+}
+.paging_a span:hover{
+    color:#F39C12;
+    transition: 0.5s;
+}
 
 
 /********** 푸터 영역 **********/
@@ -335,6 +388,7 @@ footer {
   position: absolute;
   width: 1536px;
   height: 300px;
+  margin-top: 300px;
   margin-bottom: 0px;
   background-color: rgb(245, 246, 247);
 }
