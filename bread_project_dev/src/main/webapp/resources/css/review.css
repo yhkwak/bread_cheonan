@@ -302,6 +302,7 @@ header span {
 #review_content{
 	margin-top: 10px;
 	font-size: 25px;
+	height: 250px;
 }
 #member_img{
 	width: 50px;
@@ -320,6 +321,7 @@ header span {
 }
 #review_info{
 	display: flex;
+	height: 30px;
 }
 #content_count{
 	width: 380px;
@@ -334,6 +336,7 @@ header span {
 }
 #reviewDelete_btn{
 	width: 100px;
+	height: 30px;
 	background-color: #fff;
 	border: none;
 }
