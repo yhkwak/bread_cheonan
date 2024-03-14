@@ -23,9 +23,12 @@
 					data: {"review_idx": review_idx},
 					success: function(data){
 	                    console.log("리뷰 번호 :"+review_idx);
+	                   
 	                    let date = new Date(data.review_post_date);
 	                    const member_idx = data.member_idx;
 	                    const chk_member_idx = $("#member_idx").val();
+	                    console.log("멤버"+member_idx);
+	                    console.log("멤버체크"+chk_member_idx);
 	                    let reviewContent = null;
 	                 
 	                    // 리뷰 내용을 HTML로 표시
@@ -121,13 +124,14 @@
 	        <%@ include file = "../common/header.jsp" %>
 	        
 	        <div id="modalContainer" class="hidden">
-	        	<input type="hidden" id="member_idx" name="member_idx" value="${member.member_idx}" />
+	        	
         	</div>
 	        
 	        <section id="container-content">
 	            <h1>내용 영역</h1>
 	            <div id="main-area">
 	            	<h3><span>빵빵한</span> 후기 마당</h3>
+	            	<input type="hidden" id="member_idx" name="member_idx" value="${member.member_idx}" />
 	                <div class="reviewBoard">
 						<ul>
 							<c:forEach items="${reviewList}" var="review">
