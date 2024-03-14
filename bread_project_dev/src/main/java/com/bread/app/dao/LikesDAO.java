@@ -5,7 +5,6 @@ import java.util.List;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
-import com.bread.app.vo.ItemVO;
 import com.bread.app.vo.LikesVO;
 
 import lombok.RequiredArgsConstructor;

@@ -27,6 +27,7 @@
 	                    const member_idx = data.member_idx;
 	                    const chk_member_idx = $("#member_idx").val();
 	                    let reviewContent = null;
+	                 
 	                    // 리뷰 내용을 HTML로 표시
 	                    if(member_idx == chk_member_idx){
 		                    reviewContent =
@@ -36,10 +37,10 @@
 				    			+    "<div id='top_info'>"
 					    		+	   	"<div id='bread_info'>"
 						    	+		    "<div id='bread_info01'>"
-							    +			    "<img id='member_img' src='${pageContext.request.contextPath}/resources/css/img/test_img09.png'>"
+							    +			    "<img id='member_img' src='${pageContext.request.contextPath}/resources/uploads/"+data.member_img_save+"'>"
 							    +			    "<div id='member_nickname'>"+data.member_nickname+"</div>"
 						    	+		    "</div>"
-						    	+		    "<img id='bread_img' src='${pageContext.request.contextPath}/resources/css/img/test_img09.png'>"
+						    	+		    "<img id='bread_img' src='${pageContext.request.contextPath}/resources/uploads/"+ (data.savefile_name == null ? data.bread_img_save : data.savefile_name) +"'>"
 						    	+		    "<div id='bread_name'>"+data.bread_name+"</div>"
 						    	+		"</div>"
 						    	+		"<div id='review_content'>"
@@ -62,10 +63,10 @@
 				    			+    "<div id='top_info'>"
 					    		+	   	"<div id='bread_info'>"
 						    	+		    "<div id='bread_info01'>"
-							    +			    "<img id='member_img' src='${pageContext.request.contextPath}/resources/css/img/test_img09.png'>"
+							    +			    "<img id='member_img' src='${pageContext.request.contextPath}/resources/uploads/"+data.member_img_save+"'>"
 							    +			    "<div id='member_nickname'>"+data.member_nickname+"</div>"
 						    	+		    "</div>"
-						    	+		    "<img id='bread_img' src='${pageContext.request.contextPath}/resources/css/img/test_img09.png'>"
+						    	+		    "<img id='bread_img' src='${pageContext.request.contextPath}/resources/uploads/"+ (data.savefile_name == null ? data.bread_img_save : data.savefile_name) +"'>"
 						    	+		    "<div id='bread_name'>"+data.bread_name+"</div>"
 						    	+		"</div>"
 						    	+		"<div id='review_content'>"
@@ -80,6 +81,8 @@
 					    		+	"</div>"
 				    			+"</div>";
 	                    }
+	                    
+	                    
 	                    $('#modalContainer').html(reviewContent);
 
 	                
