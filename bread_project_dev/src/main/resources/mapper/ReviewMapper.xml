@@ -15,7 +15,8 @@
     <!-- Read -->
 	<!-- 전체 게시물 수 조회 -->
  	<select id="getTotalCount" parameterType="pageVO" resultType="_int">
- 		select count(*) from bc_review
+ 		select count(*) from bc_review 
+ 		where review_del_or_not = 1
  	</select>
  
     <!-- 모든 리뷰 조회: select -->
