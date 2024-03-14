@@ -116,6 +116,7 @@ span {
 	position:relative;
 	width: 1236px;
 	height: 1000px;
+	flot: right;
 }
 #main-area h2{
 	position:relative;
@@ -131,21 +132,18 @@ span {
 	font-family: 'Jua', sans-serif;
 	font-size: 50px;
 }
-
-.td-main{
+#table-main{
 	position:relative;
-	font:25px solid;
-	color:gray;
-	font-family: 'Black Han Sans', sans-serif;
-	font-family: 'Gasoek One', sans-serif;
-	font-family: 'Gothic A1', sans-serif;
-	font-family: 'Jua', sans-serif;
+	width: 1200px;
+	height: 910px;
+	right:42px;
+	bottom:50px;
 }
 #td-breadname{
 	position:relative;
 	text-align:center;
 	left:20px;
-	top:15px;
+	top:50px;
 }
 #td-breadname font{
 	font:25px solid;
@@ -164,7 +162,9 @@ span {
 #td-file{
 	position:relative;
 	left:60px;
-	bottom:20px;
+	font-size: 25px;
+	color: gray;
+	font-family: 'Jua', sans-serif;
 }
 #frm_write{
 	position:relative;
@@ -175,8 +175,7 @@ span {
 #div-button{
 	width: 190px;
 	height: 50px;
-	position: relative;
-	left: 820px;
+	float: right;
 }
 #border{
 	position:relative;
@@ -190,8 +189,8 @@ span {
 }
 #submitBtn{
 	position:relative;
-	bottom:20px;
-	right:58px;
+	right: 285px;
+	bottom: 3px;
 	border: none;
 	font: 25px solid;
 	font-family: 'Black Han Sans', sans-serif;
@@ -208,8 +207,8 @@ span {
 }
 #button-write{
 	position:relative;
-	bottom:20px;
-	right:78px;
+	right: 300px;
+	bottom: 3px;
 	border: none;
 	font: 25px solid;
 	font-family: 'Black Han Sans', sans-serif;
@@ -228,13 +227,7 @@ span {
 	position:relative;
 	top:5px;
 }
-#table-main{
-	position:relative;
-	width: 1200px;
-	height: 500px;
-	right:42px;
-	bottom:50px;
-}
+
 #input-title{
 	border: 1px solid lightgray;
 	border-radius: 20px;
@@ -254,19 +247,22 @@ span {
 #tr-main{
 	position:relative;
 	left:155px;
+	width:900px;
+	height: 700px;
+	margin-top: 30px;
 }
 #uploadFile{
 	position:relative;
-	top:2px;
-	right:662px;
+	left: 155px;
+	bottom: 35px;
 }
 
 #content{
 	position:relative;
+	top: 30px;
 	width: 800px;
 	height: 650px;
 	font-size:40px;
-
 }
 #preview_image{
 	position:relative;
