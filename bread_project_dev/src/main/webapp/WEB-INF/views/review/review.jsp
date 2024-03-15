@@ -24,7 +24,16 @@
 					success: function(data){
 	                    console.log("리뷰 번호 :"+review_idx);
 	                   
-	                    let date = new Date(data.review_post_date);
+	                    const options = {
+	                    		year: 'numeric',
+	                    		month: 'long',
+	                    		day: 'numeric',
+	                    		hour: 'numeric',
+	                    		minute: 'numeric',
+	                    		hour12: true		
+	                    };
+	                    
+	                    const date = new Date(data.review_post_date).toLocaleString('ko-KR', options);
 	                    const member_idx = data.member_idx;
 	                    const chk_member_idx = $("#member_idx").val();
 	                    console.log("멤버"+member_idx);
@@ -52,8 +61,8 @@
 						    	+	"</div>"
 				    			+    "<div id='bottom_info'>"
 					    		+	    "<div id='review_info'>"
-						    	+		    "<div id='content_date'>작성일: "+date+"</div>"
-						    	+		    "<div id='content_count'>조회수: "+data.view_count+"</div>"
+						    	+		    "<div id='content_date'>작성일 : "+date+"</div>"
+						    	+		    "<div id='content_count'>조회수 : "+data.view_count+"</div>"
 		                 		+			"<button id='reviewDelete_btn' onclick='reviewDelete("+data.review_idx+")'><span>리뷰 삭제</span></button>"
 						    	+		"</div>"
 					    		+	"</div>"
