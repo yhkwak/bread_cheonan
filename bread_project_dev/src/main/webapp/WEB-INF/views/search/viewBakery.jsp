@@ -82,13 +82,13 @@
 						       + 			"</tr>"
 						       + 			"<tr>"
 							   + 				"<td id='num_box'>"
-							   + 					"수량 : " + "<input type='number' name='bread_count' min='1' max='10' value='" + bread_count + "'>"
+							   + 					"수량 : " + "<input type='number' name='bread_count' class='bread_count"+i+"' min='1' max='10' value='" + bread_count + "' oninput='changePrice("+i+")'>"
 							   + 				"</td>"
-							   + 				"<td id='b_price'>"
+							   + 				"<td id='b_price'>" + "<input type='hidden' class='bread_price"+i+"' value='"+data.bread_price+"'>"
 							   + 					+ data.bread_price + " 원"
 							   + 				"</td>"
 							   + 				"<td id='all_price'>"
-							   +					"<span id='p_text'>" + data.bread_price * bread_count + "</span>" + " 원"
+							   +					"<span id='p_text' class='p_text"+i+"'>" + data.bread_price * bread_count + "</span>" + " 원"
 							   + 				"</td>"
 							   + 			"</tr>"
 							   + 		"</table>"
@@ -99,6 +99,27 @@
 							   + "</div>";
 							   
 					$("#result_box").html(result);
+				}
+			}
+			
+			function changePrice(i){
+				if(i==0){
+					bread_count = $(".bread_count0").val();
+					const bread_price = $(".bread_price0").val();
+					const sum = bread_count*bread_price;
+					$(".p_text0").html(sum);
+				}else if(i==1){
+					bread_count = $(".bread_count1").val();
+					const bread_price = $(".bread_price1").val();
+					const sum = bread_count*bread_price;
+					$(".p_text1").html(sum);
+				}else if(i==2){
+					bread_count = $(".bread_count2").val();
+					const bread_price = $(".bread_price2").val();
+					const sum = bread_count*bread_price;
+					$(".p_text2").html(sum);
+				}else{
+					alert("장바구니 오류 새로고침 해주세요");
 				}
 			}
 			

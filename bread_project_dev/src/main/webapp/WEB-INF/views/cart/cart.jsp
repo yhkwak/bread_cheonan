@@ -200,7 +200,7 @@
 	                		data: {"cart_idx":cart_idx,
 	                			   "bread_count":bread_count},
 	                		success: function(){
-	                			location.reload();
+	                			location.href="${pageContext.request.contextPath}/cart/cart.do?member_idx="+member_idx;
 	                		}
 	                	})
 	                }
