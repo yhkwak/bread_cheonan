@@ -331,18 +331,21 @@ header span {
 	height: 30px;
 }
 #content_count{
+	position:relative;
+	left:20px;
 	width: 380px;
     font-size: 25px;
 }
 #content_date{
-	width: 270px;
+	width: 650px;
     font-size: 25px;
 }
 #del_box{
 	width: 100px;
 }
 #reviewDelete_btn{
-	width: 100px;
+	position:relative;
+	width: 160px;
 	height: 30px;
 	background-color: #fff;
 	border: none;

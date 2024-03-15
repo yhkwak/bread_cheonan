@@ -152,7 +152,7 @@
 					success : function(result){
 						if(result == 1){
 							alert("해당 가게를 찜하였습니다.");
-							$('#like_img').attr("src","${pageContext.request.contextPath}/resources/css/img/check12.PNG");
+							$('#like_img').attr("src","${pageContext.request.contextPath}/resources/css/img/zzim2.PNG");
 							var result = confirm("찜목록에서 확인해보시겠습니까?");
 								if(result){ //확인시 찜리스트 페이지 이동
 									location.href ='${pageContext.request.contextPath}/mypage/likeList.do'; 
@@ -161,7 +161,7 @@
 								}
 						}else if(result == 0){
 							alert("해당 가게의 찜이 해제되었습니다.");
-							$('#like_img').attr("src","${pageContext.request.contextPath}/resources/css/img/check11.PNG");
+							$('#like_img').attr("src","${pageContext.request.contextPath}/resources/css/img/zzim1.PNG");
 							location.reload();
 						}else{
 							console.log("오류가 발생하였습니다.");
@@ -212,17 +212,17 @@
 							            <button type="button" id="like" onclick="addBL()">
 							                <c:choose>
 							                    <c:when test="${result eq 0}">
-							                        <img id="like_img" src="${pageContext.request.contextPath}/resources/css/img/check11.PNG">
+							                        <img id="like_img" src="${pageContext.request.contextPath}/resources/css/img/zzim1.PNG">
 							                    </c:when>
 							                    <c:otherwise>
-							                        <img id="like_img" src="${pageContext.request.contextPath}/resources/css/img/check12.PNG">
+							                        <img id="like_img" src="${pageContext.request.contextPath}/resources/css/img/zzim2.PNG">
 							                    </c:otherwise>
 							                </c:choose>
 							            </button>
 							        </c:when>
 							        <c:otherwise>
 							            <button type="button" id="like" onclick="location.href='${pageContext.request.contextPath}/member/login.do';">
-							            	<img id="like_img" src="${pageContext.request.contextPath}/resources/css/img/check11.PNG">
+							            	<img id="like_img" src="${pageContext.request.contextPath}/resources/css/img/zzim1.PNG">
 							            </button>
 							        </c:otherwise>
 							    </c:choose>
